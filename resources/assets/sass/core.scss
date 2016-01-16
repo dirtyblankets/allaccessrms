@@ -1,0 +1,66 @@
+html,
+body {
+	min-height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.wrapper {
+	background-color: #FFF;
+	min-height: 100%;
+	overflow: hidden;
+}
+
+
+.main-header {
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.navbar-collapse.collapse {
+	height: 100% !important;
+}
+/* H1 - H6 font */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+/* General Links */
+a {
+  color: $link-color;
+}
+a:hover,
+a:active,
+a:focus {
+  outline: none;
+  text-decoration: none;
+  color: $link-hover-color;
+}
+
+.table {
+  border-collapse: inherit;
+}
+/*
+.btn-primary:hover {
+	background-color: #4F2890;
+}
+*/

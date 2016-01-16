@@ -1,0 +1,1614 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"f",
+				"Foundation〔namespace〕"
+			],
+			[
+				"A",
+				"App"
+			],
+			[
+				"command",
+				"commandTranslator"
+			],
+			[
+				"str_re",
+				"str_replace〔function〕"
+			],
+			[
+				"or",
+				"$organization_id〔variable〕"
+			],
+			[
+				"orga",
+				"organization_id〔variable〕"
+			],
+			[
+				"str",
+				"strtolower〔function〕"
+			],
+			[
+				"throw",
+				"throwException〔function〕"
+			],
+			[
+				"new",
+				"$newUserRegistrator〔variable〕"
+			],
+			[
+				"for",
+				"$formInput〔variable〕"
+			],
+			[
+				"list",
+				"list	list-style-type"
+			],
+			[
+				"sidebar",
+				"sidebar-nav"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"organization",
+				"organization_id"
+			],
+			[
+				"email",
+				"email_confirmation"
+			],
+			[
+				"password",
+				"password_confirmation"
+			],
+			[
+				"Registratio",
+				"RegistrationController@create"
+			],
+			[
+				"vali",
+				"$validationObj〔variable〕"
+			],
+			[
+				"vli",
+				"validator〔variable〕"
+			],
+			[
+				"Re",
+				"UserRegistrationForm〔class〕"
+			],
+			[
+				"Abstra",
+				"AbstractValidator〔class〕"
+			],
+			[
+				"Organizat",
+				"Organization〔class〕"
+			],
+			[
+				"belons",
+				"belongsTo〔function〕"
+			],
+			[
+				"Organizatio",
+				"OrganizationAddress〔class〕"
+			],
+			[
+				"tenant",
+				"tenant_id"
+			],
+			[
+				"organiz",
+				"organizations"
+			],
+			[
+				"Vali",
+				"Validator"
+			],
+			[
+				"Userre",
+				"UserRegistrationFormValidator"
+			],
+			[
+				"UserR",
+				"UserRegistrationFormValidator〔class〕"
+			],
+			[
+				"User",
+				"UserRepositoryInterface"
+			],
+			[
+				"Regist",
+				"RegistratorInteface〔interface〕"
+			],
+			[
+				"tenant_",
+				"tenant_col〔variable〕"
+			],
+			[
+				"tena",
+				"tenant_id〔variable〕"
+			],
+			[
+				"has",
+				"hasOne〔function〕"
+			],
+			[
+				"C",
+				"ClientContext〔class〕"
+			],
+			[
+				"BaseRE",
+				"BaseRepositoryException"
+			],
+			[
+				"insta",
+				"instanceof〔keyword〕"
+			],
+			[
+				"call_",
+				"call_user_func_array"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"na",
+				"navbar-right"
+			],
+			[
+				"users",
+				"UsersListComponent"
+			],
+			[
+				"view",
+				"viewData"
+			],
+			[
+				"Traits",
+				"pg_transaction_status"
+			],
+			[
+				"at",
+				"$attributes〔variable〕"
+			],
+			[
+				"is",
+				"is_array"
+			],
+			[
+				"assert",
+				"assert"
+			],
+			[
+				"cont",
+				"content"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"top",
+				"top-nav"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"fo",
+				"focus"
+			],
+			[
+				"nav",
+				"navbar-fixed-top"
+			],
+			[
+				"border",
+				"border-bottom"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"margi",
+				"margin-top"
+			],
+			[
+				"permi",
+				"permission_id"
+			],
+			[
+				"fore",
+				"foreign"
+			],
+			[
+				"give-to-ad",
+				"give-to-adjacent"
+			],
+			[
+				"cloju",
+				"clojure-stuff"
+			],
+			[
+				"cand",
+				"candy3"
+			],
+			[
+				"candy",
+				"candy1"
+			],
+			[
+				"s",
+				"save"
+			],
+			[
+				"AuthContr",
+				"AuthController"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"amOn",
+				"amOnPage〔function〕"
+			],
+			[
+				"dete",
+				"detectEnvironment"
+			],
+			[
+				"organi",
+				"organization_list"
+			],
+			[
+				"role",
+				"role_type"
+			],
+			[
+				"rol",
+				"role_id"
+			],
+			[
+				"ex",
+				"$existing_user〔variable〕"
+			],
+			[
+				"Delete",
+				"DeleteModal"
+			],
+			[
+				"isad",
+				"isSuperAdmin"
+			],
+			[
+				"rolety",
+				"$roleType〔variable〕"
+			],
+			[
+				"empty",
+				"empty_string"
+			],
+			[
+				"focu",
+				"focus〔function〕"
+			],
+			[
+				"user",
+				"username"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"backgrou",
+				"background-color"
+			],
+			[
+				"li",
+				"li	Tag"
+			],
+			[
+				"u",
+				"ul"
+			],
+			[
+				"pass",
+				"password_new"
+			],
+			[
+				"wi",
+				"with〔function〕"
+			],
+			[
+				"with",
+				"withInput〔function〕"
+			],
+			[
+				"wit",
+				"withErrors〔function〕"
+			],
+			[
+				"va",
+				"$validator〔variable〕"
+			],
+			[
+				"organizatio",
+				"$organizations〔variable〕"
+			],
+			[
+				"ge",
+				"get〔function〕"
+			],
+			[
+				"r",
+				"resource〔function〕"
+			],
+			[
+				"WITH",
+				"withInput〔function〕"
+			],
+			[
+				"h",
+				"h2	Tag"
+			],
+			[
+				"error",
+				"error_log〔function〕"
+			],
+			[
+				"remember",
+				"remember_token"
+			],
+			[
+				"roleO",
+				"roleObj"
+			],
+			[
+				"sock",
+				"socket"
+			],
+			[
+				"re",
+				"req"
+			],
+			[
+				"organ",
+				"organizations_emptylist"
+			],
+			[
+				"zip",
+				"zipcode1"
+			],
+			[
+				"address",
+				"address1"
+			],
+			[
+				"edit",
+				"edit"
+			],
+			[
+				"valida",
+				"validator"
+			],
+			[
+				"printf",
+				"printf"
+			],
+			[
+				"print",
+				"printf"
+			],
+			[
+				"in",
+				"index"
+			],
+			[
+				"ner",
+				"nerds"
+			],
+			[
+				"pri",
+				"printf"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/Core/BaseModel.php",
+			"settings":
+			{
+				"buffer_size": 1850,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Accounts/Users/User.php",
+			"settings":
+			{
+				"buffer_size": 2126,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Core/BaseValidator.php",
+			"settings":
+			{
+				"buffer_size": 102,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "tests/UserModelTest.php",
+			"settings":
+			{
+				"buffer_size": 1661,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "tests/UserRepositoryTest.php",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "tests/TestCase.php",
+			"settings":
+			{
+				"buffer_size": 532,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\n\nuse Illuminate\\Foundation\\Testing\\WithoutMiddleware;\nuse Illuminate\\Foundation\\Testing\\DatabaseMigrations;\nuse Illuminate\\Foundation\\Testing\\DatabaseTransactions;\n\nuse App\\Accounts\\Organizations\\Organization;\nuse App\\Accounts\\Organizations\\OrganizationRepository;\n\nclass OrganizationRepositoryTest extends TestCase\n{\n    public function testInstance()\n    {\n        new OrganizationRepository(new Organization);\n    }\n}\n",
+			"file": "tests/OrganizationRepositoryTest.php",
+			"file_size": 427,
+			"file_write_time": 1451875741000000,
+			"settings":
+			{
+				"buffer_size": 427,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "tests/NewUserRegistratorTest.php",
+			"settings":
+			{
+				"buffer_size": 751,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "tests/ExampleTest.php",
+			"settings":
+			{
+				"buffer_size": 524,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Accounts/Registration/NewUserRegistrationForm.php",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Accounts/Registration/RegisterNewOrganizationCommand",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Accounts/Registration/RegisterNewOrganizationCommand.php",
+			"settings":
+			{
+				"buffer_size": 1137,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Core/BaseRepository.php",
+			"settings":
+			{
+				"buffer_size": 1429,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Accounts/Users/UserRepository.php",
+			"settings":
+			{
+				"buffer_size": 1092,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Accounts/Users/UserRepositoryInterface.php",
+			"settings":
+			{
+				"buffer_size": 670,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Admin/UserController.php",
+			"settings":
+			{
+				"buffer_size": 3604,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "",
+			"file": "app/Accounts/Registration/Commanding/CommandBus.php",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Accounts/Registration/Commanding/CommandTranslator.php",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php namespace AllAccessRMS\\Jobs;\n\nuse Illuminate\\Contracts\\Bus\\SelfHandling;\n\nclass RegisterPartnerOrganization extends Job implements SelfHandling\n{\n    public function __construct(New)\n    {\n\n    }\n\n    public function handle()\n    {\n\n    }\n}",
+			"file": "app/Jobs/RegisterPartnerOrganization.php",
+			"file_size": 291,
+			"file_write_time": 1452758160000000,
+			"settings":
+			{
+				"buffer_size": 246,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Controller.php",
+			"settings":
+			{
+				"buffer_size": 379,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Jobs/Job.php",
+			"settings":
+			{
+				"buffer_size": 543,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Accounts/Registration/NewOrganizationRegistrator.php",
+			"settings":
+			{
+				"buffer_size": 1599,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 221.0,
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"package Control:install",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"xs",
+				"Xdebug: Start Debugging"
+			],
+			[
+				"",
+				"Laravel Generate: Resource"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"package ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			],
+			[
+				"lar",
+				"Laravel Generate: Test"
+			],
+			[
+				"lara",
+				"Package Control: Create Binary Package File"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 69.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/var/www/public/all-access-rms/app/Accounts/Users/Traits/RoleTrait.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Repositories/Contracts/OrganizationRepositoryInterface.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Repositories/Contracts/UserRepositoryInterface.php",
+		"/var/www/public/all-access-rms/app/Providers/RepositoryServiceProvider.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Repositories/Eloquent/EventRepository.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Repositories/Eloquent/OrganizationRepository.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Repositories/Eloquent/UserInviteRepository.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/Admin/UserController.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/Admin/OrganizationController.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Contexts/Traits/ContextScopedModelTrait.php",
+		"/var/www/public/all-access-rms/app/Traits/RoleTrait.php",
+		"/var/www/public/all-access-rms/app/Models/Event.php",
+		"/var/www/public/all-access-rms/tests/UserRepositoryTest.php",
+		"/var/www/public/all-access-rms/app/Models/User.php",
+		"/var/www/public/all-access-rms/app/Models/Traits/UserModelTrait",
+		"/var/www/public/all-access-rms/app/Http/routes.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/NewUserRegistrationController.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Registration/NewUserRegistrationCommand.php",
+		"/var/www/public/all-access-rms/resources/views/registration/newuser.blade.php",
+		"/var/www/public/all-access-rms/app/Http/Requests/NewUserRegistrationRequest.php",
+		"/var/www/public/all-access-rms/resources/views/auth/login.blade.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/Auth/AuthController.php",
+		"/var/www/public/all-access-rms/database/migrations/2015_09_06_054624_create_initial_tables.php",
+		"/var/www/public/all-access-rms/app/Models/Traits/UserModelTrait.php",
+		"/var/www/public/all-access-rms/tests/OrganizationRepositoryTest.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Repositories/Eloquent/BaseRepository.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Registrations/NewUserRegistrator.php",
+		"/var/www/public/all-access-rms/resources/views/users/index.blade.php",
+		"/var/www/public/all-access-rms/resources/views/users/create.blade.php",
+		"/var/www/public/all-access-rms/resources/views/users/invite.blade.php",
+		"/var/www/public/all-access-rms/resources/views/partials/message.blade.php",
+		"/var/www/public/all-access-rms/resources/views/layouts/login.blade.php",
+		"/var/www/public/all-access-rms/resources/assets/sass/app.scss",
+		"/var/www/public/all-access-rms/resources/assets/sass/content.scss",
+		"/var/www/public/all-access-rms/resources/assets/sass/variables.scss",
+		"/var/www/public/all-access-rms/resources/assets/js/app.js",
+		"/var/www/public/all-access-rms/resources/assets/sass/core.scss",
+		"/var/www/public/all-access-rms/resources/assets/sass/form.scss",
+		"/var/www/public/all-access-rms/gulpfile.js",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Contexts/ContextScope.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Repositories/Eloquent/UserRepository.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Foundation/Context/Context.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Foundation/Context/UnknownContext.php",
+		"/var/www/public/all-access-rms/app/Models/Role.php",
+		"/var/www/public/all-access-rms/tests/UserModelTest.php",
+		"/var/www/public/all-access-rms/resources/views/layouts/sidebar.blade.php",
+		"/var/www/public/all-access-rms/resources/assets/sass/sidebar.scss",
+		"/var/www/public/all-access-rms/resources/assets/sass/header.scss",
+		"/var/www/public/all-access-rms/resources/views/layouts/header.blade.php",
+		"/var/www/public/all-access-rms/resources/views/layouts/content.blade.php",
+		"/var/www/public/all-access-rms/resources/views/layouts/main.blade.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Registrators/NewUserRegistrator.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Repositories/Exceptions/InvalidArgumentException.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Repositories/Exceptions/BaseRepositoryException.php",
+		"/var/www/public/all-access-rms/app/Models/Organization.php",
+		"/var/www/public/all-access-rms/tests/NewUserRegistratorTest.php",
+		"/var/www/public/all-access-rms/app/BaseModel.php",
+		"/var/www/public/all-access-rms/resources/views/errors/errors.blade.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Services/Forms/UserRegistrationForm.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Services/Validation/UserRepositoryValidator.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Repositories/Contracts/InviteRepositoryInterface.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Repositories/Contracts/EventRepositoryInterface.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Repositories/Contracts/BaseRepositoryInterface.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Services/Validation/CRUDValidator.php",
+		"/var/www/public/all-access-rms/app/Models/Attendee.php",
+		"/var/www/public/all-access-rms/composer.json",
+		"/var/www/public/all-access-rms/database/seeds/PermissionRoleTableSeeder.php",
+		"/var/www/public/all-access-rms/database/factories/ModelFactory.php",
+		"/var/www/public/all-access-rms/app/Models/Permission.php",
+		"/var/www/public/all-access-rms/database/migrations/2015_10_31_070205_entrust_setup_tables.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/RegistrationController.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Repositories/InviteRepositoryInterface.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Services/Validation/AbstractValidator.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Services/Invite/Requester.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/Auth/PasswordController.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Services/Forms/AbstractRegistrationForm.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Services/Validation/UserRegistrationFormValidator.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Repositories/OrganizationRepositoryInterface.php",
+		"/var/www/public/all-access-rms/app/Models/UserInvite.php",
+		"/var/www/public/all-access-rms/app/Providers/RouteServiceProvider.php",
+		"/var/www/public/all-access-rms/app/Providers/EventServiceProvider.php",
+		"/var/www/public/all-access-rms/app/Providers/AuthServiceProvider.php",
+		"/var/www/public/all-access-rms/app/Providers/AppServiceProvider.php",
+		"/var/www/public/all-access-rms/app/Providers/ContextServiceProvider.php",
+		"/var/www/public/all-access-rms/app/Models/OrganizationAddress.php",
+		"/var/www/public/all-access-rms/database/seeds/OrganizationAddressTableSeeder.php",
+		"/var/www/public/all-access-rms/database/seeds/PermissionsTableSeeder.php",
+		"/var/www/public/all-access-rms/database/seeds/RoleUserTableSeeder.php",
+		"/var/www/public/all-access-rms/database/seeds/RolesTableSeeder.php",
+		"/var/www/public/all-access-rms/database/seeds/DatabaseSeeder.php",
+		"/var/www/public/all-access-rms/database/seeds/TenantsTableSeeder.php",
+		"/var/www/public/all-access-rms/database/seeds/UsersTableSeeder.php",
+		"/var/www/public/all-access-rms/database/seeds/OrganizationsTableSeeder.php",
+		"/var/www/public/all-access-rms/config/app.php",
+		"/var/www/public/all-access-rms/resources/views/users/edit_modal.blade.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Repositories/BaseRepositoryInterface.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Services/Forms/RegistratorInterface.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Services/Forms/AbstractRegistrator.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/EventController.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Services/Validation/RegistrationValidator.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Services/Validation/ValidationException.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Contexts/Traits/TenantScopedModelTrait.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Services/Forms/Registrator.php",
+		"/var/www/public/all-access-rms/database/migrations/2015_08_09_005519_create_password_resets_table.php",
+		"/var/www/public/all-access-rms/app/Http/Middleware/Authenticate.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Contexts/TenantScope.php",
+		"/var/www/public/all-access-rms/storage/logs/laravel.log",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Repositories/UserRepositoryInterface.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Repositories/EventRepositoryInterface.php",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Repositories/Eloquent/TenantRepository.php",
+		"/var/www/public/all-access-rms/app/Models/Tenant.php",
+		"/var/www/public/all-access-rms/vendor/autoload.php",
+		"/var/www/public/all-access-rms/app/Http/Kernel.php",
+		"/var/www/public/all-access-rms/storage/framework/sessions/050cc3bcaa5fc5a3f95c77688a24946b6e2467b8",
+		"/var/www/public/all-access-rms/app/AllAccessRMS/Contexts/Context.php",
+		"/var/www/public/all-access-rms/resources/assets/js/laravel-bootstrap-modal-form.js",
+		"/var/www/public/all-access-rms/public/js/app.js",
+		"/var/www/public/all-access-rms/public/css/app.css",
+		"/var/www/public/all-access-rms/package.json",
+		"/var/www/public/all-access-rms/resources/views/layouts/nav.blade_temp.php",
+		"/var/www/public/all-access-rms/resources/views/dashboard/home.blade.php",
+		"/var/www/public/all-access-rms/public/css/app.css.map",
+		"/var/www/public/all-access-rms/resources/assets/js/views/users/index.html",
+		"/var/www/public/all-access-rms/resources/assets/js/views/users/index.vue",
+		"/var/www/public/all-access-rms/resources/assets/js/route-config.js",
+		"/var/www/public/all-access-rms/resources/views/dashboard.blade.php",
+		"/var/www/public/all-access-rms/resources/views/layouts/nav.blade.php",
+		"/var/www/public/all-access-rms/app/Http/Middleware/RedirectIfAuthenticated.php"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"*.js",
+			"<open files>",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"bootstrap",
+			"@",
+			"sidebar",
+			"@",
+			"bican",
+			"#fff",
+			"E3DFD7",
+			"'",
+			"\"",
+			"\n(",
+			"getAdminDashboard",
+			"role",
+			"open",
+			"getAdminDashboard",
+			"getprevent",
+			"db ",
+			"db",
+			"BaseController"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": true,
+		"show_context": false,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 18,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/Core/BaseModel.php",
+					"settings":
+					{
+						"buffer_size": 1850,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 585.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/Accounts/Users/User.php",
+					"settings":
+					{
+						"buffer_size": 2126,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Core/BaseValidator.php",
+					"settings":
+					{
+						"buffer_size": 102,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "tests/UserModelTest.php",
+					"settings":
+					{
+						"buffer_size": 1661,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "tests/UserRepositoryTest.php",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "tests/TestCase.php",
+					"settings":
+					{
+						"buffer_size": 532,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "tests/OrganizationRepositoryTest.php",
+					"settings":
+					{
+						"buffer_size": 427,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "tests/NewUserRegistratorTest.php",
+					"settings":
+					{
+						"buffer_size": 751,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								750,
+								750
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "tests/ExampleTest.php",
+					"settings":
+					{
+						"buffer_size": 524,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/Accounts/Registration/NewUserRegistrationForm.php",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "app/Accounts/Registration/RegisterNewOrganizationCommand",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "app/Accounts/Registration/RegisterNewOrganizationCommand.php",
+					"settings":
+					{
+						"buffer_size": 1137,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "app/Core/BaseRepository.php",
+					"settings":
+					{
+						"buffer_size": 1429,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "app/Accounts/Users/UserRepository.php",
+					"settings":
+					{
+						"buffer_size": 1092,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "app/Accounts/Users/UserRepositoryInterface.php",
+					"settings":
+					{
+						"buffer_size": 670,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "app/Http/Controllers/Admin/UserController.php",
+					"settings":
+					{
+						"buffer_size": 3604,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "app/Accounts/Registration/Commanding/CommandBus.php",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "app/Accounts/Registration/Commanding/CommandTranslator.php",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "app/Jobs/RegisterPartnerOrganization.php",
+					"settings":
+					{
+						"buffer_size": 246,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								187,
+								187
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "app/Http/Controllers/Controller.php",
+					"settings":
+					{
+						"buffer_size": 379,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8,
+								8
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "app/Jobs/Job.php",
+					"settings":
+					{
+						"buffer_size": 543,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6,
+								6
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"file": "app/Accounts/Registration/NewOrganizationRegistrator.php",
+					"settings":
+					{
+						"buffer_size": 1599,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								719,
+								670
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 39.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				2,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.428893905192,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.906502171869,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.unsaved_changes":
+	{
+		"height": 56.0
+	},
+	"output.xdebug":
+	{
+		"height": 0.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 292.0,
+	"status_bar_visible": true
+}

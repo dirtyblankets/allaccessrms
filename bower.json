@@ -1,0 +1,19 @@
+{
+  "name": "bower.json",
+  "version": "0.0.0",
+  "authors": [
+    "dirtyblankets <kapchoianaheim@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "laravel-bootstrap-modal-form": "jerseymilker/laravel-bootstrap-modal-form",
+    "bootstrap-sass": "bootstrap-sass-official#~3.3.5",
+  }
+}

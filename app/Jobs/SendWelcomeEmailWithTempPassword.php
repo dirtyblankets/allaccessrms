@@ -1,15 +1,14 @@
 <?php namespace AllAccessRMS\Jobs;
 
-use Log;
-use Exception;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
-use App\AllAccessRMS\Accounts\Users\User;
+use AllAccessRMS\Accounts\Users\User;
 
 class SendWelcomeEmailWithTempPassword extends Job implements SelfHandling
 {
+
     protected $user;
 
     public function __construct(User $user)
@@ -17,12 +16,27 @@ class SendWelcomeEmailWithTempPassword extends Job implements SelfHandling
         $this->user = $user;
     }
 
-    public function handle(Mailer $mail)
+    public function handle(Mailer $mailer)
     {
-        try {
-        } catch (Exception $e) {
+        $parent_organization = $this->user->getParentOrganization();
 
+        $user_data = array (
+            'name' => $this->user->getFullName(),
+            'parent_organization' => $parent_organization->name,
+            'password'  =>  $this->user->temp_password
+        );
+
+        if (empty($this->user->temp_password))
+        {
+            throw new \Exception("Temporary Password is not set!");
         }
+
+        /*
+        $mailer->send('emails.newuserwelcome', ['user' => $user_data], function ($m) {
+            $m->from('administrator@allaccess.dev', 'All Access RMS');
+            $m->to('kapchoi@yahoo.com')->subject('Welcome to AllAccessRMS!');
+        });
+        */
     }
 
 }

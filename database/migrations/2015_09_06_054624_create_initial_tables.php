@@ -21,7 +21,8 @@ class CreateInitialTables extends Migration
 
             $table->foreign('parent_id')
                 ->references('id')
-                ->on('organizations');
+                ->on('organizations')
+                ->onDelete('cascade');
         });      
 
         Schema::create('organization_address', function (Blueprint $table) {
@@ -55,6 +56,59 @@ class CreateInitialTables extends Migration
                 ->references('id')
                 ->on('organizations')
                 ->onDelete('cascade');
+        });
+
+        Schema::create('roles', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
+            $table->text('description')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('role_user', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('role_id')->unsigned()->index();
+            $table->integer('user_id')->unsigned()->index();
+            $table->timestamps();
+
+
+            $table->foreign('role_id')
+                ->references('id')
+                ->on('roles')
+                ->onDelete('cascade');
+
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+        });
+
+        Schema::create('permissions', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('inherit_id')->unsigned()->nullable()->index();
+            $table->foreign('inherit_id')->references('id')->on('permissions');
+            $table->string('name')->index();
+            $table->string('slug')->index();
+            $table->text('description')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('permission_role', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('permission_id')->unsigned()->index();
+            $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('cascade');
+            $table->integer('role_id')->unsigned()->index();
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->timestamps();
+        });
+
+        Schema::create('permission_user', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('permission_id')->unsigned()->index()->references('id')->on('permissions')->onDelete('cascade');
+            $table->integer('user_id')->unsigned()->index()->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps();
         });
 
         Schema::create('events', function (Blueprint $table) {
@@ -133,5 +187,10 @@ class CreateInitialTables extends Migration
         Schema::drop('events');
         Schema::drop('users');
         Schema::drop('attendees');
+        Schema::drop('roles');
+        Schema::drop('role_user');
+        Schema::drop('permissions');
+        Schema::drop('permission_role');
+        Schema::drop('permission_user');
     }
 }

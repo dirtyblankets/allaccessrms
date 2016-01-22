@@ -1,12 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: kapchoi
- * Date: 9/5/15
- * Time: 12:29 AM
- */
-
-namespace app\Http\Utilities;
+<?php namespace AllAccessRMS\Http\Utilities;
 
 
 class Gender

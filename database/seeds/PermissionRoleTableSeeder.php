@@ -1,7 +1,7 @@
 <?php
 
-use App\Accounts\Users\Role;
-use App\Accounts\Users\Permission;
+use AllAccessRMS\Accounts\Users\Role;
+use AllAccessRMS\Accounts\Users\Permission;
 use Illuminate\Database\Seeder;
 
 class PermissionRoleTableSeeder extends Seeder

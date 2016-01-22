@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use App\Accounts\Organizations\Organization;
+use AllAccessRMS\Accounts\Organizations\Organization;
 
 class OrganizationsTableSeeder extends Seeder
 {
@@ -20,7 +20,6 @@ class OrganizationsTableSeeder extends Seeder
             'id'            =>  1,
             'parent_id'     =>  null,
             'name'          =>  'All Access',
-            'owner_email'   =>  'root@allaccess.com'
         ]);
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1');

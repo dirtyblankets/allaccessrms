@@ -13,4 +13,8 @@ class OrganizationAddress extends BaseModel
     	return $this->belongsTo(Organization::class);
     }
 
+    public function setCityAttribute($city)
+    {
+        $this->attributes['city'] = ucwords($city);
+    }
 }

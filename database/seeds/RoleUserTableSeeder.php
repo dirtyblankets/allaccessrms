@@ -1,6 +1,6 @@
 <?php
 
-use App\Accounts\Users\User;
+use AllAccessRMS\Accounts\Users\User;
 use Illuminate\Database\Seeder;
 
 class RoleUserTableSeeder extends Seeder

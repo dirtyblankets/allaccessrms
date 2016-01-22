@@ -1,6 +1,6 @@
 <?php 
 
-use App\Accounts\Users\Role;
+use AllAccessRMS\Accounts\Users\Role;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 

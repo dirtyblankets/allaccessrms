@@ -7,6 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 
 use AllAccessRMS\Accounts\Organizations\Organization;
 use AllAccessRMS\Accounts\Organizations\OrganizationRepository;
+use AllAccessRMS\Accounts\Organizations\OrganizationAddress;
 use AllAccessRMS\Accounts\Users\User;
 use AllAccessRMS\Accounts\Users\UserRepository;
 use AllAccessRMS\Accounts\Users\Role;
@@ -34,7 +35,11 @@ class RegisterPartnerOrganization extends Job implements SelfHandling
                     $this->request->input('organizations.name'),
                     $this->request->input('users.email'),
                     $this->request->input('users.firstname'),
-                    $this->request->input('users.lastname')
+                    $this->request->input('users.lastname'),
+                    $this->request->input('organizationaddress.address'),
+                    $this->request->input('organizationaddress.city'),
+                    $this->request->input('organizationaddress.state'),
+                    $this->request->input('organizationaddress.zipcode')
                 );
 
         if ($user)
@@ -44,7 +49,8 @@ class RegisterPartnerOrganization extends Job implements SelfHandling
         }
     }
 
-    private function register($organizationName, $email, $firstname, $lastname)
+    private function register($organizationName, $email, $firstname, $lastname, $address,
+                              $city, $state, $zipcode)
     {
         $user = null;
 
@@ -67,11 +73,22 @@ class RegisterPartnerOrganization extends Job implements SelfHandling
 
             if ($organization)
             {
+                $organizationAddress = new OrganizationAddress();
+                $organizationAddress->address = $address;
+                $organizationAddress->city = $city;
+                $organizationAddress->state = $state;
+                $organizationAddress->zipcode = $zipcode;
+
+                $organization->address()->save($organizationAddress);
+
                 $user = $this->userRepo->make($userData);
+
+                $user->temp_password = $userData['password'];
 
                 if ($organization->users()->save($user)) {
                     $user->assignRole(Role::OWNER);
                 }
+
             }
 
         }

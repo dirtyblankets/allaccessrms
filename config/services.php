@@ -15,8 +15,8 @@ return [
     */
 
     'mailgun' => [
-        'domain' => '',
-        'secret' => '',
+        'domain' => 'sandbox36c22937e919444aa717f68ed91cfcf9.mailgun.org',
+        'secret' => 'key-564b890e7c3f7b5678540efcf8bddc2a',
     ],
 
     'mandrill' => [
@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model'  => App\Models\User::class,
+        'model'  => App\AllAccessRMS\Accounts\Users\User::class,
         'key'    => '',
         'secret' => '',
     ],

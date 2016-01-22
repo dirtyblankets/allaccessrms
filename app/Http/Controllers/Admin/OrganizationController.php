@@ -10,11 +10,11 @@ use AllAccessRMS\Jobs\RegisterPartnerOrganization;
 
 class OrganizationController extends Controller {
     
-    private $organizations;
+    protected $organizationsRepository;
 
-    public function __construct(OrganizationRepositoryInterface $orgRepo)
+    public function __construct(OrganizationRepositoryInterface $organizationsRepository)
     {
-        $this->organizations = $orgRepo;
+        $this->organizationsRepository = $organizationsRepository;
     }
     /**
      * Display a listing of the resource.
@@ -24,7 +24,7 @@ class OrganizationController extends Controller {
     public function index()
     {
         try {
-            $organizations = $this->organizations->findAllPaginated();
+            $organizations = $this->organizationsRepository->findAllPaginated();
         } catch (Exception $e) {
             Log::error($e);
         }

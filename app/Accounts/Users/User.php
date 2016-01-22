@@ -13,7 +13,9 @@ use Kodeine\Acl\Traits\HasRole;
 
 class User extends BaseModel implements AuthenticatableContract, CanResetPasswordContract
 {
-    use Authenticatable, CanResetPassword, HasRole, Relationship;
+    use Authenticatable, CanResetPassword, HasRole;
+
+    public $temp_password = '';
 
     /**
      * The database table used by the model.
@@ -27,7 +29,9 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
      *
      * @var array
      */
-    protected $fillable = ['organization_id', 'email', 'firstname', 'lastname', 'active', 'password'];
+    protected $fillable = [
+        'organization_id', 'email', 'firstname', 'lastname', 'active', 'password'
+    ];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -40,6 +44,26 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
         'email'     =>  'required|email|unique:users',
         'password'  =>  'required|min:5'
     );
+
+    public function organization()
+    {
+        return $this->belongsTo('AllAccessRMS\Accounts\Organizations\Organization', 'organization_id');
+    }
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = Hash::make($password);
+    }
+
+    public function setFirstnameAttribute($firstname)
+    {
+        $this->attributes['firstname'] = ucfirst($firstname);
+    }
+
+    public function setLastnameAttribute($lastname)
+    {
+        $this->attributes['lastname'] = ucfirst($lastname);
+    }
 
     public function getFullName()
     {
@@ -64,18 +88,36 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
         return 'Inactive';
     }
 
-    public function setPasswordAttribute($password)
+    public function getTempPassword()
     {
-        $this->attributes['password'] = Hash::make($password);
+        return $this->temp_password;
     }
 
-    public function setFirstnameAttribute($firstname)
+    public function isOwner()
     {
-        $this->attributes['firstname'] = ucfirst($firstname);
+        return $this->is(Role::OWNER);
     }
 
-    public function setLastnameAttribute($lastname)
+    public function isAdmin()
     {
-        $this->attributes['lastname'] = ucfirst($lastname);
+        return $this->is(Role::ADMIN);
+    }
+
+    /**
+     * @return Organization
+     */
+    public function getParentOrganization()
+    {
+        if ( ! is_null($this->organization->parent) )
+        {
+            return $this->organization->parent->first();
+        }
+
+        return $this->organization;
+    }
+
+    public function isOwnerOfParentOrganization()
+    {
+        return boolval(is_null($this->organization->parent_id ) && $this->isOwner());
     }
 }

@@ -23,7 +23,8 @@ class NewOrganizationFormRequest extends Request
             'users.firstname' =>  'required',
             'users.lastname'  =>  'required',
             'users.email'     =>  'required|email|unique:users',
-            'organizations.name'  =>  'required|unique:organizations'
+            'organizations.name'  =>  'required|unique:organizations',
+            'organizationaddress.zipcode'  =>  'digits:5|integer'
         ];
     }
 

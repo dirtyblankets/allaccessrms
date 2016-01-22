@@ -443,7 +443,7 @@
 			"file": "app/Accounts/Users/User.php",
 			"settings":
 			{
-				"buffer_size": 2126,
+				"buffer_size": 2809,
 				"line_ending": "Unix"
 			}
 		},
@@ -526,7 +526,7 @@
 			"file": "app/Accounts/Registration/RegisterNewOrganizationCommand.php",
 			"settings":
 			{
-				"buffer_size": 1137,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -584,8 +584,8 @@
 		{
 			"contents": "<?php namespace AllAccessRMS\\Jobs;\n\nuse Illuminate\\Contracts\\Bus\\SelfHandling;\n\nclass RegisterPartnerOrganization extends Job implements SelfHandling\n{\n    public function __construct(New)\n    {\n\n    }\n\n    public function handle()\n    {\n\n    }\n}",
 			"file": "app/Jobs/RegisterPartnerOrganization.php",
-			"file_size": 291,
-			"file_write_time": 1452758160000000,
+			"file_size": 2859,
+			"file_write_time": 1453269911000000,
 			"settings":
 			{
 				"buffer_size": 246,
@@ -612,7 +612,7 @@
 			"file": "app/Accounts/Registration/NewOrganizationRegistrator.php",
 			"settings":
 			{
-				"buffer_size": 1599,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		}
@@ -941,7 +941,7 @@
 					"file": "app/Accounts/Users/User.php",
 					"settings":
 					{
-						"buffer_size": 2126,
+						"buffer_size": 2809,
 						"regions":
 						{
 						},
@@ -1217,7 +1217,7 @@
 					"file": "app/Accounts/Registration/RegisterNewOrganizationCommand.php",
 					"settings":
 					{
-						"buffer_size": 1137,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -1495,15 +1495,15 @@
 					"file": "app/Accounts/Registration/NewOrganizationRegistrator.php",
 					"settings":
 					{
-						"buffer_size": 1599,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								719,
-								670
+								0,
+								0
 							]
 						],
 						"settings":

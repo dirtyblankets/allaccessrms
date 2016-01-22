@@ -5899,13 +5899,14 @@ a:focus {
   background-color: #FFF;
   margin-left: 80px;
   margin-right: 30px; }
+  .content-wrapper .panel-body {
+    background-color: #F5F5F5; }
   .content-wrapper .form-horizontal .form-group {
     margin-left: 5px; }
 
 @media (min-width: 765px) {
   .content-wrapper {
     margin-left: 80px;
-    padding-top: 20px;
     padding-left: 20px; } }
 
 /*# sourceMappingURL=app.css.map */

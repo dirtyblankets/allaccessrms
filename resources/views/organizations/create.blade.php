@@ -14,42 +14,65 @@
     </section>
     <!-- Content -->
     @include('partials.errors')
-    <form class='form-horizontal' method="POST" action="/organizations/store">
-        {!! csrf_field() !!}
-        <div class="row">
+    <div class="panel-body">
+        <form class='form form-horizontal' method="POST" action="/organizations/store">
+            {!! csrf_field() !!}
             <div class="col-sm-6">
+                <h4>Organization Information</h4>
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-fw fa-building-o"></i></div>
-                        <input type="text" placeholder="Organization Name" class="form-control" name="organizations[name]"/>
+                        <input type="text" placeholder="Organization Name" class="form-control" name="organizations[name]"
+                                value="{{ old('organizations.name') }}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <input type="text" placeholder="Address" class="form-control" name="organizationaddress[address]"
+                                    value="{{ old('organizationaddress.address') }}"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <input type="text" placeholder="City" class="form-control" name="organizationaddress[city]"
+                                   value="{{ old('organizationaddress.city') }}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <input type="text" placeholder="State" class="form-control" name="organizationaddress[state]"
+                                   value="{{ old('organizationaddress.state') }}"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <input type="text" placeholder="Zipcode" class="form-control" name="organizationaddress[zipcode]"
+                                   value="{{ old('organizationaddress.zipcode') }}"/>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
             <div class="col-sm-6">
+                <h4>Owner Information</h4>
                 <div class='form-group'>
                     <div class="input-group">
                         <div class="input-group-addon">@</div>
                         <input type="email" placeholder="Email Address" class="form-control" name="users[email]" />
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
                 <div class='form-group'>
                     <input type="text" placeholder="First Name" class="form-control" name="users[firstname]" />
                 </div>
-            </div>
-            <div class="col-sm-3">
                 <div class='form-group'>
                     <input type="text" placeholder="Last Name" class="form-control" name="users[lastname]" />
                 </div>
+                <div class='form-group'>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
             </div>
-        </div>
-        <div class='form-group'>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
+        </form>
+    </div>
 @stop

@@ -1,4 +1,4 @@
-<?php namespace AllAccessRMS\EventRegistrations;
+<?php namespace AllAccessRMS\AllAccessEvents;
 
 use AllAccessRMS\Core\BaseRepository;
 

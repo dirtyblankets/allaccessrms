@@ -22,7 +22,7 @@
                         <i class="fa fa-user"></i> {{ Auth::user()->getFullName() }}<b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a></li>
+                        <!--<li><a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a></li>-->
                         <li class="divider"></li>
                         <li><a href='{{ URL::route('logout') }}'> Logout</a></li>
                     </ul>

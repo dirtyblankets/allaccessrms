@@ -18,7 +18,6 @@ $factory->define(AllAccessRMS\Accounts\Users\User::class, function ($faker) {
         'email' => $faker->email,
         'active' => 1,
         'password' => str_random(10),
-        'organization_id' => 1,
         'remember_token' => str_random(10),
     ];
 });
@@ -29,6 +28,13 @@ $factory->define(AllAccessRMS\Accounts\Users\Role::class, function ($faker) {
         'name'=> 'admin',
         'display_name'  => 'Administrator',
         'description' => 'Administrators have administrative access to the system.',
+    ];
+});
+
+$factory->define(AllAccessRMS\Accounts\Organizations\Organization::class, function ($faker) {
+    return [
+        'name' => $faker->name,
+        'parent_id' => 1,
     ];
 });
 

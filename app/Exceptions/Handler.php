@@ -37,6 +37,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if ($e->getStatusCode() == 401)
+        {
+            return response()->view('errors.accessdenied', [], 401);
+        }
         return parent::render($request, $e);
     }
 }

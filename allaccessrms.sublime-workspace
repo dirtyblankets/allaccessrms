@@ -443,7 +443,7 @@
 			"file": "app/Accounts/Users/User.php",
 			"settings":
 			{
-				"buffer_size": 2809,
+				"buffer_size": 2855,
 				"line_ending": "Unix"
 			}
 		},
@@ -451,7 +451,7 @@
 			"file": "app/Core/BaseValidator.php",
 			"settings":
 			{
-				"buffer_size": 102,
+				"buffer_size": 103,
 				"line_ending": "Unix"
 			}
 		},
@@ -459,7 +459,7 @@
 			"file": "tests/UserModelTest.php",
 			"settings":
 			{
-				"buffer_size": 1661,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -494,7 +494,7 @@
 			"file": "tests/NewUserRegistratorTest.php",
 			"settings":
 			{
-				"buffer_size": 751,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -584,12 +584,21 @@
 		{
 			"contents": "<?php namespace AllAccessRMS\\Jobs;\n\nuse Illuminate\\Contracts\\Bus\\SelfHandling;\n\nclass RegisterPartnerOrganization extends Job implements SelfHandling\n{\n    public function __construct(New)\n    {\n\n    }\n\n    public function handle()\n    {\n\n    }\n}",
 			"file": "app/Jobs/RegisterPartnerOrganization.php",
-			"file_size": 2859,
-			"file_write_time": 1453269911000000,
+			"file_size": 3283,
+			"file_write_time": 1453971676000000,
 			"settings":
 			{
 				"buffer_size": 246,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "    $('#datePicker')\n        .datepicker({\n            format: 'mm/dd/yyyy'\n        })\n        .on('changeDate', function(e) {\n            // Revalidate the date field\n            $('#eventForm').formValidation('revalidateField', 'date');\n        });\n\n    $('#eventForm').formValidation({\n        framework: 'bootstrap',\n        icon: {\n            valid: 'glyphicon glyphicon-ok',\n            invalid: 'glyphicon glyphicon-remove',\n            validating: 'glyphicon glyphicon-refresh'\n        },\n        fields: {\n            name: {\n                validators: {\n                    notEmpty: {\n                        message: 'The name is required'\n                    }\n                }\n            },\n            date: {\n                validators: {\n                    notEmpty: {\n                        message: 'The date is required'\n                    },\n                    date: {\n                        format: 'MM/DD/YYYY',\n                        message: 'The date is not a valid'\n                    }\n                }\n            }\n        }\n    });\n});",
+			"settings":
+			{
+				"buffer_size": 1078,
+				"line_ending": "Unix",
+				"name": "$('#datePicker')"
 			}
 		},
 		{
@@ -614,6 +623,31 @@
 			{
 				"buffer_size": 0,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/assets/js/app.js",
+			"settings":
+			{
+				"buffer_size": 545,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "gulpfile.js",
+			"settings":
+			{
+				"buffer_size": 1046,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "\"use strict\";\nvar gulp = require('gulp'); // 4.0\nvar del = require('del');\nvar publicPath = \"public_html\";\nvar bowerComponentsPath = \".bower_components\";\nvar vendorPath = publicPath + \"/assets/vendor\";\nvar paths = {\njquery: {\nsrc: bowerComponentsPath + \"/jquery/dist/jquery.min.js\",\ndest: vendorPath + \"/jquery\"\n},\nbootstrap: {\nsrc: bowerComponentsPath + \"/bootstrap/dist/**/*\",\ndest: vendorPath + \"/bootstrap\"\n},\nfontawesome: {\nsrc: bowerComponentsPath + \"/fontawesome/**/*\",\ndest: vendorPath + \"/font-awesome\"\n},\nslippry: {\nsrc: bowerComponentsPath + \"/slippry/**/*\",\ndest: vendorPath + \"/slippry\"\n}\n};\ngulp.task('jquery', function () {\nreturn gulp.src(paths.jquery.src)\n.pipe(gulp.dest(paths.jquery.dest));\n});\ngulp.task('bootstrap', function () {\nreturn gulp.src(paths.bootstrap.src)\n.pipe(gulp.dest(paths.bootstrap.dest))\n.on('end', function () {\ndel([\nvendorPath + '/bootstrap/css/*.*',\n'!' + vendorPath + '/bootstrap/css/bootstrap.min.css',\n'!' + vendorPath + '/bootstrap/css/bootstrap.css.map',\nvendorPath + '/bootstrap/js/bootstrap.js',\nvendorPath + '/bootstrap/js/npm.js',\n]);\n});\n});\ngulp.task('fontawesome', function () {\nreturn gulp.src(paths.fontawesome.src)\n.pipe(gulp.dest(paths.fontawesome.dest))\n.on('end', function () {\ndel([\nvendorPath + '/font-awesome/css/font-awesome.css',\nvendorPath + '/font-awesome/less',\nvendorPath + '/font-awesome/scss',\nvendorPath + '/font-awesome/bower.json'\n]);\n});\n});\ngulp.task('slippry', function () {\nreturn gulp.src(paths.slippry.src)\n.pipe(gulp.dest(paths.slippry.dest))\n.on(\"end\", function () {\ndel([\nvendorPath + \"/slippry/*\",\n\"!\" + vendorPath + \"/slippry/dist\",\n\"!\" + vendorPath + \"/slippry/images\"\n])\n});\n});\n/**\n* Delete vendor directory (for debugging)\n*/\ngulp.task('rollback', function (cb) {\ndel([vendorPath], cb);\n});\ngulp.task('default', gulp.series('jquery', 'bootstrap', 'fontawesome', 'slippry'));",
+			"settings":
+			{
+				"buffer_size": 1864,
+				"line_ending": "Unix",
+				"name": "\"use strict\";"
 			}
 		}
 	],
@@ -904,7 +938,7 @@
 	"groups":
 	[
 		{
-			"selected": 18,
+			"selected": 25,
 			"sheets":
 			[
 				{
@@ -941,7 +975,7 @@
 					"file": "app/Accounts/Users/User.php",
 					"settings":
 					{
-						"buffer_size": 2809,
+						"buffer_size": 2855,
 						"regions":
 						{
 						},
@@ -970,7 +1004,7 @@
 					"file": "app/Core/BaseValidator.php",
 					"settings":
 					{
-						"buffer_size": 102,
+						"buffer_size": 103,
 						"regions":
 						{
 						},
@@ -997,7 +1031,7 @@
 					"file": "tests/UserModelTest.php",
 					"settings":
 					{
-						"buffer_size": 1661,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -1107,15 +1141,15 @@
 					"file": "tests/NewUserRegistratorTest.php",
 					"settings":
 					{
-						"buffer_size": 751,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								750,
-								750
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1437,6 +1471,34 @@
 				},
 				{
 					"buffer": 19,
+					"settings":
+					{
+						"buffer_size": 1078,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								1078
+							]
+						],
+						"settings":
+						{
+							"auto_name": "$('#datePicker')",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 20,
 					"file": "app/Http/Controllers/Controller.php",
 					"settings":
 					{
@@ -1462,7 +1524,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 20,
+					"buffer": 21,
 					"file": "app/Jobs/Job.php",
 					"settings":
 					{
@@ -1491,7 +1553,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 21,
+					"buffer": 22,
 					"file": "app/Accounts/Registration/NewOrganizationRegistrator.php",
 					"settings":
 					{
@@ -1514,6 +1576,87 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 39.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 23,
+					"file": "resources/assets/js/app.js",
+					"settings":
+					{
+						"buffer_size": 545,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 130.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 24,
+					"file": "gulpfile.js",
+					"settings":
+					{
+						"buffer_size": 1046,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								376,
+								376
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 25,
+					"settings":
+					{
+						"buffer_size": 1864,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1864,
+								1864
+							]
+						],
+						"settings":
+						{
+							"auto_name": "\"use strict\";",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

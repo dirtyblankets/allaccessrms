@@ -19,7 +19,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return \View::make('dashboard/home');
+        return \View::make('dashboard/index');
     }
 
 

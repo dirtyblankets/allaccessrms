@@ -32,9 +32,9 @@ class Organization extends BaseModel
         return $this->hasMany('AllAccessRMS\Accounts\Users\User');
     }
 
-    public function address()
+    public function info()
     {
-        return $this->hasOne('AllAccessRMS\Accounts\Organizations\OrganizationAddress');
+        return $this->hasOne(OrganizationInfo::class);
     }
 
     public function setNameAttribute($name)

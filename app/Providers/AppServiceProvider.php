@@ -16,6 +16,8 @@ class AppServiceProvider extends ServiceProvider
         if (DB::connection() instanceof \Illuminate\Database\SQLiteConnection) {
             DB::statement(DB::raw('PRAGMA foreign_keys=1'));
         }
+
+        //require_once app_path() . '/validators.php';
     }
 
     /**

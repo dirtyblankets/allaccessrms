@@ -32,7 +32,7 @@ Route::post('new_user_registration/store', [
         'uses'  =>  'NewUserRegistrationController@store'
 ]);
 
-//Admin Routes
+//Owner Routes
 Route::group(['as'=>'admin::', 'middleware'=>['auth', 'acl'], 'is'=>'owner'], function() {
 
     //Dashboard routes
@@ -100,17 +100,19 @@ Route::group(['as'=>'admin::', 'middleware'=>['auth', 'acl'], 'is'=>'owner'], fu
     //Events routes
     Route::get('events', [
         'as' => 'events',
-        'uses' => 'Admin\EventController@index',
+        'uses' => 'Admin\AllAccessEventsController@index',
     ]);
 
     Route::get('events/create', [
         'as' => 'events.create',
-        'uses' => 'Admin\EventController@create',
+        'uses' => 'Admin\AllAccessEventsController@create',
+    ]);
+
+    Route::get('events/store', [
+        'as' => 'events.store',
+        'uses' => 'Admin\AllAccessEventsController@store',
     ]);
 });
-
-
-
 
 // Access Denied
 Route::get('accessdenied',['as' => 'accessdenied', function (){

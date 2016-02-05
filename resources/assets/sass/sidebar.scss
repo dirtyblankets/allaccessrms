@@ -3,6 +3,7 @@
 	position: fixed;
     width: $sidebar-width;
     height: 100%;
+    top: 30px;
 
   	.sidebar-nav > li {
 		margin-top: 15px;
@@ -21,7 +22,7 @@
     }
 
     .sidebar-nav > li > a:hover {
-      color: #4eae4c;
+      color: #dcdcdc;
       background-color: darken($sidebar-dark-bg, 3%);
     }
 
@@ -30,29 +31,16 @@
       background-color: darken($sidebar-dark-bg, 3%);
     }
 }
+
 /*
-#sidebar-wrapper {
-
-		.sidebar-nav > li > a {
-          color: #FFFFFF;
-          display: block;
-		}
-
-        .sidebar-nav > li.active,
-        .sidebar-nav > li > a:hover {
-          color: #4eae4c;
-          background-color: darken($sidebar-dark-bg, 3%);
-        }
-}
-*/
 #sidebar-wrapper.toggled {
 	margin-left: 0px;
 }
-
+*/
 @media(min-width: 765px) {
 
 	#sidebar-wrapper {
-      position: absolute;
+      position: fixed;
       width: $sidebar-width;
       height: 100%;
       top: 30px;

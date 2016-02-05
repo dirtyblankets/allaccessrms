@@ -1,5 +1,5 @@
-<?php namespace AllAccessRMS\EventRegistrations;
+<?php namespace AllAccessRMS\AllAccessEvents;
 
-interface EventRepositoryInterface extends BaseRepositoryInterface {
+interface EventRepositoryInterface {
 
 }

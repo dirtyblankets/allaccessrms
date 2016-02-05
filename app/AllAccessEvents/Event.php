@@ -1,4 +1,4 @@
-<?php namespace AllAccessRMS\EventRegistrations;
+<?php namespace AllAccessRMS\AllAccessEvents;
 
 use AllAccessRMS\Core\BaseModel;
 
@@ -11,7 +11,7 @@ class Event extends BaseModel {
 
 	public function attendee()
 	{
-		return $this->hasMany('AllAccessRMS\EventRegistrations\Attendee');
+		return $this->hasMany(Attendee::class);
 	}
 
 	public function organization()

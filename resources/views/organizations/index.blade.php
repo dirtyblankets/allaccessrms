@@ -13,14 +13,24 @@
                     <thead>
                     <tr>
                         <th style="width:20%">Name</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Zipcode</th>
+                        <th>Contact</th>
+                        <th>Edit</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($organizations as $organization)
                         <tr>
                             <td>{{ $organization->name }}</td>
+                            <td>{{ $organization->info->address }}</td>
+                            <td>{{ $organization->info->city }}</td>
+                            <td>{{ $organization->info->state }}</td>
+                            <td>{{ $organization->info->zipcode }}</td>
+                            <td>{{ $organization->info->telephone }}</td>
                             <td><a href="#"><img src={{asset('images/edit_user.gif')}} alt="Edit"></a></td>
-                            <td><a href="#"><img src={{asset('images/delete.gif')}} alt="Delete"></a></td>
                         </tr>
                     @endforeach
                     {!! $organizations->render() !!}

@@ -1,5 +1,6 @@
 <?php namespace AllAccessRMS\Jobs;
 
+use Laracasts\Flash;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -26,17 +27,11 @@ class SendWelcomeEmailWithTempPassword extends Job implements SelfHandling
             'password'  =>  $this->user->temp_password
         );
 
-        if (empty($this->user->temp_password))
-        {
-            throw new \Exception("Temporary Password is not set!");
-        }
-
-        /*
         $mailer->send('emails.newuserwelcome', ['user' => $user_data], function ($m) {
             $m->from('administrator@allaccess.dev', 'All Access RMS');
             $m->to('kapchoi@yahoo.com')->subject('Welcome to AllAccessRMS!');
         });
-        */
+
     }
 
 }

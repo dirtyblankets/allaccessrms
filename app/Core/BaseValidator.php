@@ -4,4 +4,5 @@ use Validator;
 
 abstract class BaseValidator extends Validator
 {
+
 }

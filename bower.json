@@ -13,7 +13,6 @@
     "tests"
   ],
   "dependencies": {
-    "laravel-bootstrap-modal-form": "jerseymilker/laravel-bootstrap-modal-form",
-    "bootstrap-sass": "bootstrap-sass-official#~3.3.5",
+    "laravel-bootstrap-modal-form": "jerseymilker/laravel-bootstrap-modal-form"
   }
 }

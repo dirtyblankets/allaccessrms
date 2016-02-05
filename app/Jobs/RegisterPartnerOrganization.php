@@ -1,13 +1,12 @@
 <?php namespace AllAccessRMS\Jobs;
 
-use Log;
 use Exception;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 use AllAccessRMS\Accounts\Organizations\Organization;
 use AllAccessRMS\Accounts\Organizations\OrganizationRepository;
-use AllAccessRMS\Accounts\Organizations\OrganizationAddress;
+use AllAccessRMS\Accounts\Organizations\OrganizationInfo;
 use AllAccessRMS\Accounts\Users\User;
 use AllAccessRMS\Accounts\Users\UserRepository;
 use AllAccessRMS\Accounts\Users\Role;
@@ -36,10 +35,11 @@ class RegisterPartnerOrganization extends Job implements SelfHandling
                     $this->request->input('users.email'),
                     $this->request->input('users.firstname'),
                     $this->request->input('users.lastname'),
-                    $this->request->input('organizationaddress.address'),
-                    $this->request->input('organizationaddress.city'),
-                    $this->request->input('organizationaddress.state'),
-                    $this->request->input('organizationaddress.zipcode')
+                    $this->request->input('organizationinfo.address'),
+                    $this->request->input('organizationinfo.city'),
+                    $this->request->input('organizationinfo.state'),
+                    $this->request->input('organizationinfo.zipcode'),
+                    $this->request->input('organizationinfo.telephone')
                 );
 
         if ($user)
@@ -50,7 +50,7 @@ class RegisterPartnerOrganization extends Job implements SelfHandling
     }
 
     private function register($organizationName, $email, $firstname, $lastname, $address,
-                              $city, $state, $zipcode)
+                              $city, $state, $zipcode, $telephone)
     {
         $user = null;
 
@@ -73,11 +73,12 @@ class RegisterPartnerOrganization extends Job implements SelfHandling
 
             if ($organization)
             {
-                $organizationAddress = new OrganizationAddress();
+                $organizationAddress = new OrganizationInfo();
                 $organizationAddress->address = $address;
                 $organizationAddress->city = $city;
                 $organizationAddress->state = $state;
                 $organizationAddress->zipcode = $zipcode;
+                $organizationAddress->telephone = $telephone;
 
                 $organization->address()->save($organizationAddress);
 
@@ -86,7 +87,7 @@ class RegisterPartnerOrganization extends Job implements SelfHandling
                 $user->temp_password = $userData['password'];
 
                 if ($organization->users()->save($user)) {
-                    $user->assignRole(Role::OWNER);
+                    $user->assignRole(Role::ADMIN);
                 }
 
             }
@@ -98,6 +99,7 @@ class RegisterPartnerOrganization extends Job implements SelfHandling
             {
                 $organization->delete();
             }
+            abort(500);
         }
 
         return $user;

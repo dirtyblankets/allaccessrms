@@ -25,7 +25,7 @@ class CreateInitialTables extends Migration
                 ->onDelete('cascade');
         });      
 
-        Schema::create('organization_address', function (Blueprint $table) {
+        Schema::create('organization_info', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->integer('organization_id')->unsigned()->unique();
             $table->string('address', 100)->nullable();
@@ -33,6 +33,7 @@ class CreateInitialTables extends Migration
             $table->string('state', 5)->nullable();
             $table->string('zipcode', 20)->nullable();
             $table->string('country', 5)->nullable();
+            $table->string('telephone')->nullable();
             $table->timestamps();
 
             $table->foreign('organization_id')
@@ -48,6 +49,7 @@ class CreateInitialTables extends Migration
             $table->string('password', 60);
             $table->string('firstname');
             $table->string('lastname');
+            $table->string('telephone')->nullable();
             $table->boolean('active')->default(1);
             $table->rememberToken();
             $table->timestamps();
@@ -182,7 +184,7 @@ class CreateInitialTables extends Migration
     public function down()
     {
         Schema::drop('organizations');
-        Schema::dorp('organization_address');
+        Schema::drop('organization_info');
         Schema::drop('eventsites');
         Schema::drop('events');
         Schema::drop('users');

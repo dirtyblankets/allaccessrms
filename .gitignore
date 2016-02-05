@@ -4,3 +4,6 @@ Homestead.yaml
 .env
 _ide_helper.php
 _ide_helper_models.php
+.idea/blade.xml
+.idea/dictionaries/kapchoi.xml
+gulp.js

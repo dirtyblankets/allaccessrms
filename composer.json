@@ -13,13 +13,16 @@
         "kodeine/laravel-acl": "~1.0@dev",
         "doctrine/dbal": "v2.4.2",
         "guzzlehttp/guzzle": "~5.3|~6.0",
-        "propaganistas/laravel-phone": "~2.0"
+        "propaganistas/laravel-phone": "~2.0",
+        "nesbot/carbon": "^1.21",
+        "laravelcollective/html": "5.1.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~4.0",
-        "phpspec/phpspec": "~2.1"
+        "phpspec/phpspec": "~2.1",
+        "laracasts/generators": "^1.1"
     },
     "autoload": {
         "classmap": [

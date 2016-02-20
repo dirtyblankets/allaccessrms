@@ -1,7 +1,7 @@
 <?php
 /** @var \Illuminate\Validation\Factory $validator */
 
-$validator->extend(
+Validator::extend(
     'valid_password',
     function ($attribute, $value, $parameters)
     {
@@ -9,7 +9,7 @@ $validator->extend(
     }
 );
 
-$validator->extend(
+Validator::extend(
     'phone_number',
     function ($attribute, $value, $parameters)
     {
@@ -17,11 +17,10 @@ $validator->extend(
     }
 );
 
-$validator->extend(
+Validator::extend(
     'dollar_amount',
     function($attribute, $value, $parameters)
     {
         return preg_match('/^\d*(\.\d{2})?$/', $value);
     }
-
 );

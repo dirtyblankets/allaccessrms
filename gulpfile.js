@@ -49,10 +49,11 @@ gulp.task('build-less', function(){
 });
 
 elixir(function(mix) {
-    mix.copy(paths.jquery.src, paths.jquery.dest);
-    mix.copy(paths.moment.src, paths.moment.dest);
-    mix.copy(paths.bootstrap.src, paths.bootstrap.dest);
-    mix.copy(paths.fontawesome.src, paths.fontawesome.dest);
-    mix.copy(paths.eonasdan_bootstrap_datetimepicker.src, paths.eonasdan_bootstrap_datetimepicker.dest);
+    //mix.copy(paths.jquery.src, paths.jquery.dest);
+    //mix.copy(paths.moment.src, paths.moment.dest);
+    //mix.copy(paths.bootstrap.src, paths.bootstrap.dest);
+    //mix.copy(paths.fontawesome.src, paths.fontawesome.dest);
+    //mix.copy(paths.eonasdan_bootstrap_datetimepicker.src, paths.eonasdan_bootstrap_datetimepicker.dest);
     mix.sass('app.scss');
+    mix.sass('public/app.scss', './public/css/public/app.css');
 });

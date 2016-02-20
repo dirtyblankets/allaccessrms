@@ -1,14 +1,14 @@
 <?php namespace AllAccessRMS\Http\Controllers\Auth;
 
 use Auth;
-use AllAccessRMS\Accounts\Users\User;
-use AllAccessRMS\Accounts\Users\Role;
 use Validator;
 use AllAccessRMS\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+
+use Laracasts\Flash\Flash;
 
 class AuthController extends Controller
 {
@@ -45,7 +45,9 @@ class AuthController extends Controller
 
         if ($validator->fails())
         {
-            return redirect($this->loginPath)
+            Flash::overlay("Incorrect Login!");
+            return redirect()
+                ->back()
                 ->withErrors($validator)
                 ->withInput(\Input::except('password'));
         }
@@ -58,10 +60,16 @@ class AuthController extends Controller
             {
                 session(array(  'tenant_id' =>  Auth::user()->organization_id,
                                 'self_id'   =>  Auth::user()->id));
-                return redirect()->route('admin::' . $this->redirectPath);
+                if (Auth::user()->is('owner'))
+                {
+                    return redirect()->route('owner::' . $this->redirectPath);
+                }
+
+                return redirect()->back();
             }
             
-            return redirect($this->loginPath)
+            return redirect()
+                ->back()
                 ->withInput(\Input::except('password'))
                 ->withErrors('Invalid Credentials!');
         }

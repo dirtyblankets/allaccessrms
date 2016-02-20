@@ -2,7 +2,7 @@
 @section('content')
     <section class="content-header">
         <h2 class="page-header"><i class="fa fa-fw fa-users"></i> Users
-            <a href='{{ URL::route('admin::users.create') }}' class="btn btn-small btn-primary" title="Add New User">+ Add</a>
+            <a href='{{ URL::route('owner::users.create') }}' class="btn btn-sm btn-primary" title="Add New User"><i class='fa fa-fw fa-plus'></i> Add</a>
         </h2>
     </section>
     <!-- Content -->
@@ -16,6 +16,7 @@
                         <th style="width:20%">First Name</th>
                         <th style="width:20%">Email</th>
                         <th style="width:15%">Organization</th>
+                        <th>Role</th>
                         <th style="width:5%">Active</th>
                         <th style="width:5%">Edit</th>
                         <th style="width:5%">Delete</th>
@@ -28,6 +29,7 @@
                             <td>{{ $user->firstname }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->getOrganizationName() }}</td>
+                            <td>{{ $user->getUserRoles() }}</td>
                             <td>{{ $user->getActiveString() }}</td>
                             <td><a href="#"><img src={{asset('images/edit_user.gif')}} alt="Edit"></a></td>
                             <td><a href="#"><img src={{asset('images/delete.gif')}} alt="Delete"></a></td>

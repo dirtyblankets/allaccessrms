@@ -20,9 +20,17 @@ class RoleUserTableSeeder extends Seeder
 
         // Root user
         $user = User::find(1);
-
         $user->assignRole('owner');
 
+        $user = User::find(2);
+        $user->assignRole('admin');
+
+        $user = User::find(3);
+        $user->assignRole('admin');
+
+        $user = User::find(4);
+        $user->assignRole('moderator');
+        
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }

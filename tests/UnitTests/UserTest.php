@@ -3,7 +3,7 @@
 use AllAccessRMS\Accounts\Users\User;
 use AllAccessRMS\Accounts\Organizations\Organization;
 
-class UserTest extends TestCase
+class UserTest extends \TestCase
 {
     public function testInstance()
     {

@@ -23,6 +23,33 @@ class UsersTableSeeder extends Seeder
             'active'            =>  1
         ]);
 
+        $user = User::create([
+            'organization_id'   =>  2,
+            'email'             =>  'davidkimsungkwang@gmail.com',
+            'password'          =>  'password',
+            'firstname'         =>  'David',
+            'lastname'          =>  'Kim',
+            'active'            =>  1
+        ]);
+
+        $user = User::create([
+            'organization_id'   =>  3,
+            'email'             =>  'jooheeryou@yahoo.com',
+            'password'          =>  'password',
+            'firstname'         =>  'Julie',
+            'lastname'          =>  'Ryou-Choi',
+            'active'            =>  1
+        ]);
+
+        $user = User::create([
+            'organization_id'   =>  3,
+            'email'             =>  'ocpc@yahoo.com',
+            'password'          =>  'password',
+            'firstname'         =>  'Kap',
+            'lastname'          =>  'Choi',
+            'active'            =>  1
+        ]);
+
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 

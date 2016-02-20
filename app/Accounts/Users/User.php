@@ -120,4 +120,20 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
     {
         return boolval(is_null($this->organization->parent_id ) && $this->isOwner());
     }
+
+    public function getUserRoles()
+    {
+        $res = "";
+        $roles = $this->roles()->get();
+
+        foreach ($roles as $role) {
+            $res .= $role->name . ', ';
+        }
+
+        rtrim($res);
+        rtrim($res, ',');
+
+        return $res;
+    }
+
 }

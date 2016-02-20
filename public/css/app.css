@@ -57,11 +57,10 @@ a:focus {
 .table {
   border-collapse: inherit; }
 
-/*
-.btn-primary:hover {
-	background-color: #4F2890;
-}
-*/
+.huge {
+  font-size: 40px;
+  line-height: normal; }
+
 .main-header {
   position: fixed; }
   .main-header .logo {
@@ -86,11 +85,23 @@ a:focus {
         padding: 0;
         margin-top: 5px;
         color: #FFF; }
+    .main-header .navbar-static-top .top-nav > li {
+      display: inline-block;
+      float: left; }
+    .main-header .navbar-static-top .top-nav > .open > .dropdown-menu {
+      float: left;
+      position: absolute;
+      margin-top: 0px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      background-color: #FFF;
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.176); }
     .main-header .navbar-static-top .navbar-right,
     .main-header .navbar-static-top .navbar-right > li > a {
       display: block;
       float: right;
-      padding: 0px 15px;
+      padding: 0px 0px;
       height: 30px;
       line-height: 30px;
       color: #FFF; }
@@ -133,6 +144,14 @@ a:focus {
     width: 50px;
     height: 100%;
     top: 30px; } }
+
+.button-container form,
+.button-container form div {
+  display: inline; }
+
+.button-container button {
+  display: inline;
+  vertical-align: middle; }
 
 .content-wrapper {
   background-color: #FFF;

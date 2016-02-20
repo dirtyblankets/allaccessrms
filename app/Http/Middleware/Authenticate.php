@@ -44,13 +44,9 @@ class Authenticate
                 return redirect()->guest('auth/login');
             }
         }
-        else {
-            /*if (empty($roles) ||
-                ($this->auth->user()->hasRole($roles) 
-                    && boolval($this->auth->user()->active))) {
-              */
-                return $next($request);
-            //}
+        else 
+        {
+            return $next($request);
         }
 
         return response('Unauthorized.', 401);

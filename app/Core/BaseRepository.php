@@ -37,6 +37,21 @@ abstract class BaseRepository  {
         return $this->model->newInstance($attributes);
     }
 
+    public function findById($id)
+    {
+        return $this->model->where('id', $id)->first();
+    }
+
+   /**
+     * @param int $perPage
+     * @return mixed
+     */
+    public function findAllPaginated($perPage = 20)
+    {
+        return $this->model
+                    ->orderBy('id')
+                    ->paginate($perPage);
+    }
     /*
     public function create(array $attributes = [])
     {

@@ -1,4 +1,4 @@
-<?php namespace AllAccessRMS\Http\Controllers\Admin;
+<?php namespace AllAccessRMS\Http\Controllers\Owner;
 
 use Log;
 use Exception;
@@ -14,6 +14,7 @@ class OrganizationController extends Controller {
 
     public function __construct(OrganizationRepositoryInterface $organizationsRepository)
     {
+        $this->beforeFilter('auth');
         $this->organizationsRepository = $organizationsRepository;
     }
     /**
@@ -23,12 +24,10 @@ class OrganizationController extends Controller {
      */
     public function index()
     {
-        try {
-            $organizations = $this->organizationsRepository->findAllPaginated();
-        } catch (Exception $e) {
-            Log::error($e);
-        }
-        return view('organizations/index', compact('organizations'));
+        
+        $organizations = $this->organizationsRepository->findAllPaginated();
+
+        return view('organizations.index', compact('organizations'));
     }
 
     /**
@@ -49,14 +48,12 @@ class OrganizationController extends Controller {
      */
     public function store(NewOrganizationFormRequest $request)
     {
-        try {
-            $job = new RegisterPartnerOrganization($request);
-            $this->dispatch($job);
 
-            return redirect()->route('admin::organizations');
-        } catch (Exception $e) {
-            Log::error($e);
-        }
+        $job = new RegisterPartnerOrganization($request);
+        $this->dispatch($job);
+
+        return redirect()->route('owner::organizations');
+
     }
 
     /**

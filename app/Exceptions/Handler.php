@@ -1,8 +1,12 @@
 <?php namespace AllAccessRMS\Exceptions;
 
+use Log;
 use Exception;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Session\TokenMismatchException;
+
+use Laracasts\Flash\Flash;
 
 class Handler extends ExceptionHandler
 {
@@ -12,7 +16,7 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        HttpException::class,
+        //HttpException::class,
     ];
 
     /**
@@ -37,10 +41,25 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if ($e instanceof TokenMismatchException) 
+        {
+            //Redirect to login form if session expires
+            Flash::error("The login form has expired, please try again. 
+                        In the future, reload the login page if it has been open for several hours.");
+            return redirect('/auth/login');
+        }
+
         if ($e->getStatusCode() == 401)
         {
             return response()->view('errors.accessdenied', [], 401);
         }
-        return parent::render($request, $e);
+        else
+        {
+            Flash::overlay('Error: something went wrong!  Please review the log.');
+            Log::error($e);
+            return redirect()->back();
+        }
+
+        //return parent::render($request, $e);
     }
 }

@@ -1,11 +1,10 @@
-<!-- resources/views/users/create.blade.php -->
-@extends('layouts.main')
+ @extends('layouts.main')
 @section('content')
     <section class="content-header">
         <h2 class="page-header"><i class="fa fa-fw fa-user"></i>+ Add New User</h2>
         <ol class="breadcrumb">
             <li>
-                <a href={{ URL::previous()  }}><i class="fa fa-users"></i> Users</a>
+                <a href={{ URL::previous() }}><i class="fa fa-users"></i> Users</a>
             </li>
             <li class="active">
                 Add New User

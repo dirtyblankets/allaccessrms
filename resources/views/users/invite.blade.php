@@ -1,4 +1,3 @@
-<!-- resources/views/users/invite.blade.php -->
 @extends('layouts.main')
 @section('content')
     <div class="row">

@@ -1,55 +1,50 @@
-<?php namespace AllAccessRMS\Http\Controllers\Admin;
+<?php
+
+namespace AllAccessRMS\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
-use Laracasts\Flash;
+
 use AllAccessRMS\Http\Requests;
 use AllAccessRMS\Http\Controllers\Controller;
-use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
 
-class AllAccessEventsController extends Controller
+class SettingsController extends Controller
 {
-    private $eventRepo;
-
-    public function __construct(EventRepositoryInterface $events)
-    {
-        $this->eventRepo = $events;
-    }
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('events/index');
+        $this->beforeFilter('auth');
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('events/create');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
-     * @return Response
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        return "store events";
+        //
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
@@ -60,7 +55,7 @@ class AllAccessEventsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
@@ -70,9 +65,9 @@ class AllAccessEventsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
@@ -83,7 +78,7 @@ class AllAccessEventsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {

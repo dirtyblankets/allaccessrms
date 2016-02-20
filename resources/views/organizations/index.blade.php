@@ -1,8 +1,13 @@
 @extends('layouts.main')
 @section('content')
     <section class="content-header">
-        <h2 class="page-header"><i class="fa fa-fw fa-building-o"></i> Organizations
-            <a href='{{ URL::route('admin::organizations.create') }}' class="btn btn-small btn-primary" title="Add New Organization">+ Add</a>
+        <h2 class="page-header">
+            <div class='button-container'>
+                <i class="fa fa-fw fa-building-o"></i> Organizations
+                @if (Auth::user()->is('owner'))
+                <a href='{{ URL::route('owner::organizations.create') }}' class="btn btn-sm btn-primary" title="Add New Organization"><i class='fa fa-fw fa-plus'></i> Add</a>
+                @endif
+            </div>
         </h2>
     </section>
     <!-- Content -->
@@ -17,8 +22,10 @@
                         <th>City</th>
                         <th>State</th>
                         <th>Zipcode</th>
-                        <th>Contact</th>
+                        <th>Contact
+                        @if (Auth::user()->is('owner'))
                         <th>Edit</th>
+                        @endif
                     </tr>
                     </thead>
                     <tbody>
@@ -30,7 +37,9 @@
                             <td>{{ $organization->info->state }}</td>
                             <td>{{ $organization->info->zipcode }}</td>
                             <td>{{ $organization->info->telephone }}</td>
+                            @if (Auth::user()->is('owner'))
                             <td><a href="#"><img src={{asset('images/edit_user.gif')}} alt="Edit"></a></td>
+                            @endif
                         </tr>
                     @endforeach
                     {!! $organizations->render() !!}

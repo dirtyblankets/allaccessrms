@@ -6,12 +6,13 @@ class Organization extends BaseModel
 {
 	protected $table = 'organizations';
 
-	protected $fillable = ['name'];
+	protected $fillable = ['parent_id', 'name'];
 
     protected static $rules = array(
         'name'  =>  'required'
     );
 
+    
     public function children()
     {
         return $this->hasMany(Organization::class, 'parent_id', 'id');
@@ -21,10 +22,10 @@ class Organization extends BaseModel
     {
         return $this->belongsTo(Organization::class, 'parent_id');
     }
-
+    
     public function events()
     {
-        return $this->hasMany('AllAccessRMS\EventRegistrations\Event');
+        return $this->hasMany('AllAccessRMS\AllAccessEvents\Event');
     }
 
     public function users()
@@ -37,15 +38,16 @@ class Organization extends BaseModel
         return $this->hasOne(OrganizationInfo::class);
     }
 
+    
     public function setNameAttribute($name)
     {
         $this->attributes['name'] = ucfirst($name);
     }
-    /*
-    public function ownersEmail()
+    
+
+    public function isChild()
     {
-        return $this->users();
+        return (! is_null($this->parent_id));
     }
-    */
 
 }

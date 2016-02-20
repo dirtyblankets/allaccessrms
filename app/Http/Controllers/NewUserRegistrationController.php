@@ -2,7 +2,6 @@
 
 use AllAccessRMS\Accounts\Registration\RegisterNewOrganizationCommand;
 use AllAccessRMS\Core\Commands\CommandBus;
-use Log;
 use AllAccessRMS\Http\Requests\NewUserRegistrationRequest;
 
 class NewUserRegistrationController extends Controller

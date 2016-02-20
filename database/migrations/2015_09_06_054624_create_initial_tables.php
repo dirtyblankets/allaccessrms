@@ -46,7 +46,8 @@ class CreateInitialTables extends Migration
             $table->increments('id')->unsigned();
             $table->integer('organization_id')->unsigned();
             $table->string('email', 100)->unique();
-            $table->string('password', 60);
+            $table->string('password', 60)->nullable();
+            $table->string('temp_password', 60)->nullable();
             $table->string('firstname');
             $table->string('lastname');
             $table->string('telephone')->nullable();
@@ -125,7 +126,8 @@ class CreateInitialTables extends Migration
             $table->string('contact_phone', 30)->nullable();
             $table->decimal('price', 10, 2)->nullable();
             $table->integer('capacity')->nullable();
-            $table->integer('status')->nullable();
+            $table->boolean('published')->default(1);
+            $table->boolean('private')->default(0);
             $table->timestamps();
 
             $table->foreign('organization_id')
@@ -144,7 +146,8 @@ class CreateInitialTables extends Migration
             $table->string('zipcode', 10)->nullable();
             $table->string('country', 5)->nullable();
             $table->decimal('price', 10, 2)->nullable();
-
+            $table->timestamps();
+            
             $table->foreign('event_id')
                 ->references('id')
                 ->on('events')

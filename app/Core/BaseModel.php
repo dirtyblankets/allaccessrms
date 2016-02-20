@@ -3,6 +3,10 @@
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\Validator;
 
+/**
+ * AllAccessRMS\Core\BaseModel
+ *
+ */
 class BaseModel extends Model {
 
     /**

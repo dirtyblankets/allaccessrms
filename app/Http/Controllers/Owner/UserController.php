@@ -1,14 +1,14 @@
-<?php namespace AllAccessRMS\Http\Controllers\Admin;
+<?php namespace AllAccessRMS\Http\Controllers\Owner;
 
 use Exception;
-use Laracasts\Flash;
+use Laracasts\Flash\Flash as Flash;
 use Illuminate\Http\Request;
 use Log;
 
 use AllAccessRMS\Accounts\Users\Role;
 use AllAccessRMS\Http\Requests;
 use AllAccessRMS\Http\Controllers\Controller;
-use AllAccessRMS\Http\Controllers\Auth;
+//use AllAccessRMS\Http\Controllers\Auth;
 use AllAccessRMS\Accounts\Users\UserRepositoryInterface;
 
 class UserController extends Controller
@@ -111,7 +111,7 @@ class UserController extends Controller
         $user = User::find($id);
         if ($user !== null)
         {
-            return \View::make('users.edit', compact('user'));
+            return view('users.edit', compact('user'));
         }
     }
 
@@ -147,7 +147,7 @@ class UserController extends Controller
         if ($user !== null)
         {
             $user->delete();
-            \Flash::success($user->getFullName() . ' successfully delete!');
+            Flash::success($user->getFullName() . ' successfully delete!');
             return redirect()->back();
         }
 

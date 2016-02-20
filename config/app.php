@@ -145,11 +145,12 @@ return [
         Laracasts\Flash\FlashServiceProvider::class,
         Kodeine\Acl\AclServiceProvider::class,
         Propaganistas\LaravelPhone\LaravelPhoneServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
         /*
          * Application Service Providers...
          */
         AllAccessRMS\Providers\AppServiceProvider::class,
-        //AllAccessRMS\Providers\AuthServiceProvider::class,     //Comment this line out before migrating, then uncomment.
+        //AllAccessRMS\Providers\AuthServiceProvider::class,
         AllAccessRMS\Providers\EventServiceProvider::class,
         AllAccessRMS\Providers\RouteServiceProvider::class,
         AllAccessRMS\Providers\RepositoryServiceProvider::class,
@@ -206,6 +207,8 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

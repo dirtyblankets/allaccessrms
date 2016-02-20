@@ -14,32 +14,15 @@
 	</head>
 	<body id="app">
 		<div class="wrapper">
-			@include("layouts.header")
-			@include("layouts.sidebar")
-			@include("layouts.content")
+            @include("layouts.header")
+            @include("layouts.sidebar")
+            @include("layouts.content")
 		</div>
+		@include("partials.confirm_delete")
     <script src="/assets/vendor/jquery/jquery.min.js"></script>
     <script src="/assets/vendor/moment/min/moment.min.js"></script>
-    <script src="/assets/vendor/bootstrap/js/transition.js"></script>
-    <script src="/assets/vendor/bootstrap/js/collapse.js"></script>
     <script src="/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/assets/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
-	<!--<script src="/js/app.js"></script>-->
-	<script type="text/javascript">
-		$('#flash-overlay-modal').modal();
-
-        $(function () {
-            $(".datepicker").datetimepicker( {
-                pickTime: false
-            });
-        });
-
-		$(function () {
-			$(".timepicker").datetimepicker( {
-				format: 'LT',
-                pickDate: false
-			});
-		});
-	</script>
+	<script src="/js/app.js"></script>
 	</body>
 </html>

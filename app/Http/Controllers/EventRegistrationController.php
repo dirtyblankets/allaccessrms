@@ -3,8 +3,7 @@
 use Illuminate\Http\Request;
 
 use AllAccessRMS\Http\Requests;
-use AllAccessRMS\Http\Controllers\Controller;
-use AllAccessRMS\AllAccessRMS\Repositories\EventRepositoryInterface;
+use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
 
 class EventRegistrationController extends Controller
 {

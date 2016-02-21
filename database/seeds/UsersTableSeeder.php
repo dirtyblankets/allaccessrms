@@ -24,29 +24,38 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $user = User::create([
+            'organization_id'   =>  1,
+            'email'             =>  'admin@allaccessrms.com',
+            'password'          =>  'password',
+            'firstname'         =>  'Admin',
+            'lastname'          =>  'User',
+            'active'            =>  1
+        ]);
+
+        $user = User::create([
             'organization_id'   =>  2,
-            'email'             =>  'davidkimsungkwang@gmail.com',
+            'email'             =>  'moderator1@partner1.com',
             'password'          =>  'password',
-            'firstname'         =>  'David',
-            'lastname'          =>  'Kim',
+            'firstname'         =>  'Moderator1',
+            'lastname'          =>  'User',
             'active'            =>  1
         ]);
 
         $user = User::create([
             'organization_id'   =>  3,
-            'email'             =>  'jooheeryou@yahoo.com',
+            'email'             =>  'moderator2@partner2.com',
             'password'          =>  'password',
-            'firstname'         =>  'Julie',
-            'lastname'          =>  'Ryou-Choi',
+            'firstname'         =>  'Moderator2',
+            'lastname'          =>  'User',
             'active'            =>  1
         ]);
 
         $user = User::create([
-            'organization_id'   =>  3,
-            'email'             =>  'ocpc@yahoo.com',
+            'organization_id'   =>  4,
+            'email'             =>  'moderator3@partner3.com',
             'password'          =>  'password',
-            'firstname'         =>  'Kap',
-            'lastname'          =>  'Choi',
+            'firstname'         =>  'Moderator3',
+            'lastname'          =>  'User',
             'active'            =>  1
         ]);
 

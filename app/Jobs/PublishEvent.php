@@ -1,5 +1,6 @@
 <?php namespace AllAccessRMS\Jobs;
 
+use AllAccessRMS\Accounts\Organizations\PartnerOrganization;
 use Laracasts\Flash\Flash;
 use Exception;
 use Illuminate\Contracts\Bus\SelfHandling;
@@ -19,8 +20,6 @@ class PublishEvent extends Job implements SelfHandling
 
     protected $event;
 
-    protected $event_id;
-
     public function __construct($request, Organization $organization, Event $event = null)
     {
         $this->request = $request;
@@ -30,10 +29,12 @@ class PublishEvent extends Job implements SelfHandling
 
     public function handle()
     {
-    	$newEvent = $this->register($this->request);
+    	$event = $this->register();
+
+        return $event;
     }
 
-    private function register($request)
+    private function register()
     {
 
         if ($this->event)
@@ -44,7 +45,6 @@ class PublishEvent extends Job implements SelfHandling
         {
             $event = new Event();
         }
-
 
     	$event->title = $this->request->input('event.title');
     	$event->description = $this->request->input('event.description');
@@ -57,7 +57,6 @@ class PublishEvent extends Job implements SelfHandling
         $event->published = true;
 
         $this->organization->events()->save($event);
-        //$event->save();
 
         $eventSite = $event->eventsite()->first();
         if (is_null($eventSite))
@@ -72,6 +71,18 @@ class PublishEvent extends Job implements SelfHandling
         
         $event->eventsite()->save($eventSite);
         $event->save();
+
+        foreach ($this->request->input('partner') as $partner_id)
+        {
+            if ($this->request->input('partner') === '1')
+            {
+
+            }
+            $partner = PartnerOrganization::find($partner_id);
+            $event->partners()->attach($partner);
+        }
+
     	return $event;
     }
+
 }

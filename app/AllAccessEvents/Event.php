@@ -42,6 +42,11 @@ class Event extends BaseModel {
 		return $this->belongsTo('AllAccessRMS\Accounts\Organizations\Organization');
 	}
 
+	public function partners()
+    {
+        return $this->belongsToMany('AllAccessRMS\Accounts\Organizations\PartnerOrganization')->withTimestamps();
+    }
+
 	public function eventsite()
 	{
 		return $this->hasOne(EventSite::class);

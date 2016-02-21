@@ -30,6 +30,15 @@ $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
 
+// Keep drop-down menu opened if has error
+$(function() {
+    var haserror = $(".login span.help-block");
+    if (haserror.text())
+    {
+        $(".dropdown-menu").dropdown("toggle");
+    }
+});
+
 // Google Maps Scripts
 // When the window has finished loading create our google map below
 google.maps.event.addDomListener(window, 'load', init);

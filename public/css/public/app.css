@@ -11733,7 +11733,27 @@ p {
   p {
     margin: 0 0 35px;
     font-size: 20px;
-    line-height: 1.6; } }
+    line-height: 1.6; }
+  p.information {
+    margin: 0 0 10px;
+    color: black;
+    text-align: center; } }
+
+.panel-information h1, .panel-information .h1.information,
+.panel-information h2, .panel-information .h2.information,
+.panel-information h3, .panel-information .h3.information,
+.panel-information h4, .panel-information .h4.information,
+.panel-information h5, .panel-information .h5.information,
+.panel-information h6, .panel-information .h6.information {
+  margin: 0 0 10px; }
+
+.panel-information p {
+  margin: 0 0 10px;
+  color: black;
+  text-align: center; }
+
+.panel-information .panel-heading {
+  background-color: #FFFFFF; }
 
 a {
   color: #219AB3;
@@ -11850,7 +11870,7 @@ a {
 
 @media (min-width: 767px) {
   .content-section {
-    padding-top: 250px; }
+    padding-bottom: 250px; }
   .download-section {
     padding: 100px 0; }
   #map {

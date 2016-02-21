@@ -1,8 +1,11 @@
 <?php namespace AllAccessRMS\Accounts\Organizations;
 
 use AllAccessRMS\Core\BaseRepository;
+use AllAccessRMS\Accounts\Organizations\Organization;
 
 class OrganizationRepository extends BaseRepository implements OrganizationRepositoryInterface {
+
+    private $id;
 
     public function __construct(Organization $organization)
     {
@@ -52,5 +55,12 @@ class OrganizationRepository extends BaseRepository implements OrganizationRepos
     public function findRootOrganization()
     {
         return $this->model->where('parent_id', '=', NULL)->first();
+    }
+
+    public function getPartnerOrganizations($parent_id)
+    {
+        return $this->model
+                    ->where('parent_id', '=', $parent_id)
+                    ->get();
     }
 }

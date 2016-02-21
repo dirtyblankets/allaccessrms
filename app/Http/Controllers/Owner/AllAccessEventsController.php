@@ -6,19 +6,24 @@ use Laracasts\Flash\Flash;
 use Illuminate\Http\Request;
 
 use AllAccessRMS\Accounts\Organizations\Organization;
+use AllAccessRMS\Accounts\Organizations\PartnerOrganization;
 use AllAccessRMS\Http\Requests\AllAccessEventFormRequest;
 use AllAccessRMS\Http\Controllers\Controller;
 use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
+use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
 use AllAccessRMS\Jobs\PublishEvent;
 
 class AllAccessEventsController extends Controller
 {
     private $eventRepo;
 
-    public function __construct(EventRepositoryInterface $events)
+    private $orgRepo;
+
+    public function __construct(EventRepositoryInterface $events, OrganizationRepositoryInterface $organization)
     {
         $this->beforeFilter('auth');
         $this->eventRepo = $events;
+        $this->orgRepo = $organization;
     }
     /**
      * Display a listing of the resource.
@@ -39,7 +44,10 @@ class AllAccessEventsController extends Controller
      */
     public function create()
     {
-        return view('events/create');
+        $partners = $this->orgRepo->getPartnerOrganizations(Auth::user()->organization_id);
+        $partners = $partners->sortBy('name');
+
+        return view('events/create', compact('partners'));
     }
 
     /**
@@ -50,7 +58,6 @@ class AllAccessEventsController extends Controller
      */
     public function store(AllAccessEventFormRequest $request)
     {
-
         $organization = Organization::where('id', Auth::user()->organization_id)->first();
 
         $job = new PublishEvent($request, $organization, null);
@@ -83,8 +90,9 @@ class AllAccessEventsController extends Controller
     {
         $event = $this->eventRepo->findById($id);
         $eventsite = $event->eventsite()->first();
+        $partners = $event->partners()->get();
 
-        return view('events.edit', ['event' => $event, 'eventsite'=>$eventsite]);
+        return view('events.edit', compact('event', 'eventsite', 'partners'));
     }
 
     public function unpublish(Request $request, $id)

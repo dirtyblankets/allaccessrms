@@ -19,48 +19,23 @@ class OrganizationsTableSeeder extends Seeder
 
         $org = Organization::create([
             'parent_id'     =>  null,
-            'name'          =>  "LOLYA"
+            'name'          =>  "All Access"
         ]);
 
         $org = Organization::create([
             'parent_id'     =>  1,
-            'name'          =>  "Sung Kwang Church"
+            'name'          =>  "Partner 1"
         ]);
 
         $org = Organization::create([
             'parent_id'     =>  1,
-            'name'          =>  "Orange Canaan Presbyterian Church"
+            'name'          =>  "Partner 2"
         ]);
 
-/*
-        DB::table('organizations')->insert([
-            'id'            =>  1,
-            'parent_id'     =>  null,
-            'name'          =>  "All Access",
-            'created_at'     => Carbon::now(),
-        ]);
-
-        DB::table('organizations')->insert([
-            'id'            =>  2,
+        $org = Organization::create([
             'parent_id'     =>  1,
-            'name'          =>  "Living Water",
-            'created_at'     => Carbon::now(),
+            'name'          =>  "Partner 3"
         ]);
-
-        DB::table('organizations')->insert([
-            'id'            =>  3,
-            'parent_id'     =>  1,
-            'name'          =>  "Orange Canaan",
-            'created_at'     => Carbon::now(),
-        ]);
-
-        DB::table('organizations')->insert([
-            'id'            =>  4,
-            'parent_id'     =>  1,
-            'name'          =>  "Sung Kwang",
-            'created_at'     => Carbon::now(),
-        ]);
-*/
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }

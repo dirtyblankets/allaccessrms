@@ -25,11 +25,13 @@ h6, .h6 {
   letter-spacing: 1px;
 }
 
+
 p {
   margin: 0 0 25px;
   font-size: 18px;
   line-height: 1.5;
 }
+
 
 @media(min-width:$screen-xs-max) {
 
@@ -39,6 +41,34 @@ p {
     line-height: 1.6;
   }
 
+  p.information {
+    margin: 0 0 10px;
+    color:black;
+    text-align: center;
+  }
+
+}
+
+.panel-information {
+
+  h1, .h1.information,
+  h2, .h2.information,
+  h3, .h3.information,
+  h4, .h4.information,
+  h5, .h5.information,
+  h6, .h6.information {
+    margin: 0 0 10px;
+  }
+
+  p {
+    margin: 0 0 10px;
+    color:black;
+    text-align: center;
+  }
+
+  .panel-heading {
+    background-color: #FFFFFF;
+  }
 }
 
 a {
@@ -232,7 +262,7 @@ a {
 @media(min-width:$screen-xs-max) {
 
   .content-section {
-    padding-top: 250px;
+    padding-bottom: 250px;
   }
 
   .download-section {

@@ -13,6 +13,11 @@
 // Public routes...
 Route::resource('/', 'HomePageController');
 
+Route::get('event/show/{id}', [
+    'as'    =>  'event.show',
+    'uses'  =>  'EventRegistrationController@show'
+]);
+
 // Authentication routes...
 Route::get('auth/login', [
     'as' => 'login',

@@ -9,7 +9,6 @@
         <link type="text/css" rel="stylesheet" href="{{URL::to('css/public/app.css')}}">
 	</head>
 	<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-    @include('public.layouts.nav')
     @include('public.layouts.content')
 	<!-- Footer -->
 	<footer>

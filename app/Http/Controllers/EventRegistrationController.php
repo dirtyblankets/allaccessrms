@@ -4,15 +4,23 @@ use Illuminate\Http\Request;
 
 use AllAccessRMS\Http\Requests;
 use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
+use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
+//use AllAccessRMS\AllAccessEvents\Event;
+//use AllAccessRMS\AllAccessEvents\EventSite;
+//use AllAccessRMS\Accounts\Organizations\PartnerOrganization;
 
 class EventRegistrationController extends Controller
 {
 
     private $eventRepo;
 
-    public function __construct(EventRepositoryInterface $eventRepo)
+    private $orgRepo;
+
+    public function __construct(EventRepositoryInterface $eventRepo,
+                                OrganizationRepositoryInterface $orgRepo)
     {
         $this->eventRepo = $eventRepo;
+        $this->orgRepo = $orgRepo;
     }
     /**
      * Display a listing of the resource.
@@ -53,7 +61,14 @@ class EventRegistrationController extends Controller
      */
     public function show($id)
     {
-        //
+        $event = $this->eventRepo->findById($id);
+        $eventsite = $event->eventsite()->first();
+        $organization = $this->orgRepo->findById($event->organization_id);
+        $organizationinfo = $organization->info()->first();
+        $partners = $event->partners()->get();
+
+        return view('public.events.show', compact('event', 'eventsite', 'organization',
+            'organizationinfo', 'partners'));
     }
 
     /**

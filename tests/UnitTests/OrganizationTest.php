@@ -1,7 +1,9 @@
 <?php
 
 use AllAccessRMS\Accounts\Organizations\Organization;
+use AllAccessRMS\Accounts\Organizations\PartnerOrganization;
 use AllAccessRMS\Accounts\Organizations\OrganizationInfo;
+use AllAccessRMS\Accounts\Organizations\OrganizationRepository;
 
 class OrganizationTest extends \TestCase
 {
@@ -34,7 +36,11 @@ class OrganizationTest extends \TestCase
         $this->assertTrue($children->has('Children Organization A'));
         $this->assertTrue($children->has('Children Organization B'));
 
-        $parent_organization->children()->delete();
+        $orgToDelete = Organization::where('name', 'Children Organization A')->first();
+        $orgToDelete->delete();
+
+        $orgToDelete = Organization::where('name', 'Children Organization B')->first();
+        $orgToDelete->delete();
     }
 
     public function testIsChildOrganization()
@@ -50,5 +56,24 @@ class OrganizationTest extends \TestCase
         $this->assertTrue($child_organization->isChild());
         $child_organization->delete();
 
+    }
+
+    public function testGetPartnerOrganizations()
+    {
+        $org = new Organization();
+        $orgRepo = new OrganizationRepository($org);
+
+        $partners = $orgRepo->getPartnerOrganizations(1);
+        $partners = $partners->keyBy('name');
+
+        $this->assertTrue($partners->has('Partner 1'));
+        $this->assertFalse($partners->has('Fake'));
+    }
+
+    public function testPartnerOrganization()
+    {
+        $org = PartnerOrganization::find(2);
+
+        dd($org->name);
     }
 }

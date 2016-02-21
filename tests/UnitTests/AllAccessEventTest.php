@@ -12,12 +12,6 @@ class AllAccessEventTest extends \TestCase
 
     public function testStartTime()
     {
-    	$startime = "1:00 pM";
-
-    	$startime = date("H:i:s", strtotime($startime));
-
-    	$startime = date("h:i a", strtotime($startime));
-    	dd($startime);
     }
 
 }

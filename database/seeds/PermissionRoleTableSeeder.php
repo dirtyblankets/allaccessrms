@@ -25,6 +25,9 @@ class PermissionRoleTableSeeder extends Seeder
         $role = Role::find(1);
         $role->assignPermission('user', 'event');
 
+        $role = Role::find(2);
+        $role->assignPermission('user', 'event');
+
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }

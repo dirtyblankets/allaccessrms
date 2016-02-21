@@ -5,7 +5,7 @@
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
 					<i class="fa fa-bars"></i>
 				</button>
-				<a class="navbar-brand page-scroll" href="#page-top">
+				<a class="navbar-brand page-scroll" href="{{ URL::to('/') }}">
 					<i class="fa fa-play-circle"></i> <span class="light">All Access</span> RMS
 				</a>
 			</div>
@@ -16,12 +16,16 @@
 					<li class="hidden">
 						<a href="#page-top"></a>
 					</li>
+                    <li>
+                        <a class="page-scroll" href="#page-top">Description</a>
+                    </li>
 					<li>
-						<a class="page-scroll" href="#events">Events</a>
+						<a class="page-scroll" href="#information">Information</a>
 					</li>
 					<li>
-						<a class="page-scroll" href="#contact">Contact</a>
+						<a class="page-scroll" href="#registration">Registration</a>
 					</li>
+                    <!--
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-user"></i> Login<b class="caret"></b>
@@ -45,6 +49,7 @@
                             </form>
                         </ul>
                     </li>
+                    -->
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->

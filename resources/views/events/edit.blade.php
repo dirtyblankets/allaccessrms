@@ -158,6 +158,23 @@
         </div>
     </div>
 </div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4><i class="fa fa-fw fa-building"></i> Participating Organizations</h4>
+    </div>
+    <div class="panel-body">
+        <div class="checkboxlist">
+            <ul style="list-style-type: none">
+                @foreach ($partners as $partner)
+                    <li>
+                        {!! Form::checkbox('partners', $partner->id, true) !!}
+                        {{$partner->name}}
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+</div>
 <div class="form-group">
     <button type="submit" class="btn btn-sm btn-primary btn-toggle-readonly">Submit</button>
 </div>

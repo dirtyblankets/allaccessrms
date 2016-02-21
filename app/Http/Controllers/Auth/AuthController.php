@@ -27,7 +27,7 @@ class AuthController extends Controller
 
     protected $redirectPath = 'dashboard';
     
-    protected $loginPath = '/auth/login';
+    protected $loginPath = '/';
     
     private $loginRule = array(
             'email' => 'required|email|max:100',
@@ -58,7 +58,7 @@ class AuthController extends Controller
 
             if (Auth::attempt(array('email' => $email, 'password' => $password, 'active' => 1), true))
             {
-                session(array(  'tenant_id' =>  Auth::user()->organization_id,
+                session(array(  'organization_id' =>  Auth::user()->organization_id,
                                 'self_id'   =>  Auth::user()->id));
                 if (Auth::user()->is('owner'))
                 {

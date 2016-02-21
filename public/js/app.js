@@ -40,14 +40,6 @@ $(document).ready(function (){
     var route = $(e.relatedTarget).attr('data-route');
     $('#deleteForm').attr('action', route);
 
-    // Pass form reference to modal for submission on yes/ok
-    //var form = $(e.relatedTarget).closest('form');
-    //$(this).find('.modal-footer #confirm').data('form', form);
   });
 
-/*
-  $('#confirmDelete').find('.modal-footer #confirm').on('click', function(){
-      $(this).data('form').submit();
-  });
-*/
 });

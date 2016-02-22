@@ -1,9 +1,7 @@
 <?php namespace AllAccessRMS\Jobs;
 
-use Laracasts\Flash;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Contracts\Bus\SelfHandling;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 
 use AllAccessRMS\Accounts\Users\User;
 

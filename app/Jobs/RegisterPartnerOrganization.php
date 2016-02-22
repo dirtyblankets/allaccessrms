@@ -44,8 +44,7 @@ class RegisterPartnerOrganization extends Job implements SelfHandling
 
         if ($user)
         {
-            $job = new SendWelcomeEmailWithTempPassword($user);
-            $this->dispatch($job);
+            $this->dispatch(new SendWelcomeEmailWithTempPassword($user));
         }
     }
 

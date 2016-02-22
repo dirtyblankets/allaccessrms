@@ -71,6 +71,31 @@ p {
   }
 }
 
+.panel-registration {
+  h1, .h1.information,
+  h2, .h2.information,
+  h3, .h3.information,
+  h4, .h4.information,
+  h5, .h5.information,
+  h6, .h6.information {
+    margin: 0 0 10px;
+  }
+
+  p {
+    margin: 0 0 10px;
+    color:black;
+    text-align: left;
+  }
+
+  .panel-heading {
+    background-color: #FFFFFF;
+  }
+
+  label {
+    color: #000000;
+  }
+}
+
 a {
   color: $grayscale-primary;
   -webkit-transition: all .2s ease-in-out;

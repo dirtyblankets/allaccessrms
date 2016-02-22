@@ -44,7 +44,8 @@ class Event extends BaseModel {
 
 	public function partners()
     {
-        return $this->belongsToMany('AllAccessRMS\Accounts\Organizations\PartnerOrganization')->withTimestamps();
+        return $this->belongsToMany('AllAccessRMS\Accounts\Organizations\PartnerOrganization')
+					->whereNotNull('parent_id');
     }
 
 	public function eventsite()

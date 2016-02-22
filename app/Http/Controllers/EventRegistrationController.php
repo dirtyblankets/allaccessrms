@@ -5,9 +5,9 @@ use Illuminate\Http\Request;
 use AllAccessRMS\Http\Requests;
 use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
 use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
-//use AllAccessRMS\AllAccessEvents\Event;
-//use AllAccessRMS\AllAccessEvents\EventSite;
-//use AllAccessRMS\Accounts\Organizations\PartnerOrganization;
+
+use AllAccessRMS\Http\Requests\AllAccessEventFormRequest;
+use AllAccessRMS\AllAccessEvents\Attendee;
 
 class EventRegistrationController extends Controller
 {
@@ -32,25 +32,16 @@ class EventRegistrationController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
+    public function register(AllAccessEventFormRequest $request)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  Request  $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-        //
+        dd($request->input('attendee.organization_id'));
+        $event = $this->eventRepo->findById($request->input('event_id'));
+        Attendee::create(array(
+            'organization_id' => $request->input('organization'),
+            'firstname' =>  $request->input('attendee.firstname'),
+            'lastname'  =>  $request->input('attendee.lastname'),
+            'email'     =>  $request->input('attendee.email')
+        ));
     }
 
     /**
@@ -63,12 +54,17 @@ class EventRegistrationController extends Controller
     {
         $event = $this->eventRepo->findById($id);
         $eventsite = $event->eventsite()->first();
-        $organization = $this->orgRepo->findById($event->organization_id);
-        $organizationinfo = $organization->info()->first();
-        $partners = $event->partners()->get();
 
-        return view('public.events.show', compact('event', 'eventsite', 'organization',
-            'organizationinfo', 'partners'));
+        $hostOrg = $this->orgRepo->findById($event->organization_id);
+        $organizationinfo = $hostOrg->info()->first();
+
+        $partners = $event->partners()->get();
+        $partners->prepend($hostOrg);
+
+        $organizations = $partners->lists('name', 'id');
+
+        return view('public.events.show', compact('event', 'eventsite', 'hostOrg',
+            'organizationinfo', 'partners', 'organizations'));
     }
 
     /**

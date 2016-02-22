@@ -167,7 +167,7 @@
             <ul style="list-style-type: none">
                 @foreach ($partners as $partner)
                     <li>
-                        {!! Form::checkbox('partners', $partner->id, true) !!}
+                        {!! Form::checkbox('partners['.$partner->id.']', $partner->id, in_array($partner->id, $selectedPartnersId)) !!}
                         {{$partner->name}}
                     </li>
                 @endforeach

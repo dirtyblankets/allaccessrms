@@ -4,7 +4,7 @@ class PartnerOrganization extends Organization
 {
     public function events()
     {
-        return $this->belongToMany('AllAccessRMS\AllAccessEvents\Event')->withTimestamps();
+        return $this->belongToMany('AllAccessRMS\AllAccessEvents\Event');
     }
 
 }

@@ -5,8 +5,6 @@ use AllAccessRMS\Accounts\Organizations\Organization;
 
 class OrganizationRepository extends BaseRepository implements OrganizationRepositoryInterface {
 
-    private $id;
-
     public function __construct(Organization $organization)
     {
         $this->model = $organization;
@@ -61,6 +59,14 @@ class OrganizationRepository extends BaseRepository implements OrganizationRepos
     {
         return $this->model
                     ->where('parent_id', '=', $parent_id)
+                    ->get();
+    }
+
+    public function allTenantOrganizations($id)
+    {
+        return $this->model
+                    ->where('parent_id', $id)
+                    ->orWhere('id', $id)
                     ->get();
     }
 }

@@ -18,6 +18,12 @@ Route::get('event/show/{id}', [
     'uses'  =>  'EventRegistrationController@show'
 ]);
 
+// Event Registration
+Route::post('event/registration', [
+    'as'    =>  'event.registration',
+    'uses'  =>  'EventRegistrationController@register'
+]);
+
 // Authentication routes...
 Route::get('auth/login', [
     'as' => 'login',

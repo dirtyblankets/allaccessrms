@@ -11755,6 +11755,25 @@ p {
 .panel-information .panel-heading {
   background-color: #FFFFFF; }
 
+.panel-registration h1, .panel-registration .h1.information,
+.panel-registration h2, .panel-registration .h2.information,
+.panel-registration h3, .panel-registration .h3.information,
+.panel-registration h4, .panel-registration .h4.information,
+.panel-registration h5, .panel-registration .h5.information,
+.panel-registration h6, .panel-registration .h6.information {
+  margin: 0 0 10px; }
+
+.panel-registration p {
+  margin: 0 0 10px;
+  color: black;
+  text-align: left; }
+
+.panel-registration .panel-heading {
+  background-color: #FFFFFF; }
+
+.panel-registration label {
+  color: #000000; }
+
 a {
   color: #219AB3;
   transition: all .2s ease-in-out; }

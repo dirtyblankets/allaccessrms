@@ -1,12 +1,11 @@
 <?php namespace AllAccessRMS\Jobs;
 
-use AllAccessRMS\Accounts\Organizations\PartnerOrganization;
-use Laracasts\Flash\Flash;
-use Exception;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
+use AllAccessRMS\Accounts\Organizations\PartnerOrganization;
 use AllAccessRMS\Accounts\Organizations\Organization;
+use AllAccessRMS\Accounts\Organizations\OrganizationRepository;
 use AllAccessRMS\AllAccessEvents\Event;
 use AllAccessRMS\AllAccessEvents\EventSite;
 
@@ -29,12 +28,12 @@ class PublishEvent extends Job implements SelfHandling
 
     public function handle()
     {
-    	$event = $this->register();
+    	$event = $this->publishEvent();
 
         return $event;
     }
 
-    private function register()
+    private function publishEvent()
     {
 
         if ($this->event)
@@ -46,6 +45,7 @@ class PublishEvent extends Job implements SelfHandling
             $event = new Event();
         }
 
+        // 1.  Set Event Attributes and Publish
     	$event->title = $this->request->input('event.title');
     	$event->description = $this->request->input('event.description');
     	$event->start_date = $this->request->input('event.startdate');
@@ -55,7 +55,6 @@ class PublishEvent extends Job implements SelfHandling
     	$event->price = $this->request->input('event.cost');
     	$event->capacity = $this->request->input('event.capacity');
         $event->published = true;
-
         $this->organization->events()->save($event);
 
         $eventSite = $event->eventsite()->first();
@@ -63,6 +62,8 @@ class PublishEvent extends Job implements SelfHandling
         {
             $eventSite = new EventSite();
         }
+
+        // 2. Save Event Location Information
         $eventSite->name = $this->request->input('eventsite.name');
         $eventSite->address = $this->request->input('eventsite.address');
         $eventSite->city = $this->request->input('eventsite.city');
@@ -70,15 +71,21 @@ class PublishEvent extends Job implements SelfHandling
         $eventSite->zipcode = $this->request->input('eventsite.zipcode');
         
         $event->eventsite()->save($eventSite);
-        $event->save();
+        //$event->save();
 
-        foreach ($this->request->input('partner') as $partner_id)
+        // 3. Detach all Partner Organizations set for this Event
+        $newOrg = new Organization();
+        $orgRepo = new OrganizationRepository($newOrg);
+        $partnerOrganizations = $orgRepo->getPartnerOrganizations($this->organization->id);
+        foreach ($partnerOrganizations as $partnerOrg)
         {
-            if ($this->request->input('partner') === '1')
-            {
+            $event->partners()->detach($partnerOrg);
+        }
 
-            }
-            $partner = PartnerOrganization::find($partner_id);
+        // 4. Add select Partner Organizations to the Event
+        foreach ($this->request->input('partners') as $selectedPartners)
+        {
+            $partner = PartnerOrganization::find($selectedPartners);
             $event->partners()->attach($partner);
         }
 

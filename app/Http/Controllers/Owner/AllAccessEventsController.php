@@ -90,9 +90,11 @@ class AllAccessEventsController extends Controller
     {
         $event = $this->eventRepo->findById($id);
         $eventsite = $event->eventsite()->first();
-        $partners = $event->partners()->get();
+        $selectedPartners = $event->partners()->get();
+        $selectedPartnersId = $selectedPartners->lists('id')->toArray();
 
-        return view('events.edit', compact('event', 'eventsite', 'partners'));
+        $partners = $this->orgRepo->getPartnerOrganizations(Auth::user()->organization_id);
+        return view('events.edit', compact('event', 'eventsite', 'partners', 'selectedPartnersId'));
     }
 
     public function unpublish(Request $request, $id)

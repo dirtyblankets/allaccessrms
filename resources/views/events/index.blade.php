@@ -25,7 +25,12 @@
                 <tbody>
                 @foreach($events as $event)
                     <tr>
-                        <td><a href="{{ URL::route('owner::events.show', $event->id)}}">{{ $event->title }}</a></td>
+                        <td>
+                            <a href="{{ URL::route('owner::events.show', $event->id)}}">{{ $event->title }}</a>
+                            @if ($event->has_ended)
+                            <span style="color: red; text-align: right">Ended!</span>
+                            @endif
+                        </td>
                         <td>{{ $event->start_date }}</td>
                         <td>{{ $event->end_date }}</td>
                         <td>{{ $event->start_time }}</td>

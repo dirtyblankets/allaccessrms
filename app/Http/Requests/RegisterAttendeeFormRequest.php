@@ -20,7 +20,7 @@ class RegisterAttendeeFormRequest extends Request
     public function rules()
     {
         return [
-            'attendee.email'    =>  'required|email|unique:attendees,id',
+            'attendee.email'    =>  'required|email|unique:attendees,email,'.$this->get('event_id'),
             'attendee.firstname'    =>  'required',
             'attendee.lastname' =>  'required'
         ];

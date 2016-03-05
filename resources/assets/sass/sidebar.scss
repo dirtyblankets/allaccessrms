@@ -1,15 +1,15 @@
 #sidebar-wrapper {
 	background-color: $sidebar-dark-bg;
 	position: fixed;
-    width: $sidebar-width;
-    height: 100%;
-    top: 30px;
-
+  width: $sidebar-width;
+  height: 100%;
+  top: 30px;
+  z-index: 1030;
   	.sidebar-nav > li {
-		margin-top: 15px;
-		margin-left: -7px;
-		list-style: none;
-        text-align: center;
+		  margin-top: 15px;
+		  margin-left: -7px;
+		  list-style: none;
+      text-align: center;
   	}
 
   	.sidebar-nav > li > ul > li {
@@ -18,17 +18,42 @@
 
     .sidebar-nav > li > a {
       color: #FFFFFF;
-      display: block;
     }
 
     .sidebar-nav > li > a:hover {
       color: #dcdcdc;
       background-color: darken($sidebar-dark-bg, 3%);
+      background:rgba(0,0,0,0.8);
+      display: inline-block;
+      width: 200px;
+      text-align: left;
+      margin:0;
+      border-radius: 0px 4px 4px 0px;
+      -moz-border-radius: 0px 4px 4px 0px;
+      -webkit-border-radius: 0px 4px 4px 0px;
+      span.nav-text {
+        display: inline-block;
+        font-size: 1em;
+        text-align: center;
+        margin-left: 20px;
+      }
     }
+
+    /*
+    .sidebar-nav > li:nth-child(2) > a:hover {
+      border-radius: 0px 4px 4px 0px;
+      -moz-border-radius: 0px 4px 4px 0px;
+      -webkit-border-radius: 0px 4px 4px 0px;
+    }
+    */
 
     .active a {
       color: #4eae4c;
       background-color: darken($sidebar-dark-bg, 3%);
+    }
+
+    .nav-text {
+      display: none;
     }
 }
 

@@ -162,6 +162,11 @@ Route::group(['as'=>'owner::', 'middleware'=>['auth', 'acl'], 'is'=>'owner'], fu
         'as'    =>  'events.destroy', 
         'uses' => 'Owner\AllAccessEventsController@destroy',
     ]);
+
+    Route::post('events/addgueststoview', [
+        'as'    =>  'events.addgueststoview',
+        'uses'  =>  'Owner\AllAccessEventsController@addgueststoview',
+    ]);
 });
 
 

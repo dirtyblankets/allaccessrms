@@ -12,9 +12,78 @@
                 <table class="table table-condensed table-striped table-bordered table-hover no-margin">
                     <thead>
                     <tr>
-                        <th style="width:20%">Last Name</th>
-                        <th style="width:20%">First Name</th>
-                        <th style="width:20%">Email</th>
+                        <th style="width:20%">
+                            Last Name
+                            @if ($sortby=='lastname' && $order=='asc') 
+                            {!!
+                                HTML::decode(link_to_action(
+                                    'Owner\UserController@index',
+                                    '<i class="fa fa-fw fa-caret-down"></i>',
+                                    [
+                                        'sortby'=>'lastname',
+                                        'order'=>'desc'
+                                    ]))
+                            !!}
+                            @else
+                            {!!
+                                HTML::decode(link_to_action(
+                                    'Owner\UserController@index',
+                                    '<i class="fa fa-fw fa-caret-up"></i>',
+                                    [
+                                        'sortby'=>'lastname',
+                                        'order'=>'asc'
+                                    ]))
+                            !!}
+                            @endif
+                        </th>
+                        <th style="width:20%">
+                            First Name
+                            @if ($sortby=='firstname' && $order=='asc') 
+                            {!!
+                                HTML::decode(link_to_action(
+                                    'Owner\UserController@index',
+                                    '<i class="fa fa-fw fa-caret-down"></i>',
+                                    [
+                                        'sortby'=>'firstname',
+                                        'order'=>'desc'
+                                    ]))
+                            !!}
+                            @else
+                            {!!
+                                HTML::decode(link_to_action(
+                                    'Owner\UserController@index',
+                                    '<i class="fa fa-fw fa-caret-up"></i>',
+                                    [
+                                        'sortby'=>'firstname',
+                                        'order'=>'asc'
+                                    ]))
+                            !!}
+                            @endif
+                        </th>
+                        <th style="width:20%">
+                            Email
+                            @if ($sortby=='email' && $order=='asc') 
+                            {!!
+                                HTML::decode(link_to_action(
+                                    'Owner\UserController@index',
+                                    '<i class="fa fa-fw fa-caret-down"></i>',
+                                    [
+                                        'sortby'=>'email',
+                                        'order'=>'desc'
+                                    ]))
+                            !!}
+                            @else
+                            {!!
+                                HTML::decode(link_to_action(
+                                    'Owner\UserController@index',
+                                    '<i class="fa fa-fw fa-caret-up"></i>',
+                                    [
+                                        'sortby'=>'email',
+                                        'order'=>'asc'
+                                    ]))
+                            !!}
+                            @endif
+                        </th>
                         <th style="width:15%">Organization</th>
                         <th>Role</th>
                         <th style="width:5%">Active</th>

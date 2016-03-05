@@ -3,12 +3,13 @@
 use Exception;
 use Laracasts\Flash\Flash as Flash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Log;
 
-use AllAccessRMS\Accounts\Users\Role;
 use AllAccessRMS\Http\Requests;
 use AllAccessRMS\Http\Controllers\Controller;
 //use AllAccessRMS\Http\Controllers\Auth;
+use AllAccessRMS\Accounts\Users\Role;
 use AllAccessRMS\Accounts\Users\UserRepositoryInterface;
 
 class UserController extends Controller
@@ -29,8 +30,19 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->users->findAllPaginated();
-        return view('users/index', compact('users'));
+        $sortby = Input::get('sortby');
+        $order = Input::get('order');
+
+        if ($sortby && $order) 
+        {
+            $users = $this->users->findAllPaginatedSorted($sortby, $order);       
+        }
+        else
+        {
+            $users = $this->users->findAllPaginated();
+        }
+
+        return view('users/index', compact('users', 'sortby', 'order'));
     }
 
     /**

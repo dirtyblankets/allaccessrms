@@ -1,6 +1,6 @@
 <?php namespace AllAccessRMS\AllAccessEvents;
 
-use Carbon\Carbon;
+use AllAccessRMS\Core\BaseDateTime;
 use AllAccessRMS\Core\BaseRepository;
 
 class EventRepository extends BaseRepository implements EventRepositoryInterface {
@@ -24,7 +24,7 @@ class EventRepository extends BaseRepository implements EventRepositoryInterface
     public function getActiveEvents()
     {
         return $this->model
-                    ->where('end_date', '>=', Carbon::now())
+                    ->where('end_date', '>=', BaseDateTime::now())
                     ->where('published', true)
         			->get();
     }

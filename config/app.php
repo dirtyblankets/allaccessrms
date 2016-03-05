@@ -146,6 +146,7 @@ return [
         Kodeine\Acl\AclServiceProvider::class,
         Propaganistas\LaravelPhone\LaravelPhoneServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
         /*
          * Application Service Providers...
          */

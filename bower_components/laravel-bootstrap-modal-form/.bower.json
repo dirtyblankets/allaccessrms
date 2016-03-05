@@ -1,0 +1,13 @@
+{
+  "name": "laravel-bootstrap-modal-form",
+  "homepage": "https://github.com/jerseymilker/laravel-bootstrap-modal-form",
+  "_release": "eb82e687a1",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "eb82e687a1699da31672eedd54c3d51b360908e8"
+  },
+  "_source": "git://github.com/jerseymilker/laravel-bootstrap-modal-form.git",
+  "_target": "*",
+  "_originalSource": "jerseymilker/laravel-bootstrap-modal-form"
+}

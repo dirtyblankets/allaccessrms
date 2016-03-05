@@ -17,7 +17,30 @@
                 <table class="table table-condensed table-striped table-bordered table-hover no-margin">
                     <thead>
                     <tr>
-                        <th style="width:20%">Name</th>
+                        <th style="width:20%">
+                            Name
+                            @if ($sortby=='name' && $order=='asc') 
+                            {!!
+                                HTML::decode(link_to_action(
+                                    'Owner\OrganizationController@index',
+                                    '<i class="fa fa-fw fa-caret-down"></i>',
+                                    [
+                                        'sortby'=>'name',
+                                        'order'=>'desc'
+                                    ]))
+                            !!}
+                            @else
+                            {!!
+                                HTML::decode(link_to_action(
+                                    'Owner\OrganizationController@index',
+                                    '<i class="fa fa-fw fa-caret-up"></i>',
+                                    [
+                                        'sortby'=>'name',
+                                        'order'=>'asc'
+                                    ]))
+                            !!}
+                            @endif
+                        </th>
                         <th>Address</th>
                         <th>City</th>
                         <th>State</th>
@@ -32,11 +55,19 @@
                     @foreach($organizations as $organization)
                         <tr>
                             <td>{{ $organization->name }}</td>
+                            @if(!is_null($organization->info))
                             <td>{{ $organization->info->address }}</td>
                             <td>{{ $organization->info->city }}</td>
                             <td>{{ $organization->info->state }}</td>
                             <td>{{ $organization->info->zipcode }}</td>
                             <td>{{ $organization->info->telephone }}</td>
+                            @else
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            @endif
                             @if (Auth::user()->is('owner'))
                             <td><a href="#"><img src={{asset('images/edit_user.gif')}} alt="Edit"></a></td>
                             @endif

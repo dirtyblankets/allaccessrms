@@ -22,12 +22,12 @@ class AllAccessEventFormRequest extends Request
     public function rules()
     {
         return [
-            'event.title' =>  'required',
+/*            'event.title' =>  'required',
             'event.startdate'  =>  'required|date|after:yesterday',
             'event.enddate'  =>  'required|date|after:' . Carbon::parse($this->startdate)->subDay()->toDateString(),
             'event.cost'    =>  'required|dollar_amount',
             'event.starttime' => 'required|date_format:H:i a',
-            'event.endtime' =>  'required|date_format:H:i a'
+            'event.endtime' =>  'required|date_format:H:i a'*/
         ];
     }
 

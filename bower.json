@@ -13,6 +13,7 @@
     "tests"
   ],
   "dependencies": {
-    "laravel-bootstrap-modal-form": "jerseymilker/laravel-bootstrap-modal-form"
+    "laravel-bootstrap-modal-form": "jerseymilker/laravel-bootstrap-modal-form",
+    "jquery.maskedinput": "~1.4.1"
   }
 }

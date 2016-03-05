@@ -13,9 +13,9 @@
                     <div class="col-md-2 col-md-offset-2 griditem" style="color: black; background-color: white;">
                         <div class="panel-body">
                             <h3>{{ $event->title }}</h3>
-                            <hr class="divider">
-                            <p>{{ $event->description  }}</p>
                             <a href="{{ URL::route('event.show', $event->id) }}">View</a>
+                            <hr class="divider">
+
                         </div>
                     </div>
                 @endforeach

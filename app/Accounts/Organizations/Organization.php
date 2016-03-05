@@ -38,7 +38,6 @@ class Organization extends BaseModel
         return $this->hasOne(OrganizationInfo::class);
     }
 
-    
     public function setNameAttribute($name)
     {
         $this->attributes['name'] = ucfirst($name);

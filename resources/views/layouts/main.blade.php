@@ -20,11 +20,6 @@
             @include("layouts.content")
 		</div>
 		@include("partials.confirm_delete")
-    <script src="/assets/vendor/jquery/jquery.min.js"></script>
-    <script src="/assets/vendor/moment/min/moment.min.js"></script>
-    <script src="/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/assets/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
-	<script src="/js/app.js"></script>
+        @include("partials.footer")
 	</body>
 </html>

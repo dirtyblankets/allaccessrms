@@ -16,7 +16,7 @@
     </h2> 
     <ol class="breadcrumb">
         <li>
-            <a href={{ URL::previous() }}><i class="fa fa-calendar"></i> {{ $event->title }}</a>
+            <a href={{ URL::route('owner::events.show', $event->id)}}><i class="fa fa-calendar"></i> {{ $event->title }}</a>
         </li>
         <li class="active">
             Edit

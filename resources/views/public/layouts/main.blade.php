@@ -18,6 +18,7 @@
 		</div>
 	</footer>
 	<script src="/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/assets/vendor/maskedinput/jquery.maskedinput.js"></script>
 	<script src="/assets/vendor/moment/min/moment.min.js"></script>
 	<script src="/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="/assets/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>

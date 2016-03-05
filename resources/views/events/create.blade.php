@@ -14,6 +14,7 @@
 <!-- Content -->
 @include('partials.message')
 @include('partials.errors')
+<div id="openModal" data-open-modal="{{ old('openModal') }}" ></div>
 <form class='form form-horizontal' method="POST" action="/events/store">
     {!! csrf_field() !!}
     <div class="panel panel-default">
@@ -112,22 +113,29 @@
             <h4><i class="fa fa-fw fa-map"></i> Event Location</h4>
         </div>
         <div class="panel-body">
-            <div class="col-md-12">
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label>Google Address Search</label>
+                    <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-fw fa-search"></i></span>
+                        <input class="form-control" id="searchGoogleMapField" type="text" size="50" onFocus="geolocate()">
+                    </div>
+                </div>
                 <div class="form-group">
                     <label>Venue Name</label>
-                        <input type="text" placeholder="Venue Name" class="form-control" name="eventsite[name]" value="{{ old('eventsite.name') }}"/>
+                        <input type="text" id="establishment" placeholder="Venue Name" class="form-control" name="eventsite[name]" value="{{ old('eventsite.name') }}"/>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Address</label>
-                                <input type="text" placeholder="1234 AllAccessRMS St." class="form-control" name="eventsite[address]" value="{{ old('eventsite.address') }}"/>
+                                <input type="text" id="street_address" placeholder="1234 AllAccessRMS St." class="form-control" name="eventsite[address]" value="{{ old('eventsite.address') }}"/>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>City</label>
-                                <input type="text" placeholder="City" class="form-control" name="eventsite[city]" value="{{ old('eventsite.city') }}"/>
+                                <input type="text" id="locality" placeholder="City" class="form-control" name="eventsite[city]" value="{{ old('eventsite.city') }}"/>
                         </div>
                     </div>
                 </div>
@@ -135,13 +143,13 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label>State</label>
-                                <input type="text" placeholder="State" class="form-control" name="eventsite[state]" value="{{ old('eventsite.state') }}"/>
+                            {!! Form::select('eventsite[state]', $states, null, array('id'=>'administrative_area_level_1', 'class'=>'form-control')) !!}
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label>Zipcode</label>
-                                <input type="text" placeholder="Zipcode" class="form-control" name="eventsite[zipcode]" value="{{ old('eventsite.zipcode') }}"/>
+                                <input type="text" id='postal_code' placeholder="Zipcode" class="form-control" name="eventsite[zipcode]" value="{{ old('eventsite.zipcode') }}"/>
                         </div>
                     </div>
                 </div>
@@ -153,20 +161,77 @@
             <h4><i class="fa fa-fw fa-building"></i> Participating Organizations</h4>
         </div>
         <div class="panel-body">
-            <div class="checkboxlist">
-                <ul style="list-style-type:none">
-                    @foreach ($partners as $partner)
-                    <li>
-                        <input tabindex="1" type="checkbox" name="partner[]" id="{{$partner}}" value="{{$partner->id}}">
+            <div class="col-md-12">
+                @foreach ($partners as $partner)
+                <div class="checkbox">
+                    <label>
+                        {!! Form::checkbox('partners['.$partner->id.']', $partner->id) !!}
                         {{ $partner->name }}
-                    </li>
-                    @endforeach
-                </ul>
+                    </label>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4><i class="fa fa-fw fa-cog"></i> Additional Settings</h4>
+        </div>
+        <div class="panel-body">
+            <div class="col-md-12">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="publicEventRadioBtn" value="publicEventRadio" checked>
+                        Public: Registration available to the public.
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="privateEventRadioBtn" value="privateEventRadio">
+                        Private: Registration available only to those on the invitation list.
+                    </label>
+                </div>
+                <div id="invite_section">
+                    <div class="panel inner-panel">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#invite_modal"><i class="fa fa-fw fa-plus"></i> Add Guests</button> 
+                                </div>
+                            </div> 
+                            <hr class="divider">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @if ($guests->count() > 0)
+                                    <div class="table-responsive">
+                                        <table class="table table-condensed table-striped table-bordered table-hover no-margin">
+                                            <thead>
+                                            <tr>
+                                                <th>Email</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($guests as $guest)                                              
+                                                    <tr>
+                                                        <td>{{ $guest }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    @endif
+                                </div> 
+                            </div> 
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-sm btn-primary btn-toggle-readonly">Submit</button>
+        <button type="submit" name="save" class="btn btn-sm btn-success btn-toggle-readonly">Save</button>
+        <button type="submit" namve="publish" class="btn btn-sm btn-primary btn-toggle-readonly">Publish</button>
     </div>
 </form>
+@include('events.invite_modal')
 @stop

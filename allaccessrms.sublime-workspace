@@ -555,7 +555,7 @@
 			"file": "resources/views/layouts/main.blade.php",
 			"settings":
 			{
-				"buffer_size": 1575,
+				"buffer_size": 1652,
 				"line_ending": "Unix"
 			}
 		},
@@ -1041,7 +1041,7 @@
 					"file": "resources/views/layouts/main.blade.php",
 					"settings":
 					{
-						"buffer_size": 1575,
+						"buffer_size": 1652,
 						"regions":
 						{
 						},

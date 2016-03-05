@@ -16,6 +16,15 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface {
         $this->auth_id = Session::get('self_id');
     }
 
+    public function findAllPaginatedSorted($sortby, $order, $perPage = 20)
+    {
+        return $this->model
+                    ->where('id', '!=', 1)
+                    ->where('id', '!=', $this->auth_id)
+                    ->orderBy($sortby, $order)
+                    ->paginate($perPage);
+    }
+
     public function findAllPaginated($perPage = 20)
     {
         return $this->model

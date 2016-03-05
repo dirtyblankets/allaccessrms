@@ -2,7 +2,7 @@
 @section('content')
 <section class="content-header">
     <h2 class="page-header">
-        <i class="fa fa-fw fa-calendar"></i>Show Event <a href="{{ URL::route('owner::events.edit', $event->id)  }}" class="btn btn-sm btn-info">Edit</a>
+        <i class="fa fa-fw fa-calendar"></i>Preview Event <a href="{{ URL::route('owner::events.edit', $event->id)  }}" class="btn btn-sm btn-info">Edit</a>
     </h2>
     <ol class="breadcrumb">
         <li>

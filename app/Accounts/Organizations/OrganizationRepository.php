@@ -36,6 +36,14 @@ class OrganizationRepository extends BaseRepository implements OrganizationRepos
                     ->paginate($perPage);
     }
 
+    public function findAllPaginatedSorted($sortby, $order, $perPage = 20)
+    {
+        return $this->model
+                    ->where('id', '!=', 1)
+                    ->orderBy($sortby, $order)
+                    ->paginate($perPage);
+    }
+
     /**
      * @param $name
      * @return collection

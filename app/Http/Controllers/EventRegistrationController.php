@@ -1,13 +1,11 @@
 <?php namespace AllAccessRMS\Http\Controllers;
 
-use Illuminate\Http\Request;
+use AllAccessRMS\Http\Requests\RegisterAttendeeFormRequest;
 
-use AllAccessRMS\Http\Requests;
 use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
 use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
 
-use AllAccessRMS\Http\Requests\AllAccessEventFormRequest;
-use AllAccessRMS\AllAccessEvents\Attendee;
+use AllAccessRMS\Jobs\AllAccessEvents\RegisterAttendee;
 
 class EventRegistrationController extends Controller
 {
@@ -32,16 +30,13 @@ class EventRegistrationController extends Controller
 
     }
 
-    public function register(AllAccessEventFormRequest $request)
+    public function register(RegisterAttendeeFormRequest $request)
     {
-        dd($request->input('attendee.organization_id'));
-        $event = $this->eventRepo->findById($request->input('event_id'));
-        Attendee::create(array(
-            'organization_id' => $request->input('organization'),
-            'firstname' =>  $request->input('attendee.firstname'),
-            'lastname'  =>  $request->input('attendee.lastname'),
-            'email'     =>  $request->input('attendee.email')
-        ));
+        $job = new RegisterAttendee($request);
+        $this->dispatch($job);
+
+        Flash::success('Thank you! You have been registered! A confirmation email have been sent.');
+        return redirect()->back();
     }
 
     /**

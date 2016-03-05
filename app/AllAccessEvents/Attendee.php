@@ -24,7 +24,9 @@ class Attendee extends BaseModel
 {
     protected $table = 'attendees';
 
-    protected $fillables = [
+    protected $fillable = [
+        'event_id',
+        'organization_id',
         'firstname',
         'lastname',
         'email',

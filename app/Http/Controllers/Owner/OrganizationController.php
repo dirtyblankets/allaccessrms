@@ -1,5 +1,8 @@
 <?php namespace AllAccessRMS\Http\Controllers\Owner;
 
+use Illuminate\Http\Request; 
+use Illuminate\Support\Facades\Input;
+
 use Log;
 use Exception;
 use AllAccessRMS\Exceptions\Handler;
@@ -24,10 +27,18 @@ class OrganizationController extends Controller {
      */
     public function index()
     {
-        
-        $organizations = $this->organizationsRepository->findAllPaginated();
+        $sortby = Input::get('sortby');
+        $order = Input::get('order');
+        if ($sortby && $order)
+        {
+            $organizations = $this->organizationsRepository->findAllPaginatedSorted($sortby, $order);
+        } 
+        else 
+        {
+            $organizations = $this->organizationsRepository->findAllPaginated();
+        }
 
-        return view('organizations.index', compact('organizations'));
+        return view('organizations.index', compact('organizations', 'sortby', 'order'));
     }
 
     /**

@@ -3,7 +3,7 @@
 use Exception;
 use Carbon\Carbon;
 use AllAccessRMS\Core\BaseModel;
-
+use AllAccessRMS\Core\BaseDateTime;
 /**
  * AllAccessRMS\AllAccessEvents\Event
  *
@@ -27,6 +27,8 @@ use AllAccessRMS\Core\BaseModel;
 class Event extends BaseModel {
 	
 	protected $table = 'events';
+
+    protected $appends = ['has_ended'];
 
 	protected $fillable = [	'title', 'description', 'start_time', 'end_time',
 							'start_date', 'end_date', 'contact_phone', 'price', 
@@ -116,4 +118,8 @@ class Event extends BaseModel {
 		return boolval($this->attributes['published']);
 	}
 
+    public function getHasEndedAttribute()
+    {
+        return Carbon::parse($this->attributes['end_date']) <= BaseDateTime::now();
+    }
 }

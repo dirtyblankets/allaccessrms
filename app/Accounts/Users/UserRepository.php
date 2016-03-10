@@ -5,31 +5,27 @@ use AllAccessRMS\Core\BaseRepository;
 
 class UserRepository extends BaseRepository implements UserRepositoryInterface {
 
-    protected $organization_id;
-
-    protected $auth_id;
 
     public function __construct(User $user)
     {
-        $this->model = $user;
-        $this->organization_id = Session::get('tenant_id');
-        $this->auth_id = Session::get('self_id');
+        parent::__construct($user);
     }
 
     public function findAllPaginatedSorted($sortby, $order, $perPage = 20)
     {
         return $this->model
                     ->where('id', '!=', 1)
-                    ->where('id', '!=', $this->auth_id)
+                    ->where('id', '!=', $this->userId)
                     ->orderBy($sortby, $order)
                     ->paginate($perPage);
     }
 
     public function findAllPaginated($perPage = 20)
     {
+ 
         return $this->model
                     ->where('id', '!=', 1)
-                    ->where('id', '!=', $this->auth_id)
+                    ->where('id', '!=', $this->userId)
                     ->orderBy('lastname')
                     ->paginate($perPage);
     }
@@ -39,7 +35,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface {
 
         return $this->model
                     ->where('id', '!=', 1)
-                    ->where('organization_id', $this->organization_id)
+                    ->where('organization_id', $this->userOrganizationId)
                     ->where('email', '=', $email)
                     ->firstOrFail();
     }

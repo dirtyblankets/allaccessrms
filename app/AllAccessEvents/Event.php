@@ -30,9 +30,20 @@ class Event extends BaseModel {
 
     protected $appends = ['has_ended'];
 
-	protected $fillable = [	'title', 'description', 'start_time', 'end_time',
-							'start_date', 'end_date', 'contact_phone', 'price', 
-							'capacity', 'published', 'private'];
+	protected $fillable = [	
+		'organization_id',
+		'title', 
+		'description', 
+		'start_time', 
+		'end_time',
+		'start_date', 
+		'end_date', 
+		'contact_phone', 
+		'price', 
+		'capacity', 
+		'published', 
+		'private'
+	];
 
 	public function attendee()
 	{
@@ -87,30 +98,18 @@ class Event extends BaseModel {
 
 	public function getStartDateAttribute()
 	{
-		try
+		if ($this->attributes['start_date'] != '0000-00-00')
 		{
-			if ($this->attributes['start_date'] != '0000-00-00')
-			{
-				return Carbon::parse($this->attributes['start_date'])->format('m/d/Y');
-			}
-		}
-		catch (Exception $e)
-		{
+			return Carbon::parse($this->attributes['start_date'])->format('m/d/Y');
 		}
 	}
 
 	public function getEndDateAttribute()
 	{
-		try
+		if ($this->attributes['end_date'] != '0000-00-00')
 		{
-			if ($this->attributes['end_date'] != '0000-00-00')
-			{
-				return Carbon::parse($this->attributes['end_date'])->format('m/d/Y');
-			}
-		}
-		catch (Exception $e)
-		{
-		}
+			return Carbon::parse($this->attributes['end_date'])->format('m/d/Y');
+		}		
 	}
 
 	public function getPublishedAttribute()

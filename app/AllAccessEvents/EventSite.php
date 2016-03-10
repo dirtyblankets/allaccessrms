@@ -8,8 +8,15 @@ class EventSite extends BaseModel
 {
 	protected $table = 'eventsites';
 
-	protected $fillable = [	'name', 'address', 'city', 'state',
-							'zipcode', 'country', 'price'];
+	protected $fillable = [	
+		'event_id',
+		'name', 
+		'address', 
+		'city', 
+		'state',
+		'zipcode', 
+		'country', 
+		'price'];
 
 	public function event()
 	{

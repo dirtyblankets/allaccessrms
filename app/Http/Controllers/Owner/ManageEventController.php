@@ -12,25 +12,30 @@ use AllAccessRMS\Core\Utilities\States;
 use AllAccessRMS\AllAccessEvents\Event;
 use AllAccessRMS\Accounts\Organizations\Organization;
 use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
-use AllAccessRMS\Http\Requests\AllAccessEventFormRequest;
+use AllAccessRMS\Http\Requests\CreateEventFormRequest;
 use AllAccessRMS\Http\Controllers\Controller;
 use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
-
+use AllAccessRMS\AllAccessEvents\EventSiteRepositoryInterface;
 
 use AllAccessRMS\Jobs\AllAccessEvents\CreateEvent;
 use AllAccessRMS\Jobs\AllAccessEvents\UpdateEvent;
 
-class AllAccessEventsController extends Controller
+class ManageEventController extends Controller
 {
     private $eventRepo;
 
+    private $eventSiteRepo;
+
     private $orgRepo;
 
-    public function __construct(EventRepositoryInterface $events, OrganizationRepositoryInterface $organization)
+    public function __construct(EventRepositoryInterface $eventRepo, 
+                                    EventSiteRepositoryInterface $eventSiteRepo, 
+                                        OrganizationRepositoryInterface $orgRepo)
     {
         $this->beforeFilter('auth');
-        $this->eventRepo = $events;
-        $this->orgRepo = $organization;
+        $this->eventRepo = $eventRepo;
+        $this->orgRepo = $orgRepo;
+        $this->eventSiteRepo = $eventSiteRepo;
     }
     /**
      * Display a listing of the resource.
@@ -53,12 +58,11 @@ class AllAccessEventsController extends Controller
      */
     public function create()
     {
-        $guests = collect([]);
-        $states = States::all();
-        $partners = $this->orgRepo->getPartnerOrganizations(Auth::user()->organization_id);
-        $partners = $partners->sortBy('name');
+     
+        $event = $this->eventRepo->createEmptyEvent(Auth::user()->organization_id);
+        $eventSite = $this->eventSiteRepo->createEmptyEventSite($event->id); 
 
-        return view('events/create', compact('partners', 'states', 'guests'));
+        return redirect()->route('owner::events.show', [$event->id]);
     }
 
     /**
@@ -105,7 +109,7 @@ class AllAccessEventsController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(AllAccessEventFormRequest $request)
+    public function store(CreateEventFormRequest $request)
     {
         $organization = Organization::where('id', Auth::user()->organization_id)->first();
 
@@ -125,8 +129,14 @@ class AllAccessEventsController extends Controller
     public function show($id)
     {
         $event = $this->eventRepo->findById($id);
+        $eventsite = $event->eventsite()->first();
+        $selectedPartners = $event->partners()->get();
+        $selectedPartnersId = $selectedPartners->lists('id')->toArray();
 
-        return view('events.show', ['event' => $event]);
+        $guests = collect([]);
+        $states = States::all();
+        $partners = $this->orgRepo->getPartnerOrganizations(Auth::user()->organization_id);
+        return view('events.show', compact('event', 'eventsite', 'partners', 'selectedPartnersId', 'states', 'guests'));
     }
 
     /**
@@ -166,14 +176,20 @@ class AllAccessEventsController extends Controller
     {
         $event = $this->eventRepo->findById($id);
 
-        if (!$event->published)
+        if (Input::get('save'))
         {
-            $job = new UpdateEvent($request, $event);
-            $this->dispatch($job);
+            if (!$event->published)
+            {
+                $job = new UpdateEvent($request, $event);
+                $this->dispatch($job);
 
-            Flash::success('Event updated!');
-            return redirect()->back();
-        }        
+                return redirect()->back();
+            }  
+        }
+        else if (Input::get('publish'))
+        {
+
+        }      
     }
 
     /**

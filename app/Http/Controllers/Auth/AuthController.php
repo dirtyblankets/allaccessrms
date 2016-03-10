@@ -1,14 +1,15 @@
 <?php namespace AllAccessRMS\Http\Controllers\Auth;
 
 use Auth;
+use Session;
 use Validator;
+
+use Illuminate\Support\Facades\Input;
 use AllAccessRMS\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-
-use Laracasts\Flash\Flash;
 
 class AuthController extends Controller
 {
@@ -45,21 +46,31 @@ class AuthController extends Controller
 
         if ($validator->fails())
         {
-            Flash::overlay("Incorrect Login!");
             return redirect()
                 ->back()
                 ->withErrors($validator)
-                ->withInput(\Input::except('password'));
+                ->withInput($request->except('password'));
         }
         else
         {
-            $email = \Input::get('email');
-            $password = \Input::get('password');
+            $email =  $request->input('email');
+            $password = $request->input('password');
 
             if (Auth::attempt(array('email' => $email, 'password' => $password, 'active' => 1), true))
             {
-                session(array(  'organization_id' =>  Auth::user()->organization_id,
-                                'self_id'   =>  Auth::user()->id));
+                $parentOrg = Auth::user()->organization->parent; 
+                if ( ! is_null($parentOrg)) {
+                    $parentOrgId = $parentOrg->id; 
+                } else {
+                    $parentOrgId = null;
+                }
+
+                session(array(  
+                    'USER_ID'   =>  Auth::user()->id,
+                    'USER_ORGANIZATION_ID'  =>  Auth::user()->organization_id,
+                    'USER_PARENT_ORGANIZATION'   =>  $parentOrgId 
+                    ));
+
                 if (Auth::user()->is('owner'))
                 {
                     return redirect()->route('owner::' . $this->redirectPath);
@@ -70,7 +81,7 @@ class AuthController extends Controller
             
             return redirect()
                 ->back()
-                ->withInput(\Input::except('password'))
+                ->withInput($request->except('password'))
                 ->withErrors('Invalid Credentials!');
         }
 
@@ -79,7 +90,7 @@ class AuthController extends Controller
     public function getLogout()
     {
         Auth::logout();
-        \Session::flush();
+        Session::flush();
         return redirect($this->loginPath);
     }
 

@@ -2,6 +2,10 @@ $(document).ready(function () {
 
 	init();
 
+	$(function () {
+  		$('[data-toggle="tooltip"]').tooltip()
+	});
+
 	$('#flash-overlay-modal').modal();
 
     if ($('#openModal').data('open-modal')) {        
@@ -13,6 +17,8 @@ $(document).ready(function () {
 
 	// Handle Events Create and Edit Page
 	FormatEventsPage();
+
+	HandlePanelCollapse();
 
 	ConfirmDelete();
 
@@ -40,9 +46,9 @@ function TimePicker() {
 	});
 }
 
-function HideShowOnRadioBtn(hideValue, showValue, targetSection) {
+function HideShowOnRadioBtn(radioName, hideValue, showValue, targetSection) {
 
-	 $('input[type=radio][name=optionsRadios]').change(function() {
+	 $('input[type=radio][name=' + radioName + ']').change(function() {
         if (this.value == hideValue) {
         	$(targetSection).hide();   
         }
@@ -85,6 +91,22 @@ function FormatEventsPage(){
 		$('.btn-toggle-readonly').prop('disabled', false);				
 	}
 
-	HideShowOnRadioBtn("publicEventRadio", "privateEventRadio", "#invite_section");
+	HideShowOnRadioBtn("eventType" ,"public", "private", "#invite_section");
 
+}
+
+function HandlePanelCollapse()
+{
+	$(document).on('click', '.panel-heading span.clickable', function(e){
+	    var $this = $(this);
+		if(!$this.hasClass('panel-collapsed')) {
+			$this.parents('.panel').find('.panel-body').slideUp();
+			$this.addClass('panel-collapsed');
+			$this.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+		} else {
+			$this.parents('.panel').find('.panel-body').slideDown();
+			$this.removeClass('panel-collapsed');
+			$this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+		}
+	})
 }

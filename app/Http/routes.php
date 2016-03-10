@@ -125,47 +125,47 @@ Route::group(['as'=>'owner::', 'middleware'=>['auth', 'acl'], 'is'=>'owner'], fu
     //Events routes
     Route::get('events', [
         'as' => 'events',
-        'uses' => 'Owner\AllAccessEventsController@index',
+        'uses' => 'Owner\ManageEventController@index',
     ]);
 
     Route::get('events/create', [
         'as' => 'events.create',
-        'uses' => 'Owner\AllAccessEventsController@create',
+        'uses' => 'Owner\ManageEventController@create',
     ]);
 
     Route::get('events/{id}/', [
         'as' => 'events.show',
-        'uses' => 'Owner\AllAccessEventsController@show',
+        'uses' => 'Owner\ManageEventController@show',
     ]);
 
     Route::get('events/{id}/edit', [
         'as' => 'events.edit',
-        'uses' => 'Owner\AllAccessEventsController@edit',
+        'uses' => 'Owner\ManageEventController@edit',
     ]);
 
     Route::patch('events/{id}', [
         'as'    =>  'events.unpublish',
-        'uses'   =>  'Owner\AllAccessEventsController@unpublish',
+        'uses'   =>  'Owner\ManageEventController@unpublish',
     ]);
 
     Route::put('events/{id}', [
         'as' => 'events.update',
-        'uses' => 'Owner\AllAccessEventsController@update',
+        'uses' => 'Owner\ManageEventController@update',
     ]);
 
     Route::post('events/store', [
         'as' => 'events.store',
-        'uses' => 'Owner\AllAccessEventsController@store',
+        'uses' => 'Owner\ManageEventController@store',
     ]);
 
     Route::delete('events/{id}', [
         'as'    =>  'events.destroy', 
-        'uses' => 'Owner\AllAccessEventsController@destroy',
+        'uses' => 'Owner\ManageEventController@destroy',
     ]);
 
     Route::post('events/addgueststoview', [
         'as'    =>  'events.addgueststoview',
-        'uses'  =>  'Owner\AllAccessEventsController@addgueststoview',
+        'uses'  =>  'Owner\ManageEventController@addgueststoview',
     ]);
 });
 

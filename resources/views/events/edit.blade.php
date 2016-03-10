@@ -1,10 +1,13 @@
 @extends('layouts.main')
 @section('content')
+{!! Form::open(array('route' => array('owner::events.update', $event->id), 'method' => 'PUT'))!!}
 <section class="content-header">
     <h2 class="page-header">                 
         <div class='button-container'>
-                <i class="fa fa-fw fa-calendar"></i>Edit Event     
+                <i class="fa fa-fw fa-calendar"></i>New Event     
                 <button class='btn btn-sm btn-danger btn-modal' type='button' data-toggle="modal" data-target="#confirmDelete" data-route="{{ URL::route('owner::events.destroy', $event->id) }}" data-title="Delete Event" data-message='Are you sure you want to delete this event ?'>
+                    <button type="submit" name="save" class="btn btn-md btn-success btn-toggle-readonly"><i class="fa fa-fw fa-check"></i> Save</button>
+                    <button type="submit" name="publish" class="btn btn-md btn-primary btn-toggle-readonly"><i class="fa fa-fw fa-arrow-circle-up"></i> Publish</button>
                     <i class='fa fa-fw fa-times'></i> Delete
                 </button>
             @if($event->published)
@@ -26,7 +29,6 @@
  <!-- Content -->
 @include('partials.message')
 @include('partials.errors')
-{!! Form::open(array('route' => array('owner::events.update', $event->id), 'method' => 'PUT'))!!}
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4><i class="fa fa-fw fa-calendar"></i> Event Details</h4>

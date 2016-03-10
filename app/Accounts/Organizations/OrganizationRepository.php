@@ -7,7 +7,7 @@ class OrganizationRepository extends BaseRepository implements OrganizationRepos
 
     public function __construct(Organization $organization)
     {
-        $this->model = $organization;
+        parent::__construct($organization);
     }
 
     /**

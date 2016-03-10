@@ -7,7 +7,7 @@ class EventRepository extends BaseRepository implements EventRepositoryInterface
 
     public function __construct(Event $event)
     {
-        $this->model = $event;
+        parent::__construct($event);
     }
 
     /**
@@ -27,6 +27,11 @@ class EventRepository extends BaseRepository implements EventRepositoryInterface
                     ->where('end_date', '>=', BaseDateTime::now())
                     ->where('published', true)
         			->get();
+    }
+
+    public function createEmptyEvent($organization_id)
+    {
+        return parent::create(array('organization_id' => $organization_id));
     }
 
     public function activeEventsCount()

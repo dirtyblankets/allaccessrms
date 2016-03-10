@@ -15,8 +15,6 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
 {
     use Authenticatable, CanResetPassword, HasRole;
 
-    public $temp_password = '';
-
     /**
      * The database table used by the model.
      *

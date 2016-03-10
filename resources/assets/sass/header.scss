@@ -1,6 +1,6 @@
 .main-header {
 	position: fixed;
-
+	z-index: 1030;
 	.logo {
  		float: left;
  		text-align: center;
@@ -58,9 +58,10 @@
 			height: 30px;
 			line-height: 30px;
 			color: #FFF;
+			background-color: transparent;
 		}
 		.navbar-right >li > a:hover {
-			background-color: $purple;
+			background-color: transparent;
 		}
 
         .navbar-right .open > a {

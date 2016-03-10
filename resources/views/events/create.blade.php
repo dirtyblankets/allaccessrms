@@ -1,7 +1,10 @@
 @extends('layouts.main')
 @section('content')
+<form class='form form-horizontal' method="POST" action="/events/store">
+    {!! csrf_field() !!}
 <section class="content-header">
-    <h2 class="page-header"><i class="fa fa-fw fa-calendar"></i> Create Event</h2>
+    <h2 class="page-header"><i class="fa fa-fw fa-calendar"></i> Create Event <button type="submit" name="save" class="btn btn-md btn-success btn-toggle-readonly"><i class="fa fa-fw fa-check"></i> Save</button>
+            <button type="submit" namve="publish" class="btn btn-md btn-primary btn-toggle-readonly"><i class="fa fa-fw fa-arrow-circle-up"></i> Publish</button></h2>
     <ol class="breadcrumb">
         <li>
             <a href={{ URL::previous() }}><i class="fa fa-calendar"></i> Events</a>
@@ -15,71 +18,75 @@
 @include('partials.message')
 @include('partials.errors')
 <div id="openModal" data-open-modal="{{ old('openModal') }}" ></div>
-<form class='form form-horizontal' method="POST" action="/events/store">
-    {!! csrf_field() !!}
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4><i class="fa fa-fw fa-calendar"></i> Event Details</h4>
+            <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
         </div>
         <div class="panel-body">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label>Title</label>
-                    <input type="text" placeholder="Event Title Here" class="form-control" name="event[title]"
-                           value="{{ old('event.title') }}" required="required"/>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" placeholder="Event Title Here" class="form-control" name="event[title]"
+                               value="{{ old('event.title') }}" required="required"/>
+                    </div>
+                    <div class='form-group'>
+                        <label>Description</label>
+                        <textarea placeholder="Enter Description Here" class="form-control" name="event[description]">{{ Input::old('event.description') }}</textarea>
+                    </div>
                 </div>
-                <div class='form-group'>
-                    <label>Description</label>
-                    <textarea placeholder="Enter Description Here" class="form-control" name="event[description]">{{ Input::old('event.description') }}</textarea>
-                </div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class='form-group'>
-                            <label>Start Date</label>
-                            <div class="input-group input-append datepicker">
-                                <span class="input-group-addon"><i class="fa fa-fw fa-calendar"></i></span>
-                                <input type="date" size="11" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="01/01/2015" class="form-control dateRangePicker"
-                                       name="event[startdate]" value="{{ old('event.startdate') }}" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label>Start Time </label>
-                            <div class="input-group timepicker">
-                                <span class="input-group-addon"><i class="fa fa-fw fa-clock-o"></i></span>
-                                <input type="time" size="" placeholder="Start Time" class="form-control" name="event[starttime]"
-                                       value="{{ old('event.starttime') }}"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class='form-group'>
-                            <label>End Date</label>
-                            <div class="input-group input-append datepicker">
-                                <span class="input-group-addon"><i class="fa fa-fw fa-calendar"></i></span>
-                                <input type="date" size="11" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="01/30/2015" class="form-control dateRangePicker"
-                                       name="event[enddate]" value="{{ old('event.enddate') }}" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label>End Time</label>
-                            <div class="input-group timepicker">
-                                <span class="input-group-addon"><i class="fa fa-fw fa-clock-o"></i></span>
-                                <input type="time" size="" placeholder="End Time" class="form-control" name="event[endtime]"
-                                       value="{{ old('event.endtime') }}"/>
-                            </div>
+            </div><!-- end of row -->
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Starting</label>
+                    <div class='form-group'>
+                        <div class="input-group input-append datepicker">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-calendar"></i></span>
+                            <input type="text" size="11" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="01/01/2015" class="form-control dateRangePicker"
+                                   name="event[startdate]" value="{{ old('event.startdate') }}" />
                         </div>
                     </div>
                 </div>
-            </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>&nbsp</label>
+                        <div class="input-group timepicker">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-clock-o"></i></span>
+                            <input type="text" size="" placeholder="Start Time" class="form-control" name="event[starttime]"
+                                   value="{{ old('event.starttime') }}"/>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end of row -->
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Ending</label>                    
+                    <div class='form-group'>
+                        <div class="input-group input-append datepicker">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-calendar"></i></span>
+                            <input type="text" size="11" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="01/30/2015" class="form-control dateRangePicker"
+                                   name="event[enddate]" value="{{ old('event.enddate') }}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>&nbsp</label>
+                        <div class="input-group timepicker">
+                            <span class="input-group-addon"><i class="fa fa-fw fa-clock-o"></i></span>
+                            <input type="text" size="" placeholder="End Time" class="form-control" name="event[endtime]"
+                                   value="{{ old('event.endtime') }}"/>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end of row -->
         </div>
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4><i class="fa fa-fw fa-ticket"></i> Ticket Information</h4>
+            <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
         </div>
         <div class="panel-body">
             <div class="col-md-12">
@@ -111,6 +118,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4><i class="fa fa-fw fa-map"></i> Event Location</h4>
+            <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
         </div>
         <div class="panel-body">
             <div class="col-md-8">
@@ -159,6 +167,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4><i class="fa fa-fw fa-building"></i> Participating Organizations</h4>
+            <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
         </div>
         <div class="panel-body">
             <div class="col-md-12">
@@ -176,18 +185,19 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4><i class="fa fa-fw fa-cog"></i> Additional Settings</h4>
+            <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
         </div>
         <div class="panel-body">
             <div class="col-md-12">
                 <div class="radio">
                     <label>
-                        <input type="radio" name="optionsRadios" id="publicEventRadioBtn" value="publicEventRadio" checked>
+                        {!! Form::radio('eventType', 'public') !!}
                         Public: Registration available to the public.
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="optionsRadios" id="privateEventRadioBtn" value="privateEventRadio">
+                        {!! Form::radio('eventType', 'private') !!}
                         Private: Registration available only to those on the invitation list.
                     </label>
                 </div>
@@ -227,10 +237,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="form-group">
-        <button type="submit" name="save" class="btn btn-sm btn-success btn-toggle-readonly">Save</button>
-        <button type="submit" namve="publish" class="btn btn-sm btn-primary btn-toggle-readonly">Publish</button>
     </div>
 </form>
 @include('events.invite_modal')

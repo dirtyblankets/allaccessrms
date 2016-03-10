@@ -1,15 +1,23 @@
 <?php namespace AllAccessRMS\Core;
 
+use Exception;
+use Session;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\QueryException;
-
-use Exception;
+use AllAccessRMS\Exceptions\InvalidArgumentException;
 
 abstract class BaseRepository  {
     /**
      * @var Model
      */
     protected $model;
+
+    protected $userId;
+
+    protected $userOrganizationId;
+
+    protected $userParentOrganizationId;
 
     public function __construct(Model $model)
     {
@@ -19,6 +27,14 @@ abstract class BaseRepository  {
         }
 
         $this->model = $model;
+        $this->setCache();
+    }
+
+    private function setCache()
+    {
+        $this->userId = Session::get('USER_ID');
+        $this->userOrganizationId = Session::get('USER_ORGANIZATION_ID');
+        $this->userParentOrganizationId = Session::get('USER_PARENT_ORGANIZATION_ID');
     }
 
     public function save(Model $model)
@@ -52,27 +68,22 @@ abstract class BaseRepository  {
                     ->orderBy('id')
                     ->paginate($perPage);
     }
-    /*
-    public function create(array $attributes = [])
+
+    public function findAllPaginatedSorted($sortby, $order, $perPage = 20)
     {
-        $class = $this->make($attributes);
-
-        try 
-        {
-            if ($class->save($attributes))
-            {
-                return $class;
-            }
-
-            return false;
-
-        } 
-        catch (QueryException $e) 
-        {
-            throw new InvalidArgumentException($e->getMessage());
-        }
+        return $this->model
+                    ->where('id', '!=', 1)
+                    ->where('id', '!=', $this->auth_id)
+                    ->orderBy($sortby, $order)
+                    ->paginate($perPage);
     }
 
+    public function create(array $attributes = [])
+    {
+        return  $this->model->create($attributes);
+    }
+
+    /*
     public function update(array $data, $id, $attribute='id')
     {
         return $this->model->where($attribute, '=', $id)->update($data);

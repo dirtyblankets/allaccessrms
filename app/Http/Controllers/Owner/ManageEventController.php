@@ -1,21 +1,23 @@
 <?php namespace AllAccessRMS\Http\Controllers\Owner;
 
 use Auth;
-use JavaScript;
+use Exception;
 use Carbon\Carbon;
 use Laracasts\Flash\Flash;
 use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
+use AllAccessRMS\Http\Controllers\Controller;
 use AllAccessRMS\Core\Utilities\States;
 use AllAccessRMS\AllAccessEvents\Event;
 use AllAccessRMS\Accounts\Organizations\Organization;
 use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
-use AllAccessRMS\Http\Requests\CreateEventFormRequest;
-use AllAccessRMS\Http\Controllers\Controller;
+use AllAccessRMS\Http\Requests\PublishEventFormRequest;
+
 use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
 use AllAccessRMS\AllAccessEvents\EventSiteRepositoryInterface;
+use AllAccessRMS\Exceptions\Handler;
 
 use AllAccessRMS\Jobs\AllAccessEvents\CreateEvent;
 use AllAccessRMS\Jobs\AllAccessEvents\UpdateEvent;
@@ -58,11 +60,10 @@ class ManageEventController extends Controller
      */
     public function create()
     {
-     
         $event = $this->eventRepo->createEmptyEvent(Auth::user()->organization_id);
-        $eventSite = $this->eventSiteRepo->createEmptyEventSite($event->id); 
+        $eventSite = $this->eventSiteRepo->createEmptyEventSite($event->id);
 
-        return redirect()->route('owner::events.show', [$event->id]);
+        return redirect()->route('owner::events.edit', [$event->id]);
     }
 
     /**
@@ -104,23 +105,6 @@ class ManageEventController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  Request  $request
-     * @return Response
-     */
-    public function store(CreateEventFormRequest $request)
-    {
-        $organization = Organization::where('id', Auth::user()->organization_id)->first();
-
-        $job = new CreateEvent($request, $organization);
-        $this->dispatch($job);
-
-        Flash::success('New Event Published!');
-        return redirect()->route('owner::events');
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -129,7 +113,7 @@ class ManageEventController extends Controller
     public function show($id)
     {
         $event = $this->eventRepo->findById($id);
-        $eventsite = $event->eventsite()->first();
+        $eventsite = $event->eventsite->first();
         $selectedPartners = $event->partners()->get();
         $selectedPartnersId = $selectedPartners->lists('id')->toArray();
 
@@ -148,21 +132,14 @@ class ManageEventController extends Controller
     public function edit($id)
     {
         $event = $this->eventRepo->findById($id);
-        $eventsite = $event->eventsite()->first();
+        $eventsite = $event->eventsite->first();
         $selectedPartners = $event->partners()->get();
         $selectedPartnersId = $selectedPartners->lists('id')->toArray();
 
+        $guests = collect([]);
+        $states = States::all();
         $partners = $this->orgRepo->getPartnerOrganizations(Auth::user()->organization_id);
-        return view('events.edit', compact('event', 'eventsite', 'partners', 'selectedPartnersId'));
-    }
-
-    public function unpublish($id)
-    {
-        $event = $this->eventRepo->findById($id);    
-        $event->published = false;
-        $event->save();
-
-        return redirect()->back();
+        return view('events.edit', compact('event', 'eventsite', 'partners', 'selectedPartnersId', 'states', 'guests'));
     }
 
     /**
@@ -172,24 +149,48 @@ class ManageEventController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(AllAccessEventFormRequest $request, $id)
+    public function update(PublishEventFormRequest $request, $id)
     {
-        $event = $this->eventRepo->findById($id);
-
-        if (Input::get('save'))
+        try 
         {
-            if (!$event->published)
+            $btnType = Input::get('submitBtn');
+            $event = $this->eventRepo->findById($id);
+
+            if ($btnType == 'save')
             {
-                $job = new UpdateEvent($request, $event);
+                $job = new UpdateEvent($request, $event, false);
                 $this->dispatch($job);
 
                 return redirect()->back();
-            }  
-        }
-        else if (Input::get('publish'))
-        {
 
-        }      
+            }
+            else if ($btnType == 'publish')
+            {
+                $job = new UpdateEvent($request, $event, true);
+                $this->dispatch($job);
+
+                Flash::overlay('Your Event has been Published!');
+                return redirect()->back();
+            }
+            else
+            {
+                throw new Exception("Button not implemented.");
+            }
+
+        }
+        catch (Exception $e)
+        {
+            return Handler::HandleError($e);
+        } 
+    }
+
+    public function unpublish($id)
+    {
+        $event = $this->eventRepo->findById($id);
+        $event->published = false;
+        $event->save();
+
+        return redirect()->back();
     }
 
     /**

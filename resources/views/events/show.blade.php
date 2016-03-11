@@ -12,9 +12,9 @@
             @if($event->published)
                 <button title='Take event offline' name='unpublish' type='submit' id='btn-unpublish' class='btn btn-sm btn-warning'>Unpublish</button>
             @else 
-                <button type="submit" name="save" class="btn btn-md btn-success btn-toggle-readonly"><i class="fa fa-fw fa-check"></i> Save</button>
+                <button type="submit" name="submitBtn" class="btn btn-md btn-success btn-toggle-readonly" value="save"><i class="fa fa-fw fa-check"></i> Save</button>
                 
-                <button type="submit" name="publish" class="btn btn-md btn-primary btn-toggle-readonly"><i class="fa fa-fw fa-arrow-circle-up"></i> Publish</button>     
+                <button type="submit" name="submitBtn" class="btn btn-md btn-primary btn-toggle-readonly" value="publish"><i class="fa fa-fw fa-arrow-circle-up"></i> Publish</button>     
                 
                 <button class='btn btn-md btn-danger btn-modal' type='button' data-toggle="modal" data-target="#confirmDelete" data-route="{{ URL::route('owner::events.destroy', $event->id) }}" data-title="Delete Event" data-message='Are you sure you want to delete this event ?'>
                 <i class='fa fa-fw fa-times'></i> Delete</button>
@@ -33,7 +33,7 @@
  <!-- Content -->
 @include('partials.message')
 @include('partials.errors')
-<!--<div id="openModal" data-open-modal="{{ old('openModal') }}" ></div>-->
+<div id="openModal" data-open-modal="{{ old('openModal') }}" ></div>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4><i class="fa fa-fw fa-calendar"></i> Event Details</h4>
@@ -189,13 +189,21 @@
         <div class="col-md-12">
             <div class="radio">
                 <label>
-                    {!! Form::radio('eventType', 'public') !!}
+                    @if (!$event->private)
+                    {!! Form::radio('event_privacy', 'public', true) !!}
+                    @else
+                    {!! Form::radio('event_privacy', 'public', false) !!}
+                    @endif
                     Public: Registration available to the public.
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    {!! Form::radio('eventType', 'private') !!}
+                    @if ($event->private)
+                    {!! Form::radio('event_privacy', 'private', true) !!}
+                    @else
+                    {!! Form::radio('event_privacy', 'private', false) !!}
+                    @endif
                     Private: Registration available only to those on the invitation list.
                 </label>
             </div>

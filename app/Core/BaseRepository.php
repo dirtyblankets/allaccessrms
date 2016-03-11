@@ -73,7 +73,6 @@ abstract class BaseRepository  {
     {
         return $this->model
                     ->where('id', '!=', 1)
-                    ->where('id', '!=', $this->auth_id)
                     ->orderBy($sortby, $order)
                     ->paginate($perPage);
     }
@@ -83,7 +82,7 @@ abstract class BaseRepository  {
         return  $this->model->create($attributes);
     }
 
-    /*
+    
     public function update(array $data, $id, $attribute='id')
     {
         return $this->model->where($attribute, '=', $id)->update($data);
@@ -93,6 +92,5 @@ abstract class BaseRepository  {
     {
         return $this->model->where('id', '=', $id)->delete();
     }
-    */
 
 }

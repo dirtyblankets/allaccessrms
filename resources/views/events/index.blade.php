@@ -2,7 +2,7 @@
 @section('content')
 <section class="content-header">
     <h2 class="page-header"><i class="fa fa-fw fa-calendar"></i> Events
-        <a href="{{ URL::route('owner::events.create')  }}" class="btn btn-sm btn-primary"><i class='fa fa-fw fa-plus'></i> New</a>
+        <a href="{{ URL::route('owner::events.create') }}" class="btn btn-md btn-primary"><i class='fa fa-fw fa-plus'></i> New</a>
     </h2>
 </section>
 <!-- Content -->
@@ -26,7 +26,7 @@
                 @foreach($events as $event)
                     <tr>
                         <td>
-                            <a href="{{ URL::route('owner::events.show', $event->id)}}">
+                            <a href="{{ URL::route('owner::events.edit', $event->id)}}">
                                 @if ($event->title == "")
                                     NO TITLE
                                 @else

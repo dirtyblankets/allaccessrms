@@ -48,13 +48,13 @@ function TimePicker() {
 
 function HideShowOnRadioBtn(radioName, hideValue, showValue, targetSection) {
 
-	 $('input[type=radio][name=' + radioName + ']').change(function() {
-        if (this.value == hideValue) {
-        	$(targetSection).hide();   
-        }
-        else if (this.value == showValue) {
-            $(targetSection).show();
-        }
+	$('input[type=radio][name=' + radioName + ']').change(function() {
+		if (this.value == hideValue) {
+			$(targetSection).hide();   
+		}
+		else if (this.value == showValue) {
+		    $(targetSection).show();
+		}
     });
 }
 
@@ -79,19 +79,23 @@ function ConfirmDelete() {
 function FormatEventsPage(){
 	
 	var published = $("#event_published");
-	if (published.val())
+	if (published.length)
 	{
 		$(':input').attr('readonly','readonly');
+		$(':input.cb').attr("disabled", true);
+		$(':input.radio').attr("disabled", true);
 		$('.btn-toggle-readonly').prop('disabled', true);
 		$('.input-group-addon').off();
 	}
 	else
 	{
 		$(':input').removeAttr('readonly');
-		$('.btn-toggle-readonly').prop('disabled', false);				
+		$('.btn-toggle-readonly').prop('disabled', false);	
+		$(':input.cb').removeAttr('disabled');
+		$(':input.radio').removeAttr('disabled');			
 	}
 
-	HideShowOnRadioBtn("eventType" ,"public", "private", "#invite_section");
+	HideShowOnRadioBtn("event_privacy" ,"public", "private", "#invite_section");
 
 }
 

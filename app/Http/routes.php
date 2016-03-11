@@ -145,17 +145,12 @@ Route::group(['as'=>'owner::', 'middleware'=>['auth', 'acl'], 'is'=>'owner'], fu
 
     Route::patch('events/{id}', [
         'as'    =>  'events.unpublish',
-        'uses'   =>  'Owner\ManageEventController@unpublish',
+        'uses'  =>  'Owner\ManageEventController@unpublish', 
     ]);
 
     Route::put('events/{id}', [
         'as' => 'events.update',
         'uses' => 'Owner\ManageEventController@update',
-    ]);
-
-    Route::post('events/store', [
-        'as' => 'events.store',
-        'uses' => 'Owner\ManageEventController@store',
     ]);
 
     Route::delete('events/{id}', [

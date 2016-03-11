@@ -1,16 +1,11 @@
 <?php namespace AllAccessRMS\Http\Controllers;
 
-use AllAccessRMS\Accounts\Registration\RegisterNewOrganizationCommand;
-use AllAccessRMS\Core\Commands\CommandBus;
 use AllAccessRMS\Http\Requests\NewUserRegistrationRequest;
 
 class NewUserRegistrationController extends Controller
 {
-    protected $commandBus;
-
-    public function __construct(CommandBus $commandBus)
+    public function __construct()
     {
-        $this->commandBus = $commandBus;
     }
 
     /**
@@ -38,18 +33,6 @@ class NewUserRegistrationController extends Controller
         try {
 
             $input = $request->all();
-
-            //create command
-            $command = RegisterNewOrganizationCommand::withForm($request);
-
-            //execute command
-            $this->commandBus->execute($command);
-
-            if ($this->newUserRegistrator->register($input))
-            {
-                // Send Welcome Email to New User
-                return view('auth/login');
-            }
 
         } catch (Exception $e) {
 

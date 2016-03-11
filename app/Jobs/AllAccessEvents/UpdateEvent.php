@@ -18,10 +18,13 @@ class UpdateEvent extends Job implements SelfHandling
 
     protected $event;
 
-    public function __construct($request, Event $event)
+    protected $publish;
+
+    public function __construct($request, Event $event, $publish)
     {
         $this->request = $request;
         $this->event = $event;
+        $this->publish = $publish;
     }
 
     public function handle()
@@ -41,11 +44,13 @@ class UpdateEvent extends Job implements SelfHandling
         $this->event->start_time    =  $this->request->input('event.starttime');
         $this->event->end_time      =  $this->request->input('event.endtime');
         $this->event->price         =  $this->request->input('event.cost');
-        $this->event->published     =  true;
+        $this->event->capacity      =  $this->request->input('event.capacity');
+        $this->event->private       =  ($this->request->input('event_privacy') == 'private');
+        $this->event->published     =  $this->publish;
         $this->event->save();
 
         // 2. Save Event Location Information
-        $eventSite = $this->event->eventsite()->first();
+        $eventSite          =   $this->event->eventsite()->first();
         $eventSite->name    =   $this->request->input('eventsite.name');
         $eventSite->address =   $this->request->input('eventsite.address');
         $eventSite->city    =   $this->request->input('eventsite.city');

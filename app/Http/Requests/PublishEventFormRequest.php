@@ -2,7 +2,7 @@
 
 use Carbon\Carbon;
 
-class CreateEventFormRequest extends Request
+class PublishEventFormRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.

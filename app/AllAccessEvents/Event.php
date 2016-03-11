@@ -121,4 +121,9 @@ class Event extends BaseModel {
     {
         return Carbon::parse($this->attributes['end_date']) <= BaseDateTime::now();
     }
+
+    public function getPrivateAttribute()
+    {
+    	return boolval($this->attributes['private']);
+    }
 }

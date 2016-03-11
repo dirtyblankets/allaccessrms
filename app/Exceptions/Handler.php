@@ -16,7 +16,7 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        //HttpException::class,
+        HttpException::class,
     ];
 
     /**
@@ -55,11 +55,18 @@ class Handler extends ExceptionHandler
         }
         else
         {
-            Flash::overlay('Error: something went wrong!  Please review the log.');
-            Log::error($e);
+            //Flash::overlay('Error: something went wrong!  Please review the log.');
+            //Log::error($e);
             return redirect()->back();
         }
 
-        //return parent::render($request, $e);
+        return parent::render($request, $e);
+    }
+
+    public static function HandleError(Exception $e)
+    {
+        return response()->view('errors.error_dump', [
+            'exception'=> "Error: " . $e->getMessage(), 
+            'stacktrace' => $e]);
     }
 }

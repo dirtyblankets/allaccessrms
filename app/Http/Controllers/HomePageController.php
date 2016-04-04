@@ -22,7 +22,7 @@ class HomePageController extends Controller
      */
     public function index()
     {
-        $events = $this->events->all();
+        $events = $this->events->getActiveEvents();
 
         return view('welcome', compact('events'));
     }

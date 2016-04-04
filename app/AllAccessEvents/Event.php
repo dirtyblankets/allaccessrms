@@ -30,6 +30,8 @@ class Event extends BaseModel {
 
     protected $appends = ['has_ended'];
 
+    protected $guarded = [];
+/*
 	protected $fillable = [	
 		'organization_id',
 		'title', 
@@ -43,9 +45,9 @@ class Event extends BaseModel {
 		'capacity', 
 		'published', 
 		'private'
-	];
+	];	*/
 
-	public function attendee()
+	public function attendees()
 	{
 		return $this->hasMany(Attendee::class);
 	}
@@ -61,9 +63,31 @@ class Event extends BaseModel {
 					->whereNotNull('parent_id');
     }
 
+    public function applicationForm()
+    {
+    	return $this->hasOne('AllAccessRMS\DocumentDefinitions\ApplicationForm');
+    }
+
+    public function healthForm()
+    {
+    	return $this->hasOne('AllAccessRMS\DocumentDefinitions\HealthAndReleaseForm');	
+    }
+
 	public function eventsite()
 	{
 		return $this->hasOne(EventSite::class);
+	}
+
+	public function guests()
+	{
+		return $this->hasMany(EventGuest::class);
+	}
+
+	public function eventDescriptionShort()
+	{
+		$short = substr($this->attributes['description'], 0, 30) . "...";
+
+		return $short;
 	}
 
 	public function setStartTimeAttribute($start_time)
@@ -117,6 +141,19 @@ class Event extends BaseModel {
 		return boolval($this->attributes['published']);
 	}
 
+	public function eventStatus()
+	{
+		if ($this->getPublishedAttribute())
+		{
+			return "Published";
+		}
+		else
+		{
+			return "Not yet live";
+		}
+	}
+
+
     public function getHasEndedAttribute()
     {
         return Carbon::parse($this->attributes['end_date']) <= BaseDateTime::now();
@@ -125,5 +162,17 @@ class Event extends BaseModel {
     public function getPrivateAttribute()
     {
     	return boolval($this->attributes['private']);
+    }
+
+    public function eventType()
+    {
+    	if ($this->getPrivateAttribute())
+    	{
+    		return "Private";
+    	}
+    	else
+    	{
+    		return "Public";
+    	}
     }
 }

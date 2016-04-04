@@ -38,7 +38,7 @@ $factory->define(AllAccessRMS\Accounts\Organizations\Organization::class, functi
     ];
 });
 
-$factory->define(AllAccessRMS\EventRegistrations\Event::class, function ($faker) {
+$factory->define(AllAccessRMS\AllAccessEvents\Event::class, function ($faker) {
     return [
         'title' => 'Super Extravaganza',
         'description' => 'This the description for Super Extravaganza',
@@ -49,5 +49,28 @@ $factory->define(AllAccessRMS\EventRegistrations\Event::class, function ($faker)
         'contact_phone' => '714-767-0354',
         'price' => 12000,
         'capacity' => 400
+    ];
+});
+
+$factory->define(AllAccessRMS\AllAccessEvents\Attendee::class, function ($faker) {
+    return [
+        'email' => $faker->email,
+        'organization_id' => 1,
+        'firstname' => $faker->firstname,
+        'lastname' => $faker->lastname
+    ];
+});
+
+$factory->define(AllAccessRMS\Documents\StudentApplication::class, function ($faker) {
+    return [
+        'address' => $faker->streetAddress,
+        'parentname' => $faker->name
+    ];
+});
+
+$factory->define(AllAccessRMS\Documents\StudentHealthForm::class, function ($faker) {
+    return [
+        'address' => $faker->streetAddress,
+        'parentname' => $faker->name
     ];
 });

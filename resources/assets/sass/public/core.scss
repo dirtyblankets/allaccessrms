@@ -3,14 +3,16 @@ html {
   height: 100%;
 }
 
+
 body {
   width: 100%;
   height: 100%;
   font-family: $grayscale-body-font-family;
-  color: $grayscale-light;
+  //color: $grayscale-light;
   background-color: $purple-background;
   -webkit-tap-highlight-color: transparentize($grayscale-light, 0.8);
 }
+
 
 h1, .h1,
 h2, .h2,
@@ -23,6 +25,7 @@ h6, .h6 {
   font-family: $grayscale-headline-font-family;
   font-weight: 700;
   letter-spacing: 1px;
+  color: $grayscale-light;
 }
 
 
@@ -300,6 +303,7 @@ a {
   }
 }
 
+
 .btn {
   text-transform: uppercase;
   font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -355,11 +359,13 @@ footer {
   }
 }
 
+
 ::-moz-selection, ::selection  {
   text-shadow: none;
   background: #fcfcfc;
   background: transparentize($grayscale-light, 0.8);
 }
+
 
 img {
   &::selection {
@@ -369,4 +375,39 @@ img {
   &::-moz-selection {
     background: transparent;
   }
+}
+
+.thumbnail
+{
+    margin-bottom: 20px;
+    padding: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.signature-pad {
+  border: 1px solid #8B8282;
+}
+
+.m-signature-pad {
+  font-size: 10px;
+  top: 50%;
+  left: 50%;
+  border: 1px solid #e8e8e8;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.08) inset;
+  border-radius: 4px;
+}
+
+.m-signature-pad--body {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  border: 1px solid #f4f4f4;
+}
+
+h3,
+h4, h4.item {
+  color: #333;
 }

@@ -1,5 +1,5 @@
 	<!-- Navigation -->
-	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-custom navbar-fixed-top navbarscroll" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -23,7 +23,7 @@
 						<a class="page-scroll" href="#information">Information</a>
 					</li>
 					<li>
-						<a class="page-scroll" href="#registration">Registration</a>
+						<a class="" href='{{ URL::route('event.registration', $event->id) }}'>Registration</a>
 					</li>
                     <!--
                     <li class="dropdown">

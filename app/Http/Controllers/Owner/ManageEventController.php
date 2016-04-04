@@ -17,6 +17,7 @@ use AllAccessRMS\Http\Requests\PublishEventFormRequest;
 
 use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
 use AllAccessRMS\AllAccessEvents\EventSiteRepositoryInterface;
+use AllAccessRMS\AllAccessEvents\AttendeeInvitationRepositoryInterface;
 use AllAccessRMS\Exceptions\Handler;
 
 use AllAccessRMS\Jobs\AllAccessEvents\CreateEvent;
@@ -30,14 +31,18 @@ class ManageEventController extends Controller
 
     private $orgRepo;
 
+    private $eventGuestRepo;
+
     public function __construct(EventRepositoryInterface $eventRepo, 
                                     EventSiteRepositoryInterface $eventSiteRepo, 
-                                        OrganizationRepositoryInterface $orgRepo)
+                                        OrganizationRepositoryInterface $orgRepo,
+                                            AttendeeInvitationRepositoryInterface $eventGuestRepo)
     {
         $this->beforeFilter('auth');
         $this->eventRepo = $eventRepo;
         $this->orgRepo = $orgRepo;
         $this->eventSiteRepo = $eventSiteRepo;
+        $this->eventGuestRepo = $eventGuestRepo;
     }
     /**
      * Display a listing of the resource.
@@ -63,45 +68,8 @@ class ManageEventController extends Controller
         $event = $this->eventRepo->createEmptyEvent(Auth::user()->organization_id);
         $eventSite = $this->eventSiteRepo->createEmptyEventSite($event->id);
 
-        return redirect()->route('owner::events.edit', [$event->id]);
-    }
-
-    /**
-     * Add guests entered in modal to grid on create view.
-     * @return Response
-     */
-    public function addgueststoview()
-    {
-        $guests = Input::get('guests_email');
-        // split email address by space, comma, colon, or semi-colon
-        $emailfromform = preg_split("/[\s,;:]+/", $guests);
-        // Put them back together separated by a comma
-        // string form
-        $emailfromform = implode(",", $emailfromform);
-        $guests_email = $emailfromform;
-        // put it back into array form
-        $guests = collect(explode(",", $emailfromform));
-        $rules = array(
-            'guests_email' => 'email',
-        );
-
-        foreach ($guests as $email)
-        {
-            $validator = Validator::make(array('guests_email' => $email), $rules);
-            if ($validator->fails())
-            {
-                $openModal = 'true';
-                return redirect()
-                        ->back()
-                        ->withErrors($validator)
-                        ->withInput(['openModal'=>$openModal, 'guests_email'=>$guests_email]);
-            }
-        }
-
-        $states = States::all();
-        $partners = $this->orgRepo->getPartnerOrganizations(Auth::user()->organization_id);
-        $partners = $partners->sortBy('name');
-        return view('events/create', compact('partners', 'states', 'guests'));
+        Flash::overlay("New Event Created!");
+        return redirect()->route('owner::events.manage', [$event->id]);
     }
 
     /**
@@ -113,7 +81,7 @@ class ManageEventController extends Controller
     public function show($id)
     {
         $event = $this->eventRepo->findById($id);
-        $eventsite = $event->eventsite->first();
+        $eventsite = $event->eventsite->get();
         $selectedPartners = $event->partners()->get();
         $selectedPartnersId = $selectedPartners->lists('id')->toArray();
 
@@ -129,17 +97,17 @@ class ManageEventController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit($id)
+    public function manage($id)
     {
         $event = $this->eventRepo->findById($id);
-        $eventsite = $event->eventsite->first();
+        $eventsite = $event->eventsite()->first();
         $selectedPartners = $event->partners()->get();
         $selectedPartnersId = $selectedPartners->lists('id')->toArray();
 
-        $guests = collect([]);
+        $guests = $this->eventGuestRepo->findAllPaginatedByEvent($event->id);
         $states = States::all();
         $partners = $this->orgRepo->getPartnerOrganizations(Auth::user()->organization_id);
-        return view('events.edit', compact('event', 'eventsite', 'partners', 'selectedPartnersId', 'states', 'guests'));
+        return view('events.manage', compact('event', 'eventsite', 'partners', 'selectedPartnersId', 'states', 'guests'));
     }
 
     /**

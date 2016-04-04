@@ -4,12 +4,12 @@
 class Gender
 {
 
-    protected $gender = [
+    protected static $gender = [
         "M" => "Male",
         "F" => "Female"
     ];
 
-    public function all()
+    public static function all()
     {
         return static::$gender;
     }

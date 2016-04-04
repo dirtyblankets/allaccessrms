@@ -58,3 +58,15 @@
 
 	}
 }
+
+.tab-content.active{
+	display: block;
+}
+
+.tab-content.hide{
+	display: none;
+}
+
+.tab-wrapper {
+	margin-bottom: 10px;
+}

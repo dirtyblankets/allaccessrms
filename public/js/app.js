@@ -11,6 +11,7 @@ $(document).ready(function () {
     if ($('#openModal').data('open-modal')) {        
         $('.modal-openonerror').modal('show'); 
     }
+    
 	DatePicker();
 	TimePicker();
 	PhoneMask();
@@ -19,6 +20,8 @@ $(document).ready(function () {
 	FormatEventsPage();
 
 	HandlePanelCollapse();
+
+	HandleTabs();
 
 	ConfirmDelete();
 
@@ -34,15 +37,14 @@ function PhoneMask() {
 
 function DatePicker() {
 	$(".datepicker").datetimepicker( {
-        pickTime: false
+        format: 'MM/DD/YYYY'
      });
 
 }
 
 function TimePicker() {
 	$(".timepicker").datetimepicker( {
-		format: 'LT',
-        pickDate: false
+		format: 'LT'
 	});
 }
 
@@ -56,6 +58,11 @@ function HideShowOnRadioBtn(radioName, hideValue, showValue, targetSection) {
 		    $(targetSection).show();
 		}
     });
+
+    var inputValue = $('input[type=radio][name=' + radioName + ']:checked').val();
+    if (inputValue == showValue) {
+    	$(targetSection).show();	
+    }
 }
 
 function GridHandler() {
@@ -74,6 +81,16 @@ function ConfirmDelete() {
 	var route = $(e.relatedTarget).attr('data-route');
 	$('#deleteForm').attr('action', route);
 	});
+}
+
+function SetEventIdInInviteModal() {
+	$('#invite_modal').on('show.bs.modal', function (e) {
+
+		var data_event_id = $(e.relatedTarget).attr('data-event-id');
+		$('input[name=_data_event_id]').attr('value', data_event_id);
+
+	});
+
 }
 
 function FormatEventsPage(){
@@ -96,11 +113,11 @@ function FormatEventsPage(){
 	}
 
 	HideShowOnRadioBtn("event_privacy" ,"public", "private", "#invite_section");
+	SetEventIdInInviteModal();
 
 }
 
-function HandlePanelCollapse()
-{
+function HandlePanelCollapse() {
 	$(document).on('click', '.panel-heading span.clickable', function(e){
 	    var $this = $(this);
 		if(!$this.hasClass('panel-collapsed')) {
@@ -112,5 +129,33 @@ function HandlePanelCollapse()
 			$this.removeClass('panel-collapsed');
 			$this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
 		}
-	})
+	});
+}
+
+function HandleTabs() {
+
+	$('ul.nav-tabs li a').click(function (e) {
+		e.preventDefault();
+
+		//get displaying tab content jQuery selector
+		var active_tab_selector = $('.nav-tabs > li.active > a').attr('href');					
+					
+		//find actived navigation and remove 'active' css
+		var active_nav = $('.nav-tabs > li.active');
+		active_nav.removeClass('active');
+
+					
+		//add 'active' css into clicked navigation
+		$(this).parents('li').addClass('active');
+					
+		//hide displaying tab content
+		$(active_tab_selector).removeClass('active');
+		$(active_tab_selector).addClass('hide');
+					
+		//show target tab content
+		var target_tab_selector = $(this).attr('href');
+		$(target_tab_selector).removeClass('hide');
+		$(target_tab_selector).addClass('active');
+	
+	});
 }

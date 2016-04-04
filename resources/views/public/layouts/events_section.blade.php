@@ -1,25 +1,29 @@
 <!-- Events Section -->
 <section id="events" class="container content-section">
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
+        <div class="col-md-12">
             <h2>Events</h2>
             <hr class="divider">
         </div>
     </div>
-    <div class="row">
-        @foreach(array_chunk($events->all(), 3) as $eventRow)
-            <div class="row-fluid">
-                @foreach($eventRow as $event)
-                    <div class="col-md-2 col-md-offset-2 griditem" style="color: black; background-color: white;">
-                        <div class="panel-body">
-                            <h3>{{ $event->title }}</h3>
-                            <a href="{{ URL::route('event.show', $event->id) }}">View</a>
-                            <hr class="divider">
-
-                        </div>
+    <div id="events" class="row list-group">
+    @foreach(array_chunk($events->all(), 3) as $eventRow)
+            @foreach($eventRow as $event)           
+            <div class="item col-xs-4 col-lg-4">
+                <div class="thumbnail">
+                    <a href="{{ URL::route('event.show', $event->id) }}"><img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="http://placehold.it/400x250/000/fff"/></a>
+                    <div class="caption">
+                        <h4 class="group inner grid-group-item-heading">
+                            {{ $event->title }}                    
+                        </h4>
+                        <hr class="divider">
+                        <p class="group inner grid-group-item-text">
+                            {{ $event->eventDescriptionShort() }}
+                        </p>
                     </div>
-                @endforeach
+                </div>
             </div>
-        @endforeach
+            @endforeach
+    @endforeach
     </div>
 </section>

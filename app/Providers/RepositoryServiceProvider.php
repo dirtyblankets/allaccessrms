@@ -32,5 +32,8 @@ class RepositoryServiceProvider extends ServiceProvider
 
         $this->app->bind('AllAccessRMS\AllAccessEvents\EventSiteRepositoryInterface',
             'AllAccessRMS\AllAccessEvents\EventSiteRepository');
+
+        $this->app->bind('AllAccessRMS\AllAccessEvents\AttendeeInvitationRepositoryInterface',
+            'AllAccessRMS\AllAccessEvents\AttendeeInvitationRepository');
     }
 }

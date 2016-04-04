@@ -7,3 +7,5 @@ _ide_helper_models.php
 .idea/blade.xml
 .idea/dictionaries/kapchoi.xml
 gulp.js
+.phpstorm.meta.php
+

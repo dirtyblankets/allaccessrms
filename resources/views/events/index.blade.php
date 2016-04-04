@@ -18,15 +18,15 @@
                     <th>Title</th>
                     <th>Start Date</th>
                     <th>End Date</th>
-                    <th>Start Time</th>
-                    <th>End Time</th>
+                    <th>Type</th>
+                    <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($events as $event)
                     <tr>
                         <td>
-                            <a href="{{ URL::route('owner::events.edit', $event->id)}}">
+                            <a href="{{ URL::route('owner::events.manage', $event->id)}}">
                                 @if ($event->title == "")
                                     NO TITLE
                                 @else
@@ -39,8 +39,8 @@
                         </td>
                         <td>{{ $event->start_date }}</td>
                         <td>{{ $event->end_date }}</td>
-                        <td>{{ $event->start_time }}</td>
-                        <td>{{ $event->end_time }}</td>
+                        <td>{{ $event->eventType() }}</td>
+                        <td>{{ $event->eventStatus() }}</td>
                         @if (Auth::user()->is('admin'))
                         <td><a class="btn btn-sm btn-success" href="{{ URL::route('owner::events.show', $event->id)}}">Show</a></td>
                         @endif

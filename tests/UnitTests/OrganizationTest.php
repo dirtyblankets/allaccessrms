@@ -73,7 +73,5 @@ class OrganizationTest extends \TestCase
     public function testPartnerOrganization()
     {
         $org = PartnerOrganization::find(2);
-
-        dd($org->name);
     }
 }

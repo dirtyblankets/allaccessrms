@@ -147,6 +147,7 @@ return [
         Propaganistas\LaravelPhone\LaravelPhoneServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
+        Laravel\Cashier\CashierServiceProvider::class,
         /*
          * Application Service Providers...
          */

@@ -66,7 +66,7 @@
             </div>
         </div>
         <div class="col-sm-6">
-            <h4>Owner Information</h4>
+            <h4>Admin Information</h4>
             <div class='form-group'>
                 <div class="input-group">
                     <div class="input-group-addon">@</div>

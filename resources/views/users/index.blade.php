@@ -2,7 +2,7 @@
 @section('content')
     <section class="content-header">
         <h2 class="page-header"><i class="fa fa-fw fa-users"></i> Users
-            <a href='{{ URL::route('owner::users.create') }}' class="btn btn-sm btn-primary" title="Add New User"><i class='fa fa-fw fa-plus'></i> Add</a>
+            <a href='{{ URL::route('owner::users.create') }}' class="btn btn-md btn-primary" title="Add New User"><i class='fa fa-fw fa-plus'></i> Add</a>
         </h2>
     </section>
     <!-- Content -->

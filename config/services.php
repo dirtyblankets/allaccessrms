@@ -30,9 +30,9 @@ return [
     ],
 
     'stripe' => [
-        'model'  => App\AllAccessRMS\Accounts\Users\User::class,
-        'key'    => '',
-        'secret' => '',
+        'model'  => App\AllAccesRMS\AllAccessEvents\Attendee::class,
+        'key'    => env('STRIPE_PUBLIC'),
+        'secret' => env('STRIPE_SECRET'),
     ],
 
 ];

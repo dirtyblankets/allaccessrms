@@ -2,6 +2,11 @@
 
 use AllAccessRMS\Http\Requests\RegisterAttendeeFormRequest;
 
+use AllAccessRMS\Core\Utilities\States;
+use AllAccessRMS\Core\Utilities\Grades;
+use AllAccessRMS\Core\Utilities\Gender;
+use AllAccessRMS\Core\Utilities\Languages;
+use AllAccessRMS\Core\Utilities\SweatshirtSizes;
 use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
 use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
 
@@ -30,8 +35,33 @@ class EventRegistrationController extends Controller
 
     }
 
+
+    public function registration($id)
+    {
+        $event = $this->eventRepo->findById($id);
+
+        $hostOrg = $this->orgRepo->findById($event->organization_id);
+
+        $partners = $event->partners()->get();
+        $partners->prepend($hostOrg);
+
+        $organizations = $partners->lists('name', 'id');
+
+        $states = States::all();
+        $grades = Grades::all();
+        $genders = Gender::all();
+        $languages = Languages::all();
+        $sweatshirt_sizes = SweatshirtSizes::all();
+
+        return view('public.events.registration', compact(
+            'event', 'organizations', 'states', 
+            'languages', 'grades', 'sweatshirt_sizes',
+            'genders'));
+    }
+
     public function register(RegisterAttendeeFormRequest $request)
     {
+        dd($request->input('parent_signature'));
         $job = new RegisterAttendee($request);
         $this->dispatch($job);
 

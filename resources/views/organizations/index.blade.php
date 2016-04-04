@@ -5,7 +5,7 @@
             <div class='button-container'>
                 <i class="fa fa-fw fa-building-o"></i> Organizations
                 @if (Auth::user()->is('owner'))
-                <a href='{{ URL::route('owner::organizations.create') }}' class="btn btn-sm btn-primary" title="Add New Organization"><i class='fa fa-fw fa-plus'></i> Add</a>
+                <a href='{{ URL::route('owner::organizations.create') }}' class="btn btn-md btn-primary" title="Add New Organization"><i class='fa fa-fw fa-plus'></i> Add</a>
                 @endif
             </div>
         </h2>

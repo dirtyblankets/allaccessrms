@@ -11708,7 +11708,6 @@ body {
   width: 100%;
   height: 100%;
   font-family: "Lora", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #fff;
   background-color: #544447;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2); }
 
@@ -11722,7 +11721,8 @@ h6, .h6 {
   text-transform: uppercase;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+  color: #fff; }
 
 p {
   margin: 0 0 25px;
@@ -11982,5 +11982,32 @@ img::selection {
 
 img::-moz-selection {
   background: transparent; }
+
+.thumbnail {
+  margin-bottom: 20px;
+  padding: 0px;
+  border-radius: 0px; }
+
+.signature-pad {
+  border: 1px solid #8B8282; }
+
+.m-signature-pad {
+  font-size: 10px;
+  top: 50%;
+  left: 50%;
+  border: 1px solid #e8e8e8;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.08) inset;
+  border-radius: 4px; }
+
+.m-signature-pad--body {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  border: 1px solid #f4f4f4; }
+
+h3,
+h4, h4.item {
+  color: #333; }
 
 /*# sourceMappingURL=app.css.map */

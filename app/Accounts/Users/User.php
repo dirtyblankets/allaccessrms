@@ -128,8 +128,8 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
             $res .= $role->name . ', ';
         }
 
-        rtrim($res);
-        rtrim($res, ',');
+        $res = rtrim($res);
+        $res = rtrim($res, ',');
 
         return $res;
     }

@@ -33,6 +33,11 @@ class Organization extends BaseModel
         return $this->hasMany('AllAccessRMS\Accounts\Users\User');
     }
 
+    public function attendees()
+    {
+        return $this->hasMany('AllAccessRMS\AllAccessEvents\Attendee');
+    }
+
     public function info()
     {
         return $this->hasOne(OrganizationInfo::class);

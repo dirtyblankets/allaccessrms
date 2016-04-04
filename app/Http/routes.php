@@ -19,9 +19,14 @@ Route::get('event/show/{id}', [
 ]);
 
 // Event Registration
-Route::post('event/registration', [
-    'as'    =>  'event.registration',
+Route::post('event/register', [
+    'as'    =>  'event.register',
     'uses'  =>  'EventRegistrationController@register'
+]);
+
+Route::get('event/registration/{id}', [
+    'as'    =>  'event.registration',
+    'uses'  =>  'EventRegistrationController@registration'
 ]);
 
 // Authentication routes...
@@ -50,11 +55,16 @@ Route::post('new_user_registration/store', [
 Route::group(['middleware'=>['auth']], function() {
 
     Route::get('settings',[
+        'as' => 'settings',
+        'uses' => 'Auth\SettingsController@index'
+    ]);
 
+    Route::patch('password_change',[
+        'as' => 'password_change',
+        'uses' => 'Auth\SettingsController@password_change'
     ]);
 
 });
-
 
 //Owner Routes
 Route::group(['as'=>'owner::', 'middleware'=>['auth', 'acl'], 'is'=>'owner'], function() {
@@ -138,9 +148,9 @@ Route::group(['as'=>'owner::', 'middleware'=>['auth', 'acl'], 'is'=>'owner'], fu
         'uses' => 'Owner\ManageEventController@show',
     ]);
 
-    Route::get('events/{id}/edit', [
-        'as' => 'events.edit',
-        'uses' => 'Owner\ManageEventController@edit',
+    Route::get('events/{id}/manage', [
+        'as' => 'events.manage',
+        'uses' => 'Owner\ManageEventController@manage',
     ]);
 
     Route::patch('events/{id}', [
@@ -158,9 +168,14 @@ Route::group(['as'=>'owner::', 'middleware'=>['auth', 'acl'], 'is'=>'owner'], fu
         'uses' => 'Owner\ManageEventController@destroy',
     ]);
 
-    Route::post('events/addgueststoview', [
-        'as'    =>  'events.addgueststoview',
-        'uses'  =>  'Owner\ManageEventController@addgueststoview',
+    Route::post('eventguests/add', [
+        'as'    =>  'eventguests.add',
+        'uses'  =>  'Owner\EventGuestsController@add',
+    ]);
+
+    Route::delete('eventguests/{id}', [
+        'as'    =>  'eventguests.destroy', 
+        'uses' => 'Owner\EventGuestsController@destroy',
     ]);
 });
 

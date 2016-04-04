@@ -53,12 +53,12 @@ class Handler extends ExceptionHandler
         {
             return response()->view('errors.accessdenied', [], 401);
         }
-        else
-        {
+        //else
+        //{
             //Flash::overlay('Error: something went wrong!  Please review the log.');
             //Log::error($e);
-            return redirect()->back();
-        }
+            //return redirect()->back();
+        //}
 
         return parent::render($request, $e);
     }

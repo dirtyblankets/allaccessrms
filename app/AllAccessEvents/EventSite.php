@@ -6,7 +6,7 @@ use AllAccessRMS\Core\BaseModel;
 
 class EventSite extends BaseModel
 {
-	protected $table = 'eventsites';
+	protected $table = 'event_sites';
 
 	protected $fillable = [	
 		'event_id',

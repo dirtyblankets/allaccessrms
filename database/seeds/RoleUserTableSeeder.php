@@ -30,6 +30,9 @@ class RoleUserTableSeeder extends Seeder
 
         $user = User::find(4);
         $user->assignRole('moderator');
+
+        $user = User::find(5);
+        $user->assignRole('moderator');
         
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }

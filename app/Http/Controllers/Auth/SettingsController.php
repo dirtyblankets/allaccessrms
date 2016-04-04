@@ -1,14 +1,17 @@
-<?php
-
-namespace AllAccessRMS\Http\Controllers\Auth;
+<?php namespace AllAccessRMS\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 
 use AllAccessRMS\Http\Requests;
+use AllAccessRMS\Http\Requests\PasswordChangeRequest;
 use AllAccessRMS\Http\Controllers\Controller;
 
 class SettingsController extends Controller
 {
+    public function __construct()
+    {
+        $this->beforeFilter('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +19,12 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        $this->beforeFilter('auth');
+        return view('settings.index');
+    }
+
+    public function password_change(PasswordChangeRequest $request)
+    {
+
     }
 
     /**

@@ -210,4 +210,13 @@ a:focus {
     margin-left: 80px;
     padding-left: 20px; } }
 
+.tab-content.active {
+  display: block; }
+
+.tab-content.hide {
+  display: none; }
+
+.tab-wrapper {
+  margin-bottom: 10px; }
+
 /*# sourceMappingURL=app.css.map */

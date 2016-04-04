@@ -7,7 +7,8 @@
 
 // jQuery to collapse the navbar on scroll
 $(window).scroll(function() {
-    if ($(".navbar").offset().top > 50) {
+
+    if ($(".navbar.navbarscroll").offset().top > 50) {
         $(".navbar-fixed-top").addClass("top-nav-collapse");
     } else {
         $(".navbar-fixed-top").removeClass("top-nav-collapse");
@@ -50,4 +51,39 @@ $(function() {
 function jumpto(anchor){
     window.location.href = "#"+anchor;
 }
+
+$(function() {
+    HandleRegistrationPage();
+});
+
+function HandleRegistrationPage() {
+    handleSignaturePads("parentSignaturePadWrapper", "parent_signature");
+    handleSignaturePads("guardianSignaturePadWrapper", "guardian_signature");
+    handleSignaturePads("studentSignaturePadWrapper", "parent_signature");
+}
+
+function handleSignaturePads(wrapperId, inputName) {
+
+    var wrapper = document.getElementById(wrapperId);
+    var canvas = document.querySelector("canvas");
+    var clearButton = wrapper.querySelector("[data-action=clear]");
+    var saveButton = wrapper.querySelector("[data-action=save]");
+
+    var signaturePad = new SignaturePad(canvas);
+
+    clearButton.addEventListener("click", function (event) {
+        signaturePad.clear();
+        $("input[name="+inputName+"]").val('');
+    });
+
+    saveButton.addEventListener("click", function (event) {
+        if (signaturePad.isEmpty()) {
+            alert("Please provide signature first.");
+        } else {
+            $("input[name="+inputName+"]").val(signaturePad.toDataURL());
+        }
+    });
+}
+
+
 

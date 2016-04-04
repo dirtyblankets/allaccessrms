@@ -26,6 +26,7 @@ class PublishEventFormRequest extends Request
             'event.startdate'  =>  'required|date|after:yesterday',
             'event.enddate'  =>  'required|date|after:' . Carbon::parse($this->startdate)->subDay()->toDateString(),
             'event.cost'    =>  'required|dollar_amount',
+            'event.capacity'    =>  'required|integer',
             'event.starttime' => 'required|date_format:H:i a',
             'event.endtime' =>  'required|date_format:H:i a'
         ];
@@ -36,6 +37,8 @@ class PublishEventFormRequest extends Request
         return [
             'event.title'   =>  'An Event title is required.',
             'event.cost.required'    =>  'Please enter cost of event.  If no cost, enter 0.',
+            'event.capacity.required'    =>  'Please enter event capacity.',
+            'event.capacity.integer'    =>  'Event capacity must be a number.',
             'event.startdate.required'  =>  'Start date is required.',
             'event.enddate.required'    =>  'End date is required.',
             'event.startdate.date'  =>  'Start date must be a date.',

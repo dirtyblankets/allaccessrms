@@ -5,13 +5,10 @@
       <div class="modal-header">
         <h4 class="modal-title">Add Guests</h4>
       </div>
-      @if (Route::is('owner::events.create'))
-      {!! Form::open(array('route' => array('owner::events.addgueststoview'), 'method' => 'POST'))!!}
-      @endif
+      {!! Form::open(array('route' => array('owner::eventguests.add'), 'method' => 'POST'))!!}
+      <input name="_data_event_id" type="hidden" value="">
       <div class="modal-body">
-        @if ($errors->has('guests_email'))
-          <div class='bg-danger alert'>Invalid Email address exists!</div>
-        @endif
+        @include('partials.errors')
         <label>Enter email address separated by comma.</label>
         <textarea class="form-control" name="guests_email">{{ Input::old('guests_email') }}</textarea>
       </div>

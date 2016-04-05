@@ -22,7 +22,7 @@ class PermissionsTableSeeder extends Seeder
 
         $permission = new Permission();
         $permUser = $permission->create([
-            'name'        => 'user',
+            'name'        => 'users',
             'slug'        => [          // pass an array of permissions.
                 'create'     => true,
                 'view'       => true,
@@ -34,7 +34,7 @@ class PermissionsTableSeeder extends Seeder
 
         $permission = new Permission();
         $permUser = $permission->create([
-            'name'        => 'event',
+            'name'        => 'events',
             'slug'        => [          // pass an array of permissions.
                 'create'     => true,
                 'view'       => true,
@@ -42,6 +42,30 @@ class PermissionsTableSeeder extends Seeder
                 'delete'     => true
             ],
             'description' => 'manage event permissions'
+        ]);
+
+        $permission = new Permission();
+        $permUser = $permission->create([
+            'name'        => 'organizations',
+            'slug'        => [          // pass an array of permissions.
+                'create'     => true,
+                'view'       => true,
+                'update'     => true,
+                'delete'     => true
+            ],
+            'description' => 'manage organization permissions'
+        ]);
+
+        $permission = new Permission();
+        $permUser = $permission->create([
+            'name'        => 'attendees',
+            'slug'        => [          // pass an array of permissions.
+                'create'     => true,
+                'view'       => true,
+                'update'     => true,
+                'delete'     => true
+            ],
+            'description' => 'manage attendee permissions'
         ]);
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1');

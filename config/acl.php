@@ -9,8 +9,7 @@ return [
      */
 
     'role'  =>  'AllAccessRMS\Accounts\Users\Role',
-    //'role'       => 'Kodeine\Acl\Models\Eloquent\Role',
-    'permission' => 'Kodeine\Acl\Models\Eloquent\Permission',
+    'permission' => 'AllAccessRMS\Accounts\Users\Permission',
 
     /**
      * Most Permissive Wins right

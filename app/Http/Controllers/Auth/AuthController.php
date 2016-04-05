@@ -59,9 +59,12 @@ class AuthController extends Controller
             if (Auth::attempt(array('email' => $email, 'password' => $password, 'active' => 1), true))
             {
                 $parentOrg = Auth::user()->organization->parent; 
-                if ( ! is_null($parentOrg)) {
+                if ( ! is_null($parentOrg)) 
+                {
                     $parentOrgId = $parentOrg->id; 
-                } else {
+                } 
+                else 
+                {
                     $parentOrgId = null;
                 }
 
@@ -69,11 +72,15 @@ class AuthController extends Controller
                     'USER_ID'   =>  Auth::user()->id,
                     'USER_ORGANIZATION_ID'  =>  Auth::user()->organization_id,
                     'USER_PARENT_ORGANIZATION'   =>  $parentOrgId 
-                    ));
+                ));
 
-                if (Auth::user()->is('owner'))
+                if (Auth::user()->is('owner|admin'))
                 {
-                    return redirect()->route('owner::' . $this->redirectPath);
+                    return redirect()->route('admin::' . $this->redirectPath);
+                }
+                else if (Auth::user()->is('moderator'))
+                {
+                    return redirect()->route('moderator::' . $this->redirectPath);
                 }
 
                 return redirect()->back();

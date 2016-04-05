@@ -1,7 +1,6 @@
 <?php
 
 use AllAccessRMS\Accounts\Users\Role;
-use AllAccessRMS\Accounts\Users\Permission;
 use Illuminate\Database\Seeder;
 
 class PermissionRoleTableSeeder extends Seeder
@@ -20,13 +19,22 @@ class PermissionRoleTableSeeder extends Seeder
         DB::table('permission_role')->truncate();
 
         /*
-         * Root
+         * Owner
          */
         $role = Role::find(1);
-        $role->assignPermission('user', 'event');
+        $role->assignPermission('users', 'events', 'organizations', 'attendees');
 
+        /*
+         * Admin
+         */
         $role = Role::find(2);
-        $role->assignPermission('user', 'event');
+        $role->assignPermission('users', 'events', 'organizations', 'attendees');
+
+        /*
+         * Moderator
+         */
+        $role = Role::find(3);
+        $role->assignPermission('attendees');
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }

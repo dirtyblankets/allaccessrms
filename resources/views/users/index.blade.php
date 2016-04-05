@@ -2,7 +2,7 @@
 @section('content')
     <section class="content-header">
         <h2 class="page-header"><i class="fa fa-fw fa-users"></i> Users
-            <a href='{{ URL::route('owner::users.create') }}' class="btn btn-md btn-primary" title="Add New User"><i class='fa fa-fw fa-plus'></i> Add</a>
+            <a href='{{ URL::route('admin::users.create') }}' class="btn btn-md btn-primary" title="Add New User"><i class='fa fa-fw fa-plus'></i> Add</a>
         </h2>
     </section>
     <!-- Content -->
@@ -27,7 +27,7 @@
                             @else
                             {!!
                                 HTML::decode(link_to_action(
-                                    'Owner\UserController@index',
+                                    'Admin\UserController@index',
                                     '<i class="fa fa-fw fa-caret-up"></i>',
                                     [
                                         'sortby'=>'lastname',
@@ -41,7 +41,7 @@
                             @if ($sortby=='firstname' && $order=='asc') 
                             {!!
                                 HTML::decode(link_to_action(
-                                    'Owner\UserController@index',
+                                    'Admin\UserController@index',
                                     '<i class="fa fa-fw fa-caret-down"></i>',
                                     [
                                         'sortby'=>'firstname',
@@ -51,7 +51,7 @@
                             @else
                             {!!
                                 HTML::decode(link_to_action(
-                                    'Owner\UserController@index',
+                                    'Admin\UserController@index',
                                     '<i class="fa fa-fw fa-caret-up"></i>',
                                     [
                                         'sortby'=>'firstname',
@@ -65,7 +65,7 @@
                             @if ($sortby=='email' && $order=='asc') 
                             {!!
                                 HTML::decode(link_to_action(
-                                    'Owner\UserController@index',
+                                    'Admin\UserController@index',
                                     '<i class="fa fa-fw fa-caret-down"></i>',
                                     [
                                         'sortby'=>'email',
@@ -75,7 +75,7 @@
                             @else
                             {!!
                                 HTML::decode(link_to_action(
-                                    'Owner\UserController@index',
+                                    'Admin\UserController@index',
                                     '<i class="fa fa-fw fa-caret-up"></i>',
                                     [
                                         'sortby'=>'email',

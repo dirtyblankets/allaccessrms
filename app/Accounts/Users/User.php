@@ -9,7 +9,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 use AllAccessRMS\Core\BaseModel;
-use Kodeine\Acl\Traits\HasRole;
+use \Kodeine\Acl\Traits\HasRole;
 
 class User extends BaseModel implements AuthenticatableContract, CanResetPasswordContract
 {

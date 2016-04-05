@@ -6,8 +6,7 @@ class ApplicationForm extends BaseModel {
 
     protected $table = 'application_forms';
 
-    protected $guarded = [
-    ];
+    protected $guarded = [];
 
     public function attendee_applications()
     {

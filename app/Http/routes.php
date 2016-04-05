@@ -13,11 +13,6 @@
 // Public routes...
 Route::resource('/', 'HomePageController');
 
-Route::get('event/show/{id}', [
-    'as'    =>  'event.show',
-    'uses'  =>  'EventRegistrationController@show'
-]);
-
 // Event Registration
 Route::post('event/register', [
     'as'    =>  'event.register',
@@ -27,6 +22,11 @@ Route::post('event/register', [
 Route::get('event/registration/{id}', [
     'as'    =>  'event.registration',
     'uses'  =>  'EventRegistrationController@registration'
+]);
+
+Route::get('event/show/{id}', [
+    'as'    =>  'event.show',
+    'uses'  =>  'EventRegistrationController@show'
 ]);
 
 // Authentication routes...
@@ -66,54 +66,103 @@ Route::group(['middleware'=>['auth']], function() {
 
 });
 
-//Owner Routes
-Route::group(['as'=>'owner::', 'middleware'=>['auth', 'acl'], 'is'=>'owner'], function() {
+
+//Admin Routes
+Route::group(['as'=>'admin::', 'middleware'=>['auth', 'acl'], 'is'=>'owner|admin'], function() {
 
     //Dashboard routes
     Route::get('dashboard', [
         'as'            =>  'dashboard',
-        'uses'          =>  'Owner\DashboardController@index',
+        'uses'          =>  'DashboardController@index',
     ]);
 
     //System User routes
     Route::get('users', [
         'as' => 'users',
-        'uses' => 'Owner\UserController@index',
+        'uses' => 'Admin\UserController@index',
     ]);
 
     Route::get('users/show/{id}', [
         'as' => 'users.show',
-        'uses' => 'Owner\UserController@show',
+        'uses' => 'Admin\UserController@show',
     ]);
 
     Route::get('users/create', [
         'as' => 'users.create',
-        'uses' => 'Owner\UserController@create',
-    ]);
-
-    Route::get('users/invite', [
-        'as' => 'users.invite',
-        'uses' => 'Owner\UserController@invite',
+        'uses' => 'Admin\UserController@create',
+        'can' => 'create.users',
     ]);
 
     Route::post('users/store', [
         'as' => 'users.store',
-        'uses' => 'Owner\UserController@store',
+        'uses' => 'Admin\UserController@store',
+        'can' => 'create.users',
+    ]);
+
+    Route::get('users/invite', [
+        'as' => 'users.invite',
+        'uses' => 'Admin\UserController@invite',
     ]);
 
     Route::get('users/{id}/edit', [
         'as' => 'users.edit',
-        'uses' => 'Owner\UserController@edit',
+        'uses' => 'Admin\UserController@edit',
     ]);
 
     Route::get('users/{id}', [
         'as' => 'users.update',
-        'uses' => 'Owner\UserController@update',
+        'uses' => 'Admin\UserController@update',
     ]);
 
     Route::delete('users/{id}', [
         'as' => 'users.delete',
-        'uses' => 'Owner\UserController@destroy',
+        'uses' => 'Admin\UserController@destroy',
+    ]);
+
+    //Events routes
+    Route::get('events', [
+        'as' => 'events',
+        'uses' => 'Admin\ManageEventController@index',
+    ]);
+
+    Route::get('events/create', [
+        'as' => 'events.create',
+        'uses' => 'Admin\ManageEventController@create',
+    ]);
+
+    Route::get('events/{id}/', [
+        'as' => 'events.show',
+        'uses' => 'Admin\ManageEventController@show',
+    ]);
+
+    Route::get('events/{id}/manage', [
+        'as' => 'events.manage',
+        'uses' => 'Admin\ManageEventController@manage',
+    ]);
+
+    Route::patch('events/{id}', [
+        'as'    =>  'events.unpublish',
+        'uses'  =>  'Admin\ManageEventController@unpublish', 
+    ]);
+
+    Route::put('events/{id}', [
+        'as' => 'events.update',
+        'uses' => 'Admin\ManageEventController@update',
+    ]);
+
+    Route::delete('events/{id}', [
+        'as'    =>  'events.destroy', 
+        'uses' => 'Admin\ManageEventController@destroy',
+    ]);
+
+    Route::post('eventguests/add', [
+        'as'    =>  'eventguests.add',
+        'uses'  =>  'Admin\EventGuestsController@add',
+    ]);
+
+    Route::delete('eventguests/{id}', [
+        'as'    =>  'eventguests.destroy', 
+        'uses' => 'Admin\EventGuestsController@destroy',
     ]);
 
     //Organization routes
@@ -131,55 +180,8 @@ Route::group(['as'=>'owner::', 'middleware'=>['auth', 'acl'], 'is'=>'owner'], fu
         'as' => 'organizations.store',
         'uses' => 'Owner\OrganizationController@store',
     ]);
-    
-    //Events routes
-    Route::get('events', [
-        'as' => 'events',
-        'uses' => 'Owner\ManageEventController@index',
-    ]);
 
-    Route::get('events/create', [
-        'as' => 'events.create',
-        'uses' => 'Owner\ManageEventController@create',
-    ]);
-
-    Route::get('events/{id}/', [
-        'as' => 'events.show',
-        'uses' => 'Owner\ManageEventController@show',
-    ]);
-
-    Route::get('events/{id}/manage', [
-        'as' => 'events.manage',
-        'uses' => 'Owner\ManageEventController@manage',
-    ]);
-
-    Route::patch('events/{id}', [
-        'as'    =>  'events.unpublish',
-        'uses'  =>  'Owner\ManageEventController@unpublish', 
-    ]);
-
-    Route::put('events/{id}', [
-        'as' => 'events.update',
-        'uses' => 'Owner\ManageEventController@update',
-    ]);
-
-    Route::delete('events/{id}', [
-        'as'    =>  'events.destroy', 
-        'uses' => 'Owner\ManageEventController@destroy',
-    ]);
-
-    Route::post('eventguests/add', [
-        'as'    =>  'eventguests.add',
-        'uses'  =>  'Owner\EventGuestsController@add',
-    ]);
-
-    Route::delete('eventguests/{id}', [
-        'as'    =>  'eventguests.destroy', 
-        'uses' => 'Owner\EventGuestsController@destroy',
-    ]);
 });
-
-
 
 // Access Denied
 Route::get('accessdenied',['as' => 'accessdenied', function (){

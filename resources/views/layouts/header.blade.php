@@ -1,16 +1,9 @@
 <header class="main-header">
     <!-- Logo -->
-    @if (Auth::user()->is('owner'))
-    <a href="{{ URL::route('owner::dashboard') }}" class="logo">
+    <a href="{{ URL::route('admin::dashboard') }}" class="logo">
       <!-- logo for regular state and mobile devices -->
         AA<b>RMS</b>
     </a>
-    @elseif (Auth::user()->is('admin'))
-        <a href="{{ URL::route('admin::dashboard') }}" class="logo">
-            <!-- logo for regular state and mobile devices -->
-            AA<b>RMS</b>
-        </a>
-    @endif
     <nav class="navbar navbar-static-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">

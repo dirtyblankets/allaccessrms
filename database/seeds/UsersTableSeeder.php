@@ -24,8 +24,8 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $user = User::create([
-            'organization_id'   =>  1,
-            'email'             =>  'admin@allaccessrms.com',
+            'organization_id'   =>  2,
+            'email'             =>  'admin1@partner1.com',
             'password'          =>  'password',
             'firstname'         =>  'Admin',
             'lastname'          =>  'User',

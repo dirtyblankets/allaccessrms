@@ -6,8 +6,7 @@ class AttendeeHealthForm extends BaseModel {
 
     protected $table = 'attendee_health_form';
 
-    protected $guarded = [
-    ];
+    protected $guarded = [];
 
     public function attendee()
     {

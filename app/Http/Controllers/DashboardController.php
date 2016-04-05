@@ -1,4 +1,4 @@
-<?php namespace AllAccessRMS\Http\Controllers\Owner;
+<?php namespace AllAccessRMS\Http\Controllers;
 
 use Illuminate\Http\Request;
 

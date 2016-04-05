@@ -1,4 +1,4 @@
-<?php namespace AllAccessRMS\Http\Controllers\Owner;
+<?php namespace AllAccessRMS\Http\Controllers\Admin;
 
 use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Input;
@@ -63,7 +63,7 @@ class OrganizationController extends Controller {
         $job = new RegisterPartnerOrganization($request);
         $this->dispatch($job);
 
-        return redirect()->route('owner::organizations');
+        return redirect()->route('admin::organizations');
 
     }
 

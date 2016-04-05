@@ -1,4 +1,4 @@
-<?php namespace AllAccessRMS\Http\Controllers\Owner;
+<?php namespace AllAccessRMS\Http\Controllers\Admin;
 
 use Auth;
 use Exception;
@@ -84,7 +84,7 @@ class EventGuestsController extends Controller
         $event->private = true;
         $event->save();
 
-        return redirect()->route('owner::events.manage', array($eventId));
+        return redirect()->route('admin::events.manage', array($eventId));
     }
 
         /**
@@ -99,6 +99,6 @@ class EventGuestsController extends Controller
         $eventId = $guest->event_id;
         $guest->delete();
 
-        return redirect()->route('owner::events.manage', array($eventId));
+        return redirect()->route('admin::events.manage', array($eventId));
     }
 }

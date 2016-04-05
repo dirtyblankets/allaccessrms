@@ -11,8 +11,10 @@ class Role extends KodeineRole
     const ADMIN = 'admin';
     const MODERATOR = 'moderator';
 
+    /*
     public function users()
     {
         return $this->belongsToMany(User::class)->withTimestamps();
     }
+    */
 }

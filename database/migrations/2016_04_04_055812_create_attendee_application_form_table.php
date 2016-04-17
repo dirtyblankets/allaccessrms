@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAttendeeAppFormTable extends Migration
+class CreateAttendeeApplicationFormTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,9 @@ class CreateAttendeeAppFormTable extends Migration
      */
     public function up()
     {
-        Schema::create('attendee_app_form', function (Blueprint $table) {
-            $table->integer('attendee_id')->unsigned();
-            $table->integer('application_form_id')->unsigned();
+        Schema::create('attendee_doc_app_forms', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->integer('attendee_document_id')->unsigned();
             $table->DATE('birthdate')->nullable();
             $table->string('address', 100)->nullable();
             $table->string('city', 50)->nullable();
@@ -22,26 +22,15 @@ class CreateAttendeeAppFormTable extends Migration
             $table->string('zipcode', 20)->nullable();
             $table->string('country', 5)->nullable();
             $table->string('student_phone')->nullable();
-            $table->string('parent_phone')->nullable();
             $table->string('student_grade', 5)->nullable();
             $table->string('sweatshirt_size', 5)->nullable();
             $table->string('language', 5)->nullable();
-            $table->text('medical_difficulty')->nullable();
-            $table->text('allergy_meds')->nullable();
-            $table->string('parent_name');
-            $table->text('parent_signature');
             $table->timestamps();
 
-            $table->primary('attendee_id');
-
-            $table->foreign('attendee_id')
+            $table->foreign('attendee_document_id')
                 ->references('id')
-                ->on('attendees')
+                ->on('attendee_documents')
                 ->onDelete('cascade');
-
-            $table->foreign('application_form_id')
-                ->references('id')
-                ->on('application_forms'); 
 
         });
     }
@@ -53,6 +42,6 @@ class CreateAttendeeAppFormTable extends Migration
      */
     public function down()
     {
-        Schema::drop('attendee_app_form');
+        Schema::drop('attendee_doc_app_forms');
     }
 }

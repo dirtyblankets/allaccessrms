@@ -43,6 +43,11 @@ class Organization extends BaseModel
         return $this->hasOne(OrganizationInfo::class);
     }
 
+    public function document_definitions()
+    {
+        return $this->hasMany('AllAccessRMS\DocumentDefinitions\DocumentDefinition');
+    }
+
     public function setNameAttribute($name)
     {
         $this->attributes['name'] = ucfirst($name);

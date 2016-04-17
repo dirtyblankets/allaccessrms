@@ -30,12 +30,12 @@
                 <div class='form-group'>
                     <div class="input-group input-append datepicker">
                         <span class="input-group-addon"><i class="fa fa-fw fa-calendar"></i></span>
-                        @if (empty($event->startdate))
+                        @if (empty($event->start_date))
                         <input type="text" size="11" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="01/01/2015" class="form-control dateRangePicker"
-                               name="event[startdate]" value="{{ old(event.startdate) }}" />
+                               name="event[start_date]" value="{{ old(event.start_date) }}" />
                         @else
                         <input type="text" size="11" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="01/01/2015" class="form-control dateRangePicker"
-                               name="event[startdate]" value="{{ $event->startdate }}" />
+                               name="event[start_date]" value="{{ $event->start_date }}" />
                         @endif
                     </div>
                 </div>
@@ -45,12 +45,12 @@
                     <label>&nbsp</label>
                     <div class="input-group input-append timepicker">
                         <span class="input-group-addon"><i class="fa fa-fw fa-clock-o"></i></span>
-                        @if (empty($event->starttime))
-                        <input type="text" size="" placeholder="Start Time" class="form-control" name="event[starttime]"
-                               value="{{ old(event.starttime) }}"/>
+                        @if (empty($event->start_time))
+                        <input type="text" size="" placeholder="Start Time" class="form-control" name="event[start_time]"
+                               value="{{ old(event.start_time) }}"/>
                         @else
-                        <input type="text" size="" placeholder="Start Time" class="form-control" name="event[starttime]"
-                               value="{{ $event->starttime }}"/>
+                        <input type="text" size="" placeholder="Start Time" class="form-control" name="event[start_time]"
+                               value="{{ $event->start_time }}"/>
                         @endif
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                     <div class="input-group input-append datepicker">
                         <span class="input-group-addon"><i class="fa fa-fw fa-calendar"></i></span>
                         <input type="text" size="11" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="01/30/2015" class="form-control dateRangePicker"
-                               name="event[enddate]" value="{{ $event->enddate }}" />
+                               name="event[end_date]" value="{{ $event->end_date }}" />
                     </div>
                 </div>
             </div>
@@ -72,8 +72,8 @@
                     <label>&nbsp</label>
                     <div class="input-group input-append timepicker">
                         <span class="input-group-addon"><i class="fa fa-fw fa-clock-o"></i></span>
-                        <input type="text" size="" placeholder="End Time" class="form-control" name="event[endtime]"
-                               value="{{ $event->endtime }}"/>
+                        <input type="text" size="" placeholder="End Time" class="form-control" name="event[end_time]"
+                               value="{{ $event->end_time }}"/>
                     </div>
                 </div>
             </div>
@@ -235,7 +235,7 @@
                                                 <tr>
                                                     <td>{{ $guest->attendee_email }}</td>
                                                     <td>
-                                                        <a href="{{ route('owner::eventguests.destroy', $guest->id) }}" data-method="delete" rel="nofollow" ><img src={{asset('images/delete.gif')}} alt="Delete"></a>
+                                                        <a href="{{ route('admin::eventguests.destroy', $guest->id) }}" data-method="delete" rel="nofollow" ><img src={{asset('images/delete.gif')}} alt="Delete"></a>
                                                     </td>
                                                 </tr>             
                                             @endforeach

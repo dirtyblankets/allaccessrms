@@ -12,12 +12,10 @@ class CreateAttendeeHealthFormTable extends Migration
      */
     public function up()
     {
-        Schema::create('attendee_health_form', function (Blueprint $table) {
-            $table->integer('attendee_id')->unsigned();
-            $table->integer('health_form_id')->unsigned();
+        Schema::create('attendee_doc_health_release_forms', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->integer('attendee_document_id')->unsigned();
             $table->string('gender', 5);
-            $table->string('guardianfullname');
-            $table->string('relationship');
             $table->string('emg_contactname');
             $table->string('emg_contactrel');
             $table->string('emg_contactnumber');
@@ -29,20 +27,17 @@ class CreateAttendeeHealthFormTable extends Migration
             $table->string('insurancecarrier')->nullable();
             $table->string('insurancepolicynum')->nullable();
             $table->text('liability_statement')->nullable();
-            $table->text('guardiansignature');
-            $table->text('studentsignature');
+            $table->string('guardian_name');
+            $table->string('guardian_relation');
+            $table->string('guardian_contact');
+            $table->text('guardian_sign');
+            $table->text('student_sign');
             $table->timestamps();
 
-            $table->primary('attendee_id');
-
-            $table->foreign('attendee_id')
+            $table->foreign('attendee_document_id')
                 ->references('id')
-                ->on('attendees')
+                ->on('attendee_documents')
                 ->onDelete('cascade');
-
-            $table->foreign('health_form_id')
-                ->references('id')
-                ->on('health_forms');
         });
     }
 
@@ -53,6 +48,6 @@ class CreateAttendeeHealthFormTable extends Migration
      */
     public function down()
     {
-        Schema::drop('attendee_health_form');
+        Schema::drop('attendee_doc_health_release_forms');
     }
 }

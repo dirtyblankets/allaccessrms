@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use AllAccessRMS\Http\Requests;
 use AllAccessRMS\Http\Controllers\Controller;
 
+use AllAccessRMS\AllAccessEvents\Attendee;
+
 class BillingController extends Controller
 {
     /**

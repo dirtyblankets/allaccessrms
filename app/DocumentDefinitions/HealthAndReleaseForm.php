@@ -8,6 +8,8 @@ class HealthAndReleaseForm extends BaseModel {
 
     protected $guarded = [];
 
+    public static $DOC_NAME = "HEALTH_FORM";
+
     public function attendee_healthforms()
     {
         return $this->hasMany('AllAccessRMS\AttendeeDocuments\AttendeeHealthForm', 'health_form_id', 'id')->withTimestamps();

@@ -39,10 +39,10 @@ class UpdateEvent extends Job implements SelfHandling
 
         $this->event->title         =  $this->request->input('event.title');
         $this->event->description   =  $this->request->input('event.description');
-        $this->event->start_date    =  $this->request->input('event.startdate');
-        $this->event->end_date      =  $this->request->input('event.enddate');
-        $this->event->start_time    =  $this->request->input('event.starttime');
-        $this->event->end_time      =  $this->request->input('event.endtime');
+        $this->event->start_date    =  $this->request->input('event.start_date');
+        $this->event->end_date      =  $this->request->input('event.end_date');
+        $this->event->start_time    =  $this->request->input('event.start_time');
+        $this->event->end_time      =  $this->request->input('event.end_time');
         $this->event->price         =  $this->request->input('event.cost');
         $this->event->capacity      =  $this->request->input('event.capacity');
         $this->event->private       =  ($this->request->input('event_privacy') == 'private');

@@ -25,31 +25,6 @@
 					<li>
 						<a class="" href='{{ URL::route('event.registration', $event->id) }}'>Registration</a>
 					</li>
-                    <!--
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-user"></i> Login<b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu login" style="width: 200px;">
-                            <form class='bootstrap-form' method="POST" action="/auth/login">
-                                {!! csrf_field() !!}
-                                <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-                                    <input type="text" placeholder="Email" class="form-control" name="email" />
-                                </div>
-                                <div class="form-group  {{ $errors->has('password') ? 'has-error' : '' }}">
-                                        <input type="password" placeholder="Password" class="form-control" name="password"/>
-                                </div>
-                                @if($errors->has())
-                                    <span class="help-block" style="color: red">Invalid Login</span>
-                                @endif
-                                <li class="divider"></li>
-                                <div class='form-group'>
-                                    <button type="submit" class="btn btn-xs btn-primary">Login</button>
-                                </div>
-                            </form>
-                        </ul>
-                    </li>
-                    -->
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->

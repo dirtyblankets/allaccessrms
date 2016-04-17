@@ -31,21 +31,6 @@ class Event extends BaseModel {
     protected $appends = ['has_ended'];
 
     protected $guarded = [];
-/*
-	protected $fillable = [	
-		'organization_id',
-		'title', 
-		'description', 
-		'start_time', 
-		'end_time',
-		'start_date', 
-		'end_date', 
-		'contact_phone', 
-		'price', 
-		'capacity', 
-		'published', 
-		'private'
-	];	*/
 
 	public function attendees()
 	{
@@ -80,7 +65,12 @@ class Event extends BaseModel {
 
 	public function guests()
 	{
-		return $this->hasMany(EventGuest::class);
+		return $this->hasMany(AttendeeInvitation::class);
+	}
+
+	public function attendee_documents()
+	{
+		return $this->hasMany('AllAccessEvents\DocumentDefinitions\AttendeeDocument', 'event_id');
 	}
 
 	public function eventDescriptionShort()

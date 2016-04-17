@@ -8,6 +8,8 @@ class ApplicationForm extends BaseModel {
 
     protected $guarded = [];
 
+    public static $DOC_NAME = "APPLICATION_FORM";
+
     public function attendee_applications()
     {
         return $this->hasMany('AllAccessRMS\AttendeeDocuments\AttendeeApplication', 'application_form_id', 'id')->withTimestamps();

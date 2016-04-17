@@ -2,8 +2,8 @@
 <header class="intro">
     <div class="intro-body">
         <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+            <div class="row" style="margin-top: 80px;">
+                <div class="col-md-12">
                     <h1 class="brand-heading">{{ $event->title  }}</h1>
                     <p class="intro-text">{{ $event->description }}</p>
                     <p>Hosted By: <strong>{{ $hostOrg->name }}</strong></p>

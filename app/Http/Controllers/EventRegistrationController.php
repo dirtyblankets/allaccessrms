@@ -1,6 +1,6 @@
 <?php namespace AllAccessRMS\Http\Controllers;
 
-use AllAccessRMS\Http\Requests\RegisterAttendeeFormRequest;
+use AllAccessRMS\Http\Requests\EventRegistrationFormRequest;
 
 use AllAccessRMS\Core\Utilities\States;
 use AllAccessRMS\Core\Utilities\Grades;
@@ -44,6 +44,7 @@ class EventRegistrationController extends Controller
 
         $partners = $event->partners()->get();
         $partners->prepend($hostOrg);
+        $partners->prepend('');
 
         $organizations = $partners->lists('name', 'id');
 
@@ -59,7 +60,7 @@ class EventRegistrationController extends Controller
             'genders'));
     }
 
-    public function register(RegisterAttendeeFormRequest $request)
+    public function register(EventRegistrationFormRequest $request)
     {
         dd($request->input('parent_signature'));
         $job = new RegisterAttendee($request);

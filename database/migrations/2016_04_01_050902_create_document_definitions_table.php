@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateApplicationFormsTable extends Migration
+class CreateDocumentDefinitionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,16 @@ class CreateApplicationFormsTable extends Migration
      */
     public function up()
     {
-        Schema::create('application_forms', function (Blueprint $table) {
+        Schema::create('document_definitions', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('event_id')->unsigned();
+            $table->integer('organization_id')->unsigned();
+            $table->string('document_name');
             $table->text('statement')->nullable();
             $table->timestamps();
 
-            $table->foreign('event_id')
+            $table->foreign('organization_id')
                 ->references('id')
-                ->on('events')
+                ->on('organizations')
                 ->onDelete('cascade');
 
         });
@@ -33,6 +34,6 @@ class CreateApplicationFormsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('application_forms');
+        Schema::drop('document_definitions');
     }
 }

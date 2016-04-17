@@ -2,7 +2,7 @@
 @section('content')
 <section class="content-header">
     <h2 class="page-header"><i class="fa fa-fw fa-calendar"></i> Events
-        <a href="{{ URL::route('owner::events.create') }}" class="btn btn-md btn-primary"><i class='fa fa-fw fa-plus'></i> New</a>
+        <a href="{{ URL::route('admin::events.create') }}" class="btn btn-md btn-primary"><i class='fa fa-fw fa-plus'></i> New</a>
     </h2>
 </section>
 <!-- Content -->
@@ -26,7 +26,7 @@
                 @foreach($events as $event)
                     <tr>
                         <td>
-                            <a href="{{ URL::route('owner::events.manage', $event->id)}}">
+                            <a href="{{ URL::route('admin::events.manage', $event->id)}}">
                                 @if ($event->title == "")
                                     NO TITLE
                                 @else
@@ -34,7 +34,7 @@
                                 @endif
                             </a>
                             @if ($event->has_ended)
-                            <span style="color: red; text-align: right">Ended!</span>
+                            <   span style="color: red; text-align: right">Ended!</span>
                             @endif
                         </td>
                         <td>{{ $event->start_date }}</td>
@@ -42,7 +42,7 @@
                         <td>{{ $event->eventType() }}</td>
                         <td>{{ $event->eventStatus() }}</td>
                         @if (Auth::user()->is('admin'))
-                        <td><a class="btn btn-sm btn-success" href="{{ URL::route('owner::events.show', $event->id)}}">Show</a></td>
+                        <td><a class="btn btn-sm btn-success" href="{{ URL::route('admin::events.show', $event->id)}}">Show</a></td>
                         @endif
                     </tr>
                 @endforeach

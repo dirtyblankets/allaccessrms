@@ -1,7 +1,7 @@
 @extends('public.layouts.main')
 @section('content')
-    @include('public.layouts.header_registration')
     @include('public.layouts.nav_registration')
+    @include('public.layouts.header_registration')
     <!-- Events Section -->
     <section id="information" class="container content-section">
         <div class="row">

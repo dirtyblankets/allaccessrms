@@ -32,5 +32,7 @@
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 	<!-- Custom Theme JavaScript -->
 	<script src="/js/public/app.js"></script>
+	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+	<script type="text/javascript" src="/js/public/billing.js"></script>
 	</body>
 </html>

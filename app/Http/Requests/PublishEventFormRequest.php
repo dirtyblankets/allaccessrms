@@ -23,12 +23,12 @@ class PublishEventFormRequest extends Request
     {
         return [
             'event.title' =>  'required',
-            'event.startdate'  =>  'required|date|after:yesterday',
-            'event.enddate'  =>  'required|date|after:' . Carbon::parse($this->startdate)->subDay()->toDateString(),
+            'event.start_date'  =>  'required|date|after:yesterday',
+            'event.end_date'  =>  'required|date|after:' . Carbon::parse($this->startdate)->subDay()->toDateString(),
             'event.cost'    =>  'required|dollar_amount',
             'event.capacity'    =>  'required|integer',
-            'event.starttime' => 'required|date_format:H:i a',
-            'event.endtime' =>  'required|date_format:H:i a'
+            'event.start_time' => 'required|date_format:H:i a',
+            'event.end_time' =>  'required|date_format:H:i a'
         ];
     }
 

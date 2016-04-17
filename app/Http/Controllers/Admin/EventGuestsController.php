@@ -57,7 +57,7 @@ class EventGuestsController extends Controller
 
         // Validation rule
         $rules = array(
-            'guests_email' => 'email|unique:event_guests,attendee_email,event_id['.$eventId.']',
+            'guests_email' => 'email|unique:attendee_invites,attendee_email,event_id['.$eventId.']',
         );
 
         // Validate Each Email

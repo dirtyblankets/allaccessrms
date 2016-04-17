@@ -15,6 +15,7 @@ use AllAccessRMS\Accounts\Organizations\Organization;
 use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
 use AllAccessRMS\Http\Requests\PublishEventFormRequest;
 
+use AllAccessRMS\AllAccessEvents\Attendee;
 use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
 use AllAccessRMS\AllAccessEvents\EventSiteRepositoryInterface;
 use AllAccessRMS\AllAccessEvents\AttendeeInvitationRepositoryInterface;
@@ -99,15 +100,33 @@ class ManageEventController extends Controller
      */
     public function manage($id)
     {
+     
         $event = $this->eventRepo->findById($id);
+     
         $eventsite = $event->eventsite()->first();
+
         $selectedPartners = $event->partners()->get();
         $selectedPartnersId = $selectedPartners->lists('id')->toArray();
 
+        $attendees = $event->attendees()->get();
+
         $guests = $this->eventGuestRepo->findAllPaginatedByEvent($event->id);
+
         $states = States::all();
+        
         $partners = $this->orgRepo->getPartnerOrganizations(Auth::user()->organization_id);
-        return view('events.manage', compact('event', 'eventsite', 'partners', 'selectedPartnersId', 'states', 'guests'));
+
+        return view(
+            'events.manage', 
+            compact(
+                'event', 
+                'eventsite', 
+                'partners', 
+                'selectedPartnersId', 
+                'states', 
+                'guests',
+                'attendees'
+        ));
     }
 
     /**

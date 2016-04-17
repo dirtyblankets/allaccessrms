@@ -3,7 +3,7 @@
         @if (Auth::user()->is('owner|admin'))
              <li {{ Request::is('dashboard') ? 'class=active' : '' }}>
                 <a href="{{ URL::route('admin::dashboard') }}" title="Dashboard" data-toggle="tooltip" data-placement="right" >
-                    <i class= "fa fa-fw fa-dashboard fa-2x fa-align-center"></i>
+                    <i class= "fa fa-fw fa-home fa-2x"></i>
                 </a>
             </li>
             @if (Auth::user()->can('view.events'))

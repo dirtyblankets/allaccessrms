@@ -1,67 +1,46 @@
 @extends('layouts.main')
 @section('content')
-    <section class="content-header">
-        <h2 class="page-header"><i class="fa fa-dashboard"></i> Dashboard</h2>
-    </section>
-<!-- Content -->
-    <div class="row">
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-calendar fa-5x">
-                            </i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">
-                                {{ $active_events }}
-                            </div>
-                            <label>Active Events</label>
-                        </div>
+<section class="content-header">
+    <h2 class="page-header"><i class="fa fa-home"></i> Home</h2>
+</section>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4><i class="fa fa-fw fa-calendar"></i> Live Events</h4>
+        <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+    </div>
+    <div class="panel-body">
+        <div id="events" class="container-fluid">
+            @foreach($events as $event)           
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <a href="{{ URL::route('admin::events.show', $event->id) }}"><img class="group list-group-image img-responsive" src="http://placehold.it/1024x350/000/fff" alt="http://placehold.it/1024x350/000/fff"/>
+                        </a>
                     </div>
                 </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">
-                            View Details
-                        </span>
-                        <span class="pull-right">
-                            <i class="fa fa-arrow-circle-right"></i>
-                        </span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-users fa-5x">
-                            </i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">
-                                {{ $active_events }}
-                            </div>
-                            <label>Attendees</label>
-                        </div>
-                    </div>
+                <div class="col-md-4">
+                        <h4>
+                            <strong>Title:</strong> {{ $event->title }}                    
+                        </h4>
+                        <hr class="divider">
+                        <p class="group inner grid-group-item-text">
+                            <strong>Description:</strong> {{ $event->description }}
+                        </p>
+                        <p class="group inner grid-group-item-text">
+                            <strong>Location:</strong> {{ $event->eventsite()->first()->name }}
+                        </p>
                 </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">
-                            View Details
-                        </span>
-                        <span class="pull-right">
-                            <i class="fa fa-arrow-circle-right"></i>
-                        </span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
+                <div class="col-md-4">
+                    <h4>
+                        <strong>Summary</strong>
+                    </h4>
+                    <hr class="divider">
+                    <i class="fa fa-fw fa-users fa-align-center"></i> 
+                    Attendees Registered: {{ $event->attendees()->count() }}
+                </div>
             </div>
+            @endforeach
         </div>
     </div>
+</div>
 @stop

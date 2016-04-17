@@ -2,6 +2,9 @@
 
 use DB;
 use Illuminate\Support\ServiceProvider;
+use AllAccessRMS\DocumentDefinitions\AttendeeDocument;
+use AllAccessRMS\AttendeeDocuments\AttendeeApplication;
+use AllAccessRMS\AttendeeDocuments\AttendeeHealthReleaseForm;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->environment() == 'local') {
             $this->app->register('Laracasts\Generators\GeneratorsServiceProvider');
         }
+
+
     }
 
     /**

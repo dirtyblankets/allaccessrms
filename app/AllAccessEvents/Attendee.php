@@ -1,9 +1,11 @@
 <?php namespace AllAccessRMS\AllAccessEvents;
 
 use AllAccessRMS\Core\BaseModel;
-use Laravel\Cashier\Billable;
 
-class Attendee extends BaseModel
+use Laravel\Cashier\Billable;
+use Laravel\Cashier\Contracts\Billable as BillableContract;
+
+class Attendee extends BaseModel implements BillableContract
 {
     use Billable;
 
@@ -11,6 +13,8 @@ class Attendee extends BaseModel
 
     protected $guarded = [];
     
+    protected $dates = ['trial_ends_at', 'subscription_ends_at'];
+
     public function event()
     {
         return $this->belongsTo(Event::class);
@@ -21,13 +25,8 @@ class Attendee extends BaseModel
         return $this->belongsTo('AllAccessRMS\Accounts\Organizations\Organization');
     }
 
-    public function applicationforms()
+    public function documents()
     {
-        return $this->hasMany('AllAccessRMS\Documents\ApplicationForm');
-    }
-
-    public function healthforms()
-    {
-        return $this->hasMany('AllAccessRMS\Documents\HealthForm');
+        return $this->hasMany('AllAccessRMS\DocumentDefinitions\AttendeeDocument', 'attendee_id');
     }
 }

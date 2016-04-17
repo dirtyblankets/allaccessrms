@@ -1,9 +1,9 @@
 @extends('layouts.main')
 @section('content')
 @if($event->published)
-    {!! Form::open(array('route' => array('owner::events.unpublish', $event->id), 'method' => 'PATCH')) !!}
+    {!! Form::open(array('route' => array('admin::events.unpublish', $event->id), 'method' => 'PATCH')) !!}
 @else 
-    {!! Form::open(array('route' => array('owner::events.update', $event->id), 'method' => 'PUT'))!!}
+    {!! Form::open(array('route' => array('admin::events.update', $event->id), 'method' => 'PUT'))!!}
 @endif
 <section class="content-header">
     <h2 class="page-header">                 
@@ -16,14 +16,14 @@
                 
                 <button type="submit" name="submitBtn" class="btn btn-md btn-primary btn-toggle-readonly" value="publish"><i class="fa fa-fw fa-arrow-circle-up"></i> Publish</button>     
                 
-                <button class='btn btn-md btn-danger btn-modal' type='button' data-toggle="modal" data-target="#confirmDelete" data-route="{{ URL::route('owner::events.destroy', $event->id) }}" data-title="Delete Event" data-message='Are you sure you want to delete this event ?'>
+                <button class='btn btn-md btn-danger btn-modal' type='button' data-toggle="modal" data-target="#confirmDelete" data-route="{{ URL::route('admin::events.destroy', $event->id) }}" data-title="Delete Event" data-message='Are you sure you want to delete this event ?'>
                 <i class='fa fa-fw fa-times'></i> Delete</button>
             @endif
         </div>
     </h2> 
     <ol class="breadcrumb">
         <li>
-            <a href={{ URL::previous() }}><i class="fa fa-calendar"></i> Events</a>
+            <a href="{{ URL::route('admin::events') }}"><i class="fa fa-calendar"></i> Events</a>
         </li>
         <li class="active">
             Manage Event
@@ -35,16 +35,18 @@
 @include('partials.errors')
 <div id="openModal" data-open-modal="{{ old('openModal') }}" ></div>
 @if($event->published)
-<div id="event_published"></div>
+    <div id="event_published"></div>
 @endif
 <div class="tab-wrapper">
     <ul class="nav nav-tabs">
         <li role="presentation" class="active">
-            <a href="#event_detail">Event</a>
+            <a href="#event_detail">Event Information</a>
         </li>
-        <li role="presentation" >
-            <a href="#registrants">Registered Attendee(s)</a>
-        </li>
+        @if ($attendees->count() > 0)
+            <li role="presentation" >
+                <a href="#registrants">Registered Attendee(s)</a>
+            </li>
+        @endif
     </ul>
 </div>
 <section id="event_detail" class="tab-content active">

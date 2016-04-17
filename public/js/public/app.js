@@ -85,5 +85,3 @@ function handleSignaturePads(wrapperId, inputName) {
     });
 }
 
-
-

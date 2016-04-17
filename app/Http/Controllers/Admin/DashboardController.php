@@ -1,4 +1,4 @@
-<?php namespace AllAccessRMS\Http\Controllers;
+<?php namespace AllAccessRMS\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
@@ -24,9 +24,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $active_events = $this->events->activeEventsCount();
+        $events = $this->events->getActiveEvents();
    
-        return view('dashboard/index', ['active_events'=>$active_events]);
+        return view('dashboard/index', compact('events'));
     }
 
 

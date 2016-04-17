@@ -72,8 +72,8 @@ Route::group(['as'=>'admin::', 'middleware'=>['auth', 'acl'], 'is'=>'owner|admin
 
     //Dashboard routes
     Route::get('dashboard', [
-        'as'            =>  'dashboard',
-        'uses'          =>  'DashboardController@index',
+        'as' => 'dashboard',
+        'uses' => 'Admin\DashboardController@index',
     ]);
 
     //System User routes
@@ -168,17 +168,17 @@ Route::group(['as'=>'admin::', 'middleware'=>['auth', 'acl'], 'is'=>'owner|admin
     //Organization routes
     Route::get('organizations', [
         'as' => 'organizations',
-        'uses' => 'Owner\OrganizationController@index',
+        'uses' => 'Admin\OrganizationController@index',
     ]);
 
     Route::get('organizations/create', [
         'as' => 'organizations.create',
-        'uses' => 'Owner\OrganizationController@create',
+        'uses' => 'Admin\OrganizationController@create',
     ]);
 
     Route::post('organizations/store', [
         'as' => 'organizations.store',
-        'uses' => 'Owner\OrganizationController@store',
+        'uses' => 'Admin\OrganizationController@store',
     ]);
 
 });

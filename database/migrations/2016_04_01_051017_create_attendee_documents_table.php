@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHealthFormsTable extends Migration
+class CreateAttendeeDocumentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,21 @@ class CreateHealthFormsTable extends Migration
      */
     public function up()
     {
-        Schema::create('health_forms', function (Blueprint $table) {
+        Schema::create('attendee_documents', function (Blueprint $table) {
             $table->increments('id')->unsigned();
+            $table->integer('attendee_id')->unsigned();
+            $table->integer('doc_def_id')->unsigned();
             $table->integer('event_id')->unsigned();
-            $table->text('liability_statement')->nullable();
             $table->timestamps();
+
+            $table->foreign('attendee_id')
+                ->references('id')
+                ->on('attendees')
+                ->onDelete('cascade');
+
+            $table->foreign('doc_def_id')
+                ->references('id')
+                ->on('document_definitions');
 
             $table->foreign('event_id')
                 ->references('id')
@@ -32,6 +42,6 @@ class CreateHealthFormsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('health_forms');
+        Schema::drop('attendee_documents');
     }
 }

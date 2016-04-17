@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionRoleTableSeeder::class);
         $this->call(RoleUserTableSeeder::class);
         $this->call(PermissionUserTableSeeder::class);
+        $this->call(DocumentDefinitionTableSeeder::class);
         Model::reguard();
     }
 }

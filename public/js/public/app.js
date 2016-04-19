@@ -58,8 +58,6 @@ $(function() {
 
 function HandleRegistrationPage() {
     handleSignaturePads("parentSignaturePadWrapper", "parent_signature");
-    handleSignaturePads("guardianSignaturePadWrapper", "guardian_signature");
-    handleSignaturePads("studentSignaturePadWrapper", "parent_signature");
 }
 
 function handleSignaturePads(wrapperId, inputName) {
@@ -70,10 +68,19 @@ function handleSignaturePads(wrapperId, inputName) {
     var saveButton = wrapper.querySelector("[data-action=save]");
 
     var signaturePad = new SignaturePad(canvas);
+    
+    var oldValue = $("input[name="+inputName+"]").val();
+
+    if (oldValue) {
+        signaturePad.fromDataURL(oldValue);
+    }
 
     clearButton.addEventListener("click", function (event) {
+
         signaturePad.clear();
+
         $("input[name="+inputName+"]").val('');
+
     });
 
     saveButton.addEventListener("click", function (event) {

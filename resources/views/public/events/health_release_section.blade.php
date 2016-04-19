@@ -22,7 +22,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label>Do you have any medical difficulty? (If yes, please describe)</label>
-                <textarea placeholder="Enter Description Here" class="form-control" name="studentapplication[healthproblems]">{{ old('attendee_health_release_form.healthproblems') }}</textarea>
+                <textarea placeholder="Enter Description Here" class="form-control" name="attendee_health_release_form[healthproblems]">{{ old('attendee_health_release_form.healthproblems') }}</textarea>
             </div>
         </div>
         <div class="col-md-6">
@@ -126,7 +126,7 @@
                 <div id="parentSignaturePadWrapper">
                     <div class="signature-pad">
                         <canvas></canvas>
-                        <input type="hidden" name="attendee_health_release_form[parent_signature]" value="" />
+                        <input type="hidden" name="parent_signature" value="{{ old('parent_signature') }}" />
                     </div>
                     <button type="button" class="button clear" data-action="clear" style="margin-top:5px; color:black;">Clear</button>
                     <button type="button" class="button save" data-action="save" style="margin-top:5px; color:black;">Save</button>

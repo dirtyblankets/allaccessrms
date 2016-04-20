@@ -2,14 +2,16 @@
 
 use AllAccessRMS\Core\BaseDateTime;
 use AllAccessRMS\Core\BaseRepository;
+use AllAccessRMS\AllAccessEvents\Event;
 
 use AllAccessRMS\DocumentDefinitions\ApplicationForm;
 use AllAccessRMS\DocumentDefinitions\HealthAndReleaseForm;
 
 class EventRepository extends BaseRepository implements EventRepositoryInterface {
 
-    public function __construct(Event $event)
+    public function __construct()
     {
+        $event = new Event();
         parent::__construct($event);
     }
 

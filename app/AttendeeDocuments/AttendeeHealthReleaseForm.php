@@ -2,16 +2,15 @@
 
 use AllAccessRMS\Core\BaseModel;
 
-class AttendeeHealthReleaseForm extends BaseModel {
+class AttendeeHealthReleaseForm extends BaseModel 
+{
 
-    protected $table = 'attendee_doc_health_release_forms';
+    protected $table = 'attendee_health_release_forms';
 
     protected $guarded = [];
 
-    public static $DOC_NAME = "Health and Release Form";
-
-    public function attendee_document()
+    public function attendee()
     {
-        return $this->belongsTo('AllAccessRMS\DocumentDefinitions\AttendeeDocument', 'attendee_document_id')->withTimestamps();
+        return $this->belongsTo('AllAccessRMS\AllAccessEvents\Attendee')->withTimestamps();
     }
 }

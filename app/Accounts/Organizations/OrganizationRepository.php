@@ -5,8 +5,9 @@ use AllAccessRMS\Accounts\Organizations\Organization;
 
 class OrganizationRepository extends BaseRepository implements OrganizationRepositoryInterface {
 
-    public function __construct(Organization $organization)
+    public function __construct()
     {
+        $organization = new Organization();
         parent::__construct($organization);
     }
 

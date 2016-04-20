@@ -25,8 +25,13 @@ class Attendee extends BaseModel implements BillableContract
         return $this->belongsTo('AllAccessRMS\Accounts\Organizations\Organization');
     }
 
-    public function documents()
+    public function application_form()
     {
-        return $this->hasMany('AllAccessRMS\DocumentDefinitions\AttendeeDocument', 'attendee_id');
+        return $this->hasOne('AllAccessRMS\AttendeeDocuments\AttendeeApplicationForm');
+    }
+
+    public function health_release_form()
+    {
+        return $this->hasOne('AllAccessRMS\AttendeeDocuments\AttendeeHealthReleaseForm');
     }
 }

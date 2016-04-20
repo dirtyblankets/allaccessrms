@@ -48,16 +48,6 @@ class Event extends BaseModel {
 					->whereNotNull('parent_id');
     }
 
-    public function applicationForm()
-    {
-    	return $this->hasOne('AllAccessRMS\DocumentDefinitions\ApplicationForm');
-    }
-
-    public function healthForm()
-    {
-    	return $this->hasOne('AllAccessRMS\DocumentDefinitions\HealthAndReleaseForm');	
-    }
-
 	public function eventsite()
 	{
 		return $this->hasOne(EventSite::class);
@@ -68,9 +58,9 @@ class Event extends BaseModel {
 		return $this->hasMany(AttendeeInvitation::class);
 	}
 
-	public function attendee_documents()
+	public function registration_form()
 	{
-		return $this->hasMany('AllAccessEvents\DocumentDefinitions\AttendeeDocument', 'event_id');
+		return $this->hasOne('AllAccessRMS\AllAccessEvents\EventRegistrationForm')->withTimestamps();;
 	}
 
 	public function eventDescriptionShort()

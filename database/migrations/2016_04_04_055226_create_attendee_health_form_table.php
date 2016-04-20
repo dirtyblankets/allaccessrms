@@ -12,9 +12,8 @@ class CreateAttendeeHealthFormTable extends Migration
      */
     public function up()
     {
-        Schema::create('attendee_doc_health_release_forms', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
-            $table->integer('attendee_document_id')->unsigned();
+        Schema::create('attendee_health_release_forms', function (Blueprint $table) {
+            $table->integer('attendee_id')->unsigned();
             $table->string('gender', 5);
             $table->string('emg_contactname');
             $table->string('emg_contactrel');
@@ -34,9 +33,9 @@ class CreateAttendeeHealthFormTable extends Migration
             $table->text('student_sign');
             $table->timestamps();
 
-            $table->foreign('attendee_document_id')
+            $table->foreign('attendee_id')
                 ->references('id')
-                ->on('attendee_documents')
+                ->on('attendees')
                 ->onDelete('cascade');
         });
     }
@@ -48,6 +47,6 @@ class CreateAttendeeHealthFormTable extends Migration
      */
     public function down()
     {
-        Schema::drop('attendee_doc_health_release_forms');
+        Schema::drop('attendee_health_release_forms');
     }
 }

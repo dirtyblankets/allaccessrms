@@ -54,15 +54,19 @@ class EventRegistrationController extends Controller
         $languages = Languages::all();
         $sweatshirt_sizes = SweatshirtSizes::all();
 
-        return view('public.events.registration', compact(
-            'event', 'organizations', 'states', 
-            'languages', 'grades', 'sweatshirt_sizes',
-            'genders'));
+        return view('public.events.registration', 
+            compact(
+                'event', 
+                'organizations', 
+                'states', 
+                'languages', 
+                'grades', 
+                'sweatshirt_sizes',
+                'genders'));
     }
 
     public function register(EventRegistrationFormRequest $request)
     {
-        dd($request->input('parent_signature'));
         $job = new RegisterAttendee($request);
         $this->dispatch($job);
 

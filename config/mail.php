@@ -56,6 +56,11 @@ return [
 
     'from' => ['address' => null, 'name' => null],
 
+    'to' => [
+        'address' => 'kapchoi@yahoo.com',
+        'name' => 'Kap Choi'
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol

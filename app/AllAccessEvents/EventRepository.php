@@ -3,9 +3,10 @@
 use AllAccessRMS\Core\BaseDateTime;
 use AllAccessRMS\Core\BaseRepository;
 use AllAccessRMS\AllAccessEvents\Event;
+use AllAccessRMS\AllAccessEvents\EventRegistrationForm;
 
-use AllAccessRMS\DocumentDefinitions\ApplicationForm;
-use AllAccessRMS\DocumentDefinitions\HealthAndReleaseForm;
+use AllAccessRMS\AttendeeDocuments\AttendeeApplicationForm;
+use AllAccessRMS\AttendeeDocuments\AttendeeHealthAndReleaseForm;
 
 class EventRepository extends BaseRepository implements EventRepositoryInterface {
 
@@ -37,6 +38,9 @@ class EventRepository extends BaseRepository implements EventRepositoryInterface
     public function createEmptyEvent($organization_id)
     {
         $newEvent = parent::create(array('organization_id' => $organization_id));
+
+        $registrationForm = new EventRegistrationForm();
+        $newEvent->registration_form()->save($registrationForm);
 
         return $newEvent;
     }

@@ -24,17 +24,17 @@ class OrganizationsTableSeeder extends Seeder
 
         $org = Organization::create([
             'parent_id'     =>  1,
-            'name'          =>  "Partner 1"
+            'name'          =>  "Oaks Righteous Ministry"
         ]);
 
         $org = Organization::create([
             'parent_id'     =>  1,
-            'name'          =>  "Partner 2"
+            'name'          =>  "5Bread2Fish"
         ]);
 
         $org = Organization::create([
             'parent_id'     =>  1,
-            'name'          =>  "Partner 3"
+            'name'          =>  "Orange Caanan Presbyterian Church"
         ]);
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1');

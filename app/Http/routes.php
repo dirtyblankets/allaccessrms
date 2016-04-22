@@ -29,6 +29,11 @@ Route::get('event/show/{id}', [
     'uses'  =>  'EventRegistrationController@show'
 ]);
 
+Route::get('event/pay_online', [
+    'as' => 'event.pay_online',
+    'uses' => 'BillingController@payment'
+]);
+
 // Authentication routes...
 Route::get('auth/login', [
     'as' => 'login',

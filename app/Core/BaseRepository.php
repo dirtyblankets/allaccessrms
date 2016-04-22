@@ -79,7 +79,7 @@ abstract class BaseRepository  {
 
     public function create(array $attributes = [])
     {
-        return  $this->model->create($attributes);
+        return $this->model->create($attributes);
     }
 
     

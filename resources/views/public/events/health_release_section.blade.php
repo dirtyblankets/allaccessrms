@@ -6,7 +6,7 @@
                 <div class="input-group input-append datepicker">
                     <span class="input-group-addon"><i class="fa fa-fw fa-calendar"></i></span>
                     <input type="text" size="11" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="01/30/2015" class="form-control dateRangePicker"
-                           name="attendee_health_release_form[birthdate]" value="{{ old('attendee_health_release_form.birthdate') }}" />
+                           name="attendee_application_form[birthdate]" value="{{ old('attendee_application_form.birthdate') }}" />
                 </div>
             </div>
         </div>

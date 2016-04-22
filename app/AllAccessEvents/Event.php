@@ -60,7 +60,7 @@ class Event extends BaseModel {
 
 	public function registration_form()
 	{
-		return $this->hasOne('AllAccessRMS\AllAccessEvents\EventRegistrationForm')->withTimestamps();;
+		return $this->hasOne('AllAccessRMS\AllAccessEvents\EventRegistrationForm');
 	}
 
 	public function eventDescriptionShort()

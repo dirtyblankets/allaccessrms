@@ -34,7 +34,7 @@
                                 @endif
                             </a>
                             @if ($event->has_ended)
-                            <   span style="color: red; text-align: right">Ended!</span>
+                            <span style="color: red; text-align: right">Ended!</span>
                             @endif
                         </td>
                         <td>{{ $event->start_date }}</td>

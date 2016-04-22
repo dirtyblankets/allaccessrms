@@ -24,15 +24,16 @@ class EventRegistrationFormRequest extends Request
             'attendee.email' => 'required|email|unique:attendees,email,'.'event_id['.$this->get('event_id').']',
             'attendee.firstname' => 'required',
             'attendee.lastname' => 'required',
-            'attendee_application_form.student_phone' => 'required|phone_number',
-            'attendee_application_form.student_grade' => 'required',
+            
+            'attendee_application_form.phone' => 'required|phone_number',
+            'attendee_application_form.grade' => 'required',
             'attendee_application_form.sweatshirt_size' => 'required',
             'attendee_application_form.address' => 'required',
             'attendee_application_form.city' => 'required',
             'attendee_application_form.state' => 'required',
             'attendee_application_form.zipcode' => 'required|digits:5|integer',
 
-            'attendee_health_release_form.birthdate' => 'required|date',
+            'attendee_application_form.birthdate' => 'required|date',
             'attendee_health_release_form.gender' => 'required',
             'attendee_health_release_form.emgcontactname' => 'required',
             'attendee_health_release_form.emgcontactrel' => 'required',
@@ -41,6 +42,7 @@ class EventRegistrationFormRequest extends Request
             'attendee_health_release_form.guardian_phone' => 'required|phone_number',
             'parent_signature' => 'required',
         ];
+    
     }
 
     public function messages()
@@ -52,16 +54,16 @@ class EventRegistrationFormRequest extends Request
             'attendee.email.email' => 'Application - Email is invalid.',
             'attendee.firstname.required' => 'Application - First name is required.',
             'attendee.lastname.required' => 'Application - Last name is required.',
-            'attendee_application_form.student_phone.required' => 'Application - Phone is required.',
-            'attendee_application_form.student_grade.required' => 'Application - Grade Leve is required.',
+            'attendee_application_form.phone.required' => 'Application - Phone is required.',
+            'attendee_application_form.grade.required' => 'Application - Grade Leve is required.',
             'attendee_application_form.sweatshirt_size.required' => 'Application - Sweatshirt size is required.',
             'attendee_application_form.address.required' => 'Application - Address: street address is required.',
             'attendee_application_form.city.required' => 'Application - Address: city is required',
             'attendee_application_form.state.required' => 'Application - Address: state is required.',
             'attendee_application_form.zipcode.required' => 'Application - Address: zipcode is required.',
             'attendee_application_form.zipcode.digits' => 'Application - Address: zipcode must be a 5 digit number.',
-            'attendee_health_release_form.birthdate.required' => 'Health and Release Form - Birthdate is required.',
-            'attendee_health_release_form.birthdate.date' => 'Health and Release Form - Birthdate must be a valid date.',
+            'attendee_application_form.birthdate.required' => 'Application - Birthdate is required.',
+            'attendee_application_form.birthdate.date' => 'Application - Birthdate must be a valid date.',
             'attendee_health_release_form.gender.required' => 'Health and Release Form - Gender is required',
             'attendee_health_release_form.emgcontactname.required' => 'Health and Release Form - Emergency contact name is required.',
             'attendee_health_release_form.emgcontactrel.required' => 'Health and Release Form - Emergency contact relationship is required.',

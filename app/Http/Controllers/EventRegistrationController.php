@@ -1,5 +1,7 @@
 <?php namespace AllAccessRMS\Http\Controllers;
 
+use Exception;
+use Laracasts\Flash\Flash;
 use AllAccessRMS\Http\Requests\EventRegistrationFormRequest;
 
 use AllAccessRMS\Core\Utilities\States;
@@ -7,6 +9,8 @@ use AllAccessRMS\Core\Utilities\Grades;
 use AllAccessRMS\Core\Utilities\Gender;
 use AllAccessRMS\Core\Utilities\Languages;
 use AllAccessRMS\Core\Utilities\SweatshirtSizes;
+
+use AllAccessRMS\AllAccessEvents\AttendeeRepository;
 use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
 use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
 
@@ -36,6 +40,11 @@ class EventRegistrationController extends Controller
     }
 
 
+    /**
+     * Display Registration Page
+     * @param  [type] $id [description]
+     * @return [type]     [description]
+     */
     public function registration($id)
     {
         $event = $this->eventRepo->findById($id);
@@ -65,13 +74,37 @@ class EventRegistrationController extends Controller
                 'genders'));
     }
 
+    /**
+     * Process Registration
+     * @param  EventRegistrationFormRequest $request [description]
+     * @return [type]                                [description]
+     */
     public function register(EventRegistrationFormRequest $request)
     {
         $job = new RegisterAttendee($request);
         $this->dispatch($job);
 
+        $event_id = $request->input('event_id');
+        $event = $this->eventRepo->findById($event_id);
+
+        $attendee_email = $request->input('attendee.email');
+
+        $attendeeRepo = new AttendeeRepository();
+        $newAttendee = $attendeeRepo->findByEventAndEmail($event_id, $attendee_email);
+
+        if (empty($newAttendee->id)) {
+            throw new Exception("Unable to find Registered Attendee.");
+        }
+
+        $session_data = array(
+            'event_id' => $event_id,
+            'attendee_email' => $attendee_email,
+            'attendee_id' => $newAttendee->id,
+            'event_price' => $event->price,
+        );
+
         Flash::success('Thank you! You have been registered! A confirmation email have been sent.');
-        return redirect()->back();
+        return redirect('event/pay_online')->with('registration_data', $session_data);
     }
 
     /**

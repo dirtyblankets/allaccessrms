@@ -11,9 +11,7 @@ class Attendee extends BaseModel implements BillableContract
 
     protected $table = 'attendees';
 
-    protected $guarded = [];
-    
-    protected $dates = ['trial_ends_at', 'subscription_ends_at'];
+    protected $guarded= [];
 
     public function event()
     {
@@ -33,5 +31,44 @@ class Attendee extends BaseModel implements BillableContract
     public function health_release_form()
     {
         return $this->hasOne('AllAccessRMS\AttendeeDocuments\AttendeeHealthReleaseForm');
+    }
+
+    public function setBirthdateAttribute($birthdate)
+    {
+        $this->attributes['birthdate'] = Carbon::parse($birthdate);
+    }
+
+    public function getBirthdateAttribute()
+    {
+        if ($this->attributes['birthdate'] != '0000-00-00')
+        {
+            return Carbon::parse($this->attributes['birthdate'])->format('m/d/Y');
+        }
+    }
+
+    public function setTrialEndsAtAttribute($trial_ends_at)
+    {
+        $this->attributes['trial_ends_at'] = Carbon::parse($trial_ends_at);
+    }
+
+    public function getTrialEndsAtAttribute()
+    {
+        if ($this->attributes['trial_ends_at'] != '0000-00-00')
+        {
+            return Carbon::parse($this->attributes['trial_ends_at'])->format('m/d/Y');
+        }
+    }
+
+    public function setSubscriptionEndsAtAttribute($subscription_ends_at)
+    {
+        $this->attributes['subscription_ends_at'] = Carbon::parse($subscription_ends_at);
+    }
+
+    public function getSubscriptionEndsAtAttribute()
+    {
+        if ($this->attributes['subscription_ends_at'] != '0000-00-00')
+        {
+            return Carbon::parse($this->attributes['subscription_ends_at'])->format('m/d/Y');
+        }
     }
 }

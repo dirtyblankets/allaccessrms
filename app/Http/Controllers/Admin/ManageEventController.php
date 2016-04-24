@@ -21,8 +21,7 @@ use AllAccessRMS\AllAccessEvents\EventSiteRepositoryInterface;
 use AllAccessRMS\AllAccessEvents\AttendeeInvitationRepositoryInterface;
 use AllAccessRMS\Exceptions\Handler;
 
-use AllAccessRMS\Jobs\AllAccessEvents\CreateEvent;
-use AllAccessRMS\Jobs\AllAccessEvents\UpdateEvent;
+use AllAccessRMS\Jobs\UpdateEvent;
 
 class ManageEventController extends Controller
 {

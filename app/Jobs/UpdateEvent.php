@@ -1,4 +1,4 @@
-<?php namespace AllAccessRMS\Jobs\AllAccessEvents;
+<?php namespace AllAccessRMS\Jobs;
 
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Foundation\Bus\DispatchesJobs;

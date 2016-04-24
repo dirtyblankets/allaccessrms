@@ -14,7 +14,7 @@ use AllAccessRMS\AllAccessEvents\AttendeeRepository;
 use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
 use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
 
-use AllAccessRMS\Jobs\AllAccessEvents\RegisterAttendee;
+use AllAccessRMS\Jobs\RegisterAttendee;
 
 class EventRegistrationController extends Controller
 {
@@ -90,21 +90,15 @@ class EventRegistrationController extends Controller
         $attendee_email = $request->input('attendee.email');
 
         $attendeeRepo = new AttendeeRepository();
-        $newAttendee = $attendeeRepo->findByEventAndEmail($event_id, $attendee_email);
+        $attendee = $attendeeRepo->findByEventAndEmail($event_id, $attendee_email);
 
-        if (empty($newAttendee->id)) {
+        if (empty($attendee->id)) 
+        {
             throw new Exception("Unable to find Registered Attendee.");
         }
 
-        $session_data = array(
-            'event_id' => $event_id,
-            'attendee_email' => $attendee_email,
-            'attendee_id' => $newAttendee->id,
-            'event_price' => $event->price,
-        );
-
         Flash::success('Thank you! You have been registered! A confirmation email have been sent.');
-        return redirect('event/pay_online')->with('registration_data', $session_data);
+        return redirect()->route('event.payOnline', [ $event, $attendee ]);
     }
 
     /**

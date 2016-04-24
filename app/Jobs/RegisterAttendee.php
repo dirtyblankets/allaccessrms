@@ -1,4 +1,4 @@
-<?php namespace AllAccessRMS\Jobs\AllAccessEvents;
+<?php namespace AllAccessRMS\Jobs;
 
 use Exception;
 use Carbon\Carbon;
@@ -30,12 +30,14 @@ class RegisterAttendee extends Job implements SelfHandling
         $eventId = $this->request->input('event_id');
         $organizationId = $this->request->input('attendee.organization_id');
 
-        if (empty($eventId)) {
-            throw new Exception("EventID empty.")
+        if (empty($eventId)) 
+        {
+            throw new Exception("EventID empty.");
         }
 
-        if (empty($organizationId)) {
-            throw new Exception("OrganizationID empty.")
+        if (empty($organizationId)) 
+        {
+            throw new Exception("OrganizationID empty.");
         }
 
         $attendeeData = array(
@@ -51,11 +53,12 @@ class RegisterAttendee extends Job implements SelfHandling
             'student_phone' => $this->request->input('attendee_application_form.phone'),
             'student_grade' => $this->request->input('attendee_application_form.grade'),
             'language' => $this->request->input('attendee_application_form.language'),
-            'sweatshirt_size' => $this->request->input('attendee_application_form.sweartshirt_size'),
+            'sweatshirt_size' => $this->request->input('attendee_application_form.sweatshirt_size'),
             'address' => $this->request->input('attendee_application_form.address'),
             'city' => $this->request->input('attendee_application_form.city'),
             'state' => $this->request->input('attendee_application_form.state'),
             'zipcode' => $this->request->input('attendee_application_form.zipcode'),
+            'country' => 'USA',
             'birthdate' => Carbon::parse($this->request->input('attendee_application_form.birthdate')),
         );
         
@@ -94,10 +97,20 @@ class RegisterAttendee extends Job implements SelfHandling
         $newAttendee->application_form()->save($appForm);
         $newAttendee->health_release_form()->save($healthReleaseForm);
 
-        if (!empty($newAttendee->id)) {
+        $newAttendee->save();
+        if (!empty($newAttendee->id)) 
+        {
 
-            $sendMail = new SendRegistrationConfirmation($newAttendee, $event);
-            //$this->dispatch($sendMail);
+            try {
+            
+                $this->dispatch(new SendRegistrationConfirmation($newAttendee, $event));
+            
+            } catch (Exception $e) {
+
+                Log::error('Could not process SendRegistrationConfirmation job.');
+            
+            }
+
         }
 
     }

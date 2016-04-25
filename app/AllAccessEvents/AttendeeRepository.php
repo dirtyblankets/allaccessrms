@@ -2,10 +2,11 @@
 
 use AllAccessRMS\Core\BaseDateTime;
 use AllAccessRMS\Core\BaseRepository;
-
 use AllAccessRMS\AllAccessEvents\Attendee;
+use AllAccessRMS\AllAccessEvents\AttendeeRepositoryInterface;
 
-class AttendeeRepository extends BaseRepository {
+class AttendeeRepository extends BaseRepository implements AttendeeRepositoryInterface 
+{
 
 	public function __construct()
     {
@@ -31,5 +32,14 @@ class AttendeeRepository extends BaseRepository {
         			->where('event_id', $eventId)
                     ->orderBy('attendee_email')
                     ->paginate($perPage);
+    }
+
+    public function getTotalAttendeesForAnEvent($eventId)
+    {
+        $collection = $this->model
+                            ->where('event_id', $eventId)
+                            ->get();
+
+        return $collection->count();
     }
 }

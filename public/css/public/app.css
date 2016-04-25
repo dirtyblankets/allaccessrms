@@ -11989,7 +11989,8 @@ img::-moz-selection {
   border-radius: 0px; }
 
 .signature-pad {
-  border: 1px solid #8B8282; }
+  border: 1px solid #8B8282;
+  width: 600px; }
 
 .m-signature-pad {
   font-size: 10px;

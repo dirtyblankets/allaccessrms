@@ -8,7 +8,8 @@ use AllAccessRMS\AllAccessEvents\EventRegistrationForm;
 use AllAccessRMS\AttendeeDocuments\AttendeeApplicationForm;
 use AllAccessRMS\AttendeeDocuments\AttendeeHealthAndReleaseForm;
 
-class EventRepository extends BaseRepository implements EventRepositoryInterface {
+class EventRepository extends BaseRepository implements EventRepositoryInterface 
+{
 
     public function __construct()
     {

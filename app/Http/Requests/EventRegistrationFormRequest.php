@@ -2,6 +2,7 @@
 
 class EventRegistrationFormRequest extends Request
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -19,12 +20,14 @@ class EventRegistrationFormRequest extends Request
      */
     public function rules()
     {
+
         return [
+            
             'attendee.organization_id' => 'required',
             'attendee.email' => 'required|email|unique:attendees,email,'.'event_id['.$this->get('event_id').']',
             'attendee.firstname' => 'required',
             'attendee.lastname' => 'required',
-            
+
             'attendee_application_form.phone' => 'required|phone_number',
             'attendee_application_form.grade' => 'required',
             'attendee_application_form.sweatshirt_size' => 'required',
@@ -32,8 +35,8 @@ class EventRegistrationFormRequest extends Request
             'attendee_application_form.city' => 'required',
             'attendee_application_form.state' => 'required',
             'attendee_application_form.zipcode' => 'required|digits:5|integer',
-
             'attendee_application_form.birthdate' => 'required|date',
+            
             'attendee_health_release_form.gender' => 'required',
             'attendee_health_release_form.emgcontactname' => 'required',
             'attendee_health_release_form.emgcontactrel' => 'required',
@@ -41,6 +44,7 @@ class EventRegistrationFormRequest extends Request
             'attendee_health_release_form.guardianfullname' => 'required',
             'attendee_health_release_form.guardian_phone' => 'required|phone_number',
             'parent_signature' => 'required',
+            
         ];
     
     }

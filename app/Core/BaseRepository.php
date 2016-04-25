@@ -6,8 +6,9 @@ use Session;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\QueryException;
 use AllAccessRMS\Exceptions\InvalidArgumentException;
+use AllAccessRMS\Core\BaseRepositoryInterface;
 
-abstract class BaseRepository  {
+abstract class BaseRepository implements BaseRepositoryInterface {
     /**
      * @var Model
      */

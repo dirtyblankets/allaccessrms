@@ -22,7 +22,8 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="form-group">
-                @include('partials.errors')            
+                @include('partials.errors')
+                @include('partials.message')            
             </div>
         </div>
     </div>

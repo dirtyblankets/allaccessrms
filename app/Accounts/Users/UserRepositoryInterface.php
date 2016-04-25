@@ -1,16 +1,10 @@
 <?php namespace AllAccessRMS\Accounts\Users;
 
 use AllAccessRMS\Accounts\Users\User;
+use AllAccessRMS\Core\BaseRepositoryInterface;
 
-interface UserRepositoryInterface {
-    /**
-     * Find all users paginated.
-     *
-     * @param int $perPage
-     * @return \Illuminate\Pagination\Paginator|\User[]
-     */
-    public function findAllPaginated($perPage = 20);
-
+interface UserRepositoryInterface extends BaseRepositoryInterface
+{
     /**
      * Find a user by it's email.
      *

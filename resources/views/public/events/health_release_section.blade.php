@@ -2,16 +2,6 @@
     <div class="row">
         <div class="col-md-2">
             <div class='form-group'>
-                <label>Birthdate</label>                    
-                <div class="input-group input-append datepicker">
-                    <span class="input-group-addon"><i class="fa fa-fw fa-calendar"></i></span>
-                    <input type="text" size="11" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="01/30/2015" class="form-control dateRangePicker"
-                           name="attendee_application_form[birthdate]" value="{{ old('attendee_application_form.birthdate') }}" />
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class='form-group'>
                 <label>Gender</label>
                 {!! Form::select('attendee_health_release_form[gender]', $genders, null, array('class'=>'form-control selectpicker', 'value'=>"{{ old('attendee_health_release_form.gender') }}")) !!}
             </div>
@@ -120,14 +110,14 @@
         </div>      
     </div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="form-group">
                 <label>Parent Signature</label>
-                <div id="parentSignaturePadWrapper">
-                    <div class="signature-pad">
-                        <canvas></canvas>
-                        <input type="hidden" name="parent_signature" value="{{ old('parent_signature') }}" />
-                    </div>
+                <div id="parentSignaturePadWrapper">              
+                    <canvas id="signature-pad" class="signature-pad" width=600>
+                    </canvas>
+                    <input type="hidden" name="parent_signature" value="{{ old('parent_signature') }}" />
+                    <br/>
                     <button type="button" class="button clear" data-action="clear" style="margin-top:5px; color:black;">Clear</button>
                     <button type="button" class="button save" data-action="save" style="margin-top:5px; color:black;">Save</button>
                 </div>

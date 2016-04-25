@@ -1,5 +1,15 @@
 <?php namespace AllAccessRMS\AllAccessEvents;
 
-interface EventRepositoryInterface {
+use AllAccessRMS\Core\BaseRepositoryInterface;
+
+interface EventRepositoryInterface extends BaseRepositoryInterface
+{
+    public function findAllPaginatedOrderedByDate($perPage = 20);
+
+    public function getActiveEvents();
+
+    public function createEmptyEvent($organization_id);
+
+    public function activeEventsCount();
 
 }

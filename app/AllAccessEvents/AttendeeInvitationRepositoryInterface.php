@@ -1,6 +1,8 @@
 <?php namespace AllAccessRMS\AllAccessEvents;
 
-interface AttendeeInvitationRepositoryInterface {
+use AllAccessRMS\Core\BaseRepositoryInterface;
+
+interface AttendeeInvitationRepositoryInterface extends BaseRepositoryInterface{
 
 	public function findAllPaginatedByEvent($eventId ,$perPage = 10);
 

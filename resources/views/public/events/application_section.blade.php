@@ -35,6 +35,18 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-2">
+            <div class='form-group'>
+                <label>Birthdate</label>                    
+                <div class="input-group input-append datepicker">
+                    <span class="input-group-addon"><i class="fa fa-fw fa-calendar"></i></span>
+                    <input type="text" size="11" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="01/30/2015" class="form-control dateRangePicker"
+                           name="attendee_application_form[birthdate]" value="{{ old('attendee_application_form.birthdate') }}" />
+                </div>
+            </div>
+        </div>        
+    </div>
     <hr class="divider">
     <div class="row">
         <div class="col-md-3">

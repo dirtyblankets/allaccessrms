@@ -10,8 +10,10 @@ use AllAccessRMS\Core\Utilities\Gender;
 use AllAccessRMS\Core\Utilities\Languages;
 use AllAccessRMS\Core\Utilities\SweatshirtSizes;
 
-use AllAccessRMS\AllAccessEvents\AttendeeRepository;
 use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
+use AllAccessRMS\AllAccessEvents\AttendeeRepositoryInterface;
+use AllAccessRMS\AllAccessEvents\EventRegistrationValidator;
+
 use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
 
 use AllAccessRMS\Jobs\RegisterAttendee;
@@ -19,15 +21,19 @@ use AllAccessRMS\Jobs\RegisterAttendee;
 class EventRegistrationController extends Controller
 {
 
-    private $eventRepo;
+    protected $eventRepo;
 
-    private $orgRepo;
+    protected $orgRepo;
+
+    protected $attendeeRepository;
 
     public function __construct(EventRepositoryInterface $eventRepo,
-                                OrganizationRepositoryInterface $orgRepo)
+                                    OrganizationRepositoryInterface $orgRepo,
+                                        AttendeeRepositoryInterface $attendeeRepository)
     {
         $this->eventRepo = $eventRepo;
         $this->orgRepo = $orgRepo;
+        $this->attendeeRepository = $attendeeRepository;
     }
     /**
      * Display a listing of the resource.
@@ -81,24 +87,34 @@ class EventRegistrationController extends Controller
      */
     public function register(EventRegistrationFormRequest $request)
     {
+
+        $event_id = $request->input('event_id');
+        $attendee_email = $request->input('attendee.email');
+
+        // Add additional validation
+        $eventRegistrationValidator = new EventRegistrationValidator($this->eventRepo, $this->attendeeRepository);
+        if ($eventRegistrationValidator->noEventCapacity($event_id))
+        {
+            Flash::error("We're sorry, the event is now at full capacity.");
+            return redirect()->back();
+        }
+
         $job = new RegisterAttendee($request);
         $this->dispatch($job);
 
-        $event_id = $request->input('event_id');
         $event = $this->eventRepo->findById($event_id);
 
-        $attendee_email = $request->input('attendee.email');
-
-        $attendeeRepo = new AttendeeRepository();
-        $attendee = $attendeeRepo->findByEventAndEmail($event_id, $attendee_email);
+        $attendee = $this->attendeeRepository->findByEventAndEmail($event_id, $attendee_email);
 
         if (empty($attendee->id)) 
         {
+            // To Do: create unique exception classes for unique handling
             throw new Exception("Unable to find Registered Attendee.");
         }
 
         Flash::success('Thank you! You have been registered! A confirmation email have been sent.');
         return redirect()->route('event.payOnline', [ $event, $attendee ]);
+    
     }
 
     /**
@@ -120,8 +136,13 @@ class EventRegistrationController extends Controller
 
         $organizations = $partners->lists('name', 'id');
 
-        return view('public.events.show', compact('event', 'eventsite', 'hostOrg',
-            'organizationinfo', 'partners', 'organizations'));
+        return view('public.events.show', 
+                    compact('event', 
+                            'eventsite', 
+                            'hostOrg',
+                            'organizationinfo', 
+                            'partners', 
+                            'organizations'));
     }
 
     /**

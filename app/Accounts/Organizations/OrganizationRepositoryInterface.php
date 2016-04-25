@@ -1,18 +1,13 @@
 <?php namespace AllAccessRMS\Accounts\Organizations;
 
-interface OrganizationRepositoryInterface
+use AllAccessRMS\Core\BaseRepositoryInterface;
+
+interface OrganizationRepositoryInterface extends BaseRepositoryInterface
 {
     /**
      * @return mixed
      */
     public function createSubOrganization(array $attributes = []);
-    /**
-     * Find all organizations paginated.
-     *
-     * @param int $perPage
-     * @return \Illuminate\Pagination\Paginator|\Organization[]
-     */
-    public function findAllPaginated($perPage = 20);
 
     /**
      * @param $name

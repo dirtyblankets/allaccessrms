@@ -24,7 +24,7 @@ class HomePageController extends Controller
     {
         $events = $this->events->getActiveEvents();
 
-        return view('welcome', compact('events'));
+        return view('public.welcome', compact('events'));
     }
 
     /**

@@ -23,13 +23,19 @@ class RegistrationPaymentController extends Controller
         $this->eventRepository = new EventRepository;
     }
 
-    public function paymentPage($eventId, $attendeeId)
+    public function getPaymentOnline($eventId, $attendeeId)
     {
 
         $event = $this->eventRepository->findById($eventId);
 
         $attendee = $this->attendeeRepository->findById($attendeeId);
 
-        return view('public.events.pay_online', compact('event', 'attendee'));
+        dd(boolval(doubleval("125") === doubleval($event->price)));
+        return view('public.events.payment', compact('event', 'attendee'));
+    }
+
+    public function postPaymentOnline()
+    {
+
     }
 }

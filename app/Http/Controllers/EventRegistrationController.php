@@ -35,15 +35,6 @@ class EventRegistrationController extends Controller
         $this->orgRepo = $orgRepo;
         $this->attendeeRepository = $attendeeRepository;
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-
-    }
 
 
     /**
@@ -51,7 +42,7 @@ class EventRegistrationController extends Controller
      * @param  [type] $id [description]
      * @return [type]     [description]
      */
-    public function registration($id)
+    public function getRegistration($id)
     {
         $event = $this->eventRepo->findById($id);
 
@@ -85,7 +76,7 @@ class EventRegistrationController extends Controller
      * @param  EventRegistrationFormRequest $request [description]
      * @return [type]                                [description]
      */
-    public function register(EventRegistrationFormRequest $request)
+    public function postRegistration(EventRegistrationFormRequest $request)
     {
 
         $event_id = $request->input('event_id');
@@ -113,7 +104,7 @@ class EventRegistrationController extends Controller
         }
 
         Flash::success('Thank you! You have been registered! A confirmation email have been sent.');
-        return redirect()->route('event.payOnline', [ $event, $attendee ]);
+        return redirect()->route('event.payment', [ $event, $attendee ]);
     
     }
 
@@ -145,37 +136,4 @@ class EventRegistrationController extends Controller
                             'organizations'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  Request  $request
-     * @param  int  $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

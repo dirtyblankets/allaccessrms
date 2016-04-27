@@ -22,7 +22,7 @@ class CreateEventsTable extends Migration
             $table->TIME('start_time')->nullable();
             $table->TIME('end_time')->nullable();
             $table->string('contact_phone', 30)->nullable();
-            $table->decimal('price', 10, 2)->nullable();
+            $table->integer('price')->nullable();
             $table->integer('capacity')->nullable();
             $table->boolean('published')->default(0);
             $table->boolean('private')->default(0);

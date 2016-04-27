@@ -14,24 +14,30 @@
 Route::resource('/', 'HomePageController');
 
 // Event Registration
-Route::post('event/register', [
-    'as'    =>  'event.register',
-    'uses'  =>  'EventRegistrationController@register'
-]);
-
 Route::get('event/registration/{id}', [
     'as'    =>  'event.registration',
-    'uses'  =>  'EventRegistrationController@registration'
+    'uses'  =>  'EventRegistrationController@getRegistration'
 ]);
+
+Route::post('event/register', [
+    'as'    =>  'event.register',
+    'uses'  =>  'EventRegistrationController@postRegistration'
+]);
+
 
 Route::get('event/show/{id}', [
     'as'    =>  'event.show',
     'uses'  =>  'EventRegistrationController@show'
 ]);
 
-Route::get('event/payOnline/{event}/{attendee}', [
-    'as' => 'event.payOnline',
-    'uses' => 'RegistrationPaymentController@paymentPage'
+Route::get('event/payment/{event}/{attendee}', [
+    'as' => 'event.payment',
+    'uses' => 'RegistrationPaymentController@getPaymentOnline'
+]);
+
+Route::post('event/process_payment', [
+    'as' => 'event.process_payment',
+    'uses' => 'RegistrationPaymentController@postPaymentOnline'
 ]);
 
 // Authentication routes...

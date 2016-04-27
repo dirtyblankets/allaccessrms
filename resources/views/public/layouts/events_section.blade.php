@@ -13,12 +13,8 @@
                 <div class="thumbnail">
                     <a href="{{ URL::route('event.show', $event->id) }}"><img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="http://placehold.it/400x250/000/fff"/></a>
                     <div class="caption">
-                        <h4 class="group inner grid-group-item-heading">
+                        <p class="group inner grid-group-item-heading" style="text-align: center;">
                             {{ $event->title }}                    
-                        </h4>
-                        <hr class="divider">
-                        <p class="group inner grid-group-item-text">
-                            {{ $event->eventDescriptionShort() }}
                         </p>
                     </div>
                 </div>

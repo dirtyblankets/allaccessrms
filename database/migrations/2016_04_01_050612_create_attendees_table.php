@@ -19,8 +19,7 @@ class CreateAttendeesTable extends Migration
             $table->string('email', 100)->unique();
             $table->string('firstname');
             $table->string('lastname');
-            $table->float('amount_paid', 16, 2)->nullable();
-            $table->float('total_amount', 16, 2)->nullable();
+            $table->integer('amount_paid')->nullable();
             $table->date('registration_date');
             $table->timestamps();
 

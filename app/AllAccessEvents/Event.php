@@ -70,6 +70,18 @@ class Event extends BaseModel {
 		return $short;
 	}
 
+	// Convert price (decimal value) to cents
+	public function setPrice($price)
+	{
+		$this->attributes['price'] = bcmul($price, 100);
+	}
+
+	// Convert cents back to dollars and cents
+	public function getPrice()
+	{
+		return bcdiv($this->attributes['price'], 100, 2);
+	}
+
 	public function setStartTimeAttribute($start_time)
 	{
 		$this->attributes['start_time'] = date("H:i:s", strtotime($start_time));

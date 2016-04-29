@@ -3,22 +3,31 @@
 use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Input;
 
+use Laracasts\Flash\Flash;
 use Log;
 use Exception;
+use AllAccessRMS\Core\Utilities\States;
 use AllAccessRMS\Exceptions\Handler;
 use AllAccessRMS\Http\Controllers\Controller;
 use AllAccessRMS\Http\Requests\NewOrganizationFormRequest;
 use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
+use AllAccessRMS\Accounts\Users\UserRepositoryInterface;
 use AllAccessRMS\Jobs\RegisterPartnerOrganization;
 
 class OrganizationController extends Controller {
     
     protected $organizationsRepository;
 
-    public function __construct(OrganizationRepositoryInterface $organizationsRepository)
+    protected $userRepository;
+
+    public function __construct(OrganizationRepositoryInterface $organizationsRepository,
+        UserRepositoryInterface $userRepository)
     {
         $this->beforeFilter('auth');
+
         $this->organizationsRepository = $organizationsRepository;
+
+        $this->userRepository = $userRepository;
     }
     /**
      * Display a listing of the resource.
@@ -48,7 +57,8 @@ class OrganizationController extends Controller {
      */
     public function create()
     {
-        return view('organizations.create');
+        $states = States::all();
+        return view('organizations.create', compact('states'));
     }
 
     /**
@@ -60,7 +70,10 @@ class OrganizationController extends Controller {
     public function store(NewOrganizationFormRequest $request)
     {
 
-        $job = new RegisterPartnerOrganization($request);
+        $job = new RegisterPartnerOrganization($request, 
+                                                $this->organizationsRepository,
+                                                $this->userRepository);
+
         $this->dispatch($job);
 
         return redirect()->route('admin::organizations');

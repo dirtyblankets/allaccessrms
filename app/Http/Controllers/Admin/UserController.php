@@ -1,26 +1,36 @@
 <?php namespace AllAccessRMS\Http\Controllers\Admin;
 
+use Auth;
 use Exception;
-use Laracasts\Flash\Flash as Flash;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
+use Laracasts\Flash\Flash;
 use Log;
 
-use AllAccessRMS\Http\Requests;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+
 use AllAccessRMS\Http\Controllers\Controller;
-//use AllAccessRMS\Http\Controllers\Auth;
+
+use AllAccessRMS\Http\Requests\AddUserFormRequest;
+use AllAccessRMS\Jobs\RegisterNewUser;
+
 use AllAccessRMS\Accounts\Users\Role;
 use AllAccessRMS\Accounts\Users\UserRepositoryInterface;
+use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
 
 class UserController extends Controller
 {
     protected $users;
 
-    public function __construct(UserRepositoryInterface $users)
+    protected $organizations;
+
+    public function __construct(UserRepositoryInterface $users,
+        OrganizationRepositoryInterface $organizations)
     {
         $this->beforeFilter('auth');
 
         $this->users = $users;
+
+        $this->organizations = $organizations;
     }
 
     /**
@@ -60,40 +70,17 @@ class UserController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(AddUserFormRequest $request)
     {
-        try
-        {
-            $firstname = \Input::get('firstname');
-            $lastname = \Input::get('lastname');
-            $password = \Hash::make('password');
-            $email = \Input::get('email');
 
-            // Save new user
-            try {
-                $newUser = $this->users->insert(array(  'firstname'=>$firstname,
-                                                        'lastname'=>$lastname,
-                                                        'email'=>$email,
-                                                        'password'=>$password,));
+        $job = new RegisterNewUser($request, Auth::user()->organization_id, Role::MODERATOR);
 
-                $newUser->assignRole(Role::MODERATOR);
-                return redirect()->back()->with('success', 'User: ' . $newUser->getFullName() . ' successfully added.');
+        $this->dispatch($job);
 
-            } catch (Exception $e) {
-                Log::error($e->getMessage());
-            }
+        Flash::overlay("New Moderator successfully added.");
 
-        }
-        catch (ValidationException $e)
-        {
-            return redirect()
-                ->back()
-                ->withInput(\Input::except('password'))
-                ->withErrors($e->getErrors());
-        }
-        catch (Exception $e){
-            Log::error($e->getMessage());
-        }
+        return redirect()->route('admin::users');
+
     }
 
     public function invite()
@@ -120,8 +107,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        if ($user !== null)
+        $user = $this->users->findById($id);
+
+        if ($user)
         {
             return view('users.edit', compact('user'));
         }
@@ -134,7 +122,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         try
         {

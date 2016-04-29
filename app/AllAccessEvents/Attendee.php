@@ -33,12 +33,12 @@ class Attendee extends BaseModel implements BillableContract
         return $this->hasOne('AllAccessRMS\AttendeeDocuments\AttendeeHealthReleaseForm');
     }
 
-    public function setAmountPaid($amount_paid)
+    public function setAmountPaidAttribute($amount_paid)
     {
         $this->attributes['amount_paid'] = bcmul($amount_paid, 100);
     }
 
-    public function getAmountPaid()
+    public function getAmountPaidAttribute()
     {
         return bcdiv($this->attributes['amount_paid'], 100, 2);
     }

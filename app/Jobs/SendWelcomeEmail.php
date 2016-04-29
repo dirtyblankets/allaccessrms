@@ -5,7 +5,7 @@ use Illuminate\Contracts\Bus\SelfHandling;
 
 use AllAccessRMS\Accounts\Users\User;
 
-class SendWelcomeEmailWithTempPassword extends Job implements SelfHandling
+class SendWelcomeEmail extends Job implements SelfHandling
 {
 
     protected $user;
@@ -17,16 +17,18 @@ class SendWelcomeEmailWithTempPassword extends Job implements SelfHandling
 
     public function handle(Mailer $mailer)
     {
-        $parent_organization = $this->user->getParentOrganization();
+        $organization = $this->user->organization()->first();
 
         $user_data = array (
             'name' => $this->user->getFullName(),
-            'parent_organization' => $parent_organization->name,
-            'password'  =>  $this->user->temp_password
+            'organization' => $organization->name,
+            'link'  =>  'https://allaccessrms.dev/first_time_login/' . $this->user->id,
         );
 
-        $mailer->send('emails.newuserwelcome', ['user' => $user_data], function ($m) {
+        $mailer->send('emails.newuserwelcome', $user_data, function ($m) {
+
             $m->from('administrator@allaccess.dev', 'All Access RMS');
+            
             $m->to('kapchoi@yahoo.com')->subject('Welcome to AllAccessRMS!');
         });
 

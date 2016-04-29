@@ -6,12 +6,9 @@ class Organization extends BaseModel
 {
 	protected $table = 'organizations';
 
-	protected $fillable = ['parent_id', 'name'];
+	protected $guarded = [];
 
-    protected static $rules = array(
-        'name'  =>  'required'
-    );
-
+    protected static $rules = [];
     
     public function children()
     {

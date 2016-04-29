@@ -53,6 +53,12 @@ Route::get('auth/logout', [
     'uses' => 'Auth\AuthController@getLogout'
 ]);
 
+// New User Authentication Routes
+Route::get('first_time_login/{user_id}', [
+    'as'    =>  'first_time_login',
+    'uses'  =>  'Auth\NewUserLoginController@getLogin'
+]);
+
 Route::get('new_user_registration', [ 
     'as' => 'new_user_registration',
     'uses' => 'NewUserRegistrationController@create'
@@ -118,16 +124,19 @@ Route::group(['as'=>'admin::', 'middleware'=>['auth', 'acl'], 'is'=>'owner|admin
     Route::get('users/{id}/edit', [
         'as' => 'users.edit',
         'uses' => 'Admin\UserController@edit',
+        'can'   =>  'update.users',
     ]);
 
-    Route::get('users/{id}', [
+    Route::put('users/{id}', [
         'as' => 'users.update',
         'uses' => 'Admin\UserController@update',
+        'can'   =>  'update.users',
     ]);
 
     Route::delete('users/{id}', [
-        'as' => 'users.delete',
+        'as' => 'users.destroy',
         'uses' => 'Admin\UserController@destroy',
+        'can'   =>  'delete.users'
     ]);
 
     //Events routes

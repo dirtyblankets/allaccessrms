@@ -27,6 +27,13 @@
                             Location Site: <strong>{{ $eventsite->name }}</strong><br>
                             Address: {{ $eventsite->address }}, {{ $eventsite->city }} {{ $eventsite->state }} {{ $eventsite->zipcode }}<br>
                         </p>
+                        <p>
+                            @if($event->price > 0)
+                                Registration Cost: <strong>${{ $event->price }}</strong>
+                            @else
+                                Free Event
+                            @endif
+                        </p>
                     </div>
                 </div>
             </div>
@@ -48,9 +55,12 @@
                         </h3>
                     </div>
                     <div class="panel-body" style="min-height: 290px; max-height: 290; overflow-y: scroll;">
-                        <p>
-                            Host Contact Number: <strong>{{ $organizationinfo->telephone }}</strong>
-                        </p>
+                        @if(!empty($organizationinfo->telephone))
+                        <p>Host Contact Number: <strong>{{ $organizationinfo->telephone }}</strong></p>
+                        @endif
+                        @if(!empty($organizationinfo->email))
+                        <p>Email: <strong>{{ $organizationinfo->email }}</strong></p>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -71,13 +71,13 @@ class Event extends BaseModel {
 	}
 
 	// Convert price (decimal value) to cents
-	public function setPrice($price)
+	public function setPriceAttribute($price)
 	{
 		$this->attributes['price'] = bcmul($price, 100);
 	}
 
 	// Convert cents back to dollars and cents
-	public function getPrice()
+	public function getPriceAttribute()
 	{
 		return bcdiv($this->attributes['price'], 100, 2);
 	}

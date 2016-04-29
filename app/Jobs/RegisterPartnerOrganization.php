@@ -5,10 +5,10 @@ use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
 use AllAccessRMS\Accounts\Organizations\Organization;
-use AllAccessRMS\Accounts\Organizations\OrganizationRepository;
+use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
 use AllAccessRMS\Accounts\Organizations\OrganizationInfo;
 use AllAccessRMS\Accounts\Users\User;
-use AllAccessRMS\Accounts\Users\UserRepository;
+use AllAccessRMS\Accounts\Users\UserRepositoryInterface;
 use AllAccessRMS\Accounts\Users\Role;
 
 class RegisterPartnerOrganization extends Job implements SelfHandling
@@ -21,11 +21,13 @@ class RegisterPartnerOrganization extends Job implements SelfHandling
 
     protected $organizationRepo;
 
-    public function __construct($request)
+    public function __construct($request, 
+        OrganizationRepositoryInterface $organizationRepository,
+        UserRepositoryInterface $userRepository)
     {
         $this->request = $request;
-        $this->userRepo = new UserRepository(new User());
-        $this->organizationRepo = new OrganizationRepository(new Organization());
+        $this->userRepo = $userRepository;
+        $this->organizationRepo = $organizationRepository;
     }
 
     public function handle()
@@ -65,7 +67,6 @@ class RegisterPartnerOrganization extends Job implements SelfHandling
                 'email'     =>  $email,
                 'firstname' =>  $firstname,
                 'lastname'  =>  $lastname,
-                'password'  =>  str_random(5)
             );
 
             $organization = $this->organizationRepo->createSubOrganization($organizationData);

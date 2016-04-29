@@ -40,6 +40,7 @@ class AuthController extends Controller
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
+
     public function postLogin(Request $request)
     {
         $validator = Validator::make($request->all(), $this->loginRule);

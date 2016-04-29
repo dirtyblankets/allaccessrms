@@ -24,7 +24,7 @@ class EventRepository extends BaseRepository implements EventRepositoryInterface
     public function findAllPaginatedOrderedByDate($perPage = 20)
     {
         return $this->model
-                    ->orderBy('start_date', 'desc')
+                    ->orderBy('start_date', 'asc')
                     ->paginate($perPage);
     }
 
@@ -33,6 +33,7 @@ class EventRepository extends BaseRepository implements EventRepositoryInterface
         return $this->model
                     ->where('end_date', '>=', BaseDateTime::now())
                     ->where('published', true)
+                    ->orderBy('start_date', 'asc')
         			->get();
     }
 

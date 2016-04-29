@@ -2,12 +2,14 @@
 
 use Session;
 use AllAccessRMS\Core\BaseRepository;
+use AllAccessRMS\Accounts\Users\User;
 
 class UserRepository extends BaseRepository implements UserRepositoryInterface {
 
 
-    public function __construct(User $user)
+    public function __construct()
     {
+        $user = new User();
         parent::__construct($user);
     }
 

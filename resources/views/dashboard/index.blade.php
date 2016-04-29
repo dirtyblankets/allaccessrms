@@ -39,6 +39,7 @@
                     Attendees Registered: {{ $event->attendees()->count() }}
                 </div>
             </div>
+            <hr class="divider">
             @endforeach
         </div>
     </div>

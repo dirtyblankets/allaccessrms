@@ -17,7 +17,7 @@
                             @if ($sortby=='lastname' && $order=='asc') 
                             {!!
                                 HTML::decode(link_to_action(
-                                    'Owner\UserController@index',
+                                    'Admin\UserController@index',
                                     '<i class="fa fa-fw fa-caret-down"></i>',
                                     [
                                         'sortby'=>'lastname',
@@ -100,8 +100,14 @@
                             <td>{{ $user->getOrganizationName() }}</td>
                             <td>{{ $user->getUserRoles() }}</td>
                             <td>{{ $user->getActiveString() }}</td>
-                            <td><a href="#"><img src={{asset('images/edit_user.gif')}} alt="Edit"></a></td>
-                            <td><a href="#"><img src={{asset('images/delete.gif')}} alt="Delete"></a></td>
+                            <td>
+                                <a href="{{ URL::route('admin::users.edit', $user->id)}}">
+                                <button><img src={{asset('images/edit_user.gif')}} alt="Edit"></button>
+                                </a>
+                            </td>
+                            <td>
+                                <button class='btn-modal' type='button' data-toggle="modal" data-target="#confirmDelete" data-route="{{ URL::route('admin::users.destroy', $user->id) }}" data-title="Delete User" data-message='Are you sure you want to delete this user ?'><img src={{asset('images/delete.gif')}} alt="Delete"></button>
+                            </td>
                         </tr>
                     @endforeach
                     {!! $users->render() !!}

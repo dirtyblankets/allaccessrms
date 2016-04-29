@@ -4,7 +4,7 @@
         <h2 class="page-header">
             <div class='button-container'>
                 <i class="fa fa-fw fa-building-o"></i> Organizations
-                @if (Auth::user()->can('organizations.create'))
+                @if (Auth::user()->can('create.organizations'))
                 <a href='{{ URL::route('admin::organizations.create') }}' class="btn btn-md btn-primary" title="Add New Organization"><i class='fa fa-fw fa-plus'></i> Add</a>
                 @endif
             </div>

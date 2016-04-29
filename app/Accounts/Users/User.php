@@ -27,9 +27,7 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
      *
      * @var array
      */
-    protected $fillable = [
-        'organization_id', 'email', 'firstname', 'lastname', 'active', 'password'
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -38,11 +36,8 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
      */
     protected $hidden = ['password', 'remember_token'];
 
-    protected static $rules = array(
-        'email'     =>  'required|email|unique:users',
-        'password'  =>  'required|min:5'
-    );
-
+    protected static $rules = [];
+    
     public function organization()
     {
         return $this->belongsTo('AllAccessRMS\Accounts\Organizations\Organization', 'organization_id');
@@ -51,6 +46,11 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = Hash::make($password);
+    }
+
+    public function setTempPasswordAttriute($temp_password)
+    {
+        $this->attributes['temp_password'] = Hash::make($temp_password);
     }
 
     public function setFirstnameAttribute($firstname)

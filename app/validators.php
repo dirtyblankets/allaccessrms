@@ -24,3 +24,8 @@ Validator::extend(
         return preg_match('/^\d*(\.\d{2})?$/', $value);
     }
 );
+
+Validator::extend('alpha_spaces', function($attribute, $value)
+{
+    return preg_match('/^[\pL\s]+$/u', $value);
+});

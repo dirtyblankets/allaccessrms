@@ -2,13 +2,13 @@
 @extends('layouts.main')
 @section('content')
 <section class="content-header">
-    <h2 class="page-header"><i class="fa fa-fw fa-building-o"></i>+ Add New Organization</h2>
+    <h2 class="page-header"><i class="fa fa-fw fa-building-o"></i> Edit</h2>
     <ol class="breadcrumb">
         <li>
             <a href={{ URL::to('organizations') }}><i class="fa fa-building-o"></i> Organizations</a>
         </li>
         <li class="active">
-            Add New Organization
+            Edit Partner Organization Info
         </li>
     </ol>
 </section>
@@ -16,7 +16,7 @@
 @include('partials.message')
 @include('partials.errors')
 <div class="panel-body">
-    <form class='form form-horizontal' method="POST" action="/organizations/store">
+    <form class='form form-horizontal' method="PUT" action="/organizations/edit">
         {!! csrf_field() !!}
         <div class="col-sm-6">
             <h4>Organization Information</h4>
@@ -64,27 +64,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <h4>Admin Information</h4>
-            <div class='form-group'>
-                <div class="input-group">
-                    <div class="input-group-addon"><span class="fa fa-envelope"></span></div>
-                    <input type="email" placeholder="Email Address" class="form-control" name="users[email]"
-                           value="{{ old('users.email') }}" required="required"/>
-                </div>
-            </div>
-            <div class='form-group'>
-                <input type="text" placeholder="First Name" class="form-control" name="users[firstname]"
-                       value="{{ old('users.firstname') }}" required="required"/>
-            </div>
-            <div class='form-group'>
-                <input type="text" placeholder="Last Name" class="form-control" name="users[lastname]"
-                       value="{{ old('users.lastname') }}" required="required"/>
-            </div>
-            <div class='form-group'>
-                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
     </form>

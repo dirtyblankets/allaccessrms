@@ -22,7 +22,7 @@ class SendWelcomeEmail extends Job implements SelfHandling
         $user_data = array (
             'name' => $this->user->getFullName(),
             'organization' => $organization->name,
-            'link'  =>  'https://allaccessrms.dev/first_time_login/' . $this->user->id,
+            'link'  =>  'https://allaccessrms.dev/new_user/' . $this->user->id,
         );
 
         $mailer->send('emails.newuserwelcome', $user_data, function ($m) {

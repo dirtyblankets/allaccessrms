@@ -13,6 +13,9 @@
 // Public routes...
 Route::resource('/', 'HomePageController');
 
+
+
+
 // Event Registration
 Route::get('event/registration/{id}', [
     'as'    =>  'event.registration',
@@ -24,12 +27,15 @@ Route::post('event/register', [
     'uses'  =>  'EventRegistrationController@postRegistration'
 ]);
 
-
 Route::get('event/show/{id}', [
     'as'    =>  'event.show',
     'uses'  =>  'EventRegistrationController@show'
 ]);
 
+
+
+
+// Event Payment
 Route::get('event/payment/{event}/{attendee}', [
     'as' => 'event.payment',
     'uses' => 'RegistrationPaymentController@getPaymentOnline'
@@ -40,7 +46,10 @@ Route::post('event/process_payment', [
     'uses' => 'RegistrationPaymentController@postPaymentOnline'
 ]);
 
-// Authentication routes...
+
+
+
+// User Login
 Route::get('auth/login', [
     'as' => 'login',
     'uses' => 'Auth\AuthController@getLogin'
@@ -53,21 +62,20 @@ Route::get('auth/logout', [
     'uses' => 'Auth\AuthController@getLogout'
 ]);
 
+
+
 // New User Authentication Routes
-Route::get('first_time_login/{user_id}', [
-    'as'    =>  'first_time_login',
+Route::get('new_user/{user_id}', [
+    'as'    =>  'new_user.login',
     'uses'  =>  'Auth\NewUserLoginController@getLogin'
 ]);
 
-Route::get('new_user_registration', [ 
-    'as' => 'new_user_registration',
-    'uses' => 'NewUserRegistrationController@create'
+Route::put('new_user/{user_id}', [
+    'as'    =>  'new_user.login',
+    'uses'  =>  'Auth\NewUserLoginController@postLogin'
 ]);
 
-Route::post('new_user_registration/store', [
-        'as'    =>  'new_user_registration.store',
-        'uses'  =>  'NewUserRegistrationController@store'
-]);
+
 
 Route::group(['middleware'=>['auth']], function() {
 

@@ -7,42 +7,74 @@ use Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+
+use AllAccessRMS\Accounts\Users\UserRepositoryInterface;
 
 use AllAccessRMS\Http\Controllers\Controller;
 use AllAccessRMS\Http\Requests\FirstTimeLoginFormRequest;
 
 class NewUserLoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Registration & Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users, as well as the
-    | authentication of existing users. By default, this controller uses
-    | a simple trait to add these behaviors. Why don't you explore it?
-    |
-    */
 
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    use AuthenticatesAndRegistersUsers;
 
+    protected $redirectPath = 'dashboard';
 
-    public function __construct()
+    protected $users;
+
+    public function __construct(UserRepositoryInterface $users)
     {
         $this->middleware('guest', ['except' => 'getLogout']);
+
+        $this->users = $users;
     }
 
     public function getLogin($user_id)
     {
-        dd("test" . $user_id);
+        $user = $this->users->findById($user_id);
+
+        return view('auth/new_login', compact('user'));
     }
 
 
     public function postLogin(FirstTimeLoginFormRequest $request)
     {
+        $email = $request->input('email');
+        $userId = $request->input('user_id');
+        $password = $request->input('password');
 
+        $job = new SetPassword($userId, $password);
+        $this->dispatch($job);
+
+        if (Auth::attempt(array('email' => $email, 
+                                'password' => $password, 
+                                'active' => 1), true))
+        {
+           $parentOrg = Auth::user()->organization->parent; 
+
+            if ( ! is_null($parentOrg)) 
+            {
+                $parentOrgId = $parentOrg->id; 
+            } 
+            else 
+            {
+                $parentOrgId = null;
+            }
+
+            session(array(  'USER_ID'   =>  Auth::user()->id,
+                            'USER_ORGANIZATION_ID'  =>  Auth::user()->organization_id,
+                            'USER_PARENT_ORGANIZATION'   =>  $parentOrgId));
+
+            if (Auth::user()->is('owner|admin'))
+            {
+                return redirect()->route('admin::' . $this->redirectPath);
+            }
+            else if (Auth::user()->is('moderator'))
+            {
+                return redirect()->route('moderator::' . $this->redirectPath);
+            }
+        }
     }
 
 }

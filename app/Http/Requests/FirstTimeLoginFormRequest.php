@@ -11,7 +11,7 @@ class FirstTimeLoginFormRequest extends Request
      */
     public function authorize()
     {
-        $user_id = $this->route('user_id');
+        $this->user_id = $this->route('user_id');
 
         return true;
     }
@@ -23,9 +23,8 @@ class FirstTimeLoginFormRequest extends Request
      */
     public function rules()
     {
-
         return [
-            'email' => 'required|email|exists:user,email,id,'. $user_id,
+            'email' => 'required|email|exists:users,email,id,'. $this->get('user_id'),
             'password' => 'required|min:5|confirmed',
             'password_confirmation' => 'required|min:5'
         ];

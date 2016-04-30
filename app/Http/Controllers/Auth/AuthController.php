@@ -75,13 +75,9 @@ class AuthController extends Controller
                     'USER_PARENT_ORGANIZATION'   =>  $parentOrgId 
                 ));
 
-                if (Auth::user()->is('owner|admin'))
+                if (Auth::user()->is('owner|admin|moderator'))
                 {
-                    return redirect()->route('admin::' . $this->redirectPath);
-                }
-                else if (Auth::user()->is('moderator'))
-                {
-                    return redirect()->route('moderator::' . $this->redirectPath);
+                    return redirect()->route($this->redirectPath);
                 }
 
                 return redirect()->back();

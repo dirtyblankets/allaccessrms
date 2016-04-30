@@ -48,7 +48,7 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
         $this->attributes['password'] = Hash::make($password);
     }
 
-    public function setTempPasswordAttriute($temp_password)
+    public function setTempPasswordAttribute($temp_password)
     {
         $this->attributes['temp_password'] = Hash::make($temp_password);
     }

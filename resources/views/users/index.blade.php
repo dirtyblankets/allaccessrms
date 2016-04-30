@@ -2,7 +2,7 @@
 @section('content')
     <section class="content-header">
         <h2 class="page-header"><i class="fa fa-fw fa-users"></i> Users
-            <a href='{{ URL::route('admin::users.create') }}' class="btn btn-md btn-primary" title="Add New User"><i class='fa fa-fw fa-plus'></i> Add</a>
+            <a href='{{ URL::route('users.create') }}' class="btn btn-md btn-primary" title="Add New User"><i class='fa fa-fw fa-plus'></i> Add</a>
         </h2>
     </section>
     <!-- Content -->
@@ -17,7 +17,7 @@
                             @if ($sortby=='lastname' && $order=='asc') 
                             {!!
                                 HTML::decode(link_to_action(
-                                    'Admin\UserController@index',
+                                    'Dashboard\UserController@index',
                                     '<i class="fa fa-fw fa-caret-down"></i>',
                                     [
                                         'sortby'=>'lastname',
@@ -27,7 +27,7 @@
                             @else
                             {!!
                                 HTML::decode(link_to_action(
-                                    'Admin\UserController@index',
+                                    'Dashboard\UserController@index',
                                     '<i class="fa fa-fw fa-caret-up"></i>',
                                     [
                                         'sortby'=>'lastname',
@@ -41,7 +41,7 @@
                             @if ($sortby=='firstname' && $order=='asc') 
                             {!!
                                 HTML::decode(link_to_action(
-                                    'Admin\UserController@index',
+                                    'Dashboard\UserController@index',
                                     '<i class="fa fa-fw fa-caret-down"></i>',
                                     [
                                         'sortby'=>'firstname',
@@ -51,7 +51,7 @@
                             @else
                             {!!
                                 HTML::decode(link_to_action(
-                                    'Admin\UserController@index',
+                                    'Dashboard\UserController@index',
                                     '<i class="fa fa-fw fa-caret-up"></i>',
                                     [
                                         'sortby'=>'firstname',
@@ -65,7 +65,7 @@
                             @if ($sortby=='email' && $order=='asc') 
                             {!!
                                 HTML::decode(link_to_action(
-                                    'Admin\UserController@index',
+                                    'Dashboard\UserController@index',
                                     '<i class="fa fa-fw fa-caret-down"></i>',
                                     [
                                         'sortby'=>'email',
@@ -75,7 +75,7 @@
                             @else
                             {!!
                                 HTML::decode(link_to_action(
-                                    'Admin\UserController@index',
+                                    'Dashboard\UserController@index',
                                     '<i class="fa fa-fw fa-caret-up"></i>',
                                     [
                                         'sortby'=>'email',
@@ -101,12 +101,12 @@
                             <td>{{ $user->getUserRoles() }}</td>
                             <td>{{ $user->getActiveString() }}</td>
                             <td>
-                                <a href="{{ URL::route('admin::users.edit', $user->id)}}">
+                                <a href="{{ URL::route('users.edit', $user->id)}}">
                                 <button><img src={{asset('images/edit_user.gif')}} alt="Edit"></button>
                                 </a>
                             </td>
                             <td>
-                                <button class='btn-modal' type='button' data-toggle="modal" data-target="#confirmDelete" data-route="{{ URL::route('admin::users.destroy', $user->id) }}" data-title="Delete User" data-message='Are you sure you want to delete this user ?'><img src={{asset('images/delete.gif')}} alt="Delete"></button>
+                                <button class='btn-modal' type='button' data-toggle="modal" data-target="#confirmDelete" data-route="{{ URL::route('users.destroy', $user->id) }}" data-title="Delete User" data-message='Are you sure you want to delete this user ?'><img src={{asset('images/delete.gif')}} alt="Delete"></button>
                             </td>
                         </tr>
                     @endforeach

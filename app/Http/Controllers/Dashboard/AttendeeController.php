@@ -1,21 +1,21 @@
-<?php namespace AllAccessRMS\Http\Controllers\Admin;
+<?php namespace AllAccessRMS\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
 
 use AllAccessRMS\Http\Requests;
 use AllAccessRMS\Http\Controllers\Controller;
-use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
+use AllAccessRMS\AllAccessEvents\AttendeeRepositoryInterface;
 
-class DashboardController extends Controller
+class AttendeeController extends Controller
 {
 
-    protected $events;
+    protected $attendees;
 
-    public function __construct(EventRepositoryInterface $events)
+    public function __construct(AttendeeRepositoryInterface $attendees)
     {
         $this->beforeFilter('auth');
 
-        $this->events = $events;
+        $this->attendees = $attendees;
     }
     /**
      * Display a listing of the resource.
@@ -24,7 +24,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $events = $this->events->getActiveEvents();
+
    
         return view('dashboard/index', compact('events'));
     }

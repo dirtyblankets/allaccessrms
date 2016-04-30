@@ -23,7 +23,6 @@
                         <button type="submit" class="btn btn-primary">Login</button>
                     </div>
                 </div>
-                <!--<p color="red">Not registered? <a href="{{ URL::route('new_user_registration') }}">Register here.</a></p>-->
             </form>
         </div>
     </div>

@@ -13,6 +13,7 @@ use AllAccessRMS\Accounts\Users\UserRepositoryInterface;
 
 use AllAccessRMS\Http\Controllers\Controller;
 use AllAccessRMS\Http\Requests\FirstTimeLoginFormRequest;
+use AllAccessRMS\Jobs\SetPassword;
 
 class NewUserLoginController extends Controller
 {
@@ -40,9 +41,9 @@ class NewUserLoginController extends Controller
 
     public function postLogin(FirstTimeLoginFormRequest $request)
     {
-        $email = $request->input('email');
-        $userId = $request->input('user_id');
-        $password = $request->input('password');
+        $email      = $request->input('email');
+        $userId     = $request->input('user_id');
+        $password   = $request->input('password');
 
         $job = new SetPassword($userId, $password);
         $this->dispatch($job);
@@ -62,18 +63,16 @@ class NewUserLoginController extends Controller
                 $parentOrgId = null;
             }
 
-            session(array(  'USER_ID'   =>  Auth::user()->id,
-                            'USER_ORGANIZATION_ID'  =>  Auth::user()->organization_id,
-                            'USER_PARENT_ORGANIZATION'   =>  $parentOrgId));
+            session(array(  'USER_ID'                   =>  Auth::user()->id,
+                            'USER_ORGANIZATION_ID'      =>  Auth::user()->organization_id,
+                            'USER_PARENT_ORGANIZATION'  =>  $parentOrgId));
 
-            if (Auth::user()->is('owner|admin'))
+            if (Auth::user()->is('admin|moderator'))
             {
-                return redirect()->route('admin::' . $this->redirectPath);
+                return redirect()->route($this->redirectPath);
             }
-            else if (Auth::user()->is('moderator'))
-            {
-                return redirect()->route('moderator::' . $this->redirectPath);
-            }
+
+            return redirect()->back();
         }
     }
 

@@ -6,5 +6,5 @@ interface AttendeeRepositoryInterface extends BaseRepositoryInterface
 {
     public function findByEventAndEmail($eventId, $email);
 
-    public function findAllPaginatedByEvent($eventId ,$perPage = 10);
+    public function findAllPaginatedByEvent($eventId , $sortBy, $orderBy, $perPage = 20);
 }

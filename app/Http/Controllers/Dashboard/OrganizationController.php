@@ -1,4 +1,4 @@
-<?php namespace AllAccessRMS\Http\Controllers\Admin;
+<?php namespace AllAccessRMS\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Input;
@@ -76,7 +76,7 @@ class OrganizationController extends Controller {
 
         $this->dispatch($job);
 
-        return redirect()->route('admin::organizations');
+        return redirect()->route('organizations');
 
     }
 

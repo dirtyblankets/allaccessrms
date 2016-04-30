@@ -5,7 +5,7 @@
       <div class="modal-header">
         <h4 class="modal-title">Add Guests</h4>
       </div>
-      {!! Form::open(array('route' => array('admin::eventguests.add'), 'method' => 'POST'))!!}
+      {!! Form::open(array('route' => array('eventguests.add'), 'method' => 'POST'))!!}
       <input name="_data_event_id" type="hidden" value="">
       <div class="modal-body">
         @include('partials.errors')

@@ -1,5 +1,7 @@
 <?php namespace AllAccessRMS\AllAccessEvents;
 
+use DB;
+
 use AllAccessRMS\Core\BaseDateTime;
 use AllAccessRMS\Core\BaseRepository;
 use AllAccessRMS\AllAccessEvents\Event;

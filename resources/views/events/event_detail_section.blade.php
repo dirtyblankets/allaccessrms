@@ -235,7 +235,7 @@
                                                 <tr>
                                                     <td>{{ $guest->attendee_email }}</td>
                                                     <td>
-                                                        <a href="{{ route('admin::eventguests.destroy', $guest->id) }}" data-method="delete" rel="nofollow" ><img src={{asset('images/delete.gif')}} alt="Delete"></a>
+                                                        <a href="{{ route('eventguests.destroy', $guest->id) }}" data-method="delete" rel="nofollow" ><img src={{asset('images/delete.gif')}} alt="Delete"></a>
                                                     </td>
                                                 </tr>             
                                             @endforeach

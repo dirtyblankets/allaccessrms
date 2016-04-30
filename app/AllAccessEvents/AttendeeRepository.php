@@ -26,12 +26,13 @@ class AttendeeRepository extends BaseRepository implements AttendeeRepositoryInt
      * @param int $perPage
      * @return mixed
      */
-    public function findAllPaginatedByEvent($eventId ,$perPage = 10)
+    public function findAllPaginatedByEvent($eventId , $sortBy, $orderBy, $perPage = 20)
     {
+
         return $this->model
-        			->where('event_id', $eventId)
-                    ->orderBy('attendee_email')
-                    ->paginate($perPage);
+                    ->where('event_id', $eventId)
+                    ->orderBy($sortBy, $orderBy)
+                    ->paginate($perPage);  
     }
 
     public function getTotalAttendeesForAnEvent($eventId)

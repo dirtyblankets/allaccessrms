@@ -6,7 +6,10 @@ use AllAccessRMS\Http\Requests;
 use AllAccessRMS\Http\Requests\PasswordChangeRequest;
 use AllAccessRMS\Http\Controllers\Controller;
 
-class SettingsController extends Controller
+use AllAccessRMS\Accounts\Users\UserRepositoryInterface;
+use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
+
+class ProfileController extends Controller
 {
     public function __construct()
     {
@@ -19,7 +22,7 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        return view('settings.index');
+        return view('profile.index');
     }
 
     public function password_change(PasswordChangeRequest $request)
@@ -67,7 +70,9 @@ class SettingsController extends Controller
      */
     public function edit($id)
     {
-        //
+
+
+        return view('profile.index');
     }
 
     /**

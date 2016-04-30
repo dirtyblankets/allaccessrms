@@ -6,7 +6,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use AllAccessRMS\Jobs\Job;
 use AllAccessRMS\Accounts\Users\UserRepository;
 
-class UpdateEvent extends Job implements SelfHandling
+class SetPassword extends Job implements SelfHandling
 {
     use DispatchesJobs;
 
@@ -22,11 +22,14 @@ class UpdateEvent extends Job implements SelfHandling
 
     public function handle()
     {
-        $user = new UserRepository();
+        $users = new UserRepository();
+        $user = $users->findById($this->userId);
 
-        $password = [ 'password' => $this->newPassword ];
-
-        $user->update($password, $this->userId, 'id');
+        if (empty($user->password))
+        {
+            $user->password = $this->newPassword;
+            $user->update();
+        }
     }
 
 

@@ -20,14 +20,21 @@ class PasswordChangeRequest extends Request
     public function rules()
     {
         return [
-            'password' => 'required|min:5|user:password'
+            'current_password'  => 'required|min:5|user:password',
+            'new_password'      =>  'required|min:5|confirmed',
+            'new_password_confirmation' =>  'required'
         ];
     }
 
     public function messages()
     {
         return [
-            'password.user'  =>  'Incorrect Password!'
+            'current_password.required' =>  'Please enter your current password',
+            'current_password.user'  =>  'Current Password is incorrect.',
+            'current_password.min'  =>  'Password should be at least 5 characters in length.',
+            'new_password.min'  =>  'Password should be at least 5 characters in length.',
+            'new_password.required'  =>  'Please enter a new password.',
+            'new_password.confirmed'  =>  'Please reenter your new password.',
         ];
     }
 }

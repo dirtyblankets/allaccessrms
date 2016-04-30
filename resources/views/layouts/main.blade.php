@@ -16,7 +16,11 @@
 	<body id="app">
 		<div class="wrapper">
             @include("layouts.header")
-            @include("layouts.sidebar")
+            
+            @if (Auth::user()->is('owner|admin'))
+            	@include("layouts.sidebar")
+            @endif
+            
             @include("layouts.content")
 		</div>
 		@include("partials.confirm_delete")

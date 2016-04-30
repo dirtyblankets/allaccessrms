@@ -14,7 +14,7 @@
         </li>
     </ul>
 </div>
-{!! Form::open(array('route' => array('password_change'), 'method' => 'POST'))!!}
+{!! Form::open(array('route' => array('update'), 'method' => 'PATCH'))!!}
 <section id="password_change" class="tab-content active">
     @include('settings.password_change_section')
 </section>

@@ -1,4 +1,4 @@
-<?php namespace AllAccessRMS\Http\Controllers\Admin;
+<?php namespace AllAccessRMS\Http\Controllers\Dashboard;
 
 use Auth;
 use Exception;
@@ -79,7 +79,7 @@ class UserController extends Controller
 
         Flash::overlay("New Moderator successfully added.");
 
-        return redirect()->route('admin::users');
+        return redirect()->route('users');
 
     }
 

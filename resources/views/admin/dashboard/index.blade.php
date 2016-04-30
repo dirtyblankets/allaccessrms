@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="thumbnail">
-                        <a href="{{ URL::route('admin::events.show', $event->id) }}"><img class="group list-group-image img-responsive" src="http://placehold.it/1024x350/000/fff" alt="http://placehold.it/1024x350/000/fff"/>
+                        <a href="{{ URL::route('events.show', $event->id) }}"><img class="group list-group-image img-responsive" src="http://placehold.it/1024x350/000/fff" alt="http://placehold.it/1024x350/000/fff"/>
                         </a>
                     </div>
                 </div>

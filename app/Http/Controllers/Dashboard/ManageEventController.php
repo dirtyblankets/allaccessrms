@@ -1,4 +1,4 @@
-<?php namespace AllAccessRMS\Http\Controllers\Admin;
+<?php namespace AllAccessRMS\Http\Controllers\Dashboard;
 
 use Auth;
 use Exception;
@@ -69,7 +69,7 @@ class ManageEventController extends Controller
         $eventSite = $this->eventSiteRepo->createEmptyEventSite($event->id);
 
         Flash::overlay("New Event Created!");
-        return redirect()->route('admin::events.manage', [$event->id]);
+        return redirect()->route('events.manage', [$event->id]);
     }
 
     /**
@@ -191,6 +191,6 @@ class ManageEventController extends Controller
         $event->delete();
 
         Flash::success('Event Deleted!');
-        return redirect()->route('admin::events');
+        return redirect()->route('events');
     }
 }

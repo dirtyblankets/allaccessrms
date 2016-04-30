@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-12">
             @include('partials.message')
-            {!! Form::model($user, array('method'=>'PUT', 'route'=>array('admin::users.update', $user->id),
+            {!! Form::model($user, array('method'=>'PUT', 'route'=>array('users.update', $user->id),
            'class'=>'form form-horizontal')) !!}
             {!! csrf_field() !!}
             <div class="row">

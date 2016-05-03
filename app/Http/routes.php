@@ -79,14 +79,24 @@ Route::put('new_user/{user_id}', [
 
 Route::group(['middleware'=>['auth']], function() {
 
+    Route::get('profile', [
+        'as'    =>  'profile',
+        'uses'  =>  'Auth\ProfileController@index'
+    ]);
+
     Route::get('profile/{id}/edit',[
         'as' => 'profile.edit',
         'uses' => 'Auth\ProfileController@edit'
     ]);
 
-    Route::patch('profile/{id}',[
-        'as' => 'profile.update',
-        'uses' => 'Auth\ProfileController@update'
+    Route::patch('password/{id}',[
+        'as' => 'password.update',
+        'uses' => 'Auth\PasswordController@update'
+    ]);
+
+    Route::patch('organization_info/{id}',[
+        'as' => 'organization_info.update',
+        'uses' => 'Dashboard\OrganizationController@update'
     ]);
 
 });

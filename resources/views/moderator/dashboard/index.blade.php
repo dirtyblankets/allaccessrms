@@ -19,14 +19,18 @@
     </div>
 </div>
 
+ {!! Form::open(array('route' => array('dashboard'), 'method' => 'GET'))!!}
 <div class="col-lg-4">
     <div class="panel panel-default">
         <div class="panel-body">
-            <div class="col-lg-2">
-                <button class="btn btn-primary">Find</button>
+            <div class="form-group">
+            {!! Form::text('search_name', null, array('id'=>'search_field', 'class'=>'form-control', 'placeholder'=>'Search by Name')) !!}
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Find</button>
             </div>
         </div>
     </div>
 </div>
-
+{!! Form::close() !!}
 @stop

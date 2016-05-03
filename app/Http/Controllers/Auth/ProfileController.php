@@ -3,9 +3,9 @@
 use Illuminate\Http\Request;
 
 use AllAccessRMS\Http\Requests;
-use AllAccessRMS\Http\Requests\PasswordChangeRequest;
 use AllAccessRMS\Http\Controllers\Controller;
 
+use AllAccessRMS\Core\Utilities\States;
 use AllAccessRMS\Accounts\Users\UserRepositoryInterface;
 use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
 
@@ -22,12 +22,9 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profile.index');
-    }
+        $states = States::all();
 
-    public function password_change(PasswordChangeRequest $request)
-    {
-
+        return view('profile.index', compact('states'));
     }
 
     /**

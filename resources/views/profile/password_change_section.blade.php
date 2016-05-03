@@ -1,3 +1,4 @@
+{!! Form::open(array('route' => array('password.update', Auth::user()->id), 'method' => 'PATCH'))!!}
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4>Password Change</h4>        
@@ -35,8 +36,9 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <button type="submit" name="submitBtn" class="btn btn-md btn-success" value="save"><i class="fa fa-fw fa-check"></i> Save</button>
+                <button type="submit" name="submitBtn" class="btn btn-md btn-success" value="password_change"><i class="fa fa-fw fa-check"></i> Save</button>
             </div>
         </div>
     </div>    
 </div>
+{!! Form::close() !!}

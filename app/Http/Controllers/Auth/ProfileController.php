@@ -1,8 +1,11 @@
 <?php namespace AllAccessRMS\Http\Controllers\Auth;
 
+use Auth;
 use Illuminate\Http\Request;
 
 use AllAccessRMS\Http\Requests;
+use AllAccessRMS\Http\Requests\UpdateOrganizationInfoFormRequest;
+
 use AllAccessRMS\Http\Controllers\Controller;
 
 use AllAccessRMS\Core\Utilities\States;
@@ -11,9 +14,14 @@ use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
 
 class ProfileController extends Controller
 {
-    public function __construct()
+
+    protected $organizations;
+
+    public function __construct(OrganizationRepositoryInterface $organizations)
     {
         $this->beforeFilter('auth');
+
+        $this->organizations = $organizations;
     }
     /**
      * Display a listing of the resource.
@@ -22,9 +30,16 @@ class ProfileController extends Controller
      */
     public function index()
     {
+        $organization = $this->organizations->findById(Auth::user()->organization_id);
+
         $states = States::all();
 
-        return view('profile.index', compact('states'));
+        return view('profile.index', compact('states', 'organization'));
+    }
+
+    public function organization_info_update(UpdateOrganizationInfoFormRequest $request, $id)
+    {
+        dd("test");
     }
 
     /**

@@ -25,11 +25,8 @@ class SetPassword extends Job implements SelfHandling
         $users = new UserRepository();
         $user = $users->findById($this->userId);
 
-        if (empty($user->password))
-        {
-            $user->password = $this->newPassword;
-            $user->update();
-        }
+        $user->password = $this->newPassword;
+        $user->update();
     }
 
 

@@ -10,6 +10,7 @@ use AllAccessRMS\Core\Utilities\States;
 use AllAccessRMS\Exceptions\Handler;
 use AllAccessRMS\Http\Controllers\Controller;
 use AllAccessRMS\Http\Requests\NewOrganizationFormRequest;
+use AllAccessRMS\Http\Requests\UpdateOrganizationInfoFormRequest;
 use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
 use AllAccessRMS\Accounts\Users\UserRepositoryInterface;
 use AllAccessRMS\Jobs\RegisterPartnerOrganization;
@@ -109,7 +110,7 @@ class OrganizationController extends Controller {
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateOrganizationInfoFormRequest $request, $id)
     {
         //
     }

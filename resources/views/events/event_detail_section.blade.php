@@ -148,7 +148,12 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label>State</label>
-                        {!! Form::select('eventsite[state]', $states, null, array('id'=>'administrative_area_level_1', 'class'=>'form-control')) !!}
+                        {!! Form::select('eventsite[state]', 
+                                            $states, 
+                                            $eventsite->state, 
+                                            array(
+                                            'id'=>'administrative_area_level_1', 
+                                            'class'=>'form-control')) !!}
                     </div>
                 </div>
                 <div class="col-md-2">

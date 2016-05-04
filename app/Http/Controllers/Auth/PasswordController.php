@@ -48,8 +48,7 @@ class PasswordController extends Controller
                     ->withErrors('Current Password is incorrect.');
         }
 
-        $email      = $request->input('email');
-        $userId     = $request->input('user_id');
+        $userId     = Auth::user()->id;
         $password   = $request->input('new_password');
 
         $job = new SetPassword($userId, $password);

@@ -143,13 +143,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-        if ($user !== null)
-        {
-            $user->delete();
-            Flash::success($user->getFullName() . ' successfully delete!');
-            return redirect()->back();
-        }
+        $this->users->delete($id);
+        
+        return redirect()->back();
 
     }
 }

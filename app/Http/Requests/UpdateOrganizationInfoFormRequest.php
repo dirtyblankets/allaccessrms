@@ -1,8 +1,8 @@
 <?php namespace AllAccessRMS\Http\Requests;
 
-use AllAccessRMS\Requests\Request;
+use AllAccessRMS\Http\Requests\Request;
 
-class OrganizationInfoFormRequest extends Request
+class UpdateOrganizationInfoFormRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,7 @@ class OrganizationInfoFormRequest extends Request
     public function rules()
     {
         return [
-            'name'  =>  'required|unique:organizations',
+            'name'  =>  'required',
             'zipcode'  =>  'required|digits:5|integer',
             'telephone'    =>  'phone:US'
         ];
@@ -32,7 +32,6 @@ class OrganizationInfoFormRequest extends Request
     {
         return [
             'name.required' =>  'Organization name is required.',
-            'name.unique'   =>  'This organization has already been added.',
             'zipcode.required'  =>  'Zipcode is required.',
             'zipcode.integer'   =>  'Zipcode should consist of numbers only.',
             'telephone.phone'   =>  'Please enter a valid phone number.'

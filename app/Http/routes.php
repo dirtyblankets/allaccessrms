@@ -94,9 +94,9 @@ Route::group(['middleware'=>['auth']], function() {
         'uses' => 'Auth\PasswordController@update'
     ]);
 
-    Route::patch('organization_info/{id}',[
-        'as' => 'organization_info.update',
-        'uses' => 'Dashboard\OrganizationController@update'
+    Route::patch('profile/organization_info/{id}/update',[
+        'as' => 'profile.organization_info.update',
+        'uses' => 'Auth\ProfileController@organization_info_update'
     ]);
 
 });

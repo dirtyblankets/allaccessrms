@@ -209,6 +209,11 @@ Route::group(['middleware'=>['auth', 'acl'], 'is'=>'owner|admin|moderator'], fun
         'uses' => 'Dashboard\OrganizationController@index',
     ]);
 
+    Route::get('organizations/{id}/edit', [
+        'as'    =>  'organizations.edit',
+        'uses'  =>  'Dashboard\OrganizationController@edit',
+    ]);
+
     Route::get('organizations/create', [
         'as' => 'organizations.create',
         'uses' => 'Dashboard\OrganizationController@create',
@@ -217,6 +222,12 @@ Route::group(['middleware'=>['auth', 'acl'], 'is'=>'owner|admin|moderator'], fun
     Route::post('organizations/store', [
         'as' => 'organizations.store',
         'uses' => 'Dashboard\OrganizationController@store',
+    ]);
+
+    // Attendees for a given event
+    Route::get('attendees/{event_id}', [
+        'as'    =>  'attendees',
+        'uses'  =>  'Dashboard\AttendeeController@index'
     ]);
 
 });

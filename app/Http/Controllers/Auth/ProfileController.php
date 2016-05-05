@@ -2,15 +2,16 @@
 
 use Auth;
 use Illuminate\Http\Request;
+use Laracasts\Flash\Flash;
 
 use AllAccessRMS\Http\Requests;
-use AllAccessRMS\Http\Requests\UpdateOrganizationInfoFormRequest;
-
 use AllAccessRMS\Http\Controllers\Controller;
 
 use AllAccessRMS\Core\Utilities\States;
 use AllAccessRMS\Accounts\Users\UserRepositoryInterface;
 use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
+use AllAccessRMS\Http\Requests\UpdateOrganizationInfoFormRequest;
+use AllAccessRMS\Jobs\UpdateOrganizationInfo;
 
 class ProfileController extends Controller
 {
@@ -39,7 +40,12 @@ class ProfileController extends Controller
 
     public function organization_info_update(UpdateOrganizationInfoFormRequest $request, $id)
     {
-        dd("test");
+        $updateOrganization = new UpdateOrganizationInfo($request, $id);
+        $this->dispatch($updateOrganization);
+
+        Flash::overlay('Organization Info Updated!');
+
+        return redirect()->back();
     }
 
     /**

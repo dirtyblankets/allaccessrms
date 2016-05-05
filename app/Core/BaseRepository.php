@@ -1,5 +1,6 @@
 <?php namespace AllAccessRMS\Core;
 
+use Auth;
 use Exception;
 use Session;
 
@@ -28,14 +29,26 @@ abstract class BaseRepository implements BaseRepositoryInterface {
         }
 
         $this->model = $model;
-        $this->setCache();
+        $this->setContextInfo();
     }
 
-    private function setCache()
+    private function setContextInfo()
     {
-        $this->userId = Session::get('USER_ID');
-        $this->userOrganizationId = Session::get('USER_ORGANIZATION_ID');
-        $this->userParentOrganizationId = Session::get('USER_PARENT_ORGANIZATION_ID');
+        if (Auth::check())
+        {
+            $this->userId = Auth::user()->id;
+            $this->userOrganizationId = Auth::user()->organization_id;
+
+            if (Auth::user()->organization()->first()->isChild())
+            {
+                $this->userParentOrganizationId = Auth::user()->organization()->first()->parent()->first()->id; 
+            }
+            else
+            {
+                $this->userParentOrganizationId = null; 
+            }           
+        }
+
     }
 
     public function save(Model $model)

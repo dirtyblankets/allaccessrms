@@ -33,8 +33,8 @@ class CreateOrganizationsTable extends Migration
             $table->string('state', 5)->nullable();
             $table->string('zipcode', 20)->nullable();
             $table->string('country', 5)->nullable();
-            $table->string('telephone')->nullable();
-            $table->string('fax')->nullable();
+            $table->string('telephone', 10)->nullable();
+            $table->string('fax', 10)->nullable();
             $table->timestamps();
 
             $table->foreign('organization_id')

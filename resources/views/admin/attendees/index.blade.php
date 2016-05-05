@@ -1,8 +1,7 @@
 @extends('layouts.main')
 @section('content')
 <section class="content-header">
-    <h2 class="page-header"><i class="fa fa-home"></i> Home</h2>
+    <h2 class="page-header"><i class="fa fa-fw fa-calendar"></i> {{ $event->title }}</h2>
 </section>
-<!-- Content -->
 @include('attendees.index')
 @stop

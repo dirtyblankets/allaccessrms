@@ -24,7 +24,7 @@ class UpdateOrganizationInfoFormRequest extends Request
         return [
             'name'  =>  'required',
             'zipcode'  =>  'required|digits:5|integer',
-            'telephone'    =>  'phone:US'
+            'telephone'    =>  'phone:us'
         ];
     }
 

@@ -1,6 +1,6 @@
 <?php namespace AllAccessRMS\Accounts\Users;
 
-use Session;
+use Auth;
 use AllAccessRMS\Core\BaseRepository;
 use AllAccessRMS\Accounts\Users\User;
 
@@ -16,20 +16,30 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface {
     public function findAllPaginatedSorted($sortby, $order, $perPage = 20)
     {
         return $this->model
-                    ->where('id', '!=', 1)
-                    ->where('id', '!=', $this->userId)
+                    ->where('id', '!=', Auth::user()->organization_id)
                     ->orderBy($sortby, $order)
                     ->paginate($perPage);
     }
 
     public function findAllPaginated($perPage = 20)
     {
- 
-        return $this->model
-                    ->where('id', '!=', 1)
-                    ->where('id', '!=', $this->userId)
-                    ->orderBy('lastname')
-                    ->paginate($perPage);
+
+        if (is_null($this->userParentOrganizationId))
+        {
+
+            return $this->model
+                        ->where('id', '!=', $this->userId)
+                        ->orderBy('lastname')
+                        ->paginate($perPage);
+        }
+        else
+        {
+            return $this->model
+                        ->where('organization_id', $this->userOrganizationId)
+                        ->where('id', '!=', $this->userId)
+                        ->orderBy('lastname')
+                        ->paginate($perPage);
+        }
     }
 
     public function findByEmail($email)

@@ -59,7 +59,7 @@
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-fw fa-phone"></i></div>
-                            <input type="tel" placeholder="Telephone" class="form-control" name="organizationinfo[telephone]"
+                            <input type="tel" placeholder="Telephone" class="form-control phone" name="organizationinfo[telephone]"
                                    value="{{ old('organizationinfo.telephone') }}"/>
                         </div>
                     </div>

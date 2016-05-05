@@ -46,7 +46,7 @@
                         <th>State</th>
                         <th>Zipcode</th>
                         <th>Contact
-                        @if (Auth::user()->can('organizations.update'))
+                        @if (Auth::user()->can('update.organizations'))
                         <th>Edit</th>
                         @endif
                     </tr>
@@ -68,8 +68,12 @@
                                 <td></td>
                                 <td></td>
                             @endif
-                            @if (Auth::user()->can('users.update'))
-                            <td><a href="#"><img src={{asset('images/edit_user.gif')}} alt="Edit"></a></td>
+                            @if (Auth::user()->can('update.organizations'))
+                            <td>
+                                <a href="{{ URL::route('organization.edit', $organization->id)}}">
+                                <button><img src={{asset('images/edit_user.gif')}} alt="Edit"></button>
+                                </a>
+                            </td>
                             @endif
                         </tr>
                     @endforeach

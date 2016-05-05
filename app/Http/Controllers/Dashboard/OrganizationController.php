@@ -17,16 +17,16 @@ use AllAccessRMS\Jobs\RegisterPartnerOrganization;
 
 class OrganizationController extends Controller {
     
-    protected $organizationsRepository;
+    protected $organizations;
 
     protected $userRepository;
 
-    public function __construct(OrganizationRepositoryInterface $organizationsRepository,
+    public function __construct(OrganizationRepositoryInterface $organizations,
         UserRepositoryInterface $userRepository)
     {
         $this->beforeFilter('auth');
 
-        $this->organizationsRepository = $organizationsRepository;
+        $this->organizations = $organizations;
 
         $this->userRepository = $userRepository;
     }
@@ -41,11 +41,11 @@ class OrganizationController extends Controller {
         $order = Input::get('order');
         if ($sortby && $order)
         {
-            $organizations = $this->organizationsRepository->findAllPaginatedSorted($sortby, $order);
+            $organizations = $this->organizations->findAllPaginatedSorted($sortby, $order);
         } 
         else 
         {
-            $organizations = $this->organizationsRepository->findAllPaginated();
+            $organizations = $this->organizations->findAllPaginated();
         }
 
         return view('organizations.index', compact('organizations', 'sortby', 'order'));
@@ -72,7 +72,7 @@ class OrganizationController extends Controller {
     {
 
         $job = new RegisterPartnerOrganization($request, 
-                                                $this->organizationsRepository,
+                                                $this->organizations,
                                                 $this->userRepository);
 
         $this->dispatch($job);
@@ -100,7 +100,9 @@ class OrganizationController extends Controller {
      */
     public function edit($id)
     {
-        //
+        $organization = $this->organizations->findById($id);
+
+        return view('organizations.edit', compact('organization'));
     }
 
     /**

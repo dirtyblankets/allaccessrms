@@ -93,4 +93,23 @@ class BaseModel extends Model {
     {
         return ! empty($this->errors);
     }
+
+    public function setTelephoneAttribute($telephone)
+    {
+        $this->attributes['telephone'] = preg_replace("/\D/","",$telephone);
+    }
+
+    public function update(array $attributes = [])
+    {
+        foreach($attributes as $key => $value)
+        {
+            if(!empty($value))
+            {
+                $this->{$key} = $value;                
+            } 
+
+        }
+
+        return $this->save();
+    }
 }

@@ -6,6 +6,7 @@ use AllAccessRMS\Core\BaseDateTime;
 use AllAccessRMS\Core\BaseRepository;
 use AllAccessRMS\AllAccessEvents\Event;
 use AllAccessRMS\AllAccessEvents\EventRegistrationForm;
+use AllAccessRMS\Accounts\Organizations\PartnerOrganization;
 
 use AllAccessRMS\AttendeeDocuments\AttendeeApplicationForm;
 use AllAccessRMS\AttendeeDocuments\AttendeeHealthAndReleaseForm;
@@ -32,11 +33,18 @@ class EventRepository extends BaseRepository implements EventRepositoryInterface
 
     public function getActiveEvents()
     {
-        return $this->model
-                    ->where('end_date', '>=', BaseDateTime::now())
-                    ->where('published', true)
-                    ->orderBy('start_date', 'asc')
-        			->get();
+        if (is_null($this->userParentOrganizationId))
+        {
+            return $this->model
+                        ->where('end_date', '>=', BaseDateTime::now())
+                        ->where('published', true)
+                        ->orderBy('start_date', 'asc')
+                        ->get();
+        }
+        else
+        {
+            return PartnerOrganization::find($this->userOrganizationId)->events()->get();
+        }
     }
 
     public function createEmptyEvent($organization_id)

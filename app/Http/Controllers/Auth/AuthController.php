@@ -33,7 +33,7 @@ class AuthController extends Controller
     private $loginRule = array(
             'email' => 'required|email|max:100',
             'password' => 'required|min:5'
-            );
+    );
 
     public function __construct()
     {
@@ -59,8 +59,9 @@ class AuthController extends Controller
 
             if (Auth::attempt(array('email' => $email, 'password' => $password, 'active' => 1), true))
             {
-                $parentOrg = Auth::user()->organization->parent; 
-                if ( ! is_null($parentOrg)) 
+                $parentOrg = Auth::user()->organization()->first()->parent()->first();
+
+                if (!empty($parentOrg)) 
                 {
                     $parentOrgId = $parentOrg->id; 
                 } 

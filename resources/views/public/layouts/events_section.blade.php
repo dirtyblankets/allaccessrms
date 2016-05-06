@@ -11,7 +11,13 @@
             @foreach($eventRow as $event)           
             <div class="item col-xs-4 col-lg-4">
                 <div class="thumbnail">
-                    <a href="{{ URL::route('event.show', $event->id) }}"><img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="http://placehold.it/400x250/000/fff"/></a>
+                    <a href="{{ URL::route('event.show', $event->id) }}">
+                        @if(empty($event->thumbnail_url))
+                        <img class="group list-group-image" src={{ asset('images/public/alt_image.jpg') }} />
+                        @else
+                        <img class="group list-group-image" src={{ asset($event->thumbnail_url) }} />
+                        @endif
+                    </a>
                     <div class="caption">
                         <p class="group inner grid-group-item-heading" style="text-align: center;">
                             {{ $event->title }}                    

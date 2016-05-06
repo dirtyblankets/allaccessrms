@@ -3,7 +3,7 @@
 @if($event->published)
     {!! Form::open(array('route' => array('events.unpublish', $event->id), 'method' => 'PATCH')) !!}
 @else 
-    {!! Form::open(array('route' => array('events.update', $event->id), 'method' => 'PUT'))!!}
+    {!! Form::open(array('route' => array('events.update', $event->id), 'method' => 'PUT', 'files' => true))!!}
 @endif
 <section class="content-header">
     <h2 class="page-header">                 

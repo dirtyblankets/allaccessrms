@@ -16,7 +16,7 @@
 @include('partials.message')
 @include('partials.errors')
 <div class="panel-body">
-    <form class='form form-horizontal' method="PUT" action="/organizations/edit">
+    {!! Form::open(array('route' => array('organizations.update', $organization->id), 'method' => 'PATCH')) !!}
         {!! csrf_field() !!}
         <div class="col-sm-6">
             <h4>Organization Information</h4>
@@ -66,6 +66,6 @@
                 </div>
             </div>
         </div>
-    </form>
+    {!! Form::close() !!}
 </div>
 @stop

@@ -5,6 +5,15 @@
     </div>
     <div class="panel-body">
         <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label>Upload Banner Image (jpeg, png)</label>
+                    {!! Form::File('image') !!}
+                    <img src={{ asset( $event->thumbnail_url ) }} />
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
                     <label>Title</label>

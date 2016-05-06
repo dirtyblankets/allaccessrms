@@ -224,6 +224,11 @@ Route::group(['middleware'=>['auth', 'acl'], 'is'=>'owner|admin|moderator'], fun
         'uses' => 'Dashboard\OrganizationController@store',
     ]);
 
+    Route::patch('organizations/{id}/update', [
+        'as'    =>  'organizations.update',
+        'uses'  =>  'Dashboard\OrganizationController@update',
+    ]);
+
     // Attendees for a given event
     Route::get('attendees/{event_id}', [
         'as'    =>  'attendees',

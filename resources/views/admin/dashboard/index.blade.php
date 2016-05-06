@@ -19,7 +19,12 @@
                 <div class="col-md-4">
                     <div class="thumbnail">
                         @if (!Auth::user()->organization()->first()->isChild())
-                        <a href="{{ URL::route('events.show', $event->id) }}"><img class="group list-group-image img-responsive" src="http://placehold.it/1024x350/000/fff" alt="http://placehold.it/1024x350/000/fff"/>
+                        <a href="{{ URL::route('events.show', $event->id) }}">
+                            @if (empty($event->thumbnail_url))
+                            <img class="group list-group-image img-responsive" src={{ asset('images/public/alt_image.jpg') }}/>
+                            @else
+                            <img class="group list-group-image img-responsive" src={{ asset($event->thumbnail_url) }}/>
+                            @endif
                         </a>
                         @else
                         <a href="{{ URL::route('attendees', $event->id) }}"><img class="group list-group-image img-responsive" src="http://placehold.it/1024x350/000/fff" alt="http://placehold.it/1024x350/000/fff"/>

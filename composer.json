@@ -18,7 +18,8 @@
         "laravelcollective/html": "5.1.*",
         "laracasts/utilities": "~2.0",
         "laravel/cashier": "~5.0",
-        "predis/predis": "~1.0"
+        "predis/predis": "~1.0",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

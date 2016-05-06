@@ -70,7 +70,7 @@
                             @endif
                             @if (Auth::user()->can('update.organizations'))
                             <td>
-                                <a href="{{ URL::route('organization.edit', $organization->id)}}">
+                                <a href="{{ URL::route('organizations.edit', $organization->id)}}">
                                 <button><img src={{asset('images/edit_user.gif')}} alt="Edit"></button>
                                 </a>
                             </td>

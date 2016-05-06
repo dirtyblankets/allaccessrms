@@ -4,33 +4,18 @@ use Exception;
 use Carbon\Carbon;
 use AllAccessRMS\Core\BaseModel;
 use AllAccessRMS\Core\BaseDateTime;
-/**
- * AllAccessRMS\AllAccessEvents\Event
- *
- * @property integer $id
- * @property integer $organization_id
- * @property string $title
- * @property string $description
- * @property string $start_date
- * @property string $end_date
- * @property string $start_time
- * @property string $end_time
- * @property string $contact_phone
- * @property float $price
- * @property integer $capacity
- * @property boolean $published
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\AllAccessRMS\AllAccessEvents\Attendee[] $attendee
- * @property-read \AllAccessRMS\Accounts\Organizations\Organization $organization
- */
+
 class Event extends BaseModel {
 	
 	protected $table = 'events';
 
-    protected $appends = ['has_ended'];
+    protected $appends = ['has_ended', 'thumbnail_url'];
 
     protected $guarded = [];
+
+    public $banner_img_prefix = "img_";
+
+    public $banner_thumbnail_prefix = "thumbnail_";
 
 	public function attendees()
 	{
@@ -149,6 +134,18 @@ class Event extends BaseModel {
     public function getHasEndedAttribute()
     {
         return Carbon::parse($this->attributes['end_date']) <= BaseDateTime::now();
+    }
+
+    public function getThumbnailUrlAttribute()
+    {
+    	$img_url = $this->attributes['img_url'];
+
+    	if (!empty($img_url))
+    	{
+    		return str_replace($this->banner_img_prefix, $this->banner_thumbnail_prefix, $this->attributes['img_url']);
+    	}
+
+    	return null;
     }
 
     public function getPrivateAttribute()

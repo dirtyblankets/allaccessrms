@@ -28,7 +28,8 @@ class PublishEventFormRequest extends Request
             'event.cost'    =>  'required|dollar_amount',
             'event.capacity'    =>  'required|integer',
             'event.start_time' => 'required|date_format:H:i a',
-            'event.end_time' =>  'required|date_format:H:i a'
+            'event.end_time' =>  'required|date_format:H:i a',
+            'image' =>  'mimes:jpeg,png|image'
         ];
     }
 

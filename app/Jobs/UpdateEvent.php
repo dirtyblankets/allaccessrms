@@ -3,6 +3,9 @@
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
+use Image;
+use File;
+
 use AllAccessRMS\Jobs\Job;
 use AllAccessRMS\Accounts\Organizations\PartnerOrganization;
 use AllAccessRMS\Accounts\Organizations\Organization;
@@ -20,6 +23,10 @@ class UpdateEvent extends Job implements SelfHandling
 
     protected $publish;
 
+    private $banner_img_prefix = "img_";
+
+    private $banner_thumbnail_prefix = "thumbnail_";
+
     public function __construct($request, Event $event, $publish)
     {
         $this->request = $request;
@@ -36,6 +43,33 @@ class UpdateEvent extends Job implements SelfHandling
 
     private function updateEvent()
     {
+
+        if ($this->request->hasFile('image'))
+        {
+            $extension = $this->request->file('image')->getClientOriginalExtension();
+
+            $image_path = 'images/public/' . $this->banner_img_prefix . $this->event->id . '.' .$extension;
+            
+            // Set Image Path in DB
+            $this->event->img_url = $image_path;
+
+            $image_path = public_path() . '/' . $image_path;
+
+            $thumbnail_path = 'images/public/' . $this->banner_thumbnail_prefix . $this->event->id . '.' . $extension;
+            $thumbnail_path = public_path() . '/' . $thumbnail_path;
+
+            // Delete any existing files first
+            File::delete($thumbnail_path);
+            File::delete($image_path);
+
+            $banner = Image::make($this->request->file('image'))
+                            ->save($image_path);
+
+            $thumbnail = Image::make($this->request->file('image'))
+                            ->resize(450, 300)
+                            ->save($thumbnail_path);
+
+        }
 
         $this->event->title         =  $this->request->input('event.title');
         $this->event->description   =  $this->request->input('event.description');

@@ -101,8 +101,9 @@ class OrganizationController extends Controller {
     public function edit($id)
     {
         $organization = $this->organizations->findById($id);
+        $states = States::all();
 
-        return view('organizations.edit', compact('organization'));
+        return view('organizations.edit', compact('organization', 'states'));
     }
 
     /**
@@ -114,7 +115,7 @@ class OrganizationController extends Controller {
      */
     public function update(UpdateOrganizationInfoFormRequest $request, $id)
     {
-        //
+        dd("success");
     }
 
     /**

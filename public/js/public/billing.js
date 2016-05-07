@@ -1,12 +1,41 @@
 
-Stripe.setPublishableKey('pk_test_vAYF5GcyE747lt2FoXWKg2S5');
+//Stripe.setPublishableKey('pk_test_vAYF5GcyE747lt2FoXWKg2S5');
+
+Stripe.setPublishableKey("<?php echo env('STRIPE_PUBLIC')?>");
+
+jQuery(function($) {
+  $('#payment-form').submit(function(event) {
+
+    return $(this).parsley().validate();
+
+    var $form = $(this);
+
+    $form.parsley().subscribe('parsley:form:validate', function(formInstance) {
+
+      formInstance.submitEvent.preventDefault();
+
+      alert();
+
+      return false;
+    });
+    // Disable the submit button to prevent repeated clicks
+    $form.find('#submitBtn').prop('disabled', true);
+
+    Stripe.card.createToken($form, stripeResponseHandler);
+
+    // Prevent the form from submitting with the default action
+    return false;
+  });
+});
 
 var stripeResponseHandler = function(status, response) {
   var $form = $('#payment-form');
   if (response.error) {
     // Show the errors on the form
     $form.find('.payment-errors').text(response.error.message);
-    $form.find('button').prop('disabled', false);
+    $form.find('.payment-errors').addClass('alert alert-danger');
+    $form.find('#submitBtn').prop('disabled', false);
+
   } else {
     // token contains id, last4, and card type
     var token = response.id;
@@ -17,16 +46,3 @@ var stripeResponseHandler = function(status, response) {
   }
 };
 
-jQuery(function($) {
-  $('#payment-form').submit(function(event) {
-    var $form = $(this);
-
-    // Disable the submit button to prevent repeated clicks
-    $form.find('button').prop('disabled', true);
-
-    Stripe.card.createToken($form, stripeResponseHandler);
-
-    // Prevent the form from submitting with the default action
-    return false;
-  });
-});

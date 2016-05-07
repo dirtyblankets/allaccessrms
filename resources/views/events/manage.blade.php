@@ -8,7 +8,7 @@
 <section class="content-header">
     <h2 class="page-header">                 
         <div class='button-container'>
-                <i class="fa fa-fw fa-calendar"></i>Manage Event
+            <i class="fa fa-fw fa-calendar"></i>Manage Event
             @if($event->published)
                 <button title='Take event offline' name='unpublish' type='submit' id='btn-unpublish' class='btn btn-md btn-warning'><i class="fa fa-fw fa-warning"></i> Unpublish</button>
             @else 
@@ -34,7 +34,7 @@
 @include('partials.message')
 @include('partials.errors')
 <div id="openModal" data-open-modal="{{ old('openModal') }}" ></div>
-@if($event->published)
+@if ($event->published)
     <div id="event_published"></div>
 @endif
 <div class="tab-wrapper">
@@ -43,7 +43,7 @@
             <a href="#event_detail">Event Information</a>
         </li>
         @if ($attendees->count() > 0)
-            <li role="presentation" >
+            <li role="presentation">
                 <a href="#registrants">Registered Attendee(s)</a>
             </li>
         @endif
@@ -53,5 +53,6 @@
     @include('events.event_detail_section')
 </section>
 <section id="registrants" class="tab-content active">
+    @include('events.attendees_section')
 </section>
 @stop

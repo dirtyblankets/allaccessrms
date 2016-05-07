@@ -14,6 +14,14 @@ class AttendeeRepository extends BaseRepository implements AttendeeRepositoryInt
         parent::__construct($attendee);
     }
 
+    public function findByEventAndAttendeeId($eventId, $id)
+    {
+        return $this->model
+                    ->where('event_id', $eventId)
+                    ->where('id', $id)
+                    ->first();
+    }
+
     public function findByEventAndEmail($eventId, $email)
     {
         return $this->model

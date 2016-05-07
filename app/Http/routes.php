@@ -33,17 +33,15 @@ Route::get('event/show/{id}', [
 ]);
 
 
-
-
 // Event Payment
-Route::get('event/payment/{event}/{attendee}', [
+Route::get('event/{event}/payment/{attendee}', [
     'as' => 'event.payment',
-    'uses' => 'RegistrationPaymentController@getPaymentOnline'
+    'uses' => 'RegistrationPaymentController@getPayment'
 ]);
 
-Route::post('event/process_payment', [
-    'as' => 'event.process_payment',
-    'uses' => 'RegistrationPaymentController@postPaymentOnline'
+Route::patch('event/{event}/payment/{attendee}', [
+    'as' => 'event.payment',
+    'uses' => 'RegistrationPaymentController@postPayment'
 ]);
 
 

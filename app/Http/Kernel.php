@@ -31,5 +31,6 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \AllAccessRMS\Http\Middleware\RedirectIfAuthenticated::class,
         'acl' => \Kodeine\Acl\Middleware\HasPermission::class,
+        'event_payment' =>  \AllAccessRMS\Http\Middleware\AttendeeRegistrationPayment::class,
     ];
 }

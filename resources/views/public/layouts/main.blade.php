@@ -11,6 +11,44 @@
 		<link type="text/css" rel="stylesheet" href="{{ URL::to('assets/vendor/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css') }}">
 		<link type="text/css" rel="stylesheet" href="{{ URL::to('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
 		<link type="text/css" rel="stylesheet" href="{{URL::to('css/public/app.css')}}">	
+
+	 <style>
+
+		.alert.parsley {
+			margin-top: 5px;
+			margin-bottom: 0px;
+			padding: 10px 15px 10px 15px;
+		}
+
+		.check .alert {
+			margin-top: 20px;
+		}
+
+		.credit-card-box .panel-title {
+
+			display: inline;
+
+			font-weight: bold;
+
+		}
+
+		.credit-card-box .display-td {
+
+			display: table-cell;
+
+			vertical-align: middle;
+
+			width: 100%;
+
+		}
+
+		.credit-card-box .display-tr {
+
+			display: table-row;
+
+		}
+
+	</style>
 	</head>
 	<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     @include('public.layouts.content')
@@ -35,6 +73,24 @@
 	<script>
     	$('#flash-overlay-modal').modal();
 	</script>
+ 	<!-- PARSLEY -->
+
+	<script>
+
+	window.ParsleyConfig = {
+
+		errorsWrapper: '<div></div>',
+
+		errorTemplate: '<div class="alert alert-danger parsley" role="alert"></div>',
+
+		errorClass: 'has-error',
+
+		successClass: 'has-success'
+	};
+
+	</script>
+
+	<script src="/assets/vendor/parsleyjs/dist/parsley.min.js"></script>
 	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 	<script type="text/javascript" src="/js/public/billing.js"></script>
 	</body>

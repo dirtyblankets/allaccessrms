@@ -1,13 +1,15 @@
 <?php namespace AllAccessRMS\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 
 use AllAccessRMS\Http\Requests;
 use AllAccessRMS\Http\Controllers\Controller;
+use AllAccessRMS\Http\Middleware\AttendeeRegistrationPayment;
 
-use AllAccessRMS\AllAccessEvents\Attendee;
-use AllAccessRMS\AllAccessEvents\AttendeeRepository;
-use AllAccessRMS\AllAccessEvents\EventRepository;
+use AllAccessRMS\AllAccessEvents\AttendeeRepositoryInterface;
+use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
+use AllAccessRMS\Http\Requests\PaymentFormRequest;
 
 class RegistrationPaymentController extends Controller
 {
@@ -16,26 +18,38 @@ class RegistrationPaymentController extends Controller
 
     protected $eventRepository;
 
-    public function __construct()
+    public function __construct(AttendeeRepositoryInterface $attendees, EventRepositoryInterface $events)
     {
-        $this->attendeeRepository = new AttendeeRepository();
 
-        $this->eventRepository = new EventRepository;
+        $this->middleware('event_payment');
+
+        $this->attendeeRepository = $attendees;
+
+        $this->eventRepository = $events;
     }
 
-    public function getPaymentOnline($eventId, $attendeeId)
+    public function getPayment($eventId, $attendeeId)
     {
 
         $event = $this->eventRepository->findById($eventId);
 
         $attendee = $this->attendeeRepository->findById($attendeeId);
 
-        dd(boolval(doubleval("125") === doubleval($event->price)));
         return view('public.events.payment', compact('event', 'attendee'));
     }
 
-    public function postPaymentOnline()
+    public function postPayment(PaymentFormRequest $request, $eventId, $attendeeId)
     {
+        //$registeredAttendee = $this->attendees->findById($attendeeId);
+        $event = $this->events->findById($eventId);
 
+        $input = $request->all();
+        $token = ['stripeToken'];
+
+        try {
+
+        } catch (Exception $e) {
+
+        }
     }
 }

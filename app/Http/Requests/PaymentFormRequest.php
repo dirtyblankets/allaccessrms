@@ -1,5 +1,7 @@
 <?php namespace AllAccessRMS\Http\Requests;
 
+use AllAccessRMS\Http\Requests\Request;
+
 class PaymentFormRequest extends Request
 {
 
@@ -22,10 +24,7 @@ class PaymentFormRequest extends Request
     {
 
         return [
-            'attendee.email' => 'required|email|confirmed',
-            'attendee.email_confirmation' => 'required|email'
-            'attendee.firstname' => 'required',
-            'attendee.lastname' => 'required',
+
         ];
     
     }

@@ -16,6 +16,7 @@
     "laravel-bootstrap-modal-form": "jerseymilker/laravel-bootstrap-modal-form",
     "jquery.maskedinput": "~1.4.1",
     "jquery-ujs": "~1.2.1",
-    "eonasdan-bootstrap-datetimepicker": "~4.17.37"
+    "eonasdan-bootstrap-datetimepicker": "~4.17.37",
+    "parsleyjs": "~2.3.11"
   }
 }

@@ -176,6 +176,11 @@ Route::group(['middleware'=>['auth', 'acl'], 'is'=>'owner|admin|moderator'], fun
         'uses' => 'Dashboard\ManageEventController@manage',
     ]);
 
+    Route::get('events/{id}/attendee_search', [
+        'as' => 'events.attendee_search',
+        'uses' => 'Dashboard\ManageEventController@attendee_search',
+    ]);    
+
     Route::patch('events/{id}', [
         'as'    =>  'events.unpublish',
         'uses'  =>  'Dashboard\ManageEventController@unpublish', 
@@ -231,6 +236,11 @@ Route::group(['middleware'=>['auth', 'acl'], 'is'=>'owner|admin|moderator'], fun
     Route::get('attendees/{event_id}', [
         'as'    =>  'attendees',
         'uses'  =>  'Dashboard\AttendeeController@index'
+    ]);
+
+    Route::get('attendees/{event_id}/search', [
+        'as'    =>  'attendees.search',
+        'uses'  =>  'Dashboard\AttendeeController@search'
     ]);
 
 });

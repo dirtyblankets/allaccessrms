@@ -10,14 +10,16 @@
             <hr class="divider">
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                @include('partials.errors')
+                @include('partials.message')  
+            </div>
+        </div>
+    </div>
     @if ($event->price != $attendee->amount_paid)
     {!! Form::open(array('route' => array('event.payment', $event, $attendee), 'method' => 'PATCH', 'data-parsley-validate', 'id'=>'payment-form'))!!}
-    	@include('partials.message')
-        <div class="row">
-          <div class="col-lg-12">
-              <span class="payment-errors" style="color: red;margin-top:10px;"></span>
-          </div>
-        </div>
         <div class="panel panel-default panel-information">
             <div class="panel-heading">
                 <div class="row">
@@ -40,7 +42,7 @@
                             <label>Please enter your email for verification</label>
                             <div class="input-group">
                                 <span class="input-group-addon">@</span>
-                                <input type="email" placeholder="email@email.com" class="form-control" name="attendee[email]" value="{{ old('attendee.email') }}"/>
+                                <input type="email" placeholder="email@email.com" class="form-control" name="email" value="{{ old('email') }}"/>
                             </div>
                         </div>
                     </div>
@@ -51,7 +53,7 @@
                             <label>Please confirm your email</label>
                             <div class="input-group">
                                 <span class="input-group-addon">@</span>
-                                <input type="email" placeholder="confirm_email@email.com" class="form-control" name="attendee[email_confirmation]" value="{{ old('attendee.email_confirmation') }}"/>
+                                <input type="email" placeholder="confirm_email@email.com" class="form-control" name="email_confirmation" value="{{ old('email_confirmation') }}"/>
                             </div>
                         </div>
                     </div>     
@@ -91,7 +93,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-2 col-lg-offset-2">
-                        <div class="form-group">
+                        <div class="form-group" id="exp-m-group">
                             {!! Form::label(null, 'Ex. Month') !!}
                             {!! Form::selectMonth(null, null, [
                                 'class' => 'form-control',
@@ -101,7 +103,7 @@
                         </div>
                     </div>
                     <div class="col-lg-2">
-                        <div class="form-group">
+                        <div class="form-group" id="exp-y-group">
                             {!! Form::label(null, 'Ex. Year') !!}
                             {!! Form::selectYear(null, date('Y'), date('Y') + 10, null, [
                                 'class' => 'form-control',
@@ -113,8 +115,9 @@
                 </div>
                 <hr class="divider">
                 <div class="row">
-                    <div class="col-lg-4 col-lg-offset-2">
-                        <button type="submit" class="btn btn-primary btn-lg" id="submitBtn"><i class="fa fa-fw fa-credit-card"></i> Submit Payment</button>   
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <button type="submit" class="btn btn-primary btn-lg" id="submitBtn"><i class="fa fa-fw fa-credit-card"></i> Submit Payment</button>
+                        <span class="payment-errors" style="color: red;margin-top:10px;"></span>  
                     </div>
                 </div>
             </div>

@@ -9,7 +9,9 @@
                 <div class="form-group">
                     <label>Upload Banner Image (jpeg, png)</label>
                     {!! Form::File('image') !!}
+                    @if (!empty( $event->thumbnail_url ))
                     <img src={{ asset( $event->thumbnail_url ) }} />
+                    @endif
                 </div>
             </div>
         </div>

@@ -39,20 +39,22 @@
 @endif
 <div class="tab-wrapper">
     <ul class="nav nav-tabs">
-        <li role="presentation" class="active">
-            <a href="#event_detail">Event Information</a>
+        <li role="presentation" class="{{ Request::is('events/' . $event->id . '/manage') ? 'active' : null }}">
+            <a href="#event_detail" aria-controls="event_detail" role="tab" data-toggle="tab">Event Information</a>
         </li>
         @if ($attendees->count() > 0)
-            <li role="presentation">
-                <a href="#registrants">Registered Attendee(s)</a>
+            <li role="presentation" class="{{ Request::is('events/' . $event->id . '/attendee_search*') ? 'active' : null }}">
+                <a href="#registrants" aria-controls="registrants" role="tab" data-toggle="tab">Registered Attendee(s)</a>
             </li>
         @endif
     </ul>
 </div>
-<section id="event_detail" class="tab-content active">
-    @include('events.event_detail_section')
-</section>
-<section id="registrants" class="tab-content active">
-    @include('events.attendees_section')
-</section>
+<div class"tab-content">
+    <section id="event_detail" class="tab-pane {{ Request::is('events/' . $event->id . '/manage') ? 'active' : 'hide' }}" role="tabpanel">
+        @include('events.event_detail_section')
+    </section>
+    <section id="registrants" class="tab-pane {{ Request::is('events/' . $event->id . '/attendee_search*') ? 'active' : 'hide' }}" role="tabpanel">
+        @include('events.attendees_section')
+    </section>
+</div>
 @stop

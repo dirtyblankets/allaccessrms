@@ -24,6 +24,8 @@ class PaymentFormRequest extends Request
     {
 
         return [
+            'email' =>  'required|email|confirmed|exists:attendees,email,id,'. $this->attendee,
+            'email_confirmation' => 'required'
 
         ];
     

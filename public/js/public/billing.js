@@ -1,23 +1,19 @@
 
-//Stripe.setPublishableKey('pk_test_vAYF5GcyE747lt2FoXWKg2S5');
-
-Stripe.setPublishableKey("<?php echo env('STRIPE_PUBLIC')?>");
+Stripe.setPublishableKey('pk_test_vAYF5GcyE747lt2FoXWKg2S5');
 
 jQuery(function($) {
   $('#payment-form').submit(function(event) {
 
-    return $(this).parsley().validate();
-
     var $form = $(this);
 
+    /*
     $form.parsley().subscribe('parsley:form:validate', function(formInstance) {
 
       formInstance.submitEvent.preventDefault();
 
-      alert();
-
       return false;
     });
+    */
     // Disable the submit button to prevent repeated clicks
     $form.find('#submitBtn').prop('disabled', true);
 

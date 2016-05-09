@@ -15,9 +15,9 @@ use AllAccessRMS\Accounts\Organizations\Organization;
 use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
 use AllAccessRMS\Http\Requests\PublishEventFormRequest;
 
-use AllAccessRMS\AllAccessEvents\Attendee;
 use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
 use AllAccessRMS\AllAccessEvents\EventSiteRepositoryInterface;
+use AllAccessRMS\AllAccessEvents\AttendeeRepositoryInterface;
 use AllAccessRMS\AllAccessEvents\AttendeeInvitationRepositoryInterface;
 use AllAccessRMS\Exceptions\Handler;
 
@@ -33,16 +33,20 @@ class ManageEventController extends Controller
 
     private $eventGuestRepo;
 
+    protected $attendees;
+
     public function __construct(EventRepositoryInterface $eventRepo, 
                                     EventSiteRepositoryInterface $eventSiteRepo, 
                                         OrganizationRepositoryInterface $orgRepo,
-                                            AttendeeInvitationRepositoryInterface $eventGuestRepo)
+                                            AttendeeInvitationRepositoryInterface $eventGuestRepo,
+                                                AttendeeRepositoryInterface $attendees)
     {
         $this->beforeFilter('auth');
         $this->eventRepo = $eventRepo;
         $this->orgRepo = $orgRepo;
         $this->eventSiteRepo = $eventSiteRepo;
         $this->eventGuestRepo = $eventGuestRepo;
+        $this->attendees = $attendees;
     }
     /**
      * Display a listing of the resource.
@@ -99,7 +103,7 @@ class ManageEventController extends Controller
      */
     public function manage($id)
     {
-     
+
         $event = $this->eventRepo->findById($id);
      
         $eventsite = $event->eventsite()->first();
@@ -107,7 +111,25 @@ class ManageEventController extends Controller
         $selectedPartners = $event->partners()->get();
         $selectedPartnersId = $selectedPartners->lists('id')->toArray();
 
-        $attendees = $event->attendees()->get();
+        $searchLastName = Input::get('search_last_name');
+        $searchFirstName = Input::get('search_first_name');
+
+        if (!empty($searchLastName) && !empty($searchFirstName))
+        {
+            $attendees = $this->attendees->findByFullName($id, $searchFirstName, $searchLastName);
+        }
+        else if (!empty($searchLastName))
+        {
+            $attendees = $this->attendees->findByLastName($id, $searchLastName);
+        }
+        else if (!empty($searchFirstName))
+        {
+            $attendees = $this->attendees->findByFirstName($id, $searchFirstName);
+        }
+        else
+        {
+            $attendees = $this->attendees->findAllPaginatedByEvent($id, 'firstname', 'asc');
+        }
 
         $guests = $this->eventGuestRepo->findAllPaginatedByEvent($event->id);
 
@@ -126,6 +148,11 @@ class ManageEventController extends Controller
                 'guests',
                 'attendees'
         ));
+    }
+
+    public function attendee_search($event_id)
+    {
+        return  $this->manage($event_id);
     }
 
     /**
@@ -172,6 +199,13 @@ class ManageEventController extends Controller
 
     public function unpublish($id)
     {
+        $attendees = $this->attendees->findAllPaginatedByEvent($id, 'firstname', 'asc');
+
+        if (!empty($attendees))
+        {
+            Flash::overlay('This event cannot be taken offline; registered attendees exist for this event.');
+            return redirect()->back();
+        }
         $event = $this->eventRepo->findById($id);
         $event->published = false;
         $event->save();

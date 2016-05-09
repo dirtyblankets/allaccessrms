@@ -98,11 +98,14 @@ function FormatEventsPage(){
 	var published = $("#event_published");
 	if (published.length)
 	{
-		$(':input').attr('readonly','readonly');
+		$(':input.form-control').attr('readonly','readonly');
 		$(':input.cb').attr("disabled", true);
 		$(':input.radio').attr("disabled", true);
 		$('.btn-toggle-readonly').prop('disabled', true);
 		$('.input-group-addon').off();
+
+		// Allow Search fields to be used
+		$('.search').removeAttr('readonly');
 	}
 	else
 	{

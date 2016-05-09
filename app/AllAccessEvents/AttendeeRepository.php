@@ -51,4 +51,32 @@ class AttendeeRepository extends BaseRepository implements AttendeeRepositoryInt
 
         return $collection->count();
     }
+
+    public function findByLastName($eventId, $lastName, $perPage=20)
+    {
+
+        return $this->model
+                    ->where('event_id', $eventId)
+                    ->where('lastname', $lastName)
+                    ->paginate($perPage);
+    }
+
+    public function findByFirstName($eventId, $firstName, $perPage=20)
+    {
+
+        return $this->model
+                    ->where('event_id', $eventId)
+                    ->where('firstname', $firstName)
+                    ->paginate($perPage);
+    }
+
+    public function findByFullName($eventId, $firstName, $lastName, $perPage=20)
+    {
+        return $this->model
+                    ->where('event_id', $eventId)
+                    ->where('firstname', $firstName)
+                    ->where('lastname', $lastName)
+                    ->paginate($perPage);
+    }
+
 }

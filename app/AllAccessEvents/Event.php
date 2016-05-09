@@ -9,7 +9,7 @@ class Event extends BaseModel {
 	
 	protected $table = 'events';
 
-    protected $appends = ['has_ended', 'thumbnail_url'];
+    protected $appends = ['has_ended', 'thumbnail_url', 'price_cents'];
 
     protected $guarded = [];
 
@@ -65,6 +65,11 @@ class Event extends BaseModel {
 	public function getPriceAttribute()
 	{
 		return bcdiv($this->attributes['price'], 100, 2);
+	}
+
+	public function getPriceCentsAttribute()
+	{
+		return $this->attributes['price'];
 	}
 
 	public function setStartTimeAttribute($start_time)

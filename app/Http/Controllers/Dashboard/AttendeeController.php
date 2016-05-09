@@ -1,6 +1,7 @@
 <?php namespace AllAccessRMS\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 use AllAccessRMS\Http\Requests;
 use AllAccessRMS\Http\Controllers\Controller;
@@ -34,6 +35,20 @@ class AttendeeController extends Controller
         $attendees = $this->attendees->findAllPaginatedByEvent($event_id, 'lastname', 'registration_date');
 
         return view('admin.attendees.index', compact('attendees', 'event'));
+    }
+
+    public function search($event_id)
+    {
+        //$view = View::make('admin.attendees.index');
+        //if(Request::ajax()) {
+        $sections = view('admin.attendees.index')->renderSections(); // returns an associative array of 'content', 'head' and 'footer'
+
+        return $sections['content']; // this will only return whats in the content section
+
+        //}
+
+        $search_name = Input::get('search_name');
+        dd($search_name);
     }
 
 

@@ -4,6 +4,130 @@
 		"selected_items":
 		[
 			[
+				"searchLast",
+				"$searchLastName〔variable〕"
+			],
+			[
+				"searchFI",
+				"$searchFirstName〔variable〕"
+			],
+			[
+				"atten",
+				"$attendees〔variable〕"
+			],
+			[
+				"searchL",
+				"$searchLastName〔variable〕"
+			],
+			[
+				"sea",
+				"$search_name〔variable〕"
+			],
+			[
+				"find",
+				"findAllPaginatedByEvent"
+			],
+			[
+				"All",
+				"AllAccessEvents"
+			],
+			[
+				"AllA",
+				"AllAccessRMS"
+			],
+			[
+				"AllAc",
+				"AllAccessRMS〔namespace〕"
+			],
+			[
+				"Eventre",
+				"EventRepositoryInterface〔interface〕"
+			],
+			[
+				"thumbnail",
+				"thumbnail_url"
+			],
+			[
+				"thum",
+				"thumbnail_url"
+			],
+			[
+				"ba",
+				"banner_thumbnail_prefix〔variable〕"
+			],
+			[
+				"att",
+				"attributes〔variable〕"
+			],
+			[
+				"repla",
+				"str_replace"
+			],
+			[
+				"image",
+				"$image_path〔variable〕"
+			],
+			[
+				"exte",
+				"$extension〔variable〕"
+			],
+			[
+				"bann",
+				"banner_img_prefix〔variable〕"
+			],
+			[
+				"Dashboard",
+				"Dashboard\\OrganizationController@create"
+			],
+			[
+				"user",
+				"userOrganizationId〔variable〕"
+			],
+			[
+				"AllAcces",
+				"AllAccessEvents"
+			],
+			[
+				"parent",
+				"parentOrgId"
+			],
+			[
+				"userORga",
+				"userOrganizationId"
+			],
+			[
+				"org",
+				"orgInfoData"
+			],
+			[
+				"Update",
+				"UpdateOrganizationInfo〔class〕"
+			],
+			[
+				"Laracasts",
+				"Laracasts\\Flash\\Flash〔class〕"
+			],
+			[
+				"orga",
+				"organizationInfoRepo"
+			],
+			[
+				"Orga",
+				"OrganizationInfoRepository〔namespace〕"
+			],
+			[
+				"upd",
+				"updateOrganization"
+			],
+			[
+				"Lara",
+				"Laracasts\\Flash\\Flash〔class〕"
+			],
+			[
+				"organz",
+				"organizationinfo_update"
+			],
+			[
 				"Userre",
 				"UserRepositoryInterface〔interface〕"
 			],
@@ -22,10 +146,6 @@
 			[
 				"ALl",
 				"AllAccessRMS"
-			],
-			[
-				"orga",
-				"$organizationId〔variable〕"
 			],
 			[
 				"belon",
@@ -64,10 +184,6 @@
 				"EventRegistrationValidator"
 			],
 			[
-				"Eventre",
-				"EventRegistrationValidator〔class〕"
-			],
-			[
 				"BaseRepo",
 				"BaseRepositoryInterface"
 			],
@@ -88,10 +204,6 @@
 				"AttendeeRepository"
 			],
 			[
-				"atten",
-				"attendeRepository"
-			],
-			[
 				"AllAccess",
 				"AllAccessRMS"
 			],
@@ -100,16 +212,8 @@
 				"$eventId〔variable〕"
 			],
 			[
-				"All",
-				"AllAccessRMS〔namespace〕"
-			],
-			[
 				"organi",
 				"$organizationId〔variable〕"
-			],
-			[
-				"Lara",
-				"Laracasts\\Flash\\Flash〔class〕"
 			],
 			[
 				"eve",
@@ -130,14 +234,6 @@
 			[
 				"even",
 				"event_id"
-			],
-			[
-				"find",
-				"findByEventAndEmail〔function〕"
-			],
-			[
-				"AllAcces",
-				"AllAccessRMS"
 			],
 			[
 				"attende",
@@ -178,14 +274,6 @@
 			[
 				"req",
 				"required"
-			],
-			[
-				"AllA",
-				"AllAccessRMS\\DocumentDefinitions\\AttendeeDocument"
-			],
-			[
-				"org",
-				"orgId"
 			],
 			[
 				"Organi",
@@ -240,10 +328,6 @@
 				"guardiansignature"
 			],
 			[
-				"att",
-				"attributes"
-			],
-			[
 				"Han",
 				"Handler〔namespace〕"
 			],
@@ -270,10 +354,6 @@
 			[
 				"Ha",
 				"HandlePanelCollapse"
-			],
-			[
-				"parent",
-				"$parentOrgId〔variable〕"
 			],
 			[
 				"pare",
@@ -356,10 +436,6 @@
 				"strtotime〔function〕"
 			],
 			[
-				"Orga",
-				"OrganizationInfo〔class〕"
-			],
-			[
 				"is_n",
 				"is_null〔function〕"
 			],
@@ -438,82 +514,6 @@
 			[
 				"vli",
 				"validator〔variable〕"
-			],
-			[
-				"Re",
-				"UserRegistrationForm〔class〕"
-			],
-			[
-				"Abstra",
-				"AbstractValidator〔class〕"
-			],
-			[
-				"Organizat",
-				"Organization〔class〕"
-			],
-			[
-				"belons",
-				"belongsTo〔function〕"
-			],
-			[
-				"Organizatio",
-				"OrganizationAddress〔class〕"
-			],
-			[
-				"tenant",
-				"tenant_id"
-			],
-			[
-				"organiz",
-				"organizations"
-			],
-			[
-				"Vali",
-				"Validator"
-			],
-			[
-				"UserR",
-				"UserRegistrationFormValidator〔class〕"
-			],
-			[
-				"User",
-				"UserRepositoryInterface"
-			],
-			[
-				"Regist",
-				"RegistratorInteface〔interface〕"
-			],
-			[
-				"tenant_",
-				"tenant_col〔variable〕"
-			],
-			[
-				"tena",
-				"tenant_id〔variable〕"
-			],
-			[
-				"has",
-				"hasOne〔function〕"
-			],
-			[
-				"C",
-				"ClientContext〔class〕"
-			],
-			[
-				"BaseRE",
-				"BaseRepositoryException"
-			],
-			[
-				"insta",
-				"instanceof〔keyword〕"
-			],
-			[
-				"call_",
-				"call_user_func_array"
-			],
-			[
-				"backgr",
-				"background-color"
 			]
 		]
 	},
@@ -523,22 +523,31 @@
 			"file": "storage/logs/laravel.log",
 			"settings":
 			{
-				"buffer_size": 20073,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Searching 91 files for \"new_user_registration\"\n\n0 matches across 0 files\n\n\nSearching 72 files for \"new_user_registration\"\n\n/var/www/public/all-access-rms/resources/views/auth/login.blade.php:\n   26:                 <!--<p color=\"red\">Not registered? <a href=\"{{ URL::route('new_user_registration') }}\">Register here.</a></p>-->\n\n/var/www/public/all-access-rms/resources/views/registration/newuser.blade.php:\n    6:     <form class='bootstrap-form' method=\"POST\" action=\"/new_user_registration/store\">\n\n2 matches across 2 files\n",
+			"file": "app/Jobs/SetPassword.php",
 			"settings":
 			{
-				"buffer_size": 527,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
+				"buffer_size": 684,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/Moderator/AttendeeController.php",
+			"file": "app/Http/Requests/PasswordChangeRequest.php",
+			"settings":
+			{
+				"buffer_size": 1102,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "",
+			"file": "resources/views/settings/index.blade.php",
+			"file_size": -1,
+			"file_write_time": -1,
 			"settings":
 			{
 				"buffer_size": 0,
@@ -546,18 +555,74 @@
 			}
 		},
 		{
-			"file": "app/Http/Controllers/Admin/AttendeeController.php",
+			"file": "app/Http/Requests/EventRegistrationFormRequest.php",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 4729,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/AllAccessEvents/AttendeeRepository.php",
+			"file": "app/Jobs/UpdateOrganizationInfo.php",
 			"settings":
 			{
-				"buffer_size": 1239,
+				"buffer_size": 1430,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Accounts/Organizations/OrganizationInfoRepository.php",
+			"settings":
+			{
+				"buffer_size": 358,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Accounts/Organizations/OrganizationRepository.php",
+			"settings":
+			{
+				"buffer_size": 2140,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Jobs/UpdateEvent.php",
+			"settings":
+			{
+				"buffer_size": 4137,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Dashboard/ManageEventController.php",
+			"settings":
+			{
+				"buffer_size": 6738,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Dashboard/OrganizationController.php",
+			"settings":
+			{
+				"buffer_size": 3230,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Accounts/Users/UserRepository.php",
+			"settings":
+			{
+				"buffer_size": 1605,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Dashboard/UserController.php",
+			"settings":
+			{
+				"buffer_size": 3090,
 				"line_ending": "Unix"
 			}
 		},
@@ -565,23 +630,7 @@
 			"file": "app/AllAccessEvents/EventRepository.php",
 			"settings":
 			{
-				"buffer_size": 1563,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/settings/password_change_section.blade.php",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/AllAccessEvents/Event.php",
-			"settings":
-			{
-				"buffer_size": 3810,
+				"buffer_size": 1850,
 				"line_ending": "Unix"
 			}
 		},
@@ -594,53 +643,10 @@
 			}
 		},
 		{
-			"contents": "<?php namespace AllAccessRMS\\Http\\Controllers\\Moderator;\n\nuse Auth;\nuse Illuminate\\Http\\Request;\n\nuse AllAccessRMS\\Http\\Requests;\nuse AllAccessRMS\\Http\\Controllers\\Controller;\n\nuse AllAccessRMS\\AllAccessEvents\\Event;\nuse AllAccessRMS\\Accounts\\Organizations\\Organization;\nuse AllAccessRMS\\Accounts\\Organizations\\PartnerOrganization;\nuse AllAccessRMS\\AllAccessEvents\\AttendeeRepositoryInterface;\n\nclass DashboardController extends Controller\n{\n\n    protected $attendees;\n\n    public function __construct(AttendeeRepositoryInterface $attendees)\n    {\n        $this->beforeFilter('auth');\n\n        $this->attendees = $attendees;\n    }\n    /**\n     * Display a listing of the resource.\n     *\n     * @return Response\n     */\n    public function index()\n    {\n        $organizationId = Auth::user()->organization_id;\n\n        if (Auth::user()->organization()->first()->isChild())\n        {\n            $events = PartnerOrganization::find($organizationId)->events()->get();\n        }\n        else\n        {\n            $events = Event::where('organization_id', $organizationId)->get();\n        }\n\n        if (!$events->isEmpty())\n        {\n            $event = $events->first();\n\n            $attendees = $this->attendees\n                                ->findAllPaginatedByEvent($event->id , 'lastname', 'asc');\n        }\n        else\n        {\n            $attendees = collection([]);\n        }\n\n        return view('moderator.dashboard.index', compact('events', 'attendees'));\n    }\n\n\n}\n",
-			"file": "app/Http/Controllers/Moderator/DashboardController.php",
-			"file_size": 1483,
-			"file_write_time": 1462001110000000,
+			"file": "resources/views/admin/dashboard/index.blade.php",
 			"settings":
 			{
-				"buffer_size": 1483,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/moderator/dashboard/index.blade.php",
-			"settings":
-			{
-				"buffer_size": 1171,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/layouts/main.blade.php",
-			"settings":
-			{
-				"buffer_size": 1285,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/layouts/sidebar.blade.php",
-			"settings":
-			{
-				"buffer_size": 1652,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/layouts/header.blade.php",
-			"settings":
-			{
-				"buffer_size": 1188,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/Http/Controllers/EventRegistrationController.php",
-			"settings":
-			{
-				"buffer_size": 4320,
+				"buffer_size": 3519,
 				"line_ending": "Unix"
 			}
 		},
@@ -648,135 +654,58 @@
 			"file": "app/Http/routes.php",
 			"settings":
 			{
-				"buffer_size": 5484,
+				"buffer_size": 6606,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/Auth/AuthController.php",
-			"settings":
-			{
-				"buffer_size": 2927,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/Http/Controllers/Admin/DashboardController.php",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/layouts/login.blade.php",
-			"settings":
-			{
-				"buffer_size": 1030,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/auth/new_login.blade.php",
-			"settings":
-			{
-				"buffer_size": 1534,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/dashboard/index.blade.php",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/auth/login.blade.php",
-			"settings":
-			{
-				"buffer_size": 1186,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/Http/Controllers/Dashboard/HomeController.php",
-			"settings":
-			{
-				"buffer_size": 2139,
-				"line_ending": "Unix"
-			}
-		},
-		{
+			"contents": "<?php namespace AllAccessRMS\\Http\\Controllers\\Dashboard;\n\nuse Illuminate\\Http\\Request;\nuse Illuminate\\Support\\Facades\\Input;\n\nuse AllAccessRMS\\Http\\Requests;\nuse AllAccessRMS\\Http\\Controllers\\Controller;\nuse AllAccessRMS\\AllAccessEvents\\AttendeeRepositoryInterface;\nuse AllAccessRMS\\AllAccessEvents\\EventRepositoryInterface;\n\nclass AttendeeController extends Controller\n{\n\n    protected $attendees;\n\n    protected $events;\n\n    public function __construct(AttendeeRepositoryInterface $attendees, \n                                    EventRepositoryInterface $events)\n    {\n        $this->beforeFilter('auth');\n\n        $this->attendees = $attendees;\n\n        $this->events = $events;\n    }\n    /**\n     * Display a listing of the resource.\n     *\n     * @return Response\n     */\n    public function index($event_id)\n    {\n        $event = $this->events->findById($event_id);\n        $attendees = $this->attendees->findAllPaginatedByEvent($event_id, 'lastname', 'registration_date');\n\n        return view('admin.attendees.index', compact('attendees', 'event'));\n    }\n\n    public function search($event_id)\n    {\n\n        $search_name = Input::get('search_name');\n        \n        return redirect()->back()\n    }\n\n\n}\n",
 			"file": "app/Http/Controllers/Dashboard/AttendeeController.php",
+			"file_size": 1526,
+			"file_write_time": 1462778255000000,
 			"settings":
 			{
-				"buffer_size": 656,
+				"buffer_size": 1216,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/Dashboard/EventGuestsController.php",
+			"file": "resources/views/admin/attendees/index.blade.php",
 			"settings":
 			{
-				"buffer_size": 3370,
+				"buffer_size": 212,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/Dashboard/ManageEventController.php",
+			"file": "resources/views/moderator/dashboard/index.blade.php",
 			"settings":
 			{
-				"buffer_size": 5508,
+				"buffer_size": 204,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/Dashboard/OrganizationController.php",
+			"file": "resources/views/attendees/index.blade.php",
 			"settings":
 			{
-				"buffer_size": 3034,
+				"buffer_size": 2665,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/Dashboard/UserController.php",
+			"file": "resources/views/profile/index.blade.php",
 			"settings":
 			{
-				"buffer_size": 3236,
+				"buffer_size": 886,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/layouts/content.blade.php",
+			"file": "resources/views/public/layouts/events_section.blade.php",
 			"settings":
 			{
-				"buffer_size": 55,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/organizations/create.blade.php",
-			"settings":
-			{
-				"buffer_size": 4289,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/organizations/index.blade.php",
-			"settings":
-			{
-				"buffer_size": 3718,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/organizations/edit.blade.php",
-			"settings":
-			{
-				"buffer_size": 3172,
+				"buffer_size": 1265,
 				"line_ending": "Unix"
 			}
 		},
@@ -789,125 +718,186 @@
 			}
 		},
 		{
-			"file": "resources/views/events/manage.blade.php",
+			"file": "composer.json",
 			"settings":
 			{
-				"buffer_size": 2469,
+				"buffer_size": 1756,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/events/attendees.blade.php",
+			"file": "resources/views/public/layouts/header_registration.blade.php",
 			"settings":
 			{
-				"buffer_size": 511,
+				"buffer_size": 673,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/events/event_detail_section.blade.php",
+			"file": "resources/views/public/layouts/content.blade.php",
 			"settings":
 			{
-				"buffer_size": 13093,
+				"buffer_size": 18,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/users/index.blade.php",
+			"file": "resources/views/public/layouts/contacts_section.blade.php",
 			"settings":
 			{
-				"buffer_size": 5894,
+				"buffer_size": 1092,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/users/create.blade.php",
+			"file": "resources/views/public/layouts/header.blade.php",
 			"settings":
 			{
-				"buffer_size": 2490,
+				"buffer_size": 443,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/users/edit.blade.php",
+			"file": "resources/views/public/welcome.blade.php",
 			"settings":
 			{
-				"buffer_size": 2534,
+				"buffer_size": 225,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/users/invite.blade.php",
+			"file": "app/AllAccessEvents/Event.php",
 			"settings":
 			{
-				"buffer_size": 1110,
+				"buffer_size": 3612,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/admin/dashboard/index.blade.php",
+			"file": "app/Http/Controllers/EventRegistrationController.php",
 			"settings":
 			{
-				"buffer_size": 2032,
+				"buffer_size": 4320,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/events/invite_modal.blade.php",
+			"file": "app/Http/Controllers/RegistrationPaymentController.php",
 			"settings":
 			{
-				"buffer_size": 957,
+				"buffer_size": 3012,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/events/show.blade.php",
+			"file": "app/Jobs/SendInvoiceEmail.php",
 			"settings":
 			{
-				"buffer_size": 12258,
+				"buffer_size": 1121,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/profile/password_change_section.blade.php",
+			"file": "resources/views/public/events/payment.blade.php",
 			"settings":
 			{
-				"buffer_size": 1627,
+				"buffer_size": 6368,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/profile/index.blade.php",
+			"file": "resources/views/public/events/registration.blade.php",
 			"settings":
 			{
-				"buffer_size": 810,
+				"buffer_size": 1793,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "<?php namespace AllAccessRMS\\Http\\Controllers\\Auth;\n\nuse Illuminate\\Http\\Request;\n\nuse AllAccessRMS\\Http\\Requests;\nuse AllAccessRMS\\Http\\Requests\\PasswordChangeRequest;\nuse AllAccessRMS\\Http\\Controllers\\Controller;\n\nuse AllAccessRMS\\Accounts\\Users\\UserRepositoryInterface;\nuse AllAccessRMS\\Accounts\\Organizations\\OrganizationRepositoryInterface;\n\nclass ProfileController extends Controller\n{\n    public function __construct()\n    {\n        $this->beforeFilter('auth');\n    }\n    /**\n     * Display a listing of the resource.\n     *\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function index()\n    {\n        return view('profile.index');\n    }\n\n    public function update()\n    {\n        \n    }\n\n    public function password_change(PasswordChangeRequest $request)\n    {\n        $btnPasswordChange = \n\n        $btnOrganizationInfoUpdate = \n\n        $email      = $request->input('email');\n        $userId     = $request->input('user_id');\n        $password   = $request->input('new_password');\n\n        $job = new SetPassword($userId, $password);\n        $this->dispatch($job);\n    }\n\n    /**\n     * Show the form for creating a new resource.\n     *\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function create()\n    {\n        //\n    }\n\n    /**\n     * Store a newly created resource in storage.\n     *\n     * @param  \\Illuminate\\Http\\Request  $request\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function store(Request $request)\n    {\n        //\n    }\n\n    /**\n     * Display the specified resource.\n     *\n     * @param  int  $id\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function show($id)\n    {\n        //\n    }\n\n    /**\n     * Show the form for editing the specified resource.\n     *\n     * @param  int  $id\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function edit($id)\n    {\n\n\n        return view('profile.index');\n    }\n\n    /**\n     * Update the specified resource in storage.\n     *\n     * @param  \\Illuminate\\Http\\Request  $request\n     * @param  int  $id\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function update(Request $request, $id)\n    {\n        //\n    }\n\n    /**\n     * Remove the specified resource from storage.\n     *\n     * @param  int  $id\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function destroy($id)\n    {\n        //\n    }\n}\n",
-			"file": "app/Http/Controllers/Auth/ProfileController.php",
-			"file_size": 2244,
-			"file_write_time": 1462169167000000,
+			"file": "app/AllAccessEvents/Attendee.php",
 			"settings":
 			{
-				"buffer_size": 2365,
+				"buffer_size": 2249,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/Auth/NewUserLoginController.php",
+			"file": "app/Http/Requests/PaymentFormRequest.php",
 			"settings":
 			{
-				"buffer_size": 2141,
+				"buffer_size": 699,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Jobs/SetPassword.php",
+			"file": "config/services.php",
 			"settings":
 			{
-				"buffer_size": 748,
+				"buffer_size": 1022,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/public/layouts/main.blade.php",
+			"settings":
+			{
+				"buffer_size": 2951,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Middleware/Authenticate.php",
+			"settings":
+			{
+				"buffer_size": 1018,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Middleware/EncryptCookies.php",
+			"settings":
+			{
+				"buffer_size": 309,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Middleware/HttpsProtocol.php",
+			"settings":
+			{
+				"buffer_size": 377,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Middleware/RedirectIfAuthenticated.php",
+			"settings":
+			{
+				"buffer_size": 769,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Middleware/VerifyCsrfToken.php",
+			"settings":
+			{
+				"buffer_size": 310,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Middleware/AttendeeRegistrationPayment.php",
+			"settings":
+			{
+				"buffer_size": 862,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/HomePageController.php",
+			"settings":
+			{
+				"buffer_size": 1847,
 				"line_ending": "Unix"
 			}
 		},
@@ -920,42 +910,178 @@
 			}
 		},
 		{
-			"file": "app/Jobs/UpdateEvent.php",
+			"file": "resources/views/public/events/health_release_section.blade.php",
 			"settings":
 			{
-				"buffer_size": 2993,
+				"buffer_size": 6911,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/validators.php",
+			"file": "app/Http/Requests/NewOrganizationFormRequest.php",
 			"settings":
 			{
-				"buffer_size": 760,
+				"buffer_size": 1050,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Accounts/Users/User.php",
+			"file": "app/Http/Requests/NewUserRegistrationRequest.php",
 			"settings":
 			{
-				"buffer_size": 3059,
+				"buffer_size": 848,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Http/Requests/PasswordChangeRequest.php",
+			"file": "app/Http/Requests/AddUserFormRequest.php",
 			"settings":
 			{
-				"buffer_size": 1191,
+				"buffer_size": 1173,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "resources/views/settings/index.blade.php",
+			"file": "resources/views/events/manage.blade.php",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 3019,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/events/attendees_section.blade.php",
+			"settings":
+			{
+				"buffer_size": 2988,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/AllAccessEvents/AttendeeRepository.php",
+			"settings":
+			{
+				"buffer_size": 2291,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/events/event_detail_section.blade.php",
+			"settings":
+			{
+				"buffer_size": 13760,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Jobs/SendWelcomeEmail.php",
+			"settings":
+			{
+				"buffer_size": 920,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Jobs/RegisterNewUser.php",
+			"settings":
+			{
+				"buffer_size": 1554,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Jobs/RegisterAttendee.php",
+			"settings":
+			{
+				"buffer_size": 5175,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Jobs/SendRegistrationConfirmation.php",
+			"settings":
+			{
+				"buffer_size": 1687,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Jobs/RegisterPartnerOrganization.php",
+			"settings":
+			{
+				"buffer_size": 3307,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/layouts/main.blade.php",
+			"settings":
+			{
+				"buffer_size": 1285,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/layouts/login.blade.php",
+			"settings":
+			{
+				"buffer_size": 1030,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/layouts/header.blade.php",
+			"settings":
+			{
+				"buffer_size": 1165,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/partials/footer.blade.php",
+			"settings":
+			{
+				"buffer_size": 966,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Auth/AuthController.php",
+			"settings":
+			{
+				"buffer_size": 2937,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Dashboard/HomeController.php",
+			"settings":
+			{
+				"buffer_size": 2139,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/js/app.js",
+			"settings":
+			{
+				"buffer_size": 3921,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/js/public/app.js",
+			"settings":
+			{
+				"buffer_size": 2604,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/AllAccessEvents/EventRepositoryInterface.php",
+			"settings":
+			{
+				"buffer_size": 371,
 				"line_ending": "Unix"
 			}
 		}
@@ -1076,56 +1202,111 @@
 	},
 	"file_history":
 	[
+		"/var/www/public/all-access-rms/public/js/search.js",
+		"/var/www/public/all-access-rms/resources/views/emails/registration_confirmation.blade.php",
+		"/var/www/public/all-access-rms/resources/views/emails/invoice.blade.php",
+		"/var/www/public/all-access-rms/app/Core/BaseRepository.php",
 		"/var/www/public/all-access-rms/app/Http/Controllers/Auth/ProfileController.php",
-		"/var/www/public/all-access-rms/resources/views/dashboard/index.blade.php",
-		"/var/www/public/all-access-rms/resources/views/layouts/login.blade.php",
+		"/var/www/public/all-access-rms/resources/views/profile/organization_info_section.blade.php",
+		"/var/www/public/all-access-rms/app/Http/Requests/UpdateOrganizationInfoFormRequest.php",
 		"/var/www/public/all-access-rms/app/Accounts/Organizations/OrganizationInfo.php",
+		"/var/www/public/all-access-rms/app/Core/BaseModel.php",
+		"/var/www/public/all-access-rms/app/Accounts/Organizations/Organization.php",
+		"/var/www/public/all-access-rms/resources/views/organizations/create.blade.php",
+		"/var/www/public/all-access-rms/database/seeds/UsersTableSeeder.php",
+		"/var/www/public/all-access-rms/app/AllAccessEvents/AttendeeRepository.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/Auth/AuthController.php",
+		"/var/www/public/all-access-rms/resources/views/organizations/index.blade.php",
+		"/var/www/public/all-access-rms/resources/views/users/index.blade.php",
+		"/var/www/public/all-access-rms/resources/views/organizations/edit.blade.php",
+		"/var/www/public/all-access-rms/resources/views/events/manage.blade.php",
+		"/var/www/public/all-access-rms/resources/views/events/event_detail_section.blade.php",
+		"/var/www/public/all-access-rms/app/Http/Requests/PublishEventFormRequest.php",
+		"/var/www/public/all-access-rms/config/app.php",
+		"/var/www/public/all-access-rms/app/Http/Kernel.php",
+		"/var/www/public/all-access-rms/resources/views/events/attendees_section.blade.php",
+		"/var/www/public/all-access-rms/app/Http/Requests/Request.php",
+		"/var/www/public/all-access-rms/public/js/public/billing.js",
+		"/var/www/public/all-access-rms/resources/views/layouts/main.blade.php",
+		"/var/www/public/all-access-rms/resources/views/partials/errors.blade.php",
+		"/var/www/public/all-access-rms/resources/views/partials/message.blade.php",
+		"/var/www/public/all-access-rms/.env",
+		"/var/www/public/all-access-rms/public/js/public/app.js",
+		"/var/www/public/all-access-rms/public/js/app.js",
+		"/var/www/public/all-access-rms/resources/views/events/attendees.blade.php",
+		"/var/www/public/all-access-rms/app/Providers/AppServiceProvider.php",
+		"/var/www/public/all-access-rms/resources/assets/sass/app.scss",
+		"/var/www/public/all-access-rms/resources/views/public/layouts/main.blade.php",
+		"/var/www/public/all-access-rms/database/migrations/2016_04_01_044518_create_organizations_table.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/EventRegistrationController.php",
+		"/var/www/public/all-access-rms/resources/views/profile/index.blade.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/Moderator/DashboardController.php",
+		"/var/www/public/all-access-rms/app/Http/Requests/PaymentFormRequest.php",
+		"/var/www/public/all-access-rms/app/Http/Requests/NewOrganizationFormRequest.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/RegistrationPaymentController.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/NewUserRegistrationController.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/HomePageController.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/Auth/PasswordController.php",
+		"/var/www/public/all-access-rms/app/Jobs/UpdateOrganizationInfo.php",
+		"/var/www/public/all-access-rms/resources/views/profile/password_change_section.blade.php",
+		"/var/www/public/all-access-rms/resources/views/events/show.blade.php",
+		"/var/www/public/all-access-rms/resources/views/events/invite_modal.blade.php",
+		"/var/www/public/all-access-rms/resources/views/admin/dashboard/index.blade.php",
+		"/var/www/public/all-access-rms/resources/views/users/invite.blade.php",
+		"/var/www/public/all-access-rms/resources/views/users/edit.blade.php",
+		"/var/www/public/all-access-rms/resources/views/users/create.blade.php",
+		"/var/www/public/all-access-rms/resources/views/events/index.blade.php",
+		"/var/www/public/all-access-rms/resources/views/layouts/content.blade.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/Dashboard/UserController.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/Dashboard/OrganizationController.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/Dashboard/ManageEventController.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/Dashboard/EventGuestsController.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/Dashboard/AttendeeController.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/Dashboard/HomeController.php",
+		"/var/www/public/all-access-rms/resources/views/auth/login.blade.php",
+		"/var/www/public/all-access-rms/resources/views/dashboard/index.blade.php",
+		"/var/www/public/all-access-rms/resources/views/auth/new_login.blade.php",
+		"/var/www/public/all-access-rms/resources/views/layouts/login.blade.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/Admin/DashboardController.php",
+		"/var/www/public/all-access-rms/app/Http/routes.php",
+		"/var/www/public/all-access-rms/resources/views/layouts/header.blade.php",
+		"/var/www/public/all-access-rms/resources/views/layouts/sidebar.blade.php",
+		"/var/www/public/all-access-rms/resources/views/moderator/dashboard/index.blade.php",
+		"/var/www/public/all-access-rms/app/Accounts/Organizations/PartnerOrganization.php",
+		"/var/www/public/all-access-rms/app/AllAccessEvents/Event.php",
+		"/var/www/public/all-access-rms/resources/views/settings/password_change_section.blade.php",
+		"/var/www/public/all-access-rms/app/AllAccessEvents/EventRepository.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/Admin/AttendeeController.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/Moderator/AttendeeController.php",
+		"/var/www/public/all-access-rms/app/Http/Requests/AddUserFormRequest.php",
+		"/var/www/public/all-access-rms/app/Http/Requests/FirstTimeLoginFormRequest.php",
+		"/var/www/public/all-access-rms/app/Accounts/Users/User.php",
+		"/var/www/public/all-access-rms/app/validators.php",
+		"/var/www/public/all-access-rms/app/Jobs/UpdateEvent.php",
+		"/var/www/public/all-access-rms/app/Http/Controllers/Auth/NewUserLoginController.php",
 		"/var/www/public/all-access-rms/app/Accounts/Organizations/OrganizationRepository.php",
 		"/var/www/public/all-access-rms/app/Accounts/Users/UserRepository.php",
-		"/var/www/public/all-access-rms/app/Http/Controllers/Auth/AuthController.php",
 		"/var/www/public/all-access-rms/app/AllAccessEvents/AttendeeRepositoryInterface.php",
-		"/var/www/public/all-access-rms/resources/views/auth/new_login.blade.php",
 		"/var/www/public/all-access-rms/resources/views/partials/confirm_delete.blade.php",
-		"/var/www/public/all-access-rms/resources/views/moderator/dashboard/index.blade.php",
-		"/var/www/public/all-access-rms/app/Http/routes.php",
-		"/var/www/public/all-access-rms/app/Http/Controllers/Moderator/DashboardController.php",
-		"/var/www/public/all-access-rms/app/Accounts/Organizations/Organization.php",
-		"/var/www/public/all-access-rms/resources/views/users/create.blade.php",
 		"/var/www/public/all-access-rms/app/Jobs/SendWelcomeEmail.php",
 		"/var/www/public/all-access-rms/app/Http/Controllers/Admin/UserController.php",
 		"/var/www/public/all-access-rms/app/Jobs/RegisterNewUser.php",
-		"/var/www/public/all-access-rms/resources/views/users/edit.blade.php",
 		"/var/www/public/all-access-rms/app/Accounts/Users/UserRepositoryInterface.php",
 		"/var/www/public/all-access-rms/app/AllAccessEvents/Attendee.php",
-		"/var/www/public/all-access-rms/app/Core/BaseRepository.php",
-		"/var/www/public/all-access-rms/app/Core/BaseModel.php",
 		"/var/www/public/all-access-rms/app/Http/Controllers/Admin/ManageEventController.php",
 		"/var/www/public/all-access-rms/app/Http/Controllers/Admin/OrganizationController.php",
 		"/var/www/public/all-access-rms/app/AllAccessEvents/AttendeeInvitationRepository.php",
-		"/var/www/public/all-access-rms/app/Http/Controllers/Admin/DashboardController.php",
 		"/var/www/public/all-access-rms/app/Accounts/Users/UserValidator.php",
-		"/var/www/public/all-access-rms/app/Accounts/Users/User.php",
 		"/var/www/public/all-access-rms/app/Http/Requests/EventRegistrationFormRequest.php",
 		"/var/www/public/all-access-rms/resources/views/public/events/registration.blade.php",
-		"/var/www/public/all-access-rms/app/Http/Controllers/NewUserRegistrationController.php",
-		"/var/www/public/all-access-rms/app/Http/Controllers/Auth/PasswordController.php",
 		"/var/www/public/all-access-rms/resources/views/public/events/application_section.blade.php",
-		"/var/www/public/all-access-rms/resources/views/events/event_detail_section.blade.php",
-		"/var/www/public/all-access-rms/resources/views/events/manage.blade.php",
-		"/var/www/public/all-access-rms/app/Http/Requests/PublishEventFormRequest.php",
-		"/var/www/public/all-access-rms/resources/views/users/index.blade.php",
 		"/var/www/public/all-access-rms/resources/views/users/edit_modal.blade.php",
 		"/var/www/public/all-access-rms/resources/views/public/events/payment.blade.php",
-		"/var/www/public/all-access-rms/app/Http/Requests/PaymentFormRequest.php",
 		"/var/www/public/all-access-rms/app/Jobs/RegisterPartnerOrganization.php",
-		"/var/www/public/all-access-rms/resources/views/organizations/edit.blade.php",
 		"/var/www/public/all-access-rms/app/Jobs/SendRegistrationConfirmation.php",
-		"/var/www/public/all-access-rms/app/Http/Controllers/EventRegistrationController.php",
-		"/var/www/public/all-access-rms/app/AllAccessEvents/AttendeeRepository.php",
 		"/var/www/public/all-access-rms/app/AttendeeDocuments/AttendeeHealthReleaseForm.php",
 		"/var/www/public/all-access-rms/resources/views/public/events/health_release_section.blade.php",
 		"/var/www/public/all-access-rms/database/seeds/OrganizationsTableSeeder.php",
-		"/var/www/public/all-access-rms/app/Http/Controllers/RegistrationPaymentController.php",
 		"/var/www/public/all-access-rms/app/AllAccessEvents/AttendeeInvitation.php",
 		"/var/www/public/all-access-rms/resources/views/public/events/index.blade.php",
 		"/var/www/public/all-access-rms/resources/views/public/events/navbar.blade.php",
@@ -1133,14 +1314,7 @@
 		"/var/www/public/all-access-rms/resources/views/public/layouts/nav_registration.blade.php",
 		"/var/www/public/all-access-rms/resources/views/public/layouts/nav.blade.php",
 		"/var/www/public/all-access-rms/resources/views/public/layouts/header_registration.blade.php",
-		"/var/www/public/all-access-rms/resources/views/events/invite_modal.blade.php",
-		"/var/www/public/all-access-rms/resources/views/events/index.blade.php",
-		"/var/www/public/all-access-rms/resources/views/users/invite.blade.php",
-		"/var/www/public/all-access-rms/resources/views/organizations/create.blade.php",
-		"/var/www/public/all-access-rms/resources/views/organizations/index.blade.php",
 		"/var/www/public/all-access-rms/config/queue.php",
-		"/var/www/public/all-access-rms/.env",
-		"/var/www/public/all-access-rms/app/Http/Controllers/HomePageController.php",
 		"/var/www/public/all-access-rms/database/migrations/2016_04_24_072637_create_jobs_table.php",
 		"/var/www/public/all-access-rms/config/mail.php",
 		"/var/www/public/all-access-rms/app/Core/BaseValidator.php",
@@ -1154,56 +1328,8 @@
 		"/var/www/public/all-access-rms/composer.json",
 		"/var/www/public/all-access-rms/artisan",
 		"/var/www/public/all-access-rms/resources/lang/en/validation.php",
-		"/var/www/public/all-access-rms/public/js/public/app.js",
-		"/var/www/public/all-access-rms/public/js/app.js",
 		"/var/www/public/all-access-rms/public/js/googlemaps.js",
-		"/var/www/public/all-access-rms/public/css/app.css",
-		"/var/www/public/all-access-rms/resources/assets/sass/public/app.scss",
-		"/var/www/public/all-access-rms/resources/assets/sass/public/core.scss",
-		"/var/www/public/all-access-rms/public/css/public/app.css",
-		"/var/www/public/all-access-rms/resources/views/public/layouts/header.blade.php",
-		"/var/www/public/all-access-rms/database/migrations/2016_04_01_044816_create_events_table.php",
-		"/var/www/public/all-access-rms/database/migrations/2016_04_01_050612_create_attendees_table.php",
-		"/var/www/public/all-access-rms/resources/views/settings/index.blade.php",
-		"/var/www/public/all-access-rms/resources/views/settings/organization_info_section.blade.php",
-		"/var/www/public/all-access-rms/resources/views/settings/password_change_section.blade.php",
-		"/var/www/public/all-access-rms/app/Http/Controllers/Admin/EventGuestsController.php",
-		"/var/www/public/all-access-rms/app/Http/Requests/FirstTimeLoginFormRequest.php",
-		"/var/www/public/all-access-rms/resources/views/auth/first_time_login.blade.php",
-		"/var/www/public/all-access-rms/resources/views/emails/newuserwelcome.blade.php",
-		"/var/www/public/all-access-rms/resources/views/auth/login.blade.php",
-		"/var/www/public/all-access-rms/app/Accounts/Users/Role.php",
-		"/var/www/public/all-access-rms/resources/views/emails/registration_confirmation.blade.php",
-		"/var/www/public/all-access-rms/app/DocumentDefinitions/ApplicationForm.php",
-		"/var/www/public/all-access-rms/app/AttendeeDocuments/AttendeeApplicationForm.php",
-		"/var/www/public/all-access-rms/database/seeds/DocumentDefinitionTableSeeder.php",
-		"/var/www/public/all-access-rms/app/AllAccessEvents/EventRegistrationForm.php",
-		"/var/www/public/all-access-rms/app/AllAccessEvents/Event.php",
-		"/var/www/public/all-access-rms/database/seeds/DatabaseSeeder.php",
-		"/var/www/public/all-access-rms/app/AllAccessEvents/EventRepository.php",
-		"/var/www/public/all-access-rms/app/Jobs/AllAccessEvents/UpdateEvent.php",
-		"/var/www/public/all-access-rms/app/Jobs/RegisterAttendee.php",
-		"/var/www/public/all-access-rms/app/Jobs/UpdateEvent.php",
-		"/var/www/public/all-access-rms/config/database.php",
-		"/var/www/public/all-access-rms/app/Exceptions/Handler.php",
-		"/var/www/public/all-access-rms/app/validators.php",
-		"/var/www/public/all-access-rms/app/Providers/RepositoryServiceProvider.php",
-		"/var/www/public/all-access-rms/app/Http/Requests/NewOrganizationFormRequest.php",
-		"/var/www/public/all-access-rms/app/Http/Requests/NewUserRegistrationRequest.php",
-		"/var/www/public/all-access-rms/app/Http/Requests/AddUserFormRequest.php",
-		"/var/www/public/all-access-rms/app/Http/Requests/PasswordChangeRequest.php",
-		"/var/www/public/all-access-rms/resources/views/public/layouts/main.blade.php",
-		"/var/www/public/all-access-rms/resources/views/public/layouts/content.blade.php",
-		"/var/www/public/all-access-rms/resources/views/public/layouts/events_section.blade.php",
-		"/var/www/public/all-access-rms/app/AllAccessEvents/EventValidator.php",
-		"/var/www/public/all-access-rms/app/Mailer.php",
-		"/var/www/public/all-access-rms/app/Jobs/AllAccessEvents/RegisterAttendee.php",
-		"/var/www/public/all-access-rms/app/DocumentDefinitions/HealthAndReleaseForm.php",
-		"/var/www/public/all-access-rms/resources/views/partials/message.blade.php",
-		"/var/www/public/all-access-rms/resources/views/layouts/main.blade.php",
-		"/var/www/public/all-access-rms/storage/framework/views/0acc7269070bc6044766d0cdcbe406d8",
-		"/var/www/public/all-access-rms/storage/logs/.gitignore",
-		"/var/www/public/all-access-rms/storage/framework/views/027283acb3ca6ad6274f82c4d3b0a3d0"
+		"/var/www/public/all-access-rms/public/css/app.css"
 	],
 	"find":
 	{
@@ -1226,6 +1352,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ls",
+			"md",
+			"laravelframework",
+			"organizationsRepository",
+			"sm",
 			"Admin",
 			"new_user_registration",
 			"container",
@@ -1297,7 +1428,7 @@
 	"groups":
 	[
 		{
-			"selected": 15,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -1305,7 +1436,7 @@
 					"file": "storage/logs/laravel.log",
 					"settings":
 					{
-						"buffer_size": 20073,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -1325,531 +1456,62 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 52,
+			"sheets":
+			[
 				{
 					"buffer": 1,
+					"file": "app/Jobs/SetPassword.php",
 					"settings":
 					{
-						"buffer_size": 527,
+						"buffer_size": 684,
 						"regions":
 						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										274,
-										295
-									],
-									[
-										471,
-										492
-									]
-								],
-								"scope": ""
-							}
 						},
 						"selection":
 						[
 							[
-								75,
-								75
+								397,
+								397
 							]
 						],
 						"settings":
 						{
-							"detect_indentation": false,
-							"output_tag": 2,
-							"result_base_dir": "",
-							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+							"auto_complete": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 68.0,
+						"translation.y": 306.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "app/Http/Controllers/Moderator/AttendeeController.php",
+					"file": "app/Http/Requests/PasswordChangeRequest.php",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 1102,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/Http/Controllers/Admin/AttendeeController.php",
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 167.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/AllAccessEvents/AttendeeRepository.php",
-					"settings":
-					{
-						"buffer_size": 1239,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								669,
-								669
+								744,
+								744
 							]
 						],
 						"settings":
 						{
 							"auto_complete": false,
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 102.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/AllAccessEvents/EventRepository.php",
-					"settings":
-					{
-						"buffer_size": 1563,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1121,
-								1121
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 561.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "resources/views/settings/password_change_section.blade.php",
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 408.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "app/AllAccessEvents/Event.php",
-					"settings":
-					{
-						"buffer_size": 3810,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1506,
-								1506
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 612.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "app/Accounts/Organizations/PartnerOrganization.php",
-					"settings":
-					{
-						"buffer_size": 338,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								329,
-								329
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "app/Http/Controllers/Moderator/DashboardController.php",
-					"settings":
-					{
-						"buffer_size": 1483,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								177,
-								177
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "resources/views/moderator/dashboard/index.blade.php",
-					"settings":
-					{
-						"buffer_size": 1171,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								959,
-								959
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 204.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "resources/views/layouts/main.blade.php",
-					"settings":
-					{
-						"buffer_size": 1285,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1049,
-								1049
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 204.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "resources/views/layouts/sidebar.blade.php",
-					"settings":
-					{
-						"buffer_size": 1652,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1377,
-								1377
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "resources/views/layouts/header.blade.php",
-					"settings":
-					{
-						"buffer_size": 1188,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								789,
-								789
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 153.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "app/Http/Controllers/EventRegistrationController.php",
-					"settings":
-					{
-						"buffer_size": 4320,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4095,
-								4095
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1785.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "app/Http/routes.php",
-					"settings":
-					{
-						"buffer_size": 5484,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2070,
-								2070
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1233.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "app/Http/Controllers/Auth/AuthController.php",
-					"settings":
-					{
-						"buffer_size": 2927,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2491,
-								2491
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "app/Http/Controllers/Admin/DashboardController.php",
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 102.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 18,
-					"file": "resources/views/layouts/login.blade.php",
-					"settings":
-					{
-						"buffer_size": 1030,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								769,
-								769
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -1860,23 +1522,481 @@
 					"type": "text"
 				},
 				{
-					"buffer": 19,
-					"file": "resources/views/auth/new_login.blade.php",
+					"buffer": 3,
+					"file": "resources/views/settings/index.blade.php",
 					"settings":
 					{
-						"buffer_size": 1534,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1323,
-								1323
+								0,
+								0
 							]
 						],
 						"settings":
 						{
+							"auto_complete": false,
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/Http/Requests/EventRegistrationFormRequest.php",
+					"settings":
+					{
+						"buffer_size": 4729,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/Jobs/UpdateOrganizationInfo.php",
+					"settings":
+					{
+						"buffer_size": 1430,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1381,
+								1381
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 153.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/Accounts/Organizations/OrganizationInfoRepository.php",
+					"settings":
+					{
+						"buffer_size": 358,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								148,
+								148
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/Accounts/Organizations/OrganizationRepository.php",
+					"settings":
+					{
+						"buffer_size": 2140,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1252,
+								1252
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 510.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/Jobs/UpdateEvent.php",
+					"settings":
+					{
+						"buffer_size": 4137,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								593,
+								593
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 765.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/Http/Controllers/Dashboard/ManageEventController.php",
+					"settings":
+					{
+						"buffer_size": 6738,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4101,
+								4101
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1794.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "app/Http/Controllers/Dashboard/OrganizationController.php",
+					"settings":
+					{
+						"buffer_size": 3230,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								88,
+								88
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "app/Accounts/Users/UserRepository.php",
+					"settings":
+					{
+						"buffer_size": 1605,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								817,
+								817
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 408.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "app/Http/Controllers/Dashboard/UserController.php",
+					"settings":
+					{
+						"buffer_size": 3090,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 510.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "app/AllAccessEvents/EventRepository.php",
+					"settings":
+					{
+						"buffer_size": 1850,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1392,
+								1392
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "app/Accounts/Organizations/PartnerOrganization.php",
+					"settings":
+					{
+						"buffer_size": 338,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "resources/views/admin/dashboard/index.blade.php",
+					"settings":
+					{
+						"buffer_size": 3519,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								956,
+								956
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 850.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "app/Http/routes.php",
+					"settings":
+					{
+						"buffer_size": 6606,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4524,
+								4524
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2856.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "app/Http/Controllers/Dashboard/AttendeeController.php",
+					"settings":
+					{
+						"buffer_size": 1216,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1204,
+								1204
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 531.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "resources/views/admin/attendees/index.blade.php",
+					"settings":
+					{
+						"buffer_size": 212,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								143,
+								143
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "resources/views/moderator/dashboard/index.blade.php",
+					"settings":
+					{
+						"buffer_size": 204,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								197,
+								197
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
 							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -1889,22 +2009,23 @@
 				},
 				{
 					"buffer": 20,
-					"file": "resources/views/dashboard/index.blade.php",
+					"file": "resources/views/attendees/index.blade.php",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 2665,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2665,
+								2665
 							]
 						],
 						"settings":
 						{
+							"auto_complete": false,
 							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -1917,18 +2038,18 @@
 				},
 				{
 					"buffer": 21,
-					"file": "resources/views/auth/login.blade.php",
+					"file": "resources/views/profile/index.blade.php",
 					"settings":
 					{
-						"buffer_size": 1186,
+						"buffer_size": 886,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1186,
-								1186
+								819,
+								819
 							]
 						],
 						"settings":
@@ -1946,169 +2067,80 @@
 				},
 				{
 					"buffer": 22,
-					"file": "app/Http/Controllers/Dashboard/HomeController.php",
+					"file": "resources/views/public/layouts/events_section.blade.php",
 					"settings":
 					{
-						"buffer_size": 2139,
+						"buffer_size": 1265,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								67,
-								67
+								705,
+								705
 							]
 						],
 						"settings":
 						{
 							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 918.0,
+						"translation.y": 102.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 23,
-					"file": "app/Http/Controllers/Dashboard/AttendeeController.php",
+					"file": "resources/views/events/index.blade.php",
 					"settings":
 					{
-						"buffer_size": 656,
+						"buffer_size": 2190,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								586,
-								586
+								450,
+								450
 							]
 						],
 						"settings":
 						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 255.0,
+						"translation.y": 561.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 24,
-					"file": "app/Http/Controllers/Dashboard/EventGuestsController.php",
+					"file": "composer.json",
 					"settings":
 					{
-						"buffer_size": 3370,
+						"buffer_size": 1756,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3329,
-								3329
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1581.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 25,
-					"file": "app/Http/Controllers/Dashboard/ManageEventController.php",
-					"settings":
-					{
-						"buffer_size": 5508,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5490,
-								5490
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3060.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 26,
-					"file": "app/Http/Controllers/Dashboard/OrganizationController.php",
-					"settings":
-					{
-						"buffer_size": 3034,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2288,
-								2288
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2142.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 27,
-					"file": "app/Http/Controllers/Dashboard/UserController.php",
-					"settings":
-					{
-						"buffer_size": 3236,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1912,
-								1912
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -2119,11 +2151,39 @@
 					"type": "text"
 				},
 				{
-					"buffer": 28,
-					"file": "resources/views/layouts/content.blade.php",
+					"buffer": 25,
+					"file": "resources/views/public/layouts/header_registration.blade.php",
 					"settings":
 					{
-						"buffer_size": 55,
+						"buffer_size": 673,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 26,
+					"file": "resources/views/public/layouts/content.blade.php",
+					"settings":
+					{
+						"buffer_size": 18,
 						"regions":
 						{
 						},
@@ -2145,11 +2205,11 @@
 					"type": "text"
 				},
 				{
-					"buffer": 29,
-					"file": "resources/views/organizations/create.blade.php",
+					"buffer": 27,
+					"file": "resources/views/public/layouts/contacts_section.blade.php",
 					"settings":
 					{
-						"buffer_size": 4289,
+						"buffer_size": 1092,
 						"regions":
 						{
 						},
@@ -2158,6 +2218,233 @@
 							[
 								0,
 								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 28,
+					"file": "resources/views/public/layouts/header.blade.php",
+					"settings":
+					{
+						"buffer_size": 443,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 29,
+					"file": "resources/views/public/welcome.blade.php",
+					"settings":
+					{
+						"buffer_size": 225,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 30,
+					"file": "app/AllAccessEvents/Event.php",
+					"settings":
+					{
+						"buffer_size": 3612,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								260,
+								260
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 459.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 31,
+					"file": "app/Http/Controllers/EventRegistrationController.php",
+					"settings":
+					{
+						"buffer_size": 4320,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2756,
+								2756
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1377.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 32,
+					"file": "app/Http/Controllers/RegistrationPaymentController.php",
+					"settings":
+					{
+						"buffer_size": 3012,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2748,
+								2748
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1275.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 33,
+					"file": "app/Jobs/SendInvoiceEmail.php",
+					"settings":
+					{
+						"buffer_size": 1121,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								401,
+								401
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 306.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 34,
+					"file": "resources/views/public/events/payment.blade.php",
+					"settings":
+					{
+						"buffer_size": 6368,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2602,
+								2602
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1122.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 35,
+					"file": "resources/views/public/events/registration.blade.php",
+					"settings":
+					{
+						"buffer_size": 1793,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								700,
+								700
+							],
+							[
+								712,
+								712
 							]
 						],
 						"settings":
@@ -2173,541 +2460,47 @@
 					"type": "text"
 				},
 				{
-					"buffer": 30,
-					"file": "resources/views/organizations/index.blade.php",
-					"settings":
-					{
-						"buffer_size": 3718,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1354,
-								1354
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1071.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 31,
-					"file": "resources/views/organizations/edit.blade.php",
-					"settings":
-					{
-						"buffer_size": 3172,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1071.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 32,
-					"file": "resources/views/events/index.blade.php",
-					"settings":
-					{
-						"buffer_size": 2190,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1040,
-								1040
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 33,
-					"file": "resources/views/events/manage.blade.php",
-					"settings":
-					{
-						"buffer_size": 2469,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								179,
-								179
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 34,
-					"file": "resources/views/events/attendees.blade.php",
-					"settings":
-					{
-						"buffer_size": 511,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 35,
-					"file": "resources/views/events/event_detail_section.blade.php",
-					"settings":
-					{
-						"buffer_size": 13093,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7948,
-								7948
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2635.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
 					"buffer": 36,
-					"file": "resources/views/users/index.blade.php",
+					"file": "app/AllAccessEvents/Attendee.php",
 					"settings":
 					{
-						"buffer_size": 5894,
+						"buffer_size": 2249,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5453,
-								5453
+								448,
+								448
 							]
 						],
 						"settings":
 						{
-							"auto_complete": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1683.0,
+						"translation.y": 85.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 37,
-					"file": "resources/views/users/create.blade.php",
+					"file": "app/Http/Requests/PaymentFormRequest.php",
 					"settings":
 					{
-						"buffer_size": 2490,
+						"buffer_size": 699,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 816.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 38,
-					"file": "resources/views/users/edit.blade.php",
-					"settings":
-					{
-						"buffer_size": 2534,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								495,
-								495
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 867.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 39,
-					"file": "resources/views/users/invite.blade.php",
-					"settings":
-					{
-						"buffer_size": 1110,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 40,
-					"file": "resources/views/admin/dashboard/index.blade.php",
-					"settings":
-					{
-						"buffer_size": 2032,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								685,
-								685
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 204.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 41,
-					"file": "resources/views/events/invite_modal.blade.php",
-					"settings":
-					{
-						"buffer_size": 957,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								716,
-								716
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 42,
-					"file": "resources/views/events/show.blade.php",
-					"settings":
-					{
-						"buffer_size": 12258,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 43,
-					"file": "resources/views/profile/password_change_section.blade.php",
-					"settings":
-					{
-						"buffer_size": 1627,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 44,
-					"file": "resources/views/profile/index.blade.php",
-					"settings":
-					{
-						"buffer_size": 810,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								721,
-								721
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 45,
-					"file": "app/Http/Controllers/Auth/ProfileController.php",
-					"settings":
-					{
-						"buffer_size": 2365,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								703,
-								703
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 102.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 46,
-					"file": "app/Http/Controllers/Auth/NewUserLoginController.php",
-					"settings":
-					{
-						"buffer_size": 2141,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1251,
-								1019
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 612.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 47,
-					"file": "app/Jobs/SetPassword.php",
-					"settings":
-					{
-						"buffer_size": 748,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								612,
-								612
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 48,
-					"file": "app/Http/Requests/FirstTimeLoginFormRequest.php",
-					"settings":
-					{
-						"buffer_size": 1222,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								582,
-								582
+								553,
+								553
 							]
 						],
 						"settings":
@@ -2724,19 +2517,238 @@
 					"type": "text"
 				},
 				{
-					"buffer": 49,
-					"file": "app/Jobs/UpdateEvent.php",
+					"buffer": 38,
+					"file": "config/services.php",
 					"settings":
 					{
-						"buffer_size": 2993,
+						"buffer_size": 1022,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2993,
-								2993
+								882,
+								882
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 204.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 39,
+					"file": "resources/views/public/layouts/main.blade.php",
+					"settings":
+					{
+						"buffer_size": 2951,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2789,
+								2789
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1241.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 40,
+					"file": "app/Http/Middleware/Authenticate.php",
+					"settings":
+					{
+						"buffer_size": 1018,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								928,
+								928
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 561.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 41,
+					"file": "app/Http/Middleware/EncryptCookies.php",
+					"settings":
+					{
+						"buffer_size": 309,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 42,
+					"file": "app/Http/Middleware/HttpsProtocol.php",
+					"settings":
+					{
+						"buffer_size": 377,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 43,
+					"file": "app/Http/Middleware/RedirectIfAuthenticated.php",
+					"settings":
+					{
+						"buffer_size": 769,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 51.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 44,
+					"file": "app/Http/Middleware/VerifyCsrfToken.php",
+					"settings":
+					{
+						"buffer_size": 310,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 45,
+					"file": "app/Http/Middleware/AttendeeRegistrationPayment.php",
+					"settings":
+					{
+						"buffer_size": 862,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								159,
+								159
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 255.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 46,
+					"file": "app/Http/Controllers/HomePageController.php",
+					"settings":
+					{
+						"buffer_size": 1847,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -2752,98 +2764,39 @@
 					"type": "text"
 				},
 				{
-					"buffer": 50,
-					"file": "app/validators.php",
+					"buffer": 47,
+					"file": "app/Http/Requests/FirstTimeLoginFormRequest.php",
 					"settings":
 					{
-						"buffer_size": 760,
+						"buffer_size": 1222,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								760,
-								760
+								536,
+								536
 							]
 						],
 						"settings":
 						{
-							"auto_complete": false,
 							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 414.0,
+						"translation.y": 153.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 51,
-					"file": "app/Accounts/Users/User.php",
+					"buffer": 48,
+					"file": "resources/views/public/events/health_release_section.blade.php",
 					"settings":
 					{
-						"buffer_size": 3059,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1332,
-								1332
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 612.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 52,
-					"file": "app/Http/Requests/PasswordChangeRequest.php",
-					"settings":
-					{
-						"buffer_size": 1191,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1168,
-								1168
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 102.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 53,
-					"file": "resources/views/settings/index.blade.php",
-					"settings":
-					{
-						"buffer_size": 0,
+						"buffer_size": 6911,
 						"regions":
 						{
 						},
@@ -2856,10 +2809,595 @@
 						],
 						"settings":
 						{
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 49,
+					"file": "app/Http/Requests/NewOrganizationFormRequest.php",
+					"settings":
+					{
+						"buffer_size": 1050,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 306.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 50,
+					"file": "app/Http/Requests/NewUserRegistrationRequest.php",
+					"settings":
+					{
+						"buffer_size": 848,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 306.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 51,
+					"file": "app/Http/Requests/AddUserFormRequest.php",
+					"settings":
+					{
+						"buffer_size": 1173,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 255.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 52,
+					"file": "resources/views/events/manage.blade.php",
+					"settings":
+					{
+						"buffer_size": 3019,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2924,
+								2924
+							]
+						],
+						"settings":
+						{
 							"auto_complete": false,
 							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 935.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 53,
+					"file": "resources/views/events/attendees_section.blade.php",
+					"settings":
+					{
+						"buffer_size": 2988,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2249,
+								2249
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 663.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 54,
+					"file": "app/AllAccessEvents/AttendeeRepository.php",
+					"settings":
+					{
+						"buffer_size": 2291,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2051,
+								2051
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 877.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 55,
+					"file": "resources/views/events/event_detail_section.blade.php",
+					"settings":
+					{
+						"buffer_size": 13760,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								543,
+								543
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 255.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 56,
+					"file": "app/Jobs/SendWelcomeEmail.php",
+					"settings":
+					{
+						"buffer_size": 920,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								920,
+								920
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 57,
+					"file": "app/Jobs/RegisterNewUser.php",
+					"settings":
+					{
+						"buffer_size": 1554,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 102.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 58,
+					"file": "app/Jobs/RegisterAttendee.php",
+					"settings":
+					{
+						"buffer_size": 5175,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 59,
+					"file": "app/Jobs/SendRegistrationConfirmation.php",
+					"settings":
+					{
+						"buffer_size": 1687,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								453,
+								453
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 153.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 60,
+					"file": "app/Jobs/RegisterPartnerOrganization.php",
+					"settings":
+					{
+						"buffer_size": 3307,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 61,
+					"file": "resources/views/layouts/main.blade.php",
+					"settings":
+					{
+						"buffer_size": 1285,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 62,
+					"file": "resources/views/layouts/login.blade.php",
+					"settings":
+					{
+						"buffer_size": 1030,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 63,
+					"file": "resources/views/layouts/header.blade.php",
+					"settings":
+					{
+						"buffer_size": 1165,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 64,
+					"file": "resources/views/partials/footer.blade.php",
+					"settings":
+					{
+						"buffer_size": 966,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								966,
+								966
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 65,
+					"file": "app/Http/Controllers/Auth/AuthController.php",
+					"settings":
+					{
+						"buffer_size": 2937,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 306.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 66,
+					"file": "app/Http/Controllers/Dashboard/HomeController.php",
+					"settings":
+					{
+						"buffer_size": 2139,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1282,
+								1282
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1020.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 67,
+					"file": "public/js/app.js",
+					"settings":
+					{
+						"buffer_size": 3921,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2234,
+								2234
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1734.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 68,
+					"file": "public/js/public/app.js",
+					"settings":
+					{
+						"buffer_size": 2604,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 255.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 69,
+					"file": "app/AllAccessEvents/EventRepositoryInterface.php",
+					"settings":
+					{
+						"buffer_size": 371,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -2903,7 +3441,7 @@
 		"rows":
 		[
 			0.0,
-			0.711382097523,
+			0.25988118275,
 			1.0
 		]
 	},
@@ -2945,6 +3483,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 286.0,
+	"side_bar_width": 394.0,
 	"status_bar_visible": true
 }

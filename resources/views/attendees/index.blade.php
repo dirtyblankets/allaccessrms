@@ -1,3 +1,5 @@
+@extends('layouts.main')
+@section('content')
 {!! Form::open(array('route' => array('attendees.search', $event->id), 'method' => 'GET', 'class'=>'ajaxForm'))!!}
 <div class="row">
     <div class="col-lg-8">
@@ -58,3 +60,4 @@
     </div>
 </div>
 {!! Form::close() !!}
+@stop

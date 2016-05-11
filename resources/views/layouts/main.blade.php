@@ -25,6 +25,6 @@
 		</div>
 		@include("partials.confirm_delete")
         @include("partials.footer")
-        @include("partials.message")
+        @include("partials.overlay")
 	</body>
 </html>

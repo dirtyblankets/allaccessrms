@@ -5,6 +5,7 @@
         <a href="{{ URL::route('events.create') }}" class="btn btn-md btn-primary"><i class='fa fa-fw fa-plus'></i> New</a>
     </h2>
 </section>
+@include("partials.message")
 <!-- Content -->
 <div class="row">
     <div class="col-md-12">

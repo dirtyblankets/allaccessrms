@@ -24,7 +24,7 @@
                             @foreach($attendees as $attendee)
                                 <tr>
                                     <td>
-                                        <a href="">
+                                        <a href="{{ URL::route('attendees.show', $attendee->id) }}">
                                             {{ $attendee->firstname . ' ' . $attendee->lastname }}
                                         </a>
                                     </td>

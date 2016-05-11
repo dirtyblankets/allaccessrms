@@ -5,6 +5,13 @@ use Illuminate\Support\Facades\Input;
 
 use AllAccessRMS\Http\Requests;
 use AllAccessRMS\Http\Controllers\Controller;
+
+use AllAccessRMS\Core\Utilities\States;
+use AllAccessRMS\Core\Utilities\SweatshirtSizes;
+use AllAccessRMS\Core\Utilities\Gender;
+use AllAccessRMS\Core\Utilities\Languages;
+use AllAccessRMS\Core\Utilities\Grades;
+
 use AllAccessRMS\AllAccessEvents\AttendeeRepositoryInterface;
 use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
 
@@ -39,16 +46,81 @@ class AttendeeController extends Controller
 
     public function search($event_id)
     {
-        //$view = View::make('admin.attendees.index');
-        //if(Request::ajax()) {
-        $sections = view('admin.attendees.index')->renderSections(); // returns an associative array of 'content', 'head' and 'footer'
+        // Code here...
+    }
 
-        return $sections['content']; // this will only return whats in the content section
+    /**
+     * [show description]
+     * @param  [type] $id [attendee id]
+     * @return [type]     [description]
+     */
+    public function show($id)
+    {
+        $attendee = $this->attendees->findById($id);
 
-        //}
+        $attendee_application_form = $attendee->application_form()->first();
 
-        $search_name = Input::get('search_name');
-        dd($search_name);
+        $attendee_health_release_form = $attendee->health_release_form()->first();
+
+        $sweatshirt_sizes = SweatshirtSizes::all();
+
+        $states = States::all();
+
+        $genders = Gender::all();
+        
+        $languages = Languages::all();
+
+        return view('attendees.show', compact(
+            'attendee', 
+            'attendee_application_form', 
+            'attendee_health_release_form',
+            'sweatshirt_sizes',
+            'states',
+            'genders',
+            'languages'));
+    }
+
+    public function edit($id)
+    {
+        $attendee = $this->attendees->findById($id);
+
+        $event = $attendee->event()->first();
+
+        $hostOrg = $event->organization()->first();
+
+        $organizations = $event->partners()->get();
+        $organizations->prepend($hostOrg);
+
+        $attendee_organization = $attendee->organization()->first();
+        $organizations->forget($attendee_organization->id);
+        $organizations->prepend($attendee_organization);
+
+        $organizations = $organizations->lists('name', 'id');
+
+        $attendee_application_form = $attendee->application_form()->first();
+
+        $attendee_health_release_form = $attendee->health_release_form()->first();
+
+        $sweatshirt_sizes = SweatshirtSizes::all();
+
+        $states = States::all();
+
+        $genders = Gender::all();
+        
+        $languages = Languages::all();
+
+        $grades = Grades::all();
+
+        return view('attendees.edit', compact(
+            'attendee', 
+            'attendee_application_form', 
+            'attendee_health_release_form',
+            'sweatshirt_sizes',
+            'states',
+            'genders',
+            'languages',
+            'organizations',
+            'grades'));
     }
 
 

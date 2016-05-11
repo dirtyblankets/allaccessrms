@@ -233,14 +233,29 @@ Route::group(['middleware'=>['auth', 'acl'], 'is'=>'owner|admin|moderator'], fun
     ]);
 
     // Attendees for a given event
-    Route::get('attendees/{event_id}', [
+    Route::get('attendees/event/{event_id}', [
         'as'    =>  'attendees',
         'uses'  =>  'Dashboard\AttendeeController@index'
     ]);
 
-    Route::get('attendees/{event_id}/search', [
+    Route::get('attendees/event/{event_id}/search', [
         'as'    =>  'attendees.search',
         'uses'  =>  'Dashboard\AttendeeController@search'
+    ]);
+
+    Route::get('attendees/{id}', [
+        'as'    =>  'attendees.show',
+        'uses'  =>  'Dashboard\AttendeeController@show'
+    ]);
+
+    Route::get('attendees/{id}/edit', [
+        'as'    =>  'attendees.edit',
+        'uses'  =>  'Dashboard\AttendeeController@edit'
+    ]);
+
+    Route::patch('attendees/{id}', [
+        'as'    =>  'attendees.update',
+        'uses'  =>  'Dashboard\AttendeeController@update'
     ]);
 
 });

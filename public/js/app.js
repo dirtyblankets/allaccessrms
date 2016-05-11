@@ -112,7 +112,10 @@ function FormatEventsPage(){
 		$(':input').removeAttr('readonly');
 		$('.btn-toggle-readonly').prop('disabled', false);	
 		$(':input.cb').removeAttr('disabled');
-		$(':input.radio').removeAttr('disabled');			
+		$(':input.radio').removeAttr('disabled');
+		
+		$(':input.form-control.readonly').attr('disabled','disabled');
+		$('.selectpicker.readonly').attr('disabled', 'disabled');			
 	}
 
 	HideShowOnRadioBtn("event_privacy" ,"public", "private", "#invite_section");

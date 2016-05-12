@@ -19,6 +19,18 @@
             </div>
         </div>
         <div class="row">
+           <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Email</label>
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-fw fa-envelope"></i></div>
+                        <input type="text" placeholder="Email" class="form-control" name="email"
+                                value="{{ $organization->info()->first()->email }}" required="required"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-lg-4">
                 <div class="form-group">
                     <label>Address</label>

@@ -15,57 +15,84 @@
 <!-- Content -->
 @include('partials.message')
 @include('partials.errors')
-<div class="panel-body">
-    {!! Form::open(array('route' => array('organizations.update', $organization->id), 'method' => 'PATCH')) !!}
-        {!! csrf_field() !!}
-        <div class="col-sm-6">
-            <h4>Organization Information</h4>
-            <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-fw fa-building-o"></i></div>
-                    <input type="text" placeholder="Organization Name" class="form-control" name="organizations[name]"
-                            value="{{ old('organizations.name') }}" required="required"/>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-8">
-                    <div class="form-group">
-                        <input type="text" placeholder="Address" class="form-control" name="organizationinfo[address]"
-                                value="{{ old('organizationinfo.address') }}"/>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <input type="text" placeholder="City" class="form-control" name="organizationinfo[city]"
-                               value="{{ old('organizationinfo.city') }}"/>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        {!! Form::select('', $states, null, array(
-                            'class'=>'form-control',
-                            'value'=>"{{ old('organizationinfo.state') }}")) !!}
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <input type="text" placeholder="Zipcode" class="form-control" name="organizationinfo[zipcode]"
-                               value="{{ old('organizationinfo.zipcode') }}"/>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-addon"><i class="fa fa-fw fa-phone"></i></div>
-                            <input type="tel" placeholder="Telephone" class="form-control phone" name="organizationinfo[telephone]"
-                                   value="{{ old('organizationinfo.telephone') }}"/>
-                        </div>
-                    </div>
-                </div>
+{!! Form::open(array('route' => array('organizations.update', $organization->id), 'method' => 'PATCH')) !!}
+{!! csrf_field() !!}
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label>Name:</label>
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-fw fa-building-o"></i></div>
+                <input type="text" placeholder="Organization Name" class="form-control" name="name"
+                        value="{{ $organization->name }}" required="required"/>
             </div>
         </div>
-    {!! Form::close() !!}
+    </div>
 </div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label>Email:</label>
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-fw fa-envelope"></i></div>
+                <input type="text" placeholder="Email" class="form-control" name="email"
+                       value="{{ $info->email }}"/>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label>Phone:</label>
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-fw fa-phone"></i></div>
+                <input type="tel" placeholder="Telephone" class="form-control phone" name="telephone"
+                       value="{{ $info->telephone }}"/>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="divider">
+<div class="row">
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label>Address:</label>
+            <input type="text" placeholder="Address" class="form-control" name="address"
+                    value="{{ $info->address }}"/>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="form-group">
+            <label>City:</label>
+            <input type="text" placeholder="City" class="form-control" name="organizationinfo[city]"
+                   value="{{ $info->city }}"/>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="form-group">
+            <label>State:</label>
+            {!! Form::select('state', $states, $info->state, array(
+                'class'=>'form-control')) !!}
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="form-group">
+            <label>Zipcode:</label>
+            <input type="text" placeholder="Zipcode" class="form-control" name="zipcode"
+                   value="{{ $info->zipcode }}"/>
+        </div>
+    </div>
+</div>
+<hr class="divider">
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <button type="submit" class="btn btn-info"><i class="fa fa-fw fa-check"></i>Save</button>
+        </div>
+    </div>
+</div>
+{!! Form::close() !!}
 @stop

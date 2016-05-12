@@ -69,7 +69,6 @@ class RegisterAttendee extends Job implements SelfHandling
             'emg_contactnumber' => $this->request->input('attendee_health_release_form.emgcontactnumber'), 
             'healthproblems' => $this->request->input('attendee_health_release_form.healthproblems'), 
             'allergies' => $this->request->input('attendee_health_release_form.allergies'), 
-            //'medications' => $this->request->input('attendee_health_release_form.medications'), 
             'lasttetanusshot' => Carbon::parse($this->request->input('attendee_health_release_form.lasttetanusshot')), 
             'lastphysicalexam' => Carbon::parse($this->request->input('attendee_health_release_form.lastphysicalexam')), 
             'insurancecarrier' => $this->request->input('attendee_health_release_form.insurancecarrier'), 
@@ -78,7 +77,6 @@ class RegisterAttendee extends Job implements SelfHandling
             'guardian_contact' => $this->request->input('attendee_health_release_form.guardian_phone'), 
             'guardian_relation' => $this->request->input('attendee_health_release_form.relationship'), 
             'guardian_sign' => $this->request->input('parent_signature'), 
-            //'student_sign' => $this->request->input('attendee_health_release_form.gender'), 
         );
 
         $appForm = new AttendeeApplicationForm($attendeeApplicationFormData);

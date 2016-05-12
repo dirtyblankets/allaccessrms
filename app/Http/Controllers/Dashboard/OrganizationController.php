@@ -14,6 +14,7 @@ use AllAccessRMS\Http\Requests\UpdateOrganizationInfoFormRequest;
 use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
 use AllAccessRMS\Accounts\Users\UserRepositoryInterface;
 use AllAccessRMS\Jobs\RegisterPartnerOrganization;
+use AllAccessRMS\Jobs\UpdateOrganizationInfo;
 
 class OrganizationController extends Controller {
     
@@ -22,7 +23,7 @@ class OrganizationController extends Controller {
     protected $userRepository;
 
     public function __construct(OrganizationRepositoryInterface $organizations,
-        UserRepositoryInterface $userRepository)
+                                    UserRepositoryInterface $userRepository)
     {
         $this->beforeFilter('auth');
 
@@ -101,9 +102,10 @@ class OrganizationController extends Controller {
     public function edit($id)
     {
         $organization = $this->organizations->findById($id);
+        $info = $organization->info()->first();
         $states = States::all();
 
-        return view('organizations.edit', compact('organization', 'states'));
+        return view('organizations.edit', compact('organization', 'states', 'info'));
     }
 
     /**
@@ -115,7 +117,9 @@ class OrganizationController extends Controller {
      */
     public function update(UpdateOrganizationInfoFormRequest $request, $id)
     {
-        dd("success");
+        $this->dispatch(new UpdateOrganizationInfo($request, $id));
+
+        return redirect()->back();
     }
 
     /**

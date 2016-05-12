@@ -60,7 +60,7 @@
                                 <td>{{ $organization->info->city }}</td>
                                 <td>{{ $organization->info->state }}</td>
                                 <td>{{ $organization->info->zipcode }}</td>
-                                <td>{{ $organization->info->telephone }}</td>
+                                <td>{{ $organization->info->telephone_formatted }}</td>
                             @else
                                 <td></td>
                                 <td></td>

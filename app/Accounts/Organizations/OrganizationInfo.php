@@ -8,8 +8,9 @@ class OrganizationInfo extends BaseModel
 
     protected $guarded = [];
 
-    protected static $rules = array(
-    );
+    protected $appends = ['telephone_formatted'];
+
+    protected static $rules = array();
 
     public function organization()
     {
@@ -19,6 +20,21 @@ class OrganizationInfo extends BaseModel
     public function setCityAttribute($city)
     {
         $this->attributes['city'] = ucwords($city);
+    }
+
+    public function getTelephoneFormattedAttribute()
+    {
+        $telephone_formatted = $this->attributes['telephone'];
+
+        if (!empty($telephone_formatted))
+        {
+            return "(".substr($telephone_formatted, 0, 3).") ".substr($telephone_formatted, 3, 3)."-".substr($telephone_formatted,6);
+        }
+        else
+        {
+            return null;
+        }
+
     }
 
 }

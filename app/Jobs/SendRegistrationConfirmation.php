@@ -33,7 +33,7 @@ class SendRegistrationConfirmation extends Job implements SelfHandling, ShouldQu
             'toEmail' => $this->newAttendee->email,
             'toName' => $this->newAttendee->firstname . ' ' . $this->newAttendee->lastname,
             'emailBody' => 'You have registered for the following event: ' . $this->event->title,
-            'linkToEventPaymentPage' => 'https://allaccessrms.dev/event/payment/' . $this->event->id . '/' . $this->newAttendee->id, 
+            'linkToEventPaymentPage' => 'https://allaccessrms.dev/event/' . $this->event->id .'/payment/' . $this->newAttendee->id, 
         );
 
 	}

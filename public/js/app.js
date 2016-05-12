@@ -23,7 +23,7 @@ $(document).ready(function () {
 
 	HandleTabs();
 
-	ConfirmDelete();
+	Confirm();
 
 });
 
@@ -71,15 +71,15 @@ function GridHandler() {
     }
 }
 
-function ConfirmDelete() {
-	$('#confirmDelete').on('show.bs.modal', function (e) {
-	var message = $(e.relatedTarget).attr('data-message');
-	$(this).find('.modal-body p').text(message);
-	var title = $(e.relatedTarget).attr('data-title');
-	$(this).find('.modal-title').text(title);
+function Confirm() {
+	$('.confirm').on('show.bs.modal', function (e) {
+		var message = $(e.relatedTarget).attr('data-message');
+		$(this).find('.modal-body p').text(message);
+		var title = $(e.relatedTarget).attr('data-title');
+		$(this).find('.modal-title').text(title);
 
-	var route = $(e.relatedTarget).attr('data-route');
-	$('#deleteForm').attr('action', route);
+		var route = $(e.relatedTarget).attr('data-route');
+		$('#confirmForm').attr('action', route);
 	});
 }
 

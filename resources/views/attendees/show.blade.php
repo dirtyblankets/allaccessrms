@@ -2,7 +2,11 @@
 @section('content')
 <section class="content-header">
     <h2 class="page-header">                 
-        <i class="fa fa-fw fa-user"></i>{{$attendee->firstname . ' ' . $attendee->lastname}} <a href="{{ URL::route('attendees.edit', $attendee->id) }}" class='btn btn-md btn-info'><i class="fa fa-fw fa-pencil"></i> Edit</a>
+        <i class="fa fa-fw fa-user"></i>{{$attendee->firstname . ' ' . $attendee->lastname}} 
+        <a href="{{ URL::route('attendees.edit', $attendee->id) }}" class='btn btn-md btn-info'><i class="fa fa-fw fa-pencil"></i> Edit</a>
+        <button class='btn btn-md btn-warning btn-modal confirm' type='button' data-toggle="modal" data-target="#confirmResend" data-route="{{ URL::route('attendees.sendInvoice', $attendee->id) }}" data-title="Resend Invoice" data-message='Confirm resending of invoice to this attendee.'>
+            <i class='fa fa-fw fa-envelope'></i> Resend Invoice
+        </button> 
     </h2> 
     <ol class="breadcrumb">
         <li>
@@ -294,4 +298,5 @@
 		</div>
 	</div>
 </div><!-- end row -->
+@include('partials.confirm_resend')
 @stop

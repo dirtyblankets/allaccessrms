@@ -258,6 +258,11 @@ Route::group(['middleware'=>['auth', 'acl'], 'is'=>'owner|admin|moderator'], fun
         'uses'  =>  'Dashboard\AttendeeController@update'
     ]);
 
+    Route::get('attendees/{id}/sendInvoice', [
+        'as'    =>  'attendees.sendInvoice',
+        'uses'  =>  'Dashboard\AttendeeController@sendInvoice'
+    ]);
+
 });
 
 

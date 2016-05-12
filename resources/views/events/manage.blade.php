@@ -16,7 +16,7 @@
                 
                 <button type="submit" name="submitBtn" class="btn btn-md btn-primary btn-toggle-readonly" value="publish"><i class="fa fa-fw fa-arrow-circle-up"></i> Publish</button>     
                 
-                <button class='btn btn-md btn-danger btn-modal' type='button' data-toggle="modal" data-target="#confirmDelete" data-route="{{ URL::route('events.destroy', $event->id) }}" data-title="Delete Event" data-message='Are you sure you want to delete this event ?'>
+                <button class='btn btn-md btn-danger btn-modal confirm' type='button' data-toggle="modal" data-target="#confirmDelete" data-route="{{ URL::route('events.destroy', $event->id) }}" data-title="Delete Event" data-message='Are you sure you want to delete this event ?'>
                 <i class='fa fa-fw fa-times'></i> Delete</button>
             @endif
         </div>

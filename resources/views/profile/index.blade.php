@@ -13,18 +13,26 @@
         <li role="presentation" class="active">
             <a href="#organization_info">Organization Info</a>
         </li>
-        @endif
         <li role="presentation">
             <a href="#password_change">Password</a>
         </li>
+        @else
+        <li role="presentation" class="active">
+            <a href="#password_change">Password</a>
+        </li>
+        @endif
     </ul>
 </div>
 @if (Auth::user()->is('owner|admin'))
 <section id="organization_info" class="tab-content active">
     @include('profile.organization_info_section')
 </section>
-@endif
 <section id="password_change" class="tab-content hide">
     @include('profile.password_change_section')
 </section>
+@else
+<section id="password_change" class="tab-content active">
+    @include('profile.password_change_section')
+</section>
+@endif
 @stop

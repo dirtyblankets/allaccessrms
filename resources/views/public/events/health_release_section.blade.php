@@ -1,14 +1,5 @@
 <div class="panel-body">
     <div class="row">
-        <div class="col-md-2">
-            <div class='form-group'>
-                <label>Gender</label>
-                {!! Form::select('attendee_health_release_form[gender]', $genders, null, array('class'=>'form-control selectpicker', 'value'=>"{{ old('attendee_health_release_form.gender') }}")) !!}
-            </div>
-        </div>
-    </div>
-    <hr class="divider">
-    <div class="row">
         <div class="col-md-6">
             <div class="form-group">
                 <label>Do you have any medical difficulty? (If yes, please describe)</label>
@@ -23,6 +14,12 @@
         </div>        
     </div>
     <div class="row">
+        <div class="col-md-2">
+            <div class='form-group'>
+                <label>Gender</label>
+                {!! Form::select('attendee_health_release_form[gender]', $genders, null, array('class'=>'form-control selectpicker', 'value'=>"{{ old('attendee_health_release_form.gender') }}")) !!}
+            </div>
+        </div>
         <div class="col-md-2">
             <label>Last Tetanus Shot</label>                    
             <div class="form-group">

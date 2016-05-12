@@ -51,16 +51,18 @@
                 <div class="panel panel-default panel-information">
                     <div class="panel-heading">
                         <h3>
-                            Contact Information
+                            Organizer
                         </h3>
                     </div>
-                    <div class="panel-body" style="min-height: 290px; max-height: 290; overflow-y: scroll;">
-                        @if(!empty($organizationinfo->telephone))
-                        <p>Host Contact Number: <strong>{{ $organizationinfo->telephone }}</strong></p>
-                        @endif
-                        @if(!empty($organizationinfo->email))
-                        <p>Email: <strong>{{ $organizationinfo->email }}</strong></p>
-                        @endif
+                    <div class="panel-body" style="min-height: 290px; max-height: 290;">
+                        <label>Organized By:</label>  {{ $event->organization()->first()->name }}
+                        <br>
+                        <label>Contact Number:</label>  {{ $organizationinfo->telephone_formatted }}
+                        <br>
+                        <label>Email:</label>  {{ $organizationinfo->email }}
+                        <br>
+                        <label>Address:</label>  {{ $organizationinfo->address }}  {{ $organizationinfo->city }}
+                        {{ $organizationinfo->state }}, {{ $organizationinfo->zipcode }}
                     </div>
                 </div>
             </div>

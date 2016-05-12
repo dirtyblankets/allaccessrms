@@ -55,6 +55,7 @@ class HomeController extends Controller
     {
         $organizationId = Auth::user()->organization_id;
 
+        // If the moderator belongs to a Partner Organization
         if (Auth::user()->organization()->first()->isChild())
         {
             $events = PartnerOrganization::find($organizationId)->events()->get();
@@ -64,19 +65,7 @@ class HomeController extends Controller
             $events = Event::where('organization_id', $organizationId)->get();
         }
 
-        if (!$events->isEmpty())
-        {
-            $event = $events->first();
-
-            $attendees = $this->attendees
-                                ->findAllPaginatedByEvent($event->id , 'lastname', 'asc');
-        }
-        else
-        {
-            $attendees = collection([]);
-        }
-
-        return view('moderator.dashboard.index', compact('events', 'attendees'));
+        return view('admin.dashboard.index', compact('events')); 
     }
 
 

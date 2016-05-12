@@ -81,7 +81,7 @@ class AuthController extends Controller
                     return redirect()->route($this->redirectPath);
                 }
 
-                return redirect()->back();
+                return redirect()->route('logout');
             }
             
             return redirect()

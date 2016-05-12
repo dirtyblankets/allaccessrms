@@ -1,5 +1,7 @@
 <?php namespace AllAccessRMS\Http\Controllers\Dashboard;
 
+
+use Laracasts\Flash\Flash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -12,6 +14,7 @@ use AllAccessRMS\Core\Utilities\Gender;
 use AllAccessRMS\Core\Utilities\Languages;
 use AllAccessRMS\Core\Utilities\Grades;
 
+use AllAccessRMS\Jobs\SendInvoiceEmail;
 use AllAccessRMS\AllAccessEvents\AttendeeRepositoryInterface;
 use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
 
@@ -123,5 +126,16 @@ class AttendeeController extends Controller
             'grades'));
     }
 
+    public function sendInvoice($id)
+    {
+
+        $attendee = $this->attendees->findById($id);
+
+        $this->dispatch(new SendInvoiceEmail($attendee));
+
+        Flash::overlay('Invoice sent!');
+
+        return redirect()->back();
+    }
 
 }

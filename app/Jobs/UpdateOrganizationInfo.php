@@ -38,12 +38,15 @@ class UpdateOrganizationInfo extends Job implements SelfHandling
         );
 
         $orgInfoData = array(
+            'email'     =>  $this->request->input('email'),
             'address'   =>  $this->request->input('address'),
             'city'      =>  $this->request->input('city'),
             'state'     =>  $this->request->input('state'),
             'zipcode'   =>  $this->request->input('zipcode'),
             'telephone' =>  $this->request->input('telephone'),
         );
+
+        $organization->update($orgData);
 
         $orgInfo->update($orgInfoData);
 

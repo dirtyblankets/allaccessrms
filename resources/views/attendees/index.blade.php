@@ -1,6 +1,19 @@
 @extends('layouts.main')
 @section('content')
-{!! Form::open(array('route' => array('attendees.search', $event->id), 'method' => 'GET', 'class'=>'ajaxForm'))!!}
+<section class="content-header">
+    <h2 class="page-header">                 
+        <i class="fa fa-fw fa-users"></i>Attendees
+    </h2> 
+    <ol class="breadcrumb">
+        <li>
+            <a href={{ URL::previous() }}><i class="fa fa-calendar"></i> Events</a>
+        </li>
+        <li class="active">
+            Attendees
+        </li>
+    </ol>
+</section>
+{!! Form::open(array('route' => array('attendees.search', $event->id), 'method' => 'GET'))!!}
 <div class="row">
     <div class="col-lg-8">
         <div class="panel panel-default">

@@ -60,10 +60,16 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="form-group">
-                {!! Form::text('search_name', null, array(
-                    'id'=>'search_field', 
+                {!! Form::text('search_last_name', null, array(
                     'class'=>'form-control search', 
-                    'placeholder'=>'Search by Name')) !!}
+                    'placeholder'=>'Search by Last Name',
+                    'value'=>"{{ old('search_last_name') }}")) !!}
+                </div>
+                <div class="form-group">
+                {!! Form::text('search_first_name', null, array(
+                    'class'=>'form-control search', 
+                    'placeholder'=>'Search by First Name',
+                    'value'=>"{{ old('search_first_name') }}")) !!}
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary search-btn">Find</button>

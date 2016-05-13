@@ -1,8 +1,15 @@
-<!-- resources/views/organizations/create.blade.php -->
+<!-- resources/views/organizations/edit.blade.php -->
 @extends('layouts.main')
 @section('content')
 <section class="content-header">
-    <h2 class="page-header"><i class="fa fa-fw fa-building-o"></i> Edit</h2>
+    <h2 class="page-header">
+        <div class="button-container">
+            <i class="fa fa-fw fa-building-o"></i> Edit
+            <button class='btn btn-md btn-danger btn-modal confirm' type='button' data-toggle="modal" data-target="#confirmDelete" data-route="{{ URL::route('organizations.destroy', $organization->id) }}" data-title="Delete Organization" data-message='Are you sure you want to delete this organization ?'>
+                <i class='fa fa-fw fa-times'></i> Delete
+            </button>
+        </div>
+    </h2>    
     <ol class="breadcrumb">
         <li>
             <a href={{ URL::to('organizations') }}><i class="fa fa-building-o"></i> Organizations</a>
@@ -65,7 +72,7 @@
     <div class="col-lg-2">
         <div class="form-group">
             <label>City:</label>
-            <input type="text" placeholder="City" class="form-control" name="organizationinfo[city]"
+            <input type="text" placeholder="City" class="form-control" name="city"
                    value="{{ $info->city }}"/>
         </div>
     </div>
@@ -86,7 +93,6 @@
         </div>
     </div>
 </div>
-<hr class="divider">
 <div class="row">
     <div class="col-lg-6">
         <div class="form-group">

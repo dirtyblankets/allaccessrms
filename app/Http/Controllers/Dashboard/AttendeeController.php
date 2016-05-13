@@ -15,6 +15,9 @@ use AllAccessRMS\Core\Utilities\Languages;
 use AllAccessRMS\Core\Utilities\Grades;
 
 use AllAccessRMS\Jobs\SendInvoiceEmail;
+use AllAccessRMS\Jobs\SendRegistrationConfirmation;
+use AllAccessRMS\Jobs\UpdateAttendee;
+
 use AllAccessRMS\AllAccessEvents\AttendeeRepositoryInterface;
 use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
 
@@ -44,12 +47,17 @@ class AttendeeController extends Controller
         $event = $this->events->findById($event_id);
         $attendees = $this->attendees->findAllPaginatedByEvent($event_id, 'lastname', 'registration_date');
 
-        return view('admin.attendees.index', compact('attendees', 'event'));
+        return view('attendees.index', compact('attendees', 'event'));
     }
 
     public function search($event_id)
     {
-        // Code here...
+        $searchLastName = Input::get('search_last_name');
+        $searchFirstName = Input::get('search_first_name');
+
+        $attendees = $this->attendees->search($event_id, $searchFirstName, $searchLastName);
+
+        return redirect()->back()->with(compact('attendees'));
     }
 
     /**
@@ -64,6 +72,8 @@ class AttendeeController extends Controller
         $attendee_application_form = $attendee->application_form()->first();
 
         $attendee_health_release_form = $attendee->health_release_form()->first();
+
+        $event = $attendee->event()->first();
 
         $sweatshirt_sizes = SweatshirtSizes::all();
 
@@ -80,7 +90,8 @@ class AttendeeController extends Controller
             'sweatshirt_sizes',
             'states',
             'genders',
-            'languages'));
+            'languages',
+            'event'));
     }
 
     public function edit($id)
@@ -126,6 +137,13 @@ class AttendeeController extends Controller
             'grades'));
     }
 
+    public function update(Request $request, $id)
+    {
+        $this->dispatch(new UpdateAttendee($request, $id));
+
+        return redirect()->back();
+    }
+
     public function sendInvoice($id)
     {
 
@@ -134,6 +152,19 @@ class AttendeeController extends Controller
         $this->dispatch(new SendInvoiceEmail($attendee));
 
         Flash::overlay('Invoice sent!');
+
+        return redirect()->back();
+    }
+
+    public function sendRegistrationConfirmation($id)
+    {
+        $attendee = $this->attendees->findById($id);
+
+        $event = $attendee->event()->first();
+
+        $this->dispatch(new SendRegistrationConfirmation($attendee, $event));
+
+        Flash::overlay('Registration confirmation sent!');
 
         return redirect()->back();
     }

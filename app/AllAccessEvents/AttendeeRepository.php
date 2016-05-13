@@ -79,4 +79,36 @@ class AttendeeRepository extends BaseRepository implements AttendeeRepositoryInt
                     ->paginate($perPage);
     }
 
+    /**
+     * Return collection of Attendees based on parameters
+     * @param  [type] $eventId   [description]
+     * @param  [type] $firstName [description]
+     * @param  [type] $lastName  [description]
+     * @return [type]            [description]
+     */
+    public function search($eventId, $firstName, $lastName)
+    {
+        if (!empty($eventId))
+        {
+            if (!empty($lastName) && !empty($firstName))
+            {
+                $attendees = $this->findByFullName($eventId, $firstName, $lastName);
+            }
+            else if (!empty($lastName))
+            {
+                $attendees = $this->findByLastName($eventId, $lastName);
+            }
+            else if (!empty($firstName))
+            {
+                $attendees = $this->findByFirstName($eventId, $firstName);
+            }
+            else
+            {
+                $attendees = $this->findAllPaginatedByEvent($eventId, 'firstname', 'asc');
+            }
+
+            return $attendees;
+        }
+    }
+
 }

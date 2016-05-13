@@ -1,14 +1,18 @@
 <?php namespace AllAccessRMS\Jobs;
 
+use Log;
 use Exception;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
+use AllAccessRMS\Jobs\Job;
+use AllAccessRMS\Jobs\SendWelcomeEmail;
+
 use AllAccessRMS\Accounts\Organizations\Organization;
-use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
+use AllAccessRMS\Accounts\Organizations\OrganizationRepository;
 use AllAccessRMS\Accounts\Organizations\OrganizationInfo;
 use AllAccessRMS\Accounts\Users\User;
-use AllAccessRMS\Accounts\Users\UserRepositoryInterface;
+use AllAccessRMS\Accounts\Users\UserRepository;
 use AllAccessRMS\Accounts\Users\Role;
 
 class RegisterPartnerOrganization extends Job implements SelfHandling
@@ -17,76 +21,60 @@ class RegisterPartnerOrganization extends Job implements SelfHandling
 
     protected $request;
 
-    protected $userRepo;
-
-    protected $organizationRepo;
-
-    public function __construct($request, 
-        OrganizationRepositoryInterface $organizationRepository,
-        UserRepositoryInterface $userRepository)
+    public function __construct($request)
     {
         $this->request = $request;
-        $this->userRepo = $userRepository;
-        $this->organizationRepo = $organizationRepository;
     }
 
     public function handle()
     {
-        $user = $this->register(
-                    $this->request->input('organizations.name'),
-                    $this->request->input('users.email'),
-                    $this->request->input('users.firstname'),
-                    $this->request->input('users.lastname'),
-                    $this->request->input('organizationinfo.address'),
-                    $this->request->input('organizationinfo.city'),
-                    $this->request->input('organizationinfo.state'),
-                    $this->request->input('organizationinfo.zipcode'),
-                    $this->request->input('organizationinfo.telephone')
-                );
+        $user = $this->register($this->request);
 
         if ($user)
         {
-            $this->dispatch(new SendWelcomeEmailWithTempPassword($user));
+            $this->dispatch(new SendWelcomeEmail($user));
         }
+
+        return false;
     }
 
-    private function register($organizationName, $email, $firstname, $lastname, $address,
-                              $city, $state, $zipcode, $telephone)
+    private function register($request)
     {
-        $user = null;
+        $userRepository = new UserRepository();
 
-        $organization = null;
+        $organizationRepository = new OrganizationRepository();
 
         try {
 
             $organizationData = array(
-                'name'  =>  $organizationName
+                'name'  =>  $request->input('organization.name'),
             );
 
             $userData = array(
-                'email'     =>  $email,
-                'firstname' =>  $firstname,
-                'lastname'  =>  $lastname,
+                'email'     =>  $request->input('user.email'),
+                'firstname' =>  $request->input('user.firstname'),
+                'lastname'  =>  $request->input('user.lastname')
             );
 
-            $organization = $this->organizationRepo->createSubOrganization($organizationData);
+            $organization = $organizationRepository->createSubOrganization($organizationData);
 
             if ($organization)
             {
                 $organizationAddress = new OrganizationInfo();
-                $organizationAddress->address = $address;
-                $organizationAddress->city = $city;
-                $organizationAddress->state = $state;
-                $organizationAddress->zipcode = $zipcode;
-                $organizationAddress->telephone = $telephone;
+                $organizationAddress->email =  $request->input('organizationinfo.email');
+                $organizationAddress->address = $request->input('organizationinfo.address');
+                $organizationAddress->city = $request->input('organizationinfo.city');
+                $organizationAddress->state = $request->input('state');
+                $organizationAddress->zipcode = $request->input('organizationinfo.zipcode');
+                $organizationAddress->telephone = $request->input('organizationinfo.telephone');
 
-                $organization->address()->save($organizationAddress);
+                $organization->info()->save($organizationAddress);
 
-                $user = $this->userRepo->make($userData);
+                $user = $userRepository->make($userData);
 
-                $user->temp_password = $userData['password'];
 
-                if ($organization->users()->save($user)) {
+                if ($organization->users()->save($user)) 
+                {
                     $user->assignRole(Role::ADMIN);
                 }
 
@@ -99,6 +87,7 @@ class RegisterPartnerOrganization extends Job implements SelfHandling
             {
                 $organization->delete();
             }
+            Log::error($e->getMessage());
             abort(500);
         }
 

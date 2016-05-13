@@ -15,7 +15,7 @@
 <!-- Content -->
 @include('partials.message')
 @include('partials.errors')
-{!! Form::open(array('route'=>array('organizations.store'), 'method'=>'PUT' )) !!}
+{!! Form::open(array('route'=>array('organizations.store'), 'method'=>'POST' )) !!}
 <div class="row">
     <div class="col-lg-6">
         <h4>Admin Information</h4>

@@ -96,7 +96,8 @@ class ManageEventController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the main Event Form
+     * This form consists of Event and Attendee interface
      *
      * @param  int  $id
      * @return Response
@@ -114,22 +115,7 @@ class ManageEventController extends Controller
         $searchLastName = Input::get('search_last_name');
         $searchFirstName = Input::get('search_first_name');
 
-        if (!empty($searchLastName) && !empty($searchFirstName))
-        {
-            $attendees = $this->attendees->findByFullName($id, $searchFirstName, $searchLastName);
-        }
-        else if (!empty($searchLastName))
-        {
-            $attendees = $this->attendees->findByLastName($id, $searchLastName);
-        }
-        else if (!empty($searchFirstName))
-        {
-            $attendees = $this->attendees->findByFirstName($id, $searchFirstName);
-        }
-        else
-        {
-            $attendees = $this->attendees->findAllPaginatedByEvent($id, 'firstname', 'asc');
-        }
+        $attendees = $this->attendees->search($id, $searchFirstName, $searchLastName);
 
         $guests = $this->eventGuestRepo->findAllPaginatedByEvent($event->id);
 
@@ -201,7 +187,7 @@ class ManageEventController extends Controller
     {
         $attendees = $this->attendees->findAllPaginatedByEvent($id, 'firstname', 'asc');
 
-        if (!empty($attendees))
+        if (!$attendees->isEmpty())
         {
             Flash::overlay('This event cannot be taken offline; registered attendees exist for this event.');
             return redirect()->back();

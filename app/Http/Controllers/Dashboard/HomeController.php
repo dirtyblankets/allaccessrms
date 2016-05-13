@@ -34,14 +34,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->is('owner|admin'))
-        {
-            return $this->goToAdminDashboard();
-        }
-        else if (Auth::user()->is('moderator'))
-        {
-            return $this->goToModeratorDashboard();
-        }
+        $events = $this->events->getActiveEvents();
+       
+        return view('admin.dashboard.index', compact('events', 'attendees'));   
     }
 
     private function goToAdminDashboard()
@@ -62,7 +57,8 @@ class HomeController extends Controller
         }
         else
         {
-            $events = Event::where('organization_id', $organizationId)->get();
+            $events = $this->events->getActiveEvents();
+            //$events = Event::where('organization_id', $organizationId)->get();
         }
 
         return view('admin.dashboard.index', compact('events')); 

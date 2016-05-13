@@ -6,6 +6,10 @@
         <a href="{{ URL::route('attendees.edit', $attendee->id) }}" class='btn btn-md btn-info'><i class="fa fa-fw fa-pencil"></i> Edit</a>
         <button class='btn btn-md btn-warning btn-modal confirm' type='button' data-toggle="modal" data-target="#confirmResend" data-route="{{ URL::route('attendees.sendInvoice', $attendee->id) }}" data-title="Resend Invoice" data-message='Confirm resending of invoice to this attendee.'>
             <i class='fa fa-fw fa-envelope'></i> Resend Invoice
+        </button>
+
+        <button class='btn btn-md btn-default btn-modal confirm' type='button' data-toggle="modal" data-target="#confirmResend" data-route="{{ URL::route('attendees.sendRegistrationConfirmation', $attendee->id) }}" data-title="Resend Registration Confirmation" data-message='Confirm resending of registration confirmation email.'>
+            <i class='fa fa-fw fa-envelope'></i> Resend Registration Confirmation
         </button> 
     </h2> 
     <ol class="breadcrumb">
@@ -55,14 +59,16 @@
 					<div class="col-lg-2">
 						<div class="form-group">
 							<label>Registration Date:</label>
-								{!! Form::date('registration_date', $attendee->registration_date, array(
-								'class'	=>	'form-control readonly')) !!}
+								{!! Form::date(
+									'registration_date', 
+									$attendee->registration_date, 
+									array('class'	=>	'form-control readonly')) !!}
 						</div>	
 					</div>
 					<div class="col-lg-2">
 						<div class="form-group">
 							<label>Fees Paid:</label>
-								{!! Form::date('fees_paid', $attendee->amount_paid, array(
+								{!! Form::text('fees_paid', $attendee->amount_paid, array(
 								'class'	=>	'form-control readonly')) !!}
 						</div>	
 					</div>			
@@ -83,7 +89,7 @@
 					<div class="col-lg-2">
 						<div class="form-group"
 							<label>Birthdate: (yyyy-m-d)</label>
-							{!! Form::text('birthdate', $attendee_application_form->birthdate, array(
+							{!! Form::date('birthdate', $attendee_application_form->birthdate, array(
 								'class'	=>	'form-control readonly')) !!}
 						</div>
 					</div>	

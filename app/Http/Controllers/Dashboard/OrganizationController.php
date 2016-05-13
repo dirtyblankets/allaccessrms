@@ -72,9 +72,7 @@ class OrganizationController extends Controller {
     public function store(NewOrganizationFormRequest $request)
     {
 
-        $job = new RegisterPartnerOrganization($request, 
-                                                $this->organizations,
-                                                $this->userRepository);
+        $job = new RegisterPartnerOrganization($request);
 
         $this->dispatch($job);
 
@@ -130,6 +128,10 @@ class OrganizationController extends Controller {
      */
     public function destroy($id)
     {
-        //
+        $organization = $this->organizations->findById($id);
+
+        $organization->delete();
+
+        return redirect()->route('organizations');
     }
 }

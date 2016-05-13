@@ -20,11 +20,11 @@ class NewOrganizationFormRequest extends Request
     public function rules()
     {
         return [
-            'users.firstname' =>  'required',
-            'users.lastname'  =>  'required',
-            'users.email'     =>  'required|email|unique:users',
-            'organizations.name'  =>  'required|unique:organizations',
-            'organizationinfo.zipcode'  =>  'required|digits:5|integer',
+            'user.firstname' =>  'required',
+            'user.lastname'  =>  'required',
+            'user.email'     =>  'required|email|unique:users,email',
+            'organization.name'  =>  'required|unique:organizations,name',
+            'organizationinfo.zipcode'  =>  'digits:5|integer',
             'organizationinfo.telephone'    =>  'phone:US'
         ];
     }
@@ -32,8 +32,8 @@ class NewOrganizationFormRequest extends Request
     public function messages()
     {
         return [
-            'organizations.name.unique'   =>  'This organization has already been added.',
-            'users.email.unique'  =>  'User with this email address already exists.'
+            'organization.name.unique'   =>  'This organization has already been added.',
+            'user.email.unique'  =>  'User with this email address already exists.'
         ];
     }
 }

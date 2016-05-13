@@ -9,15 +9,17 @@
     <h2 class="page-header">                 
         <div class='button-container'>
             <i class="fa fa-fw fa-calendar"></i>Manage Event
-            @if($event->published)
-                <button title='Take event offline' name='unpublish' type='submit' id='btn-unpublish' class='btn btn-md btn-warning'><i class="fa fa-fw fa-warning"></i> Unpublish</button>
-            @else 
-                <button type="submit" name="submitBtn" class="btn btn-md btn-success btn-toggle-readonly" value="save"><i class="fa fa-fw fa-check"></i> Save</button>
-                
-                <button type="submit" name="submitBtn" class="btn btn-md btn-primary btn-toggle-readonly" value="publish"><i class="fa fa-fw fa-arrow-circle-up"></i> Publish</button>     
-                
-                <button class='btn btn-md btn-danger btn-modal confirm' type='button' data-toggle="modal" data-target="#confirmDelete" data-route="{{ URL::route('events.destroy', $event->id) }}" data-title="Delete Event" data-message='Are you sure you want to delete this event ?'>
-                <i class='fa fa-fw fa-times'></i> Delete</button>
+            @if (Auth::user()->can('update.events'))
+                @if($event->published)
+                    <button title='Take event offline' name='unpublish' type='submit' id='btn-unpublish' class='btn btn-md btn-warning'><i class="fa fa-fw fa-warning"></i> Unpublish</button>
+                @else 
+                    <button type="submit" name="submitBtn" class="btn btn-md btn-success btn-toggle-readonly" value="save"><i class="fa fa-fw fa-check"></i> Save</button>
+                    
+                    <button type="submit" name="submitBtn" class="btn btn-md btn-primary btn-toggle-readonly" value="publish"><i class="fa fa-fw fa-arrow-circle-up"></i> Publish</button>     
+                    
+                    <button class='btn btn-md btn-danger btn-modal confirm' type='button' data-toggle="modal" data-target="#confirmDelete" data-route="{{ URL::route('events.destroy', $event->id) }}" data-title="Delete Event" data-message='Are you sure you want to delete this event ?'>
+                    <i class='fa fa-fw fa-times'></i> Delete</button>
+                @endif
             @endif
         </div>
     </h2> 

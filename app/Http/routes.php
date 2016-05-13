@@ -164,6 +164,7 @@ Route::group(['middleware'=>['auth', 'acl'], 'is'=>'owner|admin|moderator'], fun
     Route::get('events/create', [
         'as' => 'events.create',
         'uses' => 'Dashboard\ManageEventController@create',
+        'can'   =>  'create.events'
     ]);
 
     Route::get('events/{id}/', [
@@ -174,6 +175,7 @@ Route::group(['middleware'=>['auth', 'acl'], 'is'=>'owner|admin|moderator'], fun
     Route::get('events/{id}/manage', [
         'as' => 'events.manage',
         'uses' => 'Dashboard\ManageEventController@manage',
+        'can'   =>  'update.events'
     ]);
 
     Route::get('events/{id}/attendee_search', [
@@ -189,11 +191,13 @@ Route::group(['middleware'=>['auth', 'acl'], 'is'=>'owner|admin|moderator'], fun
     Route::put('events/{id}', [
         'as' => 'events.update',
         'uses' => 'Dashboard\ManageEventController@update',
+        'can'   =>  'update.events'
     ]);
 
     Route::delete('events/{id}', [
         'as'    =>  'events.destroy', 
         'uses' => 'Dashboard\ManageEventController@destroy',
+        'can'   =>  'delete.events'
     ]);
 
     Route::post('eventguests/add', [
@@ -232,6 +236,11 @@ Route::group(['middleware'=>['auth', 'acl'], 'is'=>'owner|admin|moderator'], fun
         'uses'  =>  'Dashboard\OrganizationController@update',
     ]);
 
+    Route::delete('organizations/{id}', [
+        'as'    =>  'organizations.destroy', 
+        'uses' => 'Dashboard\OrganizationController@destroy',
+    ]);
+
     // Attendees for a given event
     Route::get('attendees/event/{event_id}', [
         'as'    =>  'attendees',
@@ -261,6 +270,11 @@ Route::group(['middleware'=>['auth', 'acl'], 'is'=>'owner|admin|moderator'], fun
     Route::get('attendees/{id}/sendInvoice', [
         'as'    =>  'attendees.sendInvoice',
         'uses'  =>  'Dashboard\AttendeeController@sendInvoice'
+    ]);
+
+    Route::get('attendees/{id}/sendRegistrationConfirmation', [
+        'as'    =>  'attendees.sendRegistrationConfirmation',
+        'uses'  =>  'Dashboard\AttendeeController@sendRegistrationConfirmation'
     ]);
 
 });

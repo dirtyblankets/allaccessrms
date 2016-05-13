@@ -5,7 +5,7 @@
     <h2 class="page-header">                 
         <i class="fa fa-fw fa-user"></i>{{$attendee->firstname . ' ' . $attendee->lastname}} 
         <button type="submit" class='btn btn-md btn-success'><i class="fa fa-fw fa-check"></i> Save</button>
-        <a href="{{ URL::previous() }}" class='btn btn-md btn-danger'><i class="fa fa-fw fa-times"></i> Cancel</a>
+        <a href="{{ URL::route('attendees.show', $attendee->id) }}" class='btn btn-md btn-danger'><i class="fa fa-fw fa-times"></i> Cancel</a>
     </h2> 
     <ol class="breadcrumb">
         <li>
@@ -64,7 +64,7 @@
 					<div class="col-lg-2">
 						<div class="form-group">
 							<label>Fees Paid:</label>
-								{!! Form::date('fees_paid', 
+								{!! Form::text('fees_paid', 
 												$attendee->amount_paid, 
 												array('class'	=>	'form-control')) !!}
 						</div>	
@@ -84,9 +84,9 @@
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-lg-2">
-						<div class="form-group"
-							<label>Birthdate: (yyyy-m-d)</label>
-							{!! Form::text('birthdate', 
+						<div class="form-group">
+							<label>Birthdate:</label>
+							{!! Form::date('birthdate', 
 											$attendee_application_form->birthdate, 
 											array('class'	=>	'form-control')) !!}
 						</div>

@@ -59,7 +59,7 @@ class EventRegistrationFormRequest extends Request
             'attendee.firstname.required' => 'Application - First name is required.',
             'attendee.lastname.required' => 'Application - Last name is required.',
             'attendee_application_form.phone.required' => 'Application - Phone is required.',
-            'attendee_application_form.grade.required' => 'Application - Grade Leve is required.',
+            'attendee_application_form.grade.required' => 'Application - Grade Level is required.',
             'attendee_application_form.sweatshirt_size.required' => 'Application - Sweatshirt size is required.',
             'attendee_application_form.address.required' => 'Application - Address: street address is required.',
             'attendee_application_form.city.required' => 'Application - Address: city is required',

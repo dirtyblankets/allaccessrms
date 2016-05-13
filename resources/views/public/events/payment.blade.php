@@ -126,7 +126,7 @@
     @else
     <div class="row">
         <div class="col-lg-12">
-            <h2>You have already paid your fees</h2>
+            <h2>Thank you for your payment!!!</h2>
         </div>
     </div>
     @endif

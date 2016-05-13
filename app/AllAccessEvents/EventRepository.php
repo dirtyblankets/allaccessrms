@@ -43,7 +43,10 @@ class EventRepository extends BaseRepository implements EventRepositoryInterface
         }
         else
         {
-            return PartnerOrganization::find($this->userOrganizationId)->events()->get();
+            return PartnerOrganization::find($this->userOrganizationId)
+                                        ->events()
+                                        ->orderBy('start_date', 'asc')
+                                        ->get();
         }
     }
 

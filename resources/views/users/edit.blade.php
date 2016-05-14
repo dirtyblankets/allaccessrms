@@ -1,17 +1,19 @@
 @extends('layouts.main')
 @section('content')
     <div class="row">
-        <div class="col-md-12">
-            <h2 class="page-header"><i class="fa fa-fw fa-user"></i>Edit {{ $user->getFullName() }}</h2>
+        <div class="col-lg-12">
+            <h2 class="page-header">
+                <i class="fa fa-fw fa-user"></i>Edit {{ $user->getFullName() }}
+            </h2>
         </div>
     </div>
+{!! Form::model($user, array('method'=>'PUT', 'route'=>array('users.update', $user->id),
+           'class'=>'form form-vertical')) !!}
+{!! csrf_field() !!}
     <!-- Content -->
     <div class="row">
         <div class="col-md-12">
             @include('partials.message')
-            {!! Form::model($user, array('method'=>'PUT', 'route'=>array('users.update', $user->id),
-           'class'=>'form form-horizontal')) !!}
-            {!! csrf_field() !!}
             <div class="row">
                 <div class="col-lg-6">
                     <div class='form-group'>
@@ -30,7 +32,6 @@
                         <input type="text" placeholder="First Name" class="form-control" name="firstname" value="{{ $user->firstname }}" />
                     </div>
                 </div>
-
             </div> 
             <div class="row">
                 <div class="col-lg-6">
@@ -52,7 +53,26 @@
                     </div>
                 </div>
             </div>
-            {!! Form::close() !!}
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Active
+                        {!! Form::checkbox('active', 
+                                            null, 
+                                            $user->active, 
+                                            array('class' => 'checkbox')) !!}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <button type="submit" name="submitBtn" class="btn btn-md btn-success" value="save"><i class="fa fa-fw fa-check"></i> Save</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div><!-- Content -->
+{!! Form::close() !!}
 @stop

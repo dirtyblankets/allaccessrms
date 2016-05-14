@@ -30,7 +30,11 @@
                                     </td>
                                     <td>{{ $attendee->registration_date }}</td>
                                     <td>{{ $attendee->organization()->first()->name}}</td>
-                                    <td>{{ $attendee->amount_paid }}</td>
+                                    @if ($attendee->amount_paid == $event->price)
+                                    <td>Yes</td>
+                                    @else
+                                    <td>No</td>
+                                    @endif
                                 </tr>
                             @endforeach
                             {!! $attendees->render() !!}

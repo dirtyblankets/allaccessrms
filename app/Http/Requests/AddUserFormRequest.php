@@ -20,7 +20,7 @@ class AddUserFormRequest extends Request
     public function rules()
     {
         return [
-            'email'     =>  'required|email|unique:users',
+            'email'     =>  'required|email|unique:users,email',
             'firstname' =>  'required|alpha_spaces',
             'lastname'  =>  'required|alpha_spaces',
         ];

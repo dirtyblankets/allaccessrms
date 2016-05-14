@@ -3,17 +3,17 @@
 use Log;
 use AllAccessRMS\Jobs\Job;
 use Illuminate\Contracts\Mail\Mailer;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
+//use Illuminate\Queue\SerializesModels;
+//use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Bus\SelfHandling;
-use Illuminate\Contracts\Queue\ShouldQueue;
+//use Illuminate\Contracts\Queue\ShouldQueue;
 
 use AllAccessRMS\AllAccessEvents\Attendee;
 
-class SendInvoiceEmail extends Job implements SelfHandling, ShouldQueue
+class SendInvoiceEmail extends Job implements SelfHandling
 {
 
-    use InteractsWithQueue, SerializesModels;
+    //use InteractsWithQueue, SerializesModels;
 
     protected $attendee;
 

@@ -24,7 +24,7 @@ class UserController extends Controller
     protected $organizations;
 
     public function __construct(UserRepositoryInterface $users,
-        OrganizationRepositoryInterface $organizations)
+                                    OrganizationRepositoryInterface $organizations)
     {
         $this->beforeFilter('auth');
 
@@ -122,17 +122,26 @@ class UserController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        try
-        {
+        $user = $this->users->findById($id);
 
-        }
-        catch (ValidationException $e)
+        $user->firstname = $request->input('firstname');
+        $user->lastname = $request->input('lastname');
+        $user->email = $request->input('email');
+        $user->telephone = $request->input('telephone');
+        if (empty($request->input('active')))
         {
-
+            $user->active = 0;
         }
-        \Auth::user()->update(Input::all());
+        else
+        {
+            $user->active = 1;
+        }
+
+        $user->save();
+
+        return redirect()->back();
     }
 
     /**

@@ -3,18 +3,18 @@
 use Log;
 use AllAccessRMS\Jobs\Job;
 use Illuminate\Contracts\Mail\Mailer;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
+//use Illuminate\Queue\SerializesModels;
+//use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Bus\SelfHandling;
-use Illuminate\Contracts\Queue\ShouldQueue;
+//use Illuminate\Contracts\Queue\ShouldQueue;
 
 use AllAccessRMS\AllAccessEvents\Attendee;
 use AllAccessRMS\AllAccessEvents\Event;
 
-class SendRegistrationConfirmation extends Job implements SelfHandling, ShouldQueue
+class SendRegistrationConfirmation extends Job implements SelfHandling
 {
 
-    use InteractsWithQueue, SerializesModels;
+    //use InteractsWithQueue, SerializesModels;
 
     protected $newAttendee;
 

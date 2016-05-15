@@ -175,7 +175,6 @@ Route::group(['middleware'=>['auth', 'acl'], 'is'=>'owner|admin|moderator'], fun
     Route::get('events/{id}/manage', [
         'as' => 'events.manage',
         'uses' => 'Dashboard\ManageEventController@manage',
-        'can'   =>  'update.events'
     ]);
 
     Route::get('events/{id}/attendee_search', [

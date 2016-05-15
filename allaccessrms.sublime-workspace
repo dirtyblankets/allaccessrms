@@ -531,7 +531,7 @@
 			"file": "app/Http/routes.php",
 			"settings":
 			{
-				"buffer_size": 7725,
+				"buffer_size": 7689,
 				"line_ending": "Unix"
 			}
 		},
@@ -560,10 +560,13 @@
 			}
 		},
 		{
+			"contents": "@extends('layouts.main')\n@section('content')\n<section class=\"content-header\">\n    <h2 class=\"page-header\"><i class=\"fa fa-home\"></i> Home</h2>\n</section>\n<div class=\"panel panel-default\">\n    <div class=\"panel-heading\">\n        @if (Auth::user()->organization()->first()->isChild())\n        <h4><i class=\"fa fa-fw fa-calendar\"></i> Current Participating Events</h4>\n        @else\n        <h4><i class=\"fa fa-fw fa-calendar\"></i> Live Events</h4>\n        @endif\n        <span class=\"pull-right clickable\"><i class=\"glyphicon glyphicon-chevron-up\"></i></span>\n    </div>\n    <div class=\"panel-body\">\n        <div id=\"events\" class=\"container-fluid\">\n            @foreach($events as $event)           \n            <div class=\"row\">\n                <div class=\"col-md-4\">\n                    <div class=\"thumbnail\">\n                        @if (!Auth::user()->organization()->first()->isChild())\n                            <a href=\"{{ URL::route('events.manage', $event->id) }}\">\n                                @if (empty($event->thumbnail_url))\n                                <img class=\"group list-group-image img-responsive\" src={{ asset('images/public/alt_image.jpg') }}/>\n                                @else\n                                <img class=\"group list-group-image img-responsive\" src={{ asset($event->thumbnail_url) }}/>\n                                @endif\n                            </a>\n                        @else\n                            <a href=\"{{ URL::route('attendees', $event->id) }}\">\n                                @if (empty($event->thumbnail_url))\n                                <img class=\"group list-group-image img-responsive\" src={{ asset('images/public/alt_image.jpg') }}/>\n                                @else\n                                <img class=\"group list-group-image img-responsive\" src={{ asset($event->thumbnail_url) }}/>\n                                @endif\n                            </a>\n                        @endif\n                    </div>\n                </div>\n                <div class=\"col-md-4\">\n                        <h4>\n                            <strong>Title:</strong> {{ $event->title }}                    \n                        </h4>\n                        <hr class=\"divider\">\n                        <p class=\"group inner grid-group-item-text\">\n                            <strong>Description:</strong> {{ $event->description }}\n                        </p>\n                        <p class=\"group inner grid-group-item-text\">\n                            <strong>Location:</strong> {{ $event->eventsite()->first()->name }}\n                        </p>\n                </div>\n                <div class=\"col-md-4\">\n                    <h4>\n                        <strong>Summary</strong>\n                    </h4>\n                    <hr class=\"divider\">\n                    <i class=\"fa fa-fw fa-users fa-align-center\"></i> \n                    Attendees Registered: {{ $event->attendees()->count() }}\n                    <hr class=\"divider\">\n                    <p class=\"group inner grid-group-item-text\">\n                        <strong>Start Date & Time:</strong> {{ $event->start_date }} at {{ $event->start_time }}\n                    </p>\n                    <p class=\"group inner grid-group-item-text\">\n                        <strong>End Date & Time:</strong> {{ $event->end_date }} at {{ $event->end_time }}\n                    </p>\n                </div>\n            </div>\n            <hr class=\"divider\">\n            @endforeach\n        </div>\n    </div>\n</div>\n@stop",
 			"file": "resources/views/admin/dashboard/index.blade.php",
+			"file_size": 3519,
+			"file_write_time": 1462772573000000,
 			"settings":
 			{
-				"buffer_size": 3519,
+				"buffer_size": 3575,
 				"line_ending": "Unix"
 			}
 		},
@@ -587,7 +590,7 @@
 			"file": "app/AllAccessEvents/AttendeeRepository.php",
 			"settings":
 			{
-				"buffer_size": 4126,
+				"buffer_size": 5259,
 				"line_ending": "Unix"
 			}
 		},
@@ -891,7 +894,7 @@
 			"file": "resources/views/events/manage.blade.php",
 			"settings":
 			{
-				"buffer_size": 3139,
+				"buffer_size": 3074,
 				"line_ending": "Unix"
 			}
 		},
@@ -1227,7 +1230,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"/var/www/public/all-access-rms/app",
@@ -1360,15 +1363,15 @@
 					"file": "app/Http/routes.php",
 					"settings":
 					{
-						"buffer_size": 7725,
+						"buffer_size": 7689,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6033,
-								6033
+								4401,
+								4401
 							]
 						],
 						"settings":
@@ -1379,7 +1382,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 255.0,
+						"translation.y": 2805.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1408,7 +1411,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3162.0,
+						"translation.y": 2040.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1476,25 +1479,26 @@
 					"file": "resources/views/admin/dashboard/index.blade.php",
 					"settings":
 					{
-						"buffer_size": 3519,
+						"buffer_size": 3575,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								647,
-								647
+								1376,
+								1376
 							]
 						],
 						"settings":
 						{
+							"auto_complete": false,
 							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 255.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1523,7 +1527,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1224.0,
+						"translation.y": 1292.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1563,15 +1567,15 @@
 					"file": "app/AllAccessEvents/AttendeeRepository.php",
 					"settings":
 					{
-						"buffer_size": 4126,
+						"buffer_size": 5259,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3659,
-								3659
+								4213,
+								4213
 							]
 						],
 						"settings":
@@ -1582,7 +1586,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1887.0,
+						"translation.y": 2169.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1611,7 +1615,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 102.0,
+						"translation.y": 459.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1753,7 +1757,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1275.0,
+						"translation.y": 1071.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1782,7 +1786,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 357.0,
+						"translation.y": 612.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1811,7 +1815,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 612.0,
+						"translation.y": 1020.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2324,7 +2328,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1275.0,
+						"translation.y": 714.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2398,8 +2402,8 @@
 						"selection":
 						[
 							[
-								3612,
-								3612
+								273,
+								273
 							]
 						],
 						"settings":
@@ -2408,7 +2412,7 @@
 							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1743.0,
+						"translation.y": 153.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2519,7 +2523,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1581.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2609,7 +2613,7 @@
 			]
 		},
 		{
-			"selected": 5,
+			"selected": 10,
 			"sheets":
 			[
 				{
@@ -2644,15 +2648,15 @@
 					"file": "resources/views/events/manage.blade.php",
 					"settings":
 					{
-						"buffer_size": 3139,
+						"buffer_size": 3074,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								800,
-								800
+								2609,
+								2609
 							]
 						],
 						"settings":
@@ -2663,7 +2667,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 510.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2765,8 +2769,8 @@
 						"selection":
 						[
 							[
-								3541,
-								3541
+								3741,
+								3741
 							]
 						],
 						"settings":
@@ -2920,7 +2924,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1683.0,
+						"translation.y": 204.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2988,7 +2992,7 @@
 		"rows":
 		[
 			0.0,
-			0.617600847123,
+			0.653512449333,
 			1.0
 		]
 	},
@@ -3030,6 +3034,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 362.0,
+	"side_bar_width": 334.0,
 	"status_bar_visible": true
 }

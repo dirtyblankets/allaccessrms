@@ -44,11 +44,9 @@
         <li role="presentation" class="{{ Request::is('events/' . $event->id . '/manage') ? 'active' : null }}">
             <a href="#event_detail" aria-controls="event_detail" role="tab" data-toggle="tab">Event Information</a>
         </li>
-        @if ($attendees->count() > 0)
-            <li role="presentation" class="{{ Request::is('events/' . $event->id . '/attendee_search*') ? 'active' : null }}">
-                <a href="#registrants" aria-controls="registrants" role="tab" data-toggle="tab">Registered Attendee(s)</a>
-            </li>
-        @endif
+        <li role="presentation" class="{{ Request::is('events/' . $event->id . '/attendee_search*') ? 'active' : null }}">
+            <a href="#registrants" aria-controls="registrants" role="tab" data-toggle="tab">Registered Attendee(s)</a>
+        </li>
     </ul>
 </div>
 <div class"tab-content">

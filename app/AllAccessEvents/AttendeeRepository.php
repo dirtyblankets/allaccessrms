@@ -86,11 +86,24 @@ class AttendeeRepository extends BaseRepository implements AttendeeRepositoryInt
 
     public function findByFullName($eventId, $firstName, $lastName, $perPage=20)
     {
-        return $this->model
-                    ->where('event_id', $eventId)
-                    ->where('firstname', $firstName)
-                    ->where('lastname', $lastName)
-                    ->paginate($perPage);
+        if (is_null($this->userParentOrganizationId))
+        {
+            return $this->model
+                        ->where('event_id', $eventId)
+                        ->where('firstname', $firstName)
+                        ->where('lastname', $lastName)
+                        ->paginate($perPage);
+        }
+        else
+        {
+             return $this->model
+                        ->where('organization_id', $this->userOrganizationId)
+                        ->where('event_id', $eventId)
+                        ->where('firstname', $firstName)
+                        ->where('lastname', $lastName)
+                        ->paginate($perPage);           
+        }
+
     }
 
     /**
@@ -103,7 +116,7 @@ class AttendeeRepository extends BaseRepository implements AttendeeRepositoryInt
     public function search($eventId, array $conditions = [])
     {
 
-        $eventPrice = Event::find($eventId)->price;
+        $eventPrice = Event::find($eventId)->price_cents;
 
         if (!empty($eventId))
         {
@@ -122,7 +135,12 @@ class AttendeeRepository extends BaseRepository implements AttendeeRepositoryInt
                         }
                         else if ($value == 'not_paid')
                         {
-                            $query = $query->where('amount_paid', '!=', $eventPrice);
+                            $query = $query->where(function ($query1) use($eventPrice){
+                                $query1->whereNull('amount_paid')
+                                            ->orWhere('amount_paid', '!=', $eventPrice);
+                            });
+                            
+                            //$query = $query->whereNull('amount_paid', '<>', $eventPrice);
                         }
                     }
                     else
@@ -133,9 +151,21 @@ class AttendeeRepository extends BaseRepository implements AttendeeRepositoryInt
 
             }
 
-            return $query                    
+            if (is_null($this->userParentOrganizationId))
+            {
+                return $query                    
+                        ->orderBy('firstname', 'asc')
+                        ->paginate(20);
+            }
+            else
+            {
+                return $query
+                    ->where('organization_id', $this->userOrganizationId)                    
                     ->orderBy('firstname', 'asc')
                     ->paginate(20);
+            }
+
+
         }
     }
 

@@ -2,6 +2,8 @@
 
 use AllAccessRMS\Core\BaseDateTime;
 use AllAccessRMS\Core\BaseRepository;
+
+use AllAccessRMS\AllAccessEvents\Event;
 use AllAccessRMS\AllAccessEvents\Attendee;
 use AllAccessRMS\AllAccessEvents\AttendeeRepositoryInterface;
 
@@ -39,6 +41,18 @@ class AttendeeRepository extends BaseRepository implements AttendeeRepositoryInt
 
         return $this->model
                     ->where('event_id', $eventId)
+                    ->orderBy($sortBy, $orderBy)
+                    ->paginate($perPage);  
+    }
+
+    public function findAllThatPaid($eventId , $sortBy, $orderBy, $perPage = 20)
+    {
+
+        $event_price = Event::find($eventId)->price;
+
+        return $this->model
+                    ->where('event_id', $eventId)
+                    ->where('amount_paid', '!=', $event_price)
                     ->orderBy($sortBy, $orderBy)
                     ->paginate($perPage);  
     }
@@ -86,28 +100,42 @@ class AttendeeRepository extends BaseRepository implements AttendeeRepositoryInt
      * @param  [type] $lastName  [description]
      * @return [type]            [description]
      */
-    public function search($eventId, $firstName, $lastName)
+    public function search($eventId, array $conditions = [])
     {
+
+        $eventPrice = Event::find($eventId)->price;
+
         if (!empty($eventId))
         {
-            if (!empty($lastName) && !empty($firstName))
+
+            $query = $this->model->where('event_id', $eventId);
+            
+            foreach($conditions as $key => $value)
             {
-                $attendees = $this->findByFullName($eventId, $firstName, $lastName);
-            }
-            else if (!empty($lastName))
-            {
-                $attendees = $this->findByLastName($eventId, $lastName);
-            }
-            else if (!empty($firstName))
-            {
-                $attendees = $this->findByFirstName($eventId, $firstName);
-            }
-            else
-            {
-                $attendees = $this->findAllPaginatedByEvent($eventId, 'firstname', 'asc');
+                if(!empty($value))
+                {
+                    if ($key == 'fee_status')
+                    {
+                        if ($value == 'paid')
+                        {
+                            $query = $query->where('amount_paid', $eventPrice);
+                        }
+                        else if ($value == 'not_paid')
+                        {
+                            $query = $query->where('amount_paid', '!=', $eventPrice);
+                        }
+                    }
+                    else
+                    {
+                        $query = $query->where($key, $value);  
+                    }              
+                } 
+
             }
 
-            return $attendees;
+            return $query                    
+                    ->orderBy('firstname', 'asc')
+                    ->paginate(20);
         }
     }
 

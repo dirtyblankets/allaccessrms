@@ -4,9 +4,10 @@ use Auth;
 use Exception;
 use Session;
 
-use Illuminate\Database\Eloquent\Model;
+
 use Illuminate\Database\QueryException;
 use AllAccessRMS\Exceptions\InvalidArgumentException;
+use AllAccessRMS\Core\BaseModel;
 use AllAccessRMS\Core\BaseRepositoryInterface;
 
 abstract class BaseRepository implements BaseRepositoryInterface {
@@ -21,9 +22,9 @@ abstract class BaseRepository implements BaseRepositoryInterface {
 
     protected $userParentOrganizationId;
 
-    public function __construct(Model $model)
+    public function __construct(BaseModel $model)
     {
-        if (!$model instanceof Model)
+        if (!$model instanceof BaseModel)
         {
             throw new Exception("Class {$this->model} must be an instance of Illuminate\\Database\\Eloquent\\Model");
         }
@@ -51,10 +52,12 @@ abstract class BaseRepository implements BaseRepositoryInterface {
 
     }
 
-    public function save(Model $model)
+    
+    public function save()
     {
-        return $model->save();
+        return $this->model->save();
     }
+
 
     public function all()
     {

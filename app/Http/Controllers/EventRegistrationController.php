@@ -12,6 +12,8 @@ use AllAccessRMS\Core\Utilities\SweatshirtSizes;
 
 use AllAccessRMS\AllAccessEvents\EventRepositoryInterface;
 use AllAccessRMS\AllAccessEvents\AttendeeRepositoryInterface;
+use AllAccessRMS\AllAccessEvents\AttendeeInvitationRepositoryInterface;
+
 use AllAccessRMS\AllAccessEvents\EventRegistrationValidator;
 
 use AllAccessRMS\Accounts\Organizations\OrganizationRepositoryInterface;
@@ -27,13 +29,17 @@ class EventRegistrationController extends Controller
 
     protected $attendeeRepository;
 
+    protected $guests;
+
     public function __construct(EventRepositoryInterface $eventRepo,
                                     OrganizationRepositoryInterface $orgRepo,
-                                        AttendeeRepositoryInterface $attendeeRepository)
+                                        AttendeeRepositoryInterface $attendeeRepository,
+                                            AttendeeInvitationRepositoryInterface $guests)
     {
         $this->eventRepo = $eventRepo;
         $this->orgRepo = $orgRepo;
         $this->attendeeRepository = $attendeeRepository;
+        $this->guests = $guests;
     }
 
 
@@ -60,6 +66,11 @@ class EventRegistrationController extends Controller
         $languages = Languages::all();
         $sweatshirt_sizes = SweatshirtSizes::all();
 
+        if ($event->private)
+        {
+            Flash::overlay('Note: This is a private event.  Your email must be on the guest list to process registration.');
+        }
+
         return view('public.events.registration', 
             compact(
                 'event', 
@@ -82,23 +93,35 @@ class EventRegistrationController extends Controller
         $event_id = $request->input('event_id');
         $attendee_email = $request->input('attendee.email');
 
-        // Add additional validation
+        $event = $this->eventRepo->findById($event_id);
+        
+        if ($event->private)
+        {
+            $attendee = $this->guests->findByEmail($attendee_email);
+
+            if ($attendee->isEmpty())
+            {
+                $msg = "We are sorry, you have not yet been added to the guest list.  Please contact the organizer of this event for more info.";
+                return redirect()->back()->withInput()->withErrors([$msg]);
+            }
+        }
+
         $eventRegistrationValidator = new EventRegistrationValidator($this->eventRepo, $this->attendeeRepository);
         if ($eventRegistrationValidator->noEventCapacity($event_id))
         {
-            Flash::error("We're sorry, the event is now at full capacity.");
-            return redirect()->back();
+            $msg = "We're sorry, the event is now at full capacity.";
+            return redirect()->back()->withInput()->withErrors([$msg]);
         }
 
         $job = new RegisterAttendee($request);
         $this->dispatch($job);
 
-        $event = $this->eventRepo->findById($event_id);
-
         $attendee = $this->attendeeRepository->findByEventAndEmail($event_id, $attendee_email);
 
         if (empty($attendee->id)) 
         {
+            // Something went wrong if we're in here: the attendee should've been registered
+
             // To Do: create unique exception classes for unique handling
             throw new Exception("Unable to find Registered Attendee.");
         }

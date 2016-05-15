@@ -1,5 +1,6 @@
 <?php namespace AllAccessRMS\AllAccessEvents;
 
+use Carbon\Carbon;
 use AllAccessRMS\Core\BaseModel;
 
 use Laravel\Cashier\Billable;
@@ -12,6 +13,8 @@ class Attendee extends BaseModel implements BillableContract
     protected $table = 'attendees';
 
     protected $guarded= [];
+
+    protected $appends = ['is_fees_paid'];
 
     public function event()
     {
@@ -81,4 +84,17 @@ class Attendee extends BaseModel implements BillableContract
             return Carbon::parse($this->attributes['subscription_ends_at'])->format('m/d/Y');
         }
     }
+
+    public function getIsFeesPaidAttribute()
+    {
+        if ($this->getAmountPaidAttribute() == $this->event()->first()->price)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }

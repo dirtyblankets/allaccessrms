@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 interface BaseRepositoryInterface  
 {
 
-    public function save(Model $model);
+    public function save();
 
     public function all();
 

@@ -14,7 +14,7 @@
     </h2> 
     <ol class="breadcrumb">
         <li>
-            <a href={{ URL::previous() }}><i class="fa fa-calendar"></i> Event</a>
+            <a href={{ URL::route('events') }}><i class="fa fa-calendar"></i> Event</a>
         </li>
         <li class="active">
             Show Registered Attendee
@@ -50,8 +50,7 @@
 					<div class="col-lg-6">
 						<div class="form-group">
 							<label>Organization:</label>
-								{!! Form::text('organization', $attendee->organization()->first()->name , array(
-								'class'	=>	'form-control readonly')) !!}
+								{!! Form::text('organization', $attendee->organization()->first()->name , array('class'	=>	'form-control readonly')) !!}
 						</div>	
 					</div>					
 				</div>
@@ -87,8 +86,8 @@
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-lg-2">
-						<div class="form-group"
-							<label>Birthdate: (yyyy-m-d)</label>
+						<div class="form-group">
+							<label>Birth Date:</label>
 							{!! Form::date('birthdate', $attendee_application_form->birthdate, array(
 								'class'	=>	'form-control readonly')) !!}
 						</div>
@@ -112,13 +111,18 @@
 					<div class="col-lg-2">
 						<div class="form-group">
 							<label>Sweathshirt Size:</label>
-                			{!! Form::select('sweatshirt_size', $sweatshirt_sizes, $attendee_application_form->sweatshirt_size, array('class'=>'form-control selectpicker readonly')) !!}
+                			{!! Form::select('sweatshirt_size', 
+                				$sweatshirt_sizes, 
+                				$attendee_application_form->sweatshirt_size, 
+                				array('class'=>'form-control selectpicker readonly')) !!}
 						</div>
 					</div>
 					<div class="col-lg-2">
 						<div class="form-group">
 							<label>Preferred Language:</label>
-                			{!! Form::text('languages', $attendee_application_form->language, array('class'=>'form-control readonly')) !!}
+                			{!! Form::text('languages', 
+                				$attendee_application_form->language, 
+                				array('class'=>'form-control readonly')) !!}
 						</div>
 					</div>
 				</div><!-- end row-->
@@ -190,24 +194,19 @@
 			        <div class="col-lg-2">
 			            <label>Last Tetanus Shot</label>                    
 			            <div class="form-group">
-			                <div class="input-group input-append datepicker">
-			                    <span class="input-group-addon"><i class="fa fa-fw fa-calendar"></i></span>
-			                    {!! Form::text('lasttetanusshot',
-			                    				$attendee_health_release_form->lasttetanusshot,
-			                    				array('class'=>'form-control readonly')) !!}
+			            	{!! Form::date('lasttetanusshot', 
+												$attendee_health_release_form->lasttetanusshot, 
+												array('class'	=>	'form-control readonly')) !!}
 
-			                </div>
+
 			            </div>
 			        </div>
 			        <div class="col-lg-2">                 
 			            <div class="form-group">
-			                <label>Last Physical Exam</label>   
-			                <div class="input-group input-append datepicker">
-			                    <span class="input-group-addon"><i class="fa fa-fw fa-calendar"></i></span>
-			                {!! Form::text('lastphysicalexam', 
-			                				$attendee_health_release_form->lastphysicalexam, 
-											array('class'=>'form-control readonly')) !!}
-			                </div>
+			                <label>Last Physical Exam</label>
+			                {!! Form::date('lastphysicalexam', 
+											$attendee_health_release_form->lastphysicalexam, 
+											array('class'	=>	'form-control readonly')) !!}   
 			            </div>
 			        </div>
 			    </div>

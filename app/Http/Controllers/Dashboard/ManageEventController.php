@@ -114,8 +114,15 @@ class ManageEventController extends Controller
 
         $searchLastName = Input::get('search_last_name');
         $searchFirstName = Input::get('search_first_name');
+        $searchFeeStatus = Input::get('search_payment_status');
+        
+        $search_conditions = array(
+            'firstname' =>  $searchFirstName,
+            'lastname'  =>  $searchLastName,
+            'fee_status'    =>  $searchFeeStatus,
+        );
 
-        $attendees = $this->attendees->search($id, $searchFirstName, $searchLastName);
+        $attendees = $this->attendees->search($id, $search_conditions);
 
         $guests = $this->eventGuestRepo->findAllPaginatedByEvent($event->id);
 
@@ -185,7 +192,7 @@ class ManageEventController extends Controller
 
     public function unpublish($id)
     {
-        $attendees = $this->attendees->findAllPaginatedByEvent($id, 'firstname', 'asc');
+        $attendees = $this->attendees->findAllThatPaid($id, 'firstname', 'asc');
 
         if (!$attendees->isEmpty())
         {

@@ -21,4 +21,11 @@ class AttendeeInvitationRepository extends BaseRepository implements AttendeeInv
                     ->orderBy('attendee_email')
                     ->paginate($perPage);
     }
+
+    public function findByEmail($email)
+    {
+        return $this->model
+                    ->where('attendee_email', $email)
+                    ->get();
+    }
 }

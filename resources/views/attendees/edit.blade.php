@@ -45,10 +45,10 @@
 					<div class="col-lg-6">
 						<div class="form-group">
 							<label>Organization:</label>
-								{!! Form::select('organization',
-												$organizations,
-												null,  
-												array('class'	=>	'form-control selectpicker')) !!}
+							{!! Form::select('organization',
+											$organizations,
+											$attendee->organization()->first(),  
+											array('class'	=>	'form-control selectpicker')) !!}
 						</div>	
 					</div>					
 				</div>
@@ -85,10 +85,10 @@
 				<div class="row">
 					<div class="col-lg-2">
 						<div class="form-group">
-							<label>Birthdate:</label>
+							<label>Birth Date:</label>
 							{!! Form::date('birthdate', 
-											$attendee_application_form->birthdate, 
-											array('class'	=>	'form-control')) !!}
+												$attendee_application_form->birthdate, 
+												array('class'	=>	'form-control')) !!}
 						</div>
 					</div>	
 					<div class="col-lg-2">
@@ -100,12 +100,13 @@
 											array('class'	=>	'form-control')) !!}
 						</div>
 					</div>
-					<div class="col-lg-2">
+					<div class="col-lg-3">
 						<div class="form-group">
 							<label>Phone:</label>
-                			{!! Form::text('phone', 
-                							$attendee_application_form->student_phone, 
-                							array('class'=>'form-control')) !!}
+			                <div class="input-group">
+			                    <div class="input-group-addon"><i class="fa fa-fw fa-phone"></i></div>
+			                    <input type="tel" placeholder="Telephone" class="form-control phone" name="attendee[phone]" value="{{ $attendee_application_form->student_phone }}"/>
+			                </div> 
 						</div>
 					</div>						
 				</div><!--end row-->
@@ -207,24 +208,19 @@
 			        <div class="col-lg-2">
 			            <label>Last Tetanus Shot</label>                    
 			            <div class="form-group">
-			                <div class="input-group input-append datepicker">
-			                    <span class="input-group-addon"><i class="fa fa-fw fa-calendar"></i></span>
-			                    {!! Form::text('lasttetanusshot',
-			                    				$attendee_health_release_form->lasttetanusshot,
-			                    				array('class'=>'form-control')) !!}
+			            	{!! Form::date('lasttetanusshot', 
+												$attendee_health_release_form->lasttetanusshot, 
+												array('class'	=>	'form-control')) !!}
 
-			                </div>
+
 			            </div>
 			        </div>
 			        <div class="col-lg-2">                 
 			            <div class="form-group">
-			                <label>Last Physical Exam</label>   
-			                <div class="input-group input-append datepicker">
-			                    <span class="input-group-addon"><i class="fa fa-fw fa-calendar"></i></span>
-			                {!! Form::text('lastphysicalexam', 
-			                				$attendee_health_release_form->lastphysicalexam, 
-											array('class'=>'form-control')) !!}
-			                </div>
+			                <label>Last Physical Exam</label>
+			                {!! Form::date('lastphysicalexam', 
+											$attendee_health_release_form->lastphysicalexam, 
+											array('class'	=>	'form-control')) !!}   
 			            </div>
 			        </div>
 			    </div>
@@ -272,10 +268,8 @@
 			                <label>Emergency Contact Number</label>
 			                <div class="input-group">
 			                    <div class="input-group-addon"><i class="fa fa-fw fa-phone"></i></div>
-			                    {!! Form::text('emgcontactnumber', 
-			                    				$attendee_health_release_form->emg_contactnumber, 
-			                    				array('class'=>'form-control')) !!}			           
-			                </div>             
+			                    <input type="tel" placeholder="Telephone" class="form-control phone" name="emgcontactnumber" value="{{ $attendee_health_release_form->emg_contactnumber }}"/>
+			                </div>           
 			            </div>
 			        </div>
 			    </div>
@@ -302,10 +296,8 @@
 			                <label>Parent Contact</label>
 			                <div class="input-group">
 			                    <div class="input-group-addon"><i class="fa fa-fw fa-phone"></i></div>
-			                    {!! Form::text('guardian_phone', 
-			                    			$attendee_health_release_form->guardian_contact, 
-			                    			array('class'=>'form-control')) !!}
-			                </div>
+			                    <input type="tel" placeholder="Telephone" class="form-control phone" name="guardian_phone" value="{{ $attendee_health_release_form->guardian_contact }}"/>
+			                </div>  			      
 			            </div>
 			        </div>      
 			    </div>

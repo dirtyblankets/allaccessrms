@@ -41,7 +41,8 @@ label {
   font-family: 'Source Sans Pro', sans-serif; }
 
 label {
-  font-weight: normal; }
+  font-weight: normal;
+  display: inline; }
 
 /* General Links */
 a {

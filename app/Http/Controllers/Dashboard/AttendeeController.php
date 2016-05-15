@@ -54,8 +54,17 @@ class AttendeeController extends Controller
     {
         $searchLastName = Input::get('search_last_name');
         $searchFirstName = Input::get('search_first_name');
+        $searchFeeStatus = Input::get('search_payment_status');
 
-        $attendees = $this->attendees->search($event_id, $searchFirstName, $searchLastName);
+        dd($searchFeeStatus);
+        
+        $search_conditions = array(
+            'firstname' =>  $searchFirstName,
+            'lastname'  =>  $searchLastName,
+            'fee_status'    =>  $searchFeeStatus,
+        );
+
+        $attendees = $this->attendees->search($event_id, $search_conditions);
 
         return redirect()->back()->with(compact('attendees'));
     }

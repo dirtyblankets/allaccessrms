@@ -1,4 +1,6 @@
-{!! Form::open(array('route' => array('events.attendee_search', $event->id), 'method' => 'GET'))!!}
+{!! Form::open(array('route' => array('events.attendee_search', $event->id), 
+                    'method' => 'GET', 
+                    'class'=>'form-horizontal'))!!}
 <div class="row">
     <div class="col-lg-8">
         <div class="panel panel-default">
@@ -30,7 +32,7 @@
                                     </td>
                                     <td>{{ $attendee->registration_date }}</td>
                                     <td>{{ $attendee->organization()->first()->name}}</td>
-                                    @if ($attendee->amount_paid == $event->price)
+                                    @if ($attendee->is_fees_paid)
                                     <td>Yes</td>
                                     @else
                                     <td>No</td>
@@ -59,6 +61,14 @@
                     'class'=>'form-control search', 
                     'placeholder'=>'Search by First Name',
                     'value'=>"{{ old('search_first_name') }}")) !!}
+                </div>
+                <div class="form-group">
+                    <label>Fee Status:</label>
+                    {!! Form::select('search_payment_status', 
+                                            array(''=>'','paid'=>'Fees paid','not_paid'=>'Fees not paid'), 
+                                            old('search_payment_status'), 
+                                            array(
+                                            'class'=>'form-control search')) !!}
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary search-btn">Find</button>

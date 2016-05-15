@@ -1,5 +1,7 @@
 <?php namespace AllAccessRMS\Http\Requests;
 
+use AllAccessRMS\Http\Requests\Request;
+
 class EventRegistrationFormRequest extends Request
 {
 

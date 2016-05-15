@@ -106,6 +106,7 @@ function FormatEventsPage(){
 
 		// Allow Search fields to be used
 		$('.search').removeAttr('readonly');
+		$('.search').removeAttr('disabled');
 	}
 	else
 	{

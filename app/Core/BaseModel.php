@@ -103,7 +103,7 @@ class BaseModel extends Model {
     {
         foreach($attributes as $key => $value)
         {
-            if(!empty($value))
+            if(!empty($value) || $value == 0)
             {
                 $this->{$key} = $value;                
             } 

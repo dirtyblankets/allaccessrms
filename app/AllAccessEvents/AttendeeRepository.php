@@ -139,8 +139,6 @@ class AttendeeRepository extends BaseRepository implements AttendeeRepositoryInt
                                 $query1->whereNull('amount_paid')
                                             ->orWhere('amount_paid', '!=', $eventPrice);
                             });
-                            
-                            //$query = $query->whereNull('amount_paid', '<>', $eventPrice);
                         }
                     }
                     else

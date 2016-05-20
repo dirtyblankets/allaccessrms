@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"use",
+				"users"
+			],
+			[
 				"E",
 				"Event〔class〕"
 			],
@@ -510,10 +514,6 @@
 			[
 				"start",
 				"start_date〔variable〕"
-			],
-			[
-				"fun",
-				"function"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "storage/logs/laravel.log",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 10249,
 				"line_ending": "Unix"
 			}
 		},
@@ -531,7 +531,7 @@
 			"file": "app/Http/routes.php",
 			"settings":
 			{
-				"buffer_size": 7689,
+				"buffer_size": 7896,
 				"line_ending": "Unix"
 			}
 		},
@@ -555,7 +555,7 @@
 			"file": "app/Jobs/UpdateAttendee.php",
 			"settings":
 			{
-				"buffer_size": 4109,
+				"buffer_size": 4138,
 				"line_ending": "Unix"
 			}
 		},
@@ -590,7 +590,7 @@
 			"file": "app/AllAccessEvents/AttendeeRepository.php",
 			"settings":
 			{
-				"buffer_size": 5259,
+				"buffer_size": 5138,
 				"line_ending": "Unix"
 			}
 		},
@@ -742,7 +742,7 @@
 			"file": "resources/views/auth/new_login.blade.php",
 			"settings":
 			{
-				"buffer_size": 1765,
+				"buffer_size": 1706,
 				"line_ending": "Unix"
 			}
 		},
@@ -782,7 +782,7 @@
 			"file": "resources/views/users/edit.blade.php",
 			"settings":
 			{
-				"buffer_size": 3360,
+				"buffer_size": 3832,
 				"line_ending": "Unix"
 			}
 		},
@@ -790,7 +790,7 @@
 			"file": "app/Http/Controllers/Dashboard/UserController.php",
 			"settings":
 			{
-				"buffer_size": 3470,
+				"buffer_size": 3768,
 				"line_ending": "Unix"
 			}
 		},
@@ -854,7 +854,7 @@
 			"file": "app/Core/BaseModel.php",
 			"settings":
 			{
-				"buffer_size": 2315,
+				"buffer_size": 2330,
 				"line_ending": "Unix"
 			}
 		},
@@ -879,6 +879,14 @@
 			"settings":
 			{
 				"buffer_size": 354,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Auth/NewUserLoginController.php",
+			"settings":
+			{
+				"buffer_size": 2141,
 				"line_ending": "Unix"
 			}
 		},
@@ -910,7 +918,7 @@
 			"file": "resources/views/attendees/edit.blade.php",
 			"settings":
 			{
-				"buffer_size": 11624,
+				"buffer_size": 11930,
 				"line_ending": "Unix"
 			}
 		},
@@ -1246,6 +1254,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"mail",
+			"email",
 			"findAllThatPaid",
 			"attendee_health_release_form.",
 			"sm",
@@ -1329,7 +1339,6 @@
 	"groups":
 	[
 		{
-			"selected": 8,
 			"sheets":
 			[
 				{
@@ -1337,15 +1346,15 @@
 					"file": "storage/logs/laravel.log",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 10249,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								825,
+								825
 							]
 						],
 						"settings":
@@ -1363,15 +1372,15 @@
 					"file": "app/Http/routes.php",
 					"settings":
 					{
-						"buffer_size": 7689,
+						"buffer_size": 7896,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4401,
-								4401
+								3881,
+								3881
 							]
 						],
 						"settings":
@@ -1382,7 +1391,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2805.0,
+						"translation.y": 2397.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1440,7 +1449,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 867.0,
+						"translation.y": 2397.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1450,15 +1459,15 @@
 					"file": "app/Jobs/UpdateAttendee.php",
 					"settings":
 					{
-						"buffer_size": 4109,
+						"buffer_size": 4138,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4109,
-								4109
+								985,
+								985
 							]
 						],
 						"settings":
@@ -1469,7 +1478,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1686.0,
+						"translation.y": 394.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1567,15 +1576,15 @@
 					"file": "app/AllAccessEvents/AttendeeRepository.php",
 					"settings":
 					{
-						"buffer_size": 5259,
+						"buffer_size": 5138,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4213,
-								4213
+								4402,
+								4402
 							]
 						],
 						"settings":
@@ -1586,7 +1595,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2169.0,
+						"translation.y": 2271.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1603,8 +1612,8 @@
 						"selection":
 						[
 							[
-								1497,
-								1497
+								951,
+								951
 							]
 						],
 						"settings":
@@ -1615,7 +1624,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 459.0,
+						"translation.y": 1224.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2032,18 +2041,19 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								1520,
+								1520
 							]
 						],
 						"settings":
 						{
+							"auto_complete": false,
 							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 408.0,
+						"translation.y": 459.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2071,7 +2081,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 255.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2109,15 +2119,15 @@
 					"file": "resources/views/auth/new_login.blade.php",
 					"settings":
 					{
-						"buffer_size": 1765,
+						"buffer_size": 1706,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								627,
-								627
+								323,
+								323
 							]
 						],
 						"settings":
@@ -2128,7 +2138,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 459.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2252,15 +2262,15 @@
 					"file": "resources/views/users/edit.blade.php",
 					"settings":
 					{
-						"buffer_size": 3360,
+						"buffer_size": 3832,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2607,
-								2607
+								619,
+								619
 							]
 						],
 						"settings":
@@ -2271,7 +2281,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 918.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2281,15 +2291,15 @@
 					"file": "app/Http/Controllers/Dashboard/UserController.php",
 					"settings":
 					{
-						"buffer_size": 3470,
+						"buffer_size": 3768,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3154,
-								3154
+								3407,
+								3407
 							]
 						],
 						"settings":
@@ -2300,7 +2310,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1026.0,
+						"translation.y": 2397.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2504,15 +2514,15 @@
 					"file": "app/Core/BaseModel.php",
 					"settings":
 					{
-						"buffer_size": 2315,
+						"buffer_size": 2330,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2093,
-								2093
+								2194,
+								2194
 							]
 						],
 						"settings":
@@ -2523,7 +2533,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1581.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -2609,15 +2619,44 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
+				},
+				{
+					"buffer": 45,
+					"file": "app/Http/Controllers/Auth/NewUserLoginController.php",
+					"settings":
+					{
+						"buffer_size": 2141,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								831,
+								831
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 255.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 10,
+			"selected": 11,
 			"sheets":
 			[
 				{
-					"buffer": 45,
+					"buffer": 46,
 					"file": "resources/views/partials/overlay.blade.php",
 					"settings":
 					{
@@ -2644,7 +2683,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 46,
+					"buffer": 47,
 					"file": "resources/views/events/manage.blade.php",
 					"settings":
 					{
@@ -2667,13 +2706,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 510.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 47,
+					"buffer": 48,
 					"file": "resources/views/attendees/show.blade.php",
 					"settings":
 					{
@@ -2684,8 +2723,8 @@
 						"selection":
 						[
 							[
-								2397,
-								2397
+								12194,
+								12194
 							]
 						],
 						"settings":
@@ -2695,41 +2734,41 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 714.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 48,
-					"file": "resources/views/attendees/edit.blade.php",
-					"settings":
-					{
-						"buffer_size": 11624,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1849,
-								1849
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 663.0,
+						"translation.y": 357.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 49,
+					"file": "resources/views/attendees/edit.blade.php",
+					"settings":
+					{
+						"buffer_size": 11930,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								687,
+								687
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 5289.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 50,
 					"file": "resources/views/organizations/create.blade.php",
 					"settings":
 					{
@@ -2758,7 +2797,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 50,
+					"buffer": 51,
 					"file": "resources/views/events/attendees_section.blade.php",
 					"settings":
 					{
@@ -2787,7 +2826,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 51,
+					"buffer": 52,
 					"file": "composer.json",
 					"settings":
 					{
@@ -2815,7 +2854,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 52,
+					"buffer": 53,
 					"file": "resources/views/events/event_detail_section.blade.php",
 					"settings":
 					{
@@ -2843,7 +2882,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 53,
+					"buffer": 54,
 					"file": "app/Http/Controllers/EventRegistrationController.php",
 					"settings":
 					{
@@ -2872,7 +2911,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 54,
+					"buffer": 55,
 					"file": "app/AllAccessEvents/AttendeeInvitationRepository.php",
 					"settings":
 					{
@@ -2901,7 +2940,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 55,
+					"buffer": 56,
 					"file": "app/Core/BaseRepository.php",
 					"settings":
 					{
@@ -2930,7 +2969,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 56,
+					"buffer": 57,
 					"file": "app/Core/BaseRepositoryInterface.php",
 					"settings":
 					{
@@ -2992,7 +3031,7 @@
 		"rows":
 		[
 			0.0,
-			0.653512449333,
+			0.537139533184,
 			1.0
 		]
 	},

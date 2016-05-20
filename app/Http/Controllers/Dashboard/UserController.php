@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Input;
 use AllAccessRMS\Http\Controllers\Controller;
 
 use AllAccessRMS\Http\Requests\AddUserFormRequest;
+
 use AllAccessRMS\Jobs\RegisterNewUser;
+use AllAccessRMS\Jobs\SendWelcomeEmail;
 
 use AllAccessRMS\Accounts\Users\Role;
 use AllAccessRMS\Accounts\Users\UserRepositoryInterface;
@@ -141,6 +143,16 @@ class UserController extends Controller
 
         $user->save();
 
+        return redirect()->back();
+    }
+
+    public function sendRegistrationConfirmation($id)
+    {
+        $user = $this->users->findById($id);
+
+        $this->dispatch(new SendWelcomeEmail($user));
+
+        Flash::overlay('Confirmation email resent!');
         return redirect()->back();
     }
 

@@ -5,7 +5,6 @@
         <div class="panel-body">
             {!! Form::open(array('route' => array('new_user.login', $user->id), 'method' => 'PUT')) !!}
                 {!! csrf_field() !!}
-                {!! Form::hidden('user_id', $user->id) !!}
                 <div class="col-md-12">
                     @include('partials.errors')
                     <h1><i class='fa fa-lock'></i> Login</h1>

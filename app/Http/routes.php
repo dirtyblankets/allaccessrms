@@ -155,6 +155,11 @@ Route::group(['middleware'=>['auth', 'acl'], 'is'=>'owner|admin|moderator'], fun
         'can'   =>  'delete.users'
     ]);
 
+    Route::get('users/{id}/sendRegistrationConfirmation', [
+        'as'    =>  'users.sendRegistrationConfirmation',
+        'uses'  =>  'Dashboard\UserController@sendRegistrationConfirmation'
+    ]);
+    
     //Events routes
     Route::get('events', [
         'as' => 'events',

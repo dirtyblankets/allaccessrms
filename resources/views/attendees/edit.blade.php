@@ -9,7 +9,7 @@
     </h2> 
     <ol class="breadcrumb">
         <li>
-            <a href={{ URL::previous() }}><i class="fa fa-user"></i> {{$attendee->firstname . ' ' . $attendee->lastname}}</a>
+            <a href={{ URL::route('attendees.show', $attendee->id) }}><i class="fa fa-user"></i> {{$attendee->firstname . ' ' . $attendee->lastname}}</a>
         </li>
         <li class="active">
             Edit Registered Attendee
@@ -68,7 +68,15 @@
 												$attendee->amount_paid, 
 												array('class'	=>	'form-control')) !!}
 						</div>	
-					</div>			
+					</div>
+					<div class="col-lg-2">
+						<div class="form-group">
+							<label>Registration Fee:</label>
+								{!! Form::text('registration_fee', 
+												$attendee->event()->first()->price, 
+												array('class'	=>	'form-control readonly')) !!}
+						</div>	
+					</div>				
 				</div>
 			</div>
 		</div>

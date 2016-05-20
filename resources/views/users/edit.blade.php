@@ -4,7 +4,10 @@
         <div class="col-lg-12">
             <h2 class="page-header">
                 <i class="fa fa-fw fa-user"></i>Edit {{ $user->getFullName() }}
+                <button class='btn btn-md btn-default btn-modal confirm' type='button' data-toggle="modal" data-target="#confirmResend" data-route="{{ URL::route('users.sendRegistrationConfirmation', $user->id) }}" data-title="Resend Registration Confirmation" data-message='Confirm resending of registration confirmation email.'>
+                <i class='fa fa-fw fa-envelope'></i> Resend Registration Confirmation
             </h2>
+        </button> 
         </div>
     </div>
 {!! Form::model($user, array('method'=>'PUT', 'route'=>array('users.update', $user->id),
@@ -75,4 +78,5 @@
         </div>
     </div><!-- Content -->
 {!! Form::close() !!}
+@include('partials.confirm_resend')
 @stop

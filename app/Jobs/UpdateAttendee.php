@@ -92,12 +92,14 @@ class UpdateAttendee extends Job implements SelfHandling
         $healthFormRepo->update($attendeeHealthReleaseFormData, $healthForm->attendee_id, 'attendee_id');
 
 
+        /*
         if ($attendee->amount_paid == $event->price
                 || $this->request->input('fees_paid') > $event->price)
         {
-            $attendeeData->unset('amount_paid');
+            unset($attendeeData['amount_paid']);
         }
-
+        */
+       
         $attendee->update($attendeeData);
     }
 }

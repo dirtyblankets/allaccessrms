@@ -1,4 +1,4 @@
-All Access RMS is an event registration management system project started to familiarize myself with Laravel.
+All Access RMS is an event registration management system project started to get familiarity with Laravel.
 
 ## Screen Shots
 Login
